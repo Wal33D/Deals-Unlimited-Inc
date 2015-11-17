@@ -8,12 +8,11 @@
           </div>
         </div>
         <div id = ""class="panel-body">
-
           <%= search_form_for @q do |f| %>
-         <%= f.label :price %>
-          <%= f.search_field :price_cont %>
+          <%= f.label :price %>
+          <%= f.search_field :price_eq %>
           <label for="q_kind">Type</label>
-          <%= f.search_field :kind_cont %>
+          <%= f.select :kind_cont, options_for_select([['', ''], ['Car'], ['Truck'], ['SUV'], ['Van']], :selected => :kind) %>
           <%= f.label :make %>
           <%= f.search_field :make_cont %>
           <%= f.label :year%>
@@ -26,29 +25,36 @@
       </div>
     </div>
     <div class="col s9">
-
       <% @vehicles.each do |vehicle| %>
-
       <div class="panel panel-default">
         <div class="panel-body" style="padding:0!important;">
           <div class = "col s5">
-      <%=  link_to image_tag(vehicle.thumb),vehicle %>
+            <%=  link_to image_tag(vehicle.thumb),vehicle %>
           </div>
           <div class = "col s7">
             <div class = "row">
-              <p style="font-size:1.5rem!important;padding-top:0.1rem;padding-left:1rem;"><%= vehicle.title%></p>
+              <p style="font-size:1.5rem!important;padding-top:0.3rem;padding-bottom:0.4rem;padding-left:1rem;"><%= vehicle.title%></p>
             </div>
             <div class = "row">
               <div class = "col s3">
+             <p>Price:$<%= vehicle.price %></p>
+             <p>Mileage:<%= vehicle.price %></p>
+              <p>MPG:<%= vehicle.mpg %></p>
+               <p>Engine:<%= vehicle.engine %></p>
+
               </div>
               <div class = "col s4">
+                 <p>Year:<%= vehicle.year %></p>
+             <p>Make:<%= vehicle.make %></p>
+              <p>Model:<%= vehicle.model %></p>
+              <p>Drive:<%= vehicle.drive_type %></p>
+              <p>Fuel:<%= vehicle.fuel_type %></p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-    
+      
       <% end %>
     </div>
     <%= link_to 'New Vehicle', new_vehicle_path %>
@@ -63,6 +69,12 @@
 .container{max-width: 90%!important;}
 .s9{;float:right!important;}
 .s3{;float:left!important;}
+.col .s4{
+  height:inherit!important;
+  width:40%!important;
+float:right!important;
+}
+select{display: inline-block!important;}
 </style>
 <!--
 <div class ="container">
