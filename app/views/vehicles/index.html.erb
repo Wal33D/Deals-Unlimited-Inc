@@ -4,21 +4,34 @@
       <div class="panel panel-default" >
         <div class = "panel-heading">
           <div class="panel-title">
-          Search
+            Search
           </div>
         </div>
-        <div id = "vehicle-list-panel"class="panel-body">
+        <div id = ""class="panel-body">
+
+          <%= search_form_for @q do |f| %>
+         <%= f.label :price %>
+          <%= f.search_field :price_cont %>
+    
+          <%= f.label :make %>
+          <%= f.search_field :make_cont %>
+          <%= f.label :year%>
+          <%= f.search_field :title_cont %>
+          <%= f.submit %>
+          <% end %>
         </div>
         <div class= "panel-footer">
         </div>
       </div>
     </div>
     <div class="col s9">
+
       <% @vehicles.each do |vehicle| %>
+
       <div class="panel panel-default">
         <div class="panel-body" style="padding:0!important;">
           <div class = "col s5">
-            <%= image_tag vehicle.thumb %>
+      <%=  link_to image_tag(vehicle.thumb),vehicle %>
           </div>
           <div class = "col s7">
             <div class = "row">
@@ -33,6 +46,8 @@
           </div>
         </div>
       </div>
+
+    
       <% end %>
     </div>
     <%= link_to 'New Vehicle', new_vehicle_path %>
@@ -42,7 +57,7 @@
 <style>
 .panel-body{}
 .row{margin-bottom: 0!important;}
-.col .s5 img{width:100%;border-top-left-radius: 1.5%; border-bottom-left-radius: 1.5%;}
+.col .s5 img{width:90%;border-top-left-radius: 1.5%; border-bottom-left-radius: 1.5%;}
 .col .s5{padding:0!important;}
 .container{max-width: 90%!important;}
 .s9{;float:right!important;}

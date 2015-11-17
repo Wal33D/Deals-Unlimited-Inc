@@ -49,6 +49,8 @@ function fillFields(res){
 	filler(base.makeName,'vehicle_make');
 	filler(base.modelName,'vehicle_model');
 	filler(base.year,'vehicle_year');
+		 title();
+
 	filler("V" + base.engineCylinder + " " + base.engineSize + "Liter",'vehicle_engine');
 	filler(cFL(base.engineType),'vehicle_fuel_type');
 	filler(cFL(aG.DRIVE_TYPE.attributes.DRIVEN_WHEELS.value),'vehicle_drive_type');
@@ -74,7 +76,6 @@ function myFunction(option) {
     function success(res) {
     	
     	fillFields(res);
-        title();
 
         }
         // Oops, Houston we have a problem!

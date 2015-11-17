@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :vehicles
+  resources :vehicles do
+  collection do
+    match 'search' => 'vehicles#search', :as=>'search_vehicle_path',via: [:get, :post], as: :search
+  end
+end
   resources "contacts", only: [:new, :create]
  
   get 'vehicles/cars'
