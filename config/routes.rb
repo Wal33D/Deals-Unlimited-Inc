@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
- 
   resources :vehicles
-  resources :vehicles
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   resources "contacts", only: [:new, :create]
  
   get 'vehicles/cars'
