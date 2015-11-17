@@ -12,7 +12,8 @@
           <%= search_form_for @q do |f| %>
          <%= f.label :price %>
           <%= f.search_field :price_cont %>
-    
+          <label for="q_kind">Type</label>
+          <%= f.search_field :kind_cont %>
           <%= f.label :make %>
           <%= f.search_field :make_cont %>
           <%= f.label :year%>
