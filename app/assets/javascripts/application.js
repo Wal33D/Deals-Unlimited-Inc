@@ -93,6 +93,6 @@ function myFunction(option) {
     }
     js = d.createElement(s);
     js.id = id;
-    js.src = "edmunds.api.sdk.js";
+    js.src = "../assets/sdk-javascript/edmunds.api.sdk.js";
     sdkjs.parentNode.insertBefore(js, sdkjs);
 }(document, 'script', 'edmunds-jssdk'));
