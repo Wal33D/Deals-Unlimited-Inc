@@ -15,6 +15,7 @@ gem 'devise'
 gem 'mail_form'
 gem 'simple_form'
 gem 'edmunds_ruby', '~> 1.0', '>= 1.0.2'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug'
