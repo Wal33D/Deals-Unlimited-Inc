@@ -1,0 +1,31 @@
+<div class="container ">
+
+<div class="panel panel-default hours">
+  <div class="panel-heading "><h5>Contact us<a style="float:right;" href="tel:2693244285"id="blue">269-324-4285</a></h5>
+  </div>
+  <div class="panel-body ">
+    <div class="contact-form col-left">
+      <%= simple_form_for @contact, :html => {:class => '  form-horizontal' } do |f| %>
+      <div>
+        <%= f.input :name, :class =>"span3", :placeholder => "first name" ,:required => true %>
+        <%= f.input :email, :class =>"span3", :placeholder => "email address", :required => true %>
+        <%= f.input :tel, :class =>"span3", :placeholder => "phone number - (Optional)" %>
+      </div>
+      <%= f.input :message, :as => :text, :required => true, :class =>"textarea" %>
+      <div class= "hidden">
+        <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+      <div>
+        <%= f.button :submit, 'Send message', :class=> "btn btn-primary contact-sub-btn blue-btn" %>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-right">
+      <%= render"/layouts/application/info"%>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+label{display:none!important;}
+</style>

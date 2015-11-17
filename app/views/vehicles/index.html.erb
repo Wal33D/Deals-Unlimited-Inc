@@ -1,0 +1,125 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vehicles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Status</th>
+      <th>Model</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Make</th>
+      <th>Year</th>
+      <th>Body style</th>
+      <th>Mileage</th>
+      <th>Exterior color</th>
+      <th>Interior color</th>
+      <th>Engine</th>
+      <th>Transmission</th>
+      <th>Drive type</th>
+      <th>Vehicle class</th>
+      <th>Mpg</th>
+      <th>Trim</th>
+      <th>Fuel type</th>
+      <th>Stereo</th>
+      <th>Doors</th>
+      <th>Stock number</th>
+      <th>Vin num</th>
+      <th>Thumb</th>
+      <th>Description</th>
+      <th>Other options</th>
+      <th>Image 1</th>
+      <th>Image 2</th>
+      <th>Image 3</th>
+      <th>Image 4</th>
+      <th>Image 5</th>
+      <th>Image 6</th>
+      <th>Image 6</th>
+      <th>Image 7</th>
+      <th>Image 8</th>
+      <th>Image 9</th>
+      <th>Image 10</th>
+      <th>Image 11</th>
+      <th>Image 12</th>
+      <th>Image 13</th>
+      <th>Image 14</th>
+      <th>Image 15</th>
+      <th>Image 16</th>
+      <th>Image 17</th>
+      <th>Image 18</th>
+      <th>Image 19</th>
+      <th>Image 20</th>
+      <th>Image 21</th>
+      <th>Image 22</th>
+      <th>Image 23</th>
+      <th>Image 24</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= vehicle.kind %></td>
+        <td><%= vehicle.status %></td>
+        <td><%= vehicle.model %></td>
+        <td><%= vehicle.title %></td>
+        <td><%= vehicle.price %></td>
+        <td><%= vehicle.make %></td>
+        <td><%= vehicle.year %></td>
+        <td><%= vehicle.body_style %></td>
+        <td><%= vehicle.mileage %></td>
+        <td><%= vehicle.exterior_color %></td>
+        <td><%= vehicle.interior_color %></td>
+        <td><%= vehicle.engine %></td>
+        <td><%= vehicle.transmission %></td>
+        <td><%= vehicle.drive_type %></td>
+        <td><%= vehicle.vehicle_class %></td>
+        <td><%= vehicle.mpg %></td>
+        <td><%= vehicle.trim %></td>
+        <td><%= vehicle.fuel_type %></td>
+        <td><%= vehicle.stereo %></td>
+        <td><%= vehicle.doors %></td>
+        <td><%= vehicle.stock_number %></td>
+        <td><%= vehicle.vin_num %></td>
+        <td><%= vehicle.thumb %></td>
+        <td><%= vehicle.description %></td>
+        <td><%= vehicle.other_options %></td>
+        <td><%= vehicle.image_1 %></td>
+        <td><%= vehicle.image_2 %></td>
+        <td><%= vehicle.image_3 %></td>
+        <td><%= vehicle.image_4 %></td>
+        <td><%= vehicle.image_5 %></td>
+        <td><%= vehicle.image_6 %></td>
+        <td><%= vehicle.image_6 %></td>
+        <td><%= vehicle.image_7 %></td>
+        <td><%= vehicle.image_8 %></td>
+        <td><%= vehicle.image_9 %></td>
+        <td><%= vehicle.image_10 %></td>
+        <td><%= vehicle.image_11 %></td>
+        <td><%= vehicle.image_12 %></td>
+        <td><%= vehicle.image_13 %></td>
+        <td><%= vehicle.image_14 %></td>
+        <td><%= vehicle.image_15 %></td>
+        <td><%= vehicle.image_16 %></td>
+        <td><%= vehicle.image_17 %></td>
+        <td><%= vehicle.image_18 %></td>
+        <td><%= vehicle.image_19 %></td>
+        <td><%= vehicle.image_20 %></td>
+        <td><%= vehicle.image_21 %></td>
+        <td><%= vehicle.image_22 %></td>
+        <td><%= vehicle.image_23 %></td>
+        <td><%= vehicle.image_24 %></td>
+        <td><%= link_to 'Show', vehicle %></td>
+        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
+        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle', new_vehicle_path %>

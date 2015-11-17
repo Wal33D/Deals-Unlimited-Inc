@@ -1,0 +1,34 @@
+<div class = "container">
+<style>
+.loading-screen{
+	visibility: visible !important;
+}
+</style>
+<div class="row">
+	<div class="col-lg-8">
+		<div class="card card-front panel-default">
+			<div class="card-image">
+				<%= image_tag "Location_Sign.png"%>
+			</div>
+			<div class="card-content">
+				<h4 id="welcome">Welcome to</h4>
+				<h4 >Deals Unlimited, <span style="color: rgb(83, 131, 211)!important;">Inc.</span></h4>
+				<p>
+					We have a large inventory of Certified Used Vehicles to fill all of your transportation needs.
+				</p>
+				<p>
+					We're here to serve, to help you pick out the auto you've always wanted.
+				</p>
+				<p id="seeus">Come see us today!</p>
+				<br>
+			</div>
+			<div class="card-action">
+				<span >Serving West Michigan since 1988.</span>
+			</div>
+		</div>
+	</div>
+	<%= render "layouts/application/directions" %>
+	<%= render "layouts/application/hours" %>
+</div>
+
+</div>

@@ -1,0 +1,38 @@
+
+.hidden { display: none; }
+
+main{padding-top:1.35rem!important;}
+* {text-decoration: none!important;}
+#menu-left{
+	float:left!important;
+	position: absolute!important;
+	top:0!important;
+	left:0!important;
+
+		max-height:54px!important;
+		margin-top: -5.2px !important;
+		border-radius:15% !important;
+	}
+
+#menu-right{
+	float:right!important;
+	top:0!important;
+	right:0!important;
+	display:absolute!important;
+}
+
+.header-phone-btn {
+float:right;
+display: block;
+height: 100%;
+margin: 0 auto;
+margin-right: 10px;
+}
+.button-collapse{
+float:right!important;
+margin-right:4px;
+}
+.panel-heading{
+      background-color: #292c2f !important;
+      color:white!important;
+}

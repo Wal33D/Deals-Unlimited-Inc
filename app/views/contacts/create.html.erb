@@ -1,0 +1,13 @@
+<div class="container ">
+	<div class = "panel panel-default">
+		<div class = "panel-body"
+			<% flash.each do |key, value| %>
+			<div>
+				<h5> <a href="/" data-dismiss="alert">×</a>
+				<%= value %></h5>
+			</div>
+			<meta http-equiv="refresh" content="5;url=http://localhost:3000/" />
+			<% end %>
+		</div>
+	</div>
+</div>
