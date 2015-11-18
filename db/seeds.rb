@@ -1,4 +1,5 @@
 AutoMake.create!([
+    {code: "Any", title: ""},
   {code: "ACURA", title: "Acura"},
   {code: "ALFA", title: "Alfa Romeo"},
   {code: "AMC", title: "AMC"},
@@ -72,6 +73,8 @@ AutoMake.create!([
   {code: "YUGO", title: "Yu go"}
 ])
 AutoModel.create!([
+  {code: "Any", title: "", auto_make_id: 1},
+
   {code: "CL_MODELS", title: "CL ", auto_make_id: 1},
   {code: "2.2CL", title: "2.2CL", auto_make_id: 1},
   {code: "2.3CL", title: "2.3CL", auto_make_id: 1},

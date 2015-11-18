@@ -14,17 +14,25 @@
           <%= f.select :kind_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
           <%= f.label :make , :class=>"black-text"%>
           <%= f.select :make_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]) %>
+          <%= collection_select(:make_cont, 0, AutoMake.all, :title, :title) %>
           <%= f.label :model, :class=>"black-text" %>
           <%= f.select :model_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]) %>
           <hr>
           <label for="Price" class="black-text">Price</label>
-          <%= f.select :price_gteq , options_for_select([['Any', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :selected => :Any) %>
-          <label for="Price" class="black-text">to</label>
-          <%= f.select :price_lteq , options_for_select([['Any', '99999'],['Any', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :selected => :Any) %>
+          <div class ="price-search-box">
+            <div class="col-lg-5"><%= f.select :price_gteq , options_for_select([['Any', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :selected => :Any) %></div>
+            <label for="Price" class="black-text col-sm-1">to</label>
+            <div class="col-lg-5"><%= f.select :price_lteq , options_for_select([['Any', '99999'],['Any', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :selected => :Any) %>
+            </div>
+          </div>
           <label for="Year" class="black-text">Year</label>
-          <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
-          <label for="Price" class="black-text">to</label>
-          <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any),:class=>"black-text" %>
+          <div class ="year-search-box">
+            <div class="col-lg-5"> <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
+            </div>
+            <label for="Price" class="black-text col-sm-1">to</label>
+            <div class="col-lg-5"> <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any),:class=>"black-text" %>
+            </div>
+          </div>
           <%= f.submit %>
           <% end %>
         </div>
@@ -32,8 +40,8 @@
         </div>
       </div>
     </div>
-    <div class="col s9"  style=" right:0; height:90%;!important;width:70%!important;max-width:80%!important; position:absolute!important; padding:0!important; margin:0!important; margin-right:2%!important;">
-      <div class="panel panel-default scrollable" style="overflow-y:scroll; height:100%!important;  ">
+    <div class="col s9"style=" right:0; height:100%;!important;width:72%!important; position:fixed!important; padding:0!important; margin:0!important; margin-right:2%!important;">
+      <div class="panel panel-default scrollable" style="overflow-y:scroll; height:100%!important; padding-bottom:10rem!important; ">
         <div class="panel-body" id="s9" style="padding:0!important;">
           <% @vehicles.each do |vehicle| %>
           <div class="panel panel-default">
@@ -73,19 +81,19 @@
     </div>
   </div>
 </div>
-
 <div class="footer-vehicles">
-s
+  <h3>Deals Unlimited,<span> Inc.</span></h3>
+  <h4>269-324-4285</h4>
 </div>
 <style>
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+display: none;
 }
 .panel-body{}
 .row{margin-bottom: 0!important;}
 .col .s5 img{width:90%;border-top-left-radius: 1.5%; border-bottom-left-radius: 1.5%;}
 .col .s5{padding:0!important;}
-.container{max-width: 100%!important; }
+.container{max-width: 100%!important; position: fixed!important; }
 .s9{float:right!important;}
 .s3{float:left!important; }
 .col .s4{
@@ -94,18 +102,36 @@ width:40%!important;
 float:right!important;
 }
 .footer-distributed{display:none!important;
- 
 }
-.footer-vehicles{max-height:5%!important;height:3%!important; bottom:0; position:fixed!important; padding:10px; background-color: #292c2f !important;
-  width: 100%;
+.footer-vehicles{max-height:5%!important;height:5%!important; bottom:0; position:fixed!important; padding:1rem; padding-top: 0.1rem!important; padding-left: 0.15rem!important; background-color: #292c2f !important;
+line-height: 50px!important;
+width: 100%;
 }
+.footer-vehicles h4{
+float:right!important;
+color: #ffffff!important;
+margin: 0!important;
+padding: 0!important;
+font-size: 2.4rem!important;
+font:normal 36px 'Cookie', cursive!important;
+}
+.footer-vehicles h3{
+float:left!important;
+color: #ffffff!important;
+margin: 0!important;
+padding: 0!important;
+font-size: 2.4rem!important;
+font:normal 36px 'Cookie', cursive!important;
+}
+#q_make_cont{
+  display: none!important;
+}
+.footer-vehicles h3 span{color:#5383d3!important;}
 select{display: inline-block!important;}
 </style>
 <script>
-var right=document.getElementById('s9').style.height;
-var left=document.getElementById('s3').style.height;
+document.getElementById("q_make_cont").innerHTML = document.getElementById("make_cont_0").innerHTML;
 
-    document.getElementById('s9').style.height=left;
 </script>
 <!--
 <div class ="container">
