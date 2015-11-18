@@ -1,127 +1,150 @@
-<div class="container">
-  <div class="row">
-    <div class="col s3">
-      <div class="panel panel-default" >
-        <div class = "panel-heading">
+<div class="container" style="margin-top: 7 rem!important;">
+  <div class="row" >
+    
+    <div class="col s3"id="s3" >
+      <div class="panel panel-default "  >
+        <div class = "panel-heading panel-black">
           <div class="panel-title">
             Search
           </div>
         </div>
-        <div id = ""class="panel-body">
+        <div class="panel-body">
           <%= search_form_for @q do |f| %>
-          <%= f.label :price %>
-          <%= f.search_field :price_eq %>
-          <label for="q_kind">Type</label>
-          <%= f.select :kind_cont, options_for_select([['', ''], ['Car'], ['Truck'], ['SUV'], ['Van']], :selected => :kind) %>
-          <%= f.label :make %>
-          <%= f.search_field :make_cont %>
-          <%= f.label :year%>
-          <%= f.search_field :title_cont %>
+          <label for="q_kind" class="black-text">Type of Vehicle</label>
+          <%= f.select :kind_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
+          <%= f.label :make , :class=>"black-text"%>
+          <%= f.select :make_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]) %>
+          <%= f.label :model, :class=>"black-text" %>
+          <%= f.select :model_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]) %>
+          <hr>
+          <label for="Price" class="black-text">Price</label>
+          <%= f.select :price_gteq , options_for_select([['Any', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :selected => :Any) %>
+          <label for="Price" class="black-text">to</label>
+          <%= f.select :price_lteq , options_for_select([['Any', '99999'],['Any', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :selected => :Any) %>
+          <label for="Year" class="black-text">Year</label>
+          <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
+          <label for="Price" class="black-text">to</label>
+          <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any),:class=>"black-text" %>
           <%= f.submit %>
           <% end %>
         </div>
-        <div class= "panel-footer">
+        <div class= "panel-footer panel-black">
         </div>
       </div>
     </div>
-    <div class="col s9">
-      <% @vehicles.each do |vehicle| %>
-      <div class="panel panel-default">
-        <div class="panel-body" style="padding:0!important;">
-          <div class = "col s5">
-            <%=  link_to image_tag(vehicle.thumb),vehicle %>
-          </div>
-          <div class = "col s7">
-            <div class = "row">
-              <p style="font-size:1.5rem!important;padding-top:0.3rem;padding-bottom:0.4rem;padding-left:1rem;"><%= vehicle.title%></p>
-            </div>
-            <div class = "row">
-              <div class = "col s3">
-             <p>Price:$<%= vehicle.price %></p>
-             <p>Mileage:<%= vehicle.price %></p>
-              <p>MPG:<%= vehicle.mpg %></p>
-               <p>Engine:<%= vehicle.engine %></p>
-
+    <div class="col s9"  style=" right:0; height:90%;!important;width:70%!important;max-width:80%!important; position:absolute!important; padding:0!important; margin:0!important; margin-right:2%!important;">
+      <div class="panel panel-default scrollable" style="overflow-y:scroll; height:100%!important;  ">
+        <div class="panel-body" id="s9" style="padding:0!important;">
+          <% @vehicles.each do |vehicle| %>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding:0!important;">
+              <div class = "col s5">
+                <%=  link_to image_tag(vehicle.thumb),vehicle %>
               </div>
-              <div class = "col s4">
-                 <p>Year:<%= vehicle.year %></p>
-             <p>Make:<%= vehicle.make %></p>
-              <p>Model:<%= vehicle.model %></p>
-              <p>Drive:<%= vehicle.drive_type %></p>
-              <p>Fuel:<%= vehicle.fuel_type %></p>
+              <div class = "col s7">
+                <div class = "row">
+                  <p style="font-size:1.5rem!important;padding-top:0.3rem;padding-bottom:0.4rem;padding-left:1rem;"><%= vehicle.title%></p>
+                </div>
+                <div class = "row">
+                  <div class = "col s3">
+                    <p>Price: $<%= vehicle.price %></p>
+                    <p>MPG: <%= vehicle.mpg %></p>
+                    <p>Engine: <%= vehicle.engine %></p>
+                    <p>Mileage: <%= vehicle.mileage %></p>
+                  </div>
+                  <div class = "col s4">
+                    <p>Year: <%= vehicle.year %></p>
+                    <p>Make: <%= vehicle.make %></p>
+                    <p>Model: <%= vehicle.model %></p>
+                    <p>Drive: <%= vehicle.drive_type %></p>
+                    <p>Fuel: <%= vehicle.fuel_type %></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <%= link_to 'Show', vehicle %>
+          <%= link_to 'Edit', edit_vehicle_path(vehicle) %>
+          <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
+        <%= link_to 'New Vehicle', new_vehicle_path %>
       </div>
-      
-      <% end %>
     </div>
-    <%= link_to 'New Vehicle', new_vehicle_path %>
   </div>
 </div>
+
+<div class="footer-vehicles">
+s
 </div>
 <style>
+::-webkit-scrollbar { 
+    display: none; 
+}
 .panel-body{}
 .row{margin-bottom: 0!important;}
 .col .s5 img{width:90%;border-top-left-radius: 1.5%; border-bottom-left-radius: 1.5%;}
 .col .s5{padding:0!important;}
-.container{max-width: 90%!important;}
-.s9{;float:right!important;}
-.s3{;float:left!important;}
+.container{max-width: 100%!important; }
+.s9{float:right!important;}
+.s3{float:left!important; }
 .col .s4{
-  height:inherit!important;
-  width:40%!important;
+height:inherit!important;
+width:40%!important;
 float:right!important;
+}
+.footer-distributed{display:none!important;
+ 
+}
+.footer-vehicles{max-height:5%!important;height:3%!important; bottom:0; position:fixed!important; padding:10px; background-color: #292c2f !important;
+  width: 100%;
 }
 select{display: inline-block!important;}
 </style>
 <!--
 <div class ="container">
-<div class = "panel panel-default ">
-  <div class = "panel-body">
-    <table>
-      <tbody>
-        <% @vehicles.each do |vehicle| %>
-        <tr>
-          <td><%= vehicle.kind %></td>
-          <td><%= vehicle.status %></td>
-          <td><%= vehicle.model %></td>
-          <td><%= vehicle.title %></td>
-          <td><%= vehicle.price %></td>
-          <td><%= vehicle.make %></td>
-          <td><%= vehicle.year %></td>
-          <td><%= vehicle.body_style %></td>
-          <td><%= vehicle.mileage %></td>
-          <td><%= vehicle.exterior_color %></td>
-          <td><%= vehicle.interior_color %></td>
-          <td><%= vehicle.engine %></td>
-          <td><%= vehicle.transmission %></td>
-          <td><%= vehicle.drive_type %></td>
-          <td><%= vehicle.vehicle_class %></td>
-          <td><%= vehicle.mpg %></td>
-          <td><%= vehicle.trim %></td>
-          <td><%= vehicle.fuel_type %></td>
-          <td><%= vehicle.stereo %></td>
-          <td><%= vehicle.doors %></td>
-          <td><%= vehicle.stock_number %></td>
-          <td><%= vehicle.vin_num %></td>
-          <td><%= image_tag vehicle.thumb %></td>
-          <td><%= vehicle.description %></td>
-          <td><%= vehicle.other_options %></td>
-          
-          <td><%= link_to 'Show', vehicle %></td>
-          <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-          <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class = "panel panel-default ">
+    <div class = "panel-body">
+      <table>
+        <tbody>
+          <% @vehicles.each do |vehicle| %>
+          <tr>
+            <td><%= vehicle.kind %></td>
+            <td><%= vehicle.status %></td>
+            <td><%= vehicle.model %></td>
+            <td><%= vehicle.title %></td>
+            <td><%= vehicle.price %></td>
+            <td><%= vehicle.make %></td>
+            <td><%= vehicle.year %></td>
+            <td><%= vehicle.body_style %></td>
+            <td><%= vehicle.mileage %></td>
+            <td><%= vehicle.exterior_color %></td>
+            <td><%= vehicle.interior_color %></td>
+            <td><%= vehicle.engine %></td>
+            <td><%= vehicle.transmission %></td>
+            <td><%= vehicle.drive_type %></td>
+            <td><%= vehicle.vehicle_class %></td>
+            <td><%= vehicle.mpg %></td>
+            <td><%= vehicle.trim %></td>
+            <td><%= vehicle.fuel_type %></td>
+            <td><%= vehicle.stereo %></td>
+            <td><%= vehicle.doors %></td>
+            <td><%= vehicle.stock_number %></td>
+            <td><%= vehicle.vin_num %></td>
+            <td><%= image_tag vehicle.thumb %></td>
+            <td><%= vehicle.description %></td>
+            <td><%= vehicle.other_options %></td>
+            
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class = "panel-footer">
+      <%= link_to 'New Vehicle', new_vehicle_path %>
+    </div>
   </div>
-  <div class = "panel-footer">
-    <%= link_to 'New Vehicle', new_vehicle_path %>
-  </div>
-</div>
 </div>
 <style>
 #titleV{

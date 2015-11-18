@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
   def car
-     @vehicles = Vehicle.all
+    redirect_to 'vehicles?utf8=✓&q[kind_cont]=Car&q[make_cont]=&q[model_cont]=&q[price_gteq]=0&q[price_lteq]=99999&q[year_gteq]=0&q[year_lteq]=2050&commit=Search'
   end
   def truck
      @vehicles = Vehicle.all

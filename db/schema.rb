@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(version: 20151116065640) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "auto_makes", force: :cascade do |t|
+    t.string   "code"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "auto_models", force: :cascade do |t|
+    t.string   "code"
+    t.string   "title"
+    t.integer  "auto_make_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "auto_models", ["auto_make_id"], name: "index_auto_models_on_auto_make_id"
+
   create_table "vehicles", force: :cascade do |t|
     t.string   "kind"
     t.string   "status"

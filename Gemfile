@@ -15,7 +15,7 @@ gem 'mail_form'
 gem 'simple_form'
 gem 'edmunds_ruby', '~> 1.0', '>= 1.0.2'
 gem 'ransack'
-
+gem 'seed_dump'
 group :development, :test do
   gem 'byebug'
 end

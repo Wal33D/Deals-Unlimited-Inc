@@ -3,6 +3,13 @@
 //= require turbolinks
 //= require_tree .
 
+
+
+var right=document.getElementById('s9').style.height;
+var left=document.getElementById('s3').style.height;
+
+    document.getElementById('s9').style.height=left;
+
 $(".loading-screen").fadeOut(1750);
 setTimeout(function() {
     $(".body").animate({
@@ -94,6 +101,6 @@ function myFunction(option) {
     }
     js = d.createElement(s);
     js.id = id;
-    js.src = "../edmunds.api.sdk.js";
+    js.src = "../../edmunds.api.sdk.js";
     sdkjs.parentNode.insertBefore(js, sdkjs);
 }(document, 'script', 'edmunds-jssdk'));
