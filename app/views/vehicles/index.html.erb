@@ -29,7 +29,7 @@
           <div class ="year-search-box">
             <div class="col-lg-5"> <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
             </div>
-            <label for="Price" class="black-text col-sm-1">to</label>
+            <label  class="black-text col-sm-1">to</label>
             <div class="col-lg-5"> <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any),:class=>"black-text" %>
             </div>
           </div>
