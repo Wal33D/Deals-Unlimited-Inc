@@ -1,53 +1,61 @@
 <div class="container" style="margin-top: 7 rem!important;">
   <div class="row" >
     
-    <div class="col s3"id="s3" >
-      <div class="panel panel-default " style="max-width: 388px!important;" >
+    <div class="col s3"id="s3" style="max-width:400px!important;" >
+      <div class="panel panel-default " style=" min-width:250px!important;" >
         <div class = "panel-heading panel-black">
           <div class="panel-title">
             Search
           </div>
         </div>
-        <div class="panel-body z-depth-2"style="max-width: 388px!important;">
+        <div class="panel-body z-depth-2">
           <%= search_form_for @q do |f| %>
-          <label for="q_kind" class="black-text">Type of Vehicle</label>
-          <%= f.select :kind_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
-          <%= f.label :make , :class=>"black-text"%>
-          <%= f.search_field :make_cont %>
-          <%= f.label :model, :class=>"black-text" %>
-                 <%= f.search_field :model_cont %>
-
-          <hr>
+          <div class="input-group">
+            <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"General Search" , :style=>"border:1px solid #eee!important;"%>
+            <label for="q_kind" class="black-text">Type of Vehicle</label>
+            <%= f.select :kind_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
+            <%= f.label :make , :class=>"black-text"%>
+            <%= f.search_field :make_cont , :style=>"border:1px solid #eee!important;"%>
+            <%= f.label :model, :class=>"black-text" %>
+            <%= f.search_field :model_cont, :style=>"border:1px solid #eee!important;"%>
+          </div>
           <label for="Price" class="black-text">Price</label>
           <div class ="price-search-box">
             <div class="col-lg-5"><%= f.select :price_gteq , options_for_select([['Any', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :selected => :Any) %>
             </div>
             <label  class="black-text col-sm-1">to</label>
-            <div class="col-lg-5"><%= f.select :price_lteq , options_for_select([['Any', '99999'],['Any', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :selected => :Any) %>
+            <div class="col-lg-5"><%= f.select :price_lteq , options_for_select([['Any', '99999'],['Any', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :selected => :Any), :style=>"width:100%!important;" %>
             </div>
           </div>
-          <br>
-                    <label for="Year" style="float:left!important;" class="black-text">Year</label>
-
+          
+          <div class="row">
+          </div>
+          <label for="Year" style="" class="black-text">Year</label>
           <div class ="year-search-box">
-
-            <div class="col-lg-5"> <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
+            <div class="col-lg-5" > <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
             </div>
             <label  class="black-text col-sm-1" >to</label>
-            <div class="col-lg-5"> <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any)%>
+            <div class="col-lg-5" > <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any), :style=>"width:100%!important;"%>
             </div>
           </div>
-       
+                      <label for="mileage" class="black-text" style="width:100%!important;">Max Mileage</label>
+
+          <div class ="mileage_box"style="width:100%!important;">
+            <div class="col-lg-11"><%= f.select :mileage_lteq , options_for_select([['Any', ''],
+              ['25,000','25000'], ['50,000','50000'], ['75,000','750000'], ['100,000','100000'], ['150,000','150000'], ['250,000','250000']], :selected => :Any), :style=>"width:100%!important;" %>
+            </div>
+          </div>
         </div>
+
         <div class= "panel-footer panel-black">
-           <%= f.submit :class =>'btn btn-default blue-btn',:style=>'width:100%!important;height:100%!important;' %>
+          <%= f.submit :class =>'btn btn-default blue-btn',:style=>'width:100%!important;height:100%!important;' %>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="col s9"style=" right:0; height:100%;!important;width:72%!important; position:fixed!important; padding:0!important; margin:0!important; margin-right:2%!important;">
-      <div class="panel panel-default scrollable z-depth-2" style="overflow-y:scroll; height:100%!important; padding-bottom:10.25rem!important; ">
-        <div class="panel-body" id="s9" style="padding:0!important;">
+    <div class="col s9" id="s9"style=" right:0; height:100%;!important; position:fixed!important; padding:0!important; margin:0!important; margin-left:40%!important;margin-right:2%!important;">
+      <div class="panel panel-default scrollable z-depth-2" style="overflow-y:scroll; height:100%!important; padding-bottom:11rem!important; ">
+        <div class="panel-body" id="s9" style="padding:0!important; width:100%!important;">
           <% @vehicles.each do |vehicle| %>
           <div class="panel panel-default">
             <div class="panel-body" style="padding:0!important;">
@@ -91,10 +99,50 @@
   <h4>269-324-4285</h4>
 </div>
 <style>
+@media (max-width: 1860px) {
+
+#s9{
+width:75%!important;
+}
+}
+@media (max-width: 1666px) {
+
+#s9{
+width:73%!important;
+}
+}
+@media (max-width: 1399px) {
+
+#s9{
+width:72%!important;
+}
+}
+@media (max-width: 1266px) {
+#s9{
+width:70%!important;
+}
+}
+@media (max-width: 980px) {
+#s9{
+width:68%!important;
+}
+}
+@media (max-width: 930px) {
+#s9{
+width:67%!important;
+}
+}
+@media (max-width: 880px) {
+#s3{display: none!important;}
+#s9{width: 99%!important;
+position: relative!important;
+margin-left:2%!important;
+}
+.footer-vehicles{display:none;}
+}
 ::-webkit-scrollbar {
 display: none;
 }
-.panel-body{}
 .row{margin-bottom: 0!important;}
 .col .s5 img{width:90%;border-top-left-radius: 1.5%; border-bottom-left-radius: 1.5%;}
 .col .s5{padding:0!important;}
@@ -135,7 +183,6 @@ font:normal 36px 'Cookie', cursive!important;
 .footer-vehicles h3 span{color:#5383d3!important;}
 select{display: inline-block!important;}
 </style>
-
 <!--
 <div class ="container">
   <div class = "panel panel-default ">
