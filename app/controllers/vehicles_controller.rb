@@ -26,6 +26,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.json
   def show
+    
   end
 
   # GET /vehicles/new
@@ -85,6 +86,14 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:kind, :status, :model, :title, :price, :make, :year, :body_style, :mileage, :exterior_color, :interior_color, :engine, :transmission, :drive_type, :vehicle_class, :mpg, :trim, :fuel_type, :stereo, :doors, :stock_number, :vin_num, :thumb, :description, :other_options, :image_1, :image_2, :image_3, :image_4, :image_5, :image_6, :image_6, :image_7, :image_8, :image_9, :image_10, :image_11, :image_12, :image_13, :image_14, :image_15, :image_16, :image_17, :image_18, :image_19, :image_20, :image_21, :image_22, :image_23, :image_24)
+      params.require(:vehicle).permit(:kind, :status, :model, :title, :price,
+       :make, :year, :body_style, :mileage, :exterior_color, :interior_color,
+       :engine, :transmission, :drive_type, :vehicle_class, :mpg, :trim,
+       :fuel_type, :stereo, :doors, :stock_number, :vin_num, :thumb, :description,
+       :other_options, :image_1, :image_2, :image_3, :image_4, :image_5, :image_6,
+       :image_6, :image_7, :image_8, :image_9, :image_10, :image_11, :image_12,
+       :image_13, :image_14, :image_15, :image_16, :image_17, :image_18, :image_19,
+       :image_20, :image_21, :image_22, :image_23, :image_24, {vehicle_images: []}, :vehicle_images, :vehicle_images_cache
+)
     end
 end

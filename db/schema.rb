@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116065640) do
+ActiveRecord::Schema.define(version: 20151121090327) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20151116065640) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "auto_makes", force: :cascade do |t|
     t.string   "code"
@@ -46,7 +49,29 @@ ActiveRecord::Schema.define(version: 20151116065640) do
     t.datetime "updated_at"
   end
 
-  add_index "auto_models", ["auto_make_id"], name: "index_auto_models_on_auto_make_id"
+  add_index "auto_models", ["auto_make_id"], name: "index_auto_models_on_auto_make_id", using: :btree
+
+  create_table "old_images", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image_1"
+    t.string   "image_2"
+    t.string   "image_3"
+    t.string   "image_4"
+    t.string   "image_5"
+    t.string   "image_6"
+    t.string   "image_7"
+    t.string   "image_8"
+    t.string   "image_9"
+    t.string   "image_10"
+    t.string   "image_11"
+    t.string   "image_12"
+    t.string   "image_13"
+    t.string   "image_14"
+    t.string   "image_15"
+    t.string   "image_16"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "vehicles", force: :cascade do |t|
     t.string   "kind"
@@ -100,6 +125,8 @@ ActiveRecord::Schema.define(version: 20151116065640) do
     t.string   "image_24"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.jsonb    "vehicle_images"
+    t.string   "import"
   end
 
 end

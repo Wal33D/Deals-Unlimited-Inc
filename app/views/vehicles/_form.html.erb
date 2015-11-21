@@ -36,8 +36,7 @@
                         <%= f.input :stock_number %>
                         <%= f.input :description %>
                         <%= f.input :other_options %>
-                                            <%= f.button :submit %>
-
+                        <%= f.button :submit %>
                     </div>
                 </div>
                 <div class = "panel-footer">
@@ -53,16 +52,16 @@
                 </div>
                 <div class = "panel-body">
                     <div class="form-inputs">
+                     
                         <div class = "panel panel-default">
                             <div class = "panel-body">
-                                <%= image_tag @vehicle.thumb  %>
-                            </div>
-                            <div class="panel-footer">
-                                <%= f.input :thumb %>
-                            </div>
-                        </div>
-                        <div class = "panel panel-default">
-                            <div class = "panel-body">
+                             
+                                <%= form_for @vehicle, html: { multipart: true } do |f| %>
+                                <%= f.label :Image_Folder %>
+                                <%= f.label :vehicle_images %>
+                                <%= f.file_field :vehicle_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+                                <%= f.submit "Submit" %>
+                                <% end %>
                                 <div class = "row">
                                     <div class ="row">
                                         <div class ="col-lg-4">

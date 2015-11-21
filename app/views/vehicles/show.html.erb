@@ -8,6 +8,7 @@
             <h5>Vehicle Info</h5>
           </div>
         </div>
+        
         <div class = "panel-body">
           <div class="form-inputs">
             <p>
@@ -121,113 +122,76 @@
         </div>
         <div class = "panel-body">
           <div class="form-inputs">
-            <div class = "panel panel-default">
-              <div class = "panel-body">
-                <%= image_tag @vehicle.thumb  %>
+            <div class = "panel panel-default vehThumb">
+              <% if @vehicle.import='import'  %>
+              <div class = "panel-body ">
+                <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_1 %>
               </div>
             </div>
             <div class = "panel panel-default">
               <div class = "panel-body">
-                <div class = "row">
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_1  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_2  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_3  %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_4  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_5  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_6  %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_7  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_8  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_9  %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_10  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_11  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_12  %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_13  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_14 %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_15 %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_16  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_17  %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_18  %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_19 %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_20 %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_21 %>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_22 %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_23 %>
-                    </div>
-                    <div class ="col-lg-4">
-                      <%= image_tag @vehicle.image_24 %>
-                    </div>
-                    
-                  </div>
-                </div>
+                <div class ="row">
+                <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_1 %></div>
               </div>
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_2 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_3 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_4 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_5 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_6 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_7 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_8 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_9 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_10 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_11 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_12 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_13 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_14 %></div>
+            <div class ="row">
+            <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_15 %></div>
+            <div class ="row">
+              <%= image_tag OldImage.where("title <= ?", @vehicle.title).first.image_16 %>
             </div>
           </div>
         </div>
+        <% else %>
+        <div class = "panel-body ">
+          <%= image_tag @vehicle.vehicle_images[0].url, :class =>""  %>
+        </div>
       </div>
+      <div class = "panel panel-default">
+        <div class = "panel-body">
+          
+          <%= @vehicle.vehicle_images.each do |p| %>
+          <div class ="row">
+            <%=image_tag p.url %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
+</div>
+</div>
+</div>
 <style>
+.row img{
+width:100%!important;
+}
+.vehThumb{max-width:256px!important;}
 select{display: block!important;}
 .col-lg-4 img{ width:100%;}
 </style>

@@ -1,5 +1,14 @@
+require 'csv'      
+CSV.foreach('db/cars.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|
+  Vehicle.create!(row.to_hash)
+end
+    
+CSV.foreach('db/car_images.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|
+  OldImage.create!(row.to_hash)
+end
+
 AutoMake.create!([
-    {code: "Any", title: ""},
+  {code: "Any", title: ""},
   {code: "ACURA", title: "Acura"},
   {code: "ALFA", title: "Alfa Romeo"},
   {code: "AMC", title: "AMC"},
