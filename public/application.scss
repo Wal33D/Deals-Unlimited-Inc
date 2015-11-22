@@ -1,0 +1,566 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+html, body{
+overflow-x:hidden!important;
+}
+*:hover{
+text-decoration: none!important;
+}
+body {
+font: bold 16px sans-serif;
+display: flex !important;
+min-height: 100vh !important;
+flex-direction: column !important;
+}
+main {
+flex: 1 0 auto !important;
+}
+.header-phone-btn{
+display: none;
+}
+li a{
+color:#5383d3!important;
+}
+li a:hover{
+color:#fff !important;
+text-decoration: none !important;
+}
+.brand-logo img{
+max-height:54px!important;
+margin-top: -5.2px !important;
+border-radius:15% !important;
+}
+nav{
+background-color: #292c2f!important;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+text-align: left;
+font: bold sans-serif !important;
+.dropbdown-btn{
+font: bold sans-serif !important;
+}
+}
+.our-info-box{
+  tr{
+    border:none!important;
+  }
+a{
+color:#fff!important;
+}
+i{
+background-color:  #33383b;
+color: #ffffff;
+font-size: 25px;
+width: 38px;
+height: 38px;
+border-radius: 50%;
+text-align: center;
+line-height: 42px;
+margin: 10px 15px;
+vertical-align: middle;
+}
+p{
+margin-top:15px;
+}
+color:#fff!important;
+background-color: #292c2f!important;
+}
+@media only screen and (max-width : 992px) {
+*, h4{font-family: sans-serif; }
+nav .brand-logo {
+float:right!important;
+left:41rem !important;
+-webkit-transform: translateX(100%);
+-moz-transform: translateX(100%);
+-ms-transform: translateX(100%);
+-o-transform: translateX(100%);
+transform: translateX(100%); }
+nav .brand-logo.left, nav .brand-logo.right {
+padding: 0;
+-webkit-transform: none;
+-moz-transform: none;
+-ms-transform: none;
+-o-transform: none;
+transform: none; }
+nav .brand-logo.left {
+float:right!important;
+right: 0.5rem!important; }
+nav .brand-logo.right {
+right: 0.5rem;
+float:right!important;
+left: auto; } }
+.main-container{
+}
+.container{
+margin-top:83px!important;
+width:100%!important;
+}
+footer.page-footer{
+margin-top: -2px!important;
+}
+main{
+background-color:#ededf6;
+}
+.footer-distributed{
+  a{color:white!important;}
+bottom:0;
+background-color: #292c2f;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+width: 100%;
+text-align: left;
+font: bold 16px sans-serif;
+padding: 55px 50px;
+}
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+display: inline-block;
+vertical-align: top;
+}
+/* Footer left */
+.footer-distributed .footer-left{
+width: 40%;
+}
+/* The company logo */
+.footer-distributed h3{
+color:  #ffffff;
+font: normal 36px 'Cookie', cursive;
+margin: 0;
+}
+.footer-distributed h3 span{
+color:  #5383d3;
+}
+/* Footer links */
+.footer-distributed .footer-links{
+color:  #ffffff;
+margin: 20px 0 12px;
+padding: 0;
+}
+.footer-distributed .footer-links a{
+display:inline-block;
+line-height: 1.8;
+text-decoration: none;
+color:  inherit;
+}
+.footer-distributed .footer-company-name{
+color:  #8f9296;
+font-size: 14px;
+font-weight: normal;
+margin: 0;
+}
+/* Footer Center */
+.footer-distributed .footer-center{
+width: 35%;
+}
+.footer-distributed .footer-center i{
+background-color:  #33383b;
+color: #ffffff;
+font-size: 25px;
+width: 38px;
+height: 38px;
+border-radius: 50%;
+text-align: center;
+line-height: 42px;
+margin: 10px 15px;
+vertical-align: middle;
+}
+.footer-distributed .footer-center i.fa-envelope{
+font-size: 17px;
+line-height: 38px;
+}
+.footer-distributed .footer-center p{
+display: inline-block;
+color: #ffffff;
+vertical-align: middle;
+margin:0;
+}
+.footer-distributed .footer-center p span{
+display:block;
+font-weight: normal;
+font-size:14px;
+line-height:2;
+}
+.footer-distributed .footer-center p a{
+color:  #5383d3;
+text-decoration: none;;
+}
+/* Footer Right */
+.footer-distributed .footer-right{
+width: 20%;
+}
+.footer-distributed .footer-company-about{
+line-height: 20px;
+color:  #92999f;
+font-size: 13px;
+font-weight: normal;
+margin: 0;
+}
+.footer-distributed .footer-company-about span{
+display: block;
+color:  #ffffff;
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+.footer-distributed .footer-icons{
+margin-top: 25px;
+}
+.footer-distributed .footer-icons a{
+display: inline-block;
+width: 35px;
+height: 35px;
+cursor: pointer;
+background-color:  #33383b;
+border-radius: 2px;
+font-size: 20px;
+color: #ffffff;
+text-align: center;
+line-height: 35px;
+margin-right: 3px;
+margin-bottom: 5px;
+}
+/* If you don't want the footer to be responsive, remove these media queries */
+@media (max-width: 880px) {
+.col-left{ width:98!important;}
+.our-info-box{
+display: none!important;
+}
+.container{
+margin-top:68px!important;
+}
+.footer-distributed{
+font: bold 14px sans-serif;
+}
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+display: block;
+width: 100%;
+margin-bottom: 40px;
+text-align: center;
+}
+.footer-distributed .footer-center i{
+margin-left: 0;
+}
+}
+.card-title{
+border-radius: 6%;
+background-color: rgba(0,0,0,0.6);
+}
+.card{
+border-radius: 1%!important;
+}
+.hours{
+.panel-heading{
+color:white!important;
+background-color: #292c2f !important;
+}
+margin-top:5px;
+border-top-right-radius: 5%!important;
+border-top-left-radius: 5% !important;}
+.sumome-share-client-share:last-child{
+display: none!important;
+}
+#header-img{
+margin: -.5px 0 0 4px;
+position: absolute !important;
+float:left;
+img{-webkit-box-shadow: 0px 0px 2.5px 1.5px rgba(83, 131, 211, 0.9);
+-moz-box-shadow: 0px 0px 2.5px 1.5px rgba(83, 131, 211, 0.9);
+box-shadow: 0px 0px 2.5px 1.5px rgba(83, 131, 211, 0.9);
+border-radius: 12%!important;
+max-width: 60px !important;
+}
+.bbb{
+  width:100%!important;
+  z-index: 100px!important;
+}
+}
+.sumome-welcomemat-action-link, .sumome-welcomemat-image{
+display:none!important;
+background-color: blue!important;
+}
+.sumome-welcomemat-image{
+display:none!important;
+visibility: hidden !important;
+}
+.button-collapse{
+float:right!important;
+margin-right:4px;
+}
+.material-icons:hover{
+text-decoration:none!important;}
+.deals-blue{
+color:#111!important;
+background-color:#5383d3!important;
+}
+.caret{
+margin-left: 8px !important;
+}
+.directions-frame{
+margin: 0.75%!important;
+}
+.card-image{
+padding:1.6%!important;
+background-color:#292c2f;
+}
+.card-content{
+padding:1.5rem!important;
+padding-top: .3rem!important;
+padding-bottom: .2rem!important;
+h4{
+margin-left:-.5rem!important;
+font-family: 'Cookie', cursive !important;
+}
+}
+.card-front{border:0.7px solid #AAA;
+}
+.sign{
+float:left;
+width:25%;
+height:inherit;
+max-height: 706px;
+}
+.location{
+float:right;
+width:75%;
+max-height: 706px;
+}
+.paper {
+font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
+margin: 0 auto;
+padding: 6px 5px 4px 42px;
+color: #444;
+line-height: 20px;
+border: 1px solid #d2d2d2;
+background: #fff;
+background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+-webkit-background-size: 100% 20px;
+-moz-background-size: 100% 20px;
+-ms-background-size: 100% 20px;
+-o-background-size: 100% 20px;
+background-size: 100% 20px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+}
+.paper::before {
+content: '';
+position: absolute;
+width: 4px;
+top: 0;
+left: 30px;
+bottom: 0;
+border: 1px solid;
+border-color: transparent #efe4e4;
+}
+.card-action{
+padding-top: .2em!important;
+padding-bottom:.2em!important;
+margin-top: 1px!important;
+text-align: center!important;
+background-color: #292c2f !important;
+color: #5383d3;
+}
+.google-maps {
+position: relative;
+padding-bottom: 75%;
+height: 90%;
+overflow: hidden;
+}
+.google-maps iframe {
+position: absolute;
+left: 0;
+width: 98.5% !important;
+height: 93% !important;
+}
+.panel-directions{
+color:white;
+background-color: #292c2f !important;
+}
+#blue{
+color: #5383d3!important;
+}
+.blue-btn{
+background-color: #5383D3!important;
+color:#292c2f!important;
+text-transform: none!important;
+}
+nav{
+z-index: 1000;
+position: fixed!important
+}
+.dropdown-menu{
+li{
+width:100%!important;  }
+}
+.btn-vehicles{
+font-size: 1.15em!important;
+color: #292c2f !important;
+}
+.panel-default{
+margin-bottom:1.6rem!important;
+}
+#seeus{
+padding-top:.5rem!important;
+}
+a.button-collapse{
+padding-right:5px!important;
+}
+.material-icons:hover, .material-icons:visited, .material-icons:link{
+text-decoration: none!important;
+color:white!important;
+}
+.material-icons:active{
+text-decoration: none!important;
+}
+.inner-side-menu, .inner-side-menu-div{
+margin-left:.8rem!important;
+margin-top: -10px!important;
+margin-bottom: -10px!important;
+padding-top:0!important;
+padding-bottom: 0!important;
+}
+.hidden { display: none; }
+.contact-sub-btn{
+margin-left:7.5%!important;
+margin-right: 7.5%!important;
+margin-top:1rem!important;
+margin-bottom:1rem!important;
+width:85%!important;
+text-align:center!important;
+font-size: 1.3rem!important;
+}
+.string.required.control-label, .email.required.control-label, .text.required.control-label{
+display: none!important;
+}
+.contact-form{
+padding-left:2.25rem!important;
+padding-right:2.25rem!important;
+}
+#contactus-form{
+label{
+display: none!important;
+visibility: hidden!important;
+}
+margin:auto!important;
+margin-bottom: 2%!important;
+.panel-heading, .panel-title, h5{
+margin-top:0!important;
+padding-top:0!important;
+}
+label.active{
+color: #428bca;
+}
+input[type=text]:focus ,
+input[type=email]:focus,
+input[type=tel]:focus  {
+border-bottom: 1px solid #428bca;
+box-shadow: 0 1px 0 0 #428bca;
+margin-top:-.2rem!important;
+margin-bottom:1.5rem!important;
+}
+.input-field .prefix.active {
+color: #428bca;
+}
+}
+#new_contact > div.contact-form > div.form-group.string.optional.contact_tel > label{
+display:none!important;
+}
+.panel-black{
+color:#5383d3!important;
+background-color: #292c2f !important;
+}
+.col-left{
+float:left!important;
+width:65%!important;
+}
+.col-right{
+float:right!important;
+width:35%!important;
+}
+.loading-screen{
+display:none!important;
+visibility: hidden!important;
+}
+@media (max-width: 600px) {
+.textarea:focus, .textarea:active, .textarea:hover{
+border: 1px solid #428bca !important;
+box-shadow: 0 1px 0 0 #428bca !important;
+}
+#contactus-form{
+padding:0.1rem!important;
+h3, .panel-heading{padding-left:0.1rem!important;}
+}
+.header-phone-btn {
+float:right;
+display: inline;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+#contact_name, #contact_email, #contact_tel, .col-left{
+width:100% !important;
+}
+}
+@media (max-width: 910px) {
+#contact_name, #contact_email, #contact_tel, .col-left{
+width:100% !important;
+}
+.container,.main-container{
+padding-right:0px!important;
+padding-left: 0px!important;
+width:100%!important;
+footer{
+border-top:2px inset white;
+}
+}
+#header-img{
+img{
+max-width: 3.2em !important;
+}
+}
+.header-phone-btn {
+float:right;
+display: block;
+height: 100%;
+margin: 0 auto;
+margin-right: 10px;
+}
+.header-phone-btn:hover, .header-phone-btn:visited{
+text-decoration:none!important;}
+.contact-form{
+#contact_name, #contact_email, #contact_tel, .col-left{
+width:100%!important;
+float:none!important;
+}
+padding-left:0!important;
+padding-right:0!important;
+}
+}
+.input[type=email].label{
+display:none!important;
+visibility: hidden!important;
+}

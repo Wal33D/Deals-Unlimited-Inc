@@ -2,10 +2,15 @@ require 'csv'
 CSV.foreach('db/cars.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|
   Vehicle.create!(row.to_hash)
 end
-    
-CSV.foreach('db/car_images.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|
-  OldImage.create!(row.to_hash)
+CSV.foreach('db/trucks.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|
+  Vehicle.create!(row.to_hash)
 end
+CSV.foreach('db/suvs.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|
+  Vehicle.create!(row.to_hash)
+end
+
+
+
 
 AutoMake.create!([
   {code: "Any", title: ""},
@@ -1398,12 +1403,4 @@ AutoModel.create!([
   {code: "GVS", title: "GVS", auto_make_id: 71},
   {code: "GVX", title: "GVX", auto_make_id: 71},
   {code: "YUOTH", title: "Yugo", auto_make_id: 71}
-])
-Vehicle.create!([
-  {kind: "Truck", status: "Pending", model: "F-250 Super Duty", title: "2003 Ford F-250 Super Duty", price: 4999, make: "Ford", year: 2003, body_style: "undefined", mileage: nil, exterior_color: "", interior_color: "", engine: "V8 5.4Liter", transmission: "", drive_type: "Four wheel drive", vehicle_class: "", mpg: "", trim: "", fuel_type: "Gas", stereo: "", doors: 4, stock_number: "", vin_num: "1FTNW21S43EB98475", thumb: "https://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC05218.JPG", description: "", other_options: "", image_1: "", image_2: "", image_3: "", image_4: "", image_5: "", image_6: "", image_7: "", image_8: "", image_9: "", image_10: "", image_11: "", image_12: "", image_13: "", image_14: "", image_15: "", image_16: "", image_17: "", image_18: "", image_19: "", image_20: "", image_21: "", image_22: "", image_23: "", image_24: ""},
-  {kind: "SUV", status: "Sale", model: "TrailBlazer EXT", title: "2004 Chevrolet TrailBlazer EXT", price: 8995, make: "Chevrolet", year: 2004, body_style: "undefined", mileage: nil, exterior_color: "", interior_color: "", engine: "V6 4.2Liter", transmission: "Automatic", drive_type: "Four wheel drive", vehicle_class: "N/A", mpg: "16", trim: "undefined", fuel_type: "Gas", stereo: "", doors: 4, stock_number: "", vin_num: "1GNET16P546155757", thumb: "https://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC04095_0.JPG", description: "", other_options: "", image_1: "", image_2: "", image_3: "", image_4: "", image_5: "", image_6: "", image_7: "", image_8: "", image_9: "", image_10: "", image_11: "", image_12: "", image_13: "", image_14: "", image_15: "", image_16: "", image_17: "", image_18: "", image_19: "", image_20: "", image_21: "", image_22: "", image_23: "", image_24: ""},
-  {kind: "Car", status: "Sale", model: "LS 400", title: "1999 Lexus LS 400", price: 6495, make: "Lexus", year: 1999, body_style: "4dr Sedan", mileage: 167716, exterior_color: "", interior_color: "", engine: "V8 4Liter", transmission: "Automatic", drive_type: "Rear wheel drive", vehicle_class: "Luxury", mpg: "19", trim: "Base", fuel_type: "Gas", stereo: "", doors: 4, stock_number: "", vin_num: "JT8BH28F6X0152962", thumb: "https://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC04354_0.JPG", description: "", other_options: "", image_1: "", image_2: "", image_3: "", image_4: "", image_5: "", image_6: "", image_7: "", image_8: "", image_9: "", image_10: "", image_11: "", image_12: "", image_13: "", image_14: "", image_15: "", image_16: "", image_17: "", image_18: "", image_19: "", image_20: "", image_21: "", image_22: "", image_23: "", image_24: ""},
-  {kind: "Car", status: "Sale", model: "Taurus", title: "2004 Ford Taurus", price: 5495, make: "Ford", year: 2004, body_style: "SE 4dr Sedan (3.0L 6cyl 4A)", mileage: 85331, exterior_color: "", interior_color: "", engine: "V6 3Liter", transmission: "Automatic", drive_type: "Front wheel drive", vehicle_class: "Flex Fuel", mpg: "20", trim: "SE", fuel_type: "Gas", stereo: "", doors: 4, stock_number: "", vin_num: "1FAFP53U24G107538", thumb: "http://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC06374.JPG", description: "", other_options: "", image_1: "", image_2: "", image_3: "", image_4: "", image_5: "", image_6: "", image_7: "", image_8: "", image_9: "", image_10: "", image_11: "", image_12: "", image_13: "", image_14: "", image_15: "", image_16: "", image_17: "", image_18: "", image_19: "", image_20: "", image_21: "", image_22: "", image_23: "", image_24: ""},
-  {kind: "Truck", status: "Sale", model: "Explorer Sport Trac", title: "2003 Ford Explorer Sport Trac", price: 8495, make: "Ford", year: 2003, body_style: "undefined", mileage: 107070, exterior_color: "", interior_color: "", engine: "V6 4Liter", transmission: " ", drive_type: "Four wheel drive", vehicle_class: "N/A", mpg: "undefined", trim: "undefined", fuel_type: "Gas", stereo: "", doors: 4, stock_number: "", vin_num: "1FMZU77E03UC51003", thumb: "http://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC05094.JPG", description: "", other_options: "", image_1: "http://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC05094.JPG", image_2: "", image_3: "", image_4: "", image_5: "", image_6: "", image_7: "", image_8: "", image_9: "", image_10: "", image_11: "", image_12: "", image_13: "", image_14: "", image_15: "", image_16: "", image_17: "", image_18: "", image_19: "", image_20: "", image_21: "", image_22: "", image_23: "", image_24: ""},
-  {kind: "Van", status: "Sale", model: "5", title: "2006 Mazda 5", price: nil, make: "Mazda", year: 2006, body_style: "undefined", mileage: 80062, exterior_color: "", interior_color: "", engine: "V4 2.3Liter", transmission: "Manual", drive_type: "Front wheel drive", vehicle_class: "N/A", mpg: "22", trim: "undefined", fuel_type: "Gas", stereo: "", doors: 4, stock_number: "", vin_num: "JM1CR29L360110383", thumb: "https://www.dealsunlimitedinc.com/sites/default/files/imagecache/veh_full/public/images/DSC05811.JPG", description: "", other_options: "", image_1: "", image_2: "", image_3: "", image_4: "", image_5: "", image_6: "", image_7: "", image_8: "", image_9: "", image_10: "", image_11: "", image_12: "", image_13: "", image_14: "", image_15: "", image_16: "", image_17: "", image_18: "", image_19: "", image_20: "", image_21: "", image_22: "", image_23: "", image_24: ""}
 ])

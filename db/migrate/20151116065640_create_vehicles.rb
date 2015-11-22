@@ -1,6 +1,7 @@
 class CreateVehicles < ActiveRecord::Migration
   def change
     create_table :vehicles do |t|
+      t.string :import
       t.string :kind
       t.string :status
       t.string :model

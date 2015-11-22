@@ -1,26 +1,12 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
-  def car
-    redirect_to 'vehicles?utf8=✓&q[kind_cont]=Car&q[make_cont]=&q[model_cont]=&q[price_gteq]=0&q[price_lteq]=99999&q[year_gteq]=0&q[year_lteq]=2050&commit=Search'
-  end
-  def truck
-     @vehicles = Vehicle.all
-  end
-
-  def suv
-     @vehicles = Vehicle.all
-  end
-
-  def van
-     @vehicles = Vehicle.all
-  end
   
   # GET /vehicles
   # GET /vehicles.json
   def index      
       @q = Vehicle.ransack(params[:q])
-      @vehicles= @q.result(distinct: true)
+      @vehicles= @q.result()
   end
 
   # GET /vehicles/1

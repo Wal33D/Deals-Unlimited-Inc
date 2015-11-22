@@ -1,16 +1,12 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
-
-
-
-$(".loading-screen").fadeOut(1750);
+$(".loading-screen").fadeOut(1150);
 setTimeout(function() {
     $(".body").animate({
         opacity: "1"
-    }, 800);
-}, 700);
+    }, 600);
+}, 500);
 jQuery(document).ready(function($) {
 
     $(".clickable-row").click(function() {

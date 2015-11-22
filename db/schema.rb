@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121090327) do
+ActiveRecord::Schema.define(version: 20151120002340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,29 +51,8 @@ ActiveRecord::Schema.define(version: 20151121090327) do
 
   add_index "auto_models", ["auto_make_id"], name: "index_auto_models_on_auto_make_id", using: :btree
 
-  create_table "old_images", force: :cascade do |t|
-    t.string   "title"
-    t.string   "image_1"
-    t.string   "image_2"
-    t.string   "image_3"
-    t.string   "image_4"
-    t.string   "image_5"
-    t.string   "image_6"
-    t.string   "image_7"
-    t.string   "image_8"
-    t.string   "image_9"
-    t.string   "image_10"
-    t.string   "image_11"
-    t.string   "image_12"
-    t.string   "image_13"
-    t.string   "image_14"
-    t.string   "image_15"
-    t.string   "image_16"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "vehicles", force: :cascade do |t|
+    t.string   "import"
     t.string   "kind"
     t.string   "status"
     t.string   "model"
@@ -126,7 +105,6 @@ ActiveRecord::Schema.define(version: 20151121090327) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.jsonb    "vehicle_images"
-    t.string   "import"
   end
 
 end
