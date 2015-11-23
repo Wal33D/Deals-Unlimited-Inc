@@ -1,21 +1,19 @@
 <div class ="container">
   <p id="notice"><%= notice %></p>
-  <div class ="row">
+  <div class ="row"  id="img-scroll">
     <div class = "panel panel-default">
       <div class = "panel-heading" style="float:left; width:50%;">
         <div class = "panel-title">
           <h5 style="float:left; "><%= @vehicle.title %></h5>
         </div>
       </div>
-         <div class = "panel-heading" style="float:right; width:50%;">
+      <div class = "panel-heading" style="float:right; width:50%;">
         <div class = "panel-title">
           <h5 style="float:right;  ">269-324-4285</h5>
         </div>
       </div>
-
-
+      <% if @vehicle.import=='import'%>
       <div class = "panel-body">
-        <% if @vehicle.import='import'%>
         <section>
           <div>
             <% if @vehicle.image_1 %>
@@ -95,146 +93,145 @@
             <% end %>
           </div>
         </section>
-        
       </div>
-    </div>
-    <% else %>
-    <div class = "panel-body ">
-      <%= image_tag @vehicle.vehicle_images[0].url, :class =>""  %>
-    </div>
-  </div>
-  <div class = "panel panel-default">
-    <div class = "panel-body">
+      <% else %>
       
-      <%= @vehicle.vehicle_images.each do |p| %>
-      <div class ="row">
-        <%=image_tag p.url %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
-</div>
-<div class = "row">
-  <div class = "panel panel-default ">
-    <div class = "panel-heading">
-      <div class = "panel-title">
-        <h5>Vehicle Info</h5>
-      </div>
-    </div>
-    
-    <div class = "panel-body">
-      <div class="form-inputs">
-        <p>
-          <strong>VIN</strong>
-          <%= @vehicle.vin_num %>
-        </p>
-        <p>
-          <strong>Type</strong>
-          <%= @vehicle.kind %>
-        </p>
-        <p>
-          <strong>Status</strong>
-          <%= @vehicle.status %>
-        </p>
-        <p>
-          <strong>Model</strong>
-          <%= @vehicle.model %>
-        </p>
-        <p>
-          <strong>Title</strong>
-          <%= @vehicle.title %>
-        </p>
-        <p>
-          <strong>Price</strong>
-          <%= @vehicle.price %>
-        </p>
-        <p>
-          <strong>Make</strong>
-          <%= @vehicle.make %>
-        </p>
-        <p>
-          <strong>Year</strong>
-          <%= @vehicle.year %>
-        </p>
-        <p>
-          <strong>Body Style</strong>
-          <%= @vehicle.body_style %>
-        </p>
-        <p>
-          <strong>Mileage</strong>
-          <%= @vehicle.mileage %>
-        </p>
-        <p>
-          <strong>Exterior Color</strong>
-          <%= @vehicle.exterior_color %>
-        </p>
-        <p>
-          <strong>Interior Color</strong>
-          <%= @vehicle.interior_color %>
-        </p>
-        <p>
-          <strong>Engine</strong>
-          <%= @vehicle.engine %>
-        </p>
-        <p>
-          <strong>Transmission</strong>
-          <%= @vehicle.transmission %>
-        </p>
-        <p>
-          <strong>Drive Type</strong>
-          <%= @vehicle.drive_type %>
-        </p>
-        
-        <% if @vehicle.import='import'  %>
-        <p>
-          <strong>Class</strong>
-          <%= @vehicle.vehicle_class %>
-        </p>
-        <p>
-          <strong>Combined MPG</strong>
-          <%= @vehicle.mpg %>
-        </p>
-        <p>
-          <strong>Trim</strong>
-          <%= @vehicle.trim %>
-        </p>
-        <% else  %>
+      <div class = "panel-body">
+        <section>
+          <div>
+            <%= @vehicle.vehicle_images.each do |p| %>
+            <a class="vehicle_thumb" href="<%= p.url %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
+              <%=image_tag p.url %>
+            </a>
+            <% end %>
+          </div>
+        </section>
         <% end %>
-        <p>
-          <strong>Fuel Type</strong>
-          <%= @vehicle.fuel_type %>
-        </p>
-        <p>
-          <strong>Stereo</strong>
-          <%= @vehicle.stereo %>
-        </p>
-        <p>
-          <strong># of Doors</strong>
-          <%= @vehicle.doors %>
-        </p>
-        <p>
-          <strong>Stock Number</strong>
-          <%= @vehicle.stock_number %>
-        </p>
-        <p>
-          <strong>Description</strong>
-          <%= @vehicle.description %>
-        </p>
-        <p>
-          <strong>Other Options</strong>
-          <%= @vehicle.other_options.html_safe %>
-        </p>
       </div>
     </div>
-    <div class = "panel-footer">
+    <div class = "row">
+      <div class = "panel panel-default ">
+        <div class = "panel-heading">
+          <div class = "panel-title">
+            <h5>Vehicle Info</h5>
+          </div>
+        </div>
+        
+        <div class = "panel-body">
+          <div class="form-inputs">
+            <p>
+              <strong>VIN</strong>
+              <%= @vehicle.vin_num %>
+            </p>
+            <p>
+              <strong>Type</strong>
+              <%= @vehicle.kind %>
+            </p>
+            <p>
+              <strong>Status</strong>
+              <%= @vehicle.status %>
+            </p>
+            <p>
+              <strong>Model</strong>
+              <%= @vehicle.model %>
+            </p>
+            <p>
+              <strong>Title</strong>
+              <%= @vehicle.title %>
+            </p>
+            <p>
+              <strong>Price</strong>
+              <%= @vehicle.price %>
+            </p>
+            <p>
+              <strong>Make</strong>
+              <%= @vehicle.make %>
+            </p>
+            <p>
+              <strong>Year</strong>
+              <%= @vehicle.year %>
+            </p>
+            <p>
+              <strong>Body Style</strong>
+              <%= @vehicle.body_style %>
+            </p>
+            <p>
+              <strong>Mileage</strong>
+              <%= @vehicle.mileage %>
+            </p>
+            <p>
+              <strong>Exterior Color</strong>
+              <%= @vehicle.exterior_color %>
+            </p>
+            <p>
+              <strong>Interior Color</strong>
+              <%= @vehicle.interior_color %>
+            </p>
+            <p>
+              <strong>Engine</strong>
+              <%= @vehicle.engine %>
+            </p>
+            <p>
+              <strong>Transmission</strong>
+              <%= @vehicle.transmission %>
+            </p>
+            <p>
+              <strong>Drive Type</strong>
+              <%= @vehicle.drive_type %>
+            </p>
+            
+            <% if @vehicle.import='import'  %>
+            <p>
+              <strong>Class</strong>
+              <%= @vehicle.vehicle_class %>
+            </p>
+            <p>
+              <strong>Combined MPG</strong>
+              <%= @vehicle.mpg %>
+            </p>
+            <p>
+              <strong>Trim</strong>
+              <%= @vehicle.trim %>
+            </p>
+            <% else  %>
+            <% end %>
+            <p>
+              <strong>Fuel Type</strong>
+              <%= @vehicle.fuel_type %>
+            </p>
+            <p>
+              <strong>Stereo</strong>
+              <%= @vehicle.stereo %>
+            </p>
+            <p>
+              <strong># of Doors</strong>
+              <%= @vehicle.doors %>
+            </p>
+            <p>
+              <strong>Stock Number</strong>
+              <%= @vehicle.stock_number %>
+            </p>
+            <p>
+              <strong>Description</strong>
+              <%= @vehicle.description %>
+            </p>
+            <p>
+              <strong>Other Options</strong>
+              <%= @vehicle.other_options.html_safe %>
+            </p>
+          </div>
+        </div>
+        <div class = "panel-footer">
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>
 <style>
 .footer-vehicles{
-  display: absolute!important;
+display: absolute!important;
 }
 body {
 overflow: hidden;
@@ -255,7 +252,7 @@ width:25rem!important;
 }
 .vehThumb{max-width:256px!important;}
 select{display: block!important;}
-.row img{ width:30rem!important;}
+#img-scroll img{ width:30rem!important;}
 /* Preload images */
 body:after {
 content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
@@ -442,7 +439,5 @@ filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 opacity: 1;
 }
 </style>
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
 <script>
 </script>

@@ -17,6 +17,7 @@
                         <%= f.input :status, collection: [:Sale, :Sold, :Pending, ] %>
                         <%= f.input :model, :class => "form-control" %>
                         <%= f.input :title %>
+                        <%= f.input :import %>
                         <%= f.input :price %>
                         <%= f.input :make %>
                         <%= f.input :year %>
@@ -36,233 +37,18 @@
                         <%= f.input :stock_number %>
                         <%= f.input :description %>
                         <%= f.input :other_options %>
+                        <%= f.label :Image_Folder %>
+                        <%= f.label :vehicle_images %>
+                        <%= f.file_field :vehicle_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+                        
                         <%= f.button :submit %>
                     </div>
+                    <% end %>
                 </div>
                 <div class = "panel-footer">
                 </div>
             </div>
         </div>
-        <div class ="col-lg-6">
-            <div class = "panel panel-default">
-                <div class = "panel-heading">
-                    <div class = "panel-title">
-                        <h5>Images</h5>
-                    </div>
-                </div>
-                <div class = "panel-body">
-                    <div class="form-inputs">
-                     
-                        <div class = "panel panel-default">
-                            <div class = "panel-body">
-                             
-                                <%= form_for @vehicle, html: { multipart: true } do |f| %>
-                                <%= f.label :Image_Folder %>
-                                <%= f.label :vehicle_images %>
-                                <%= f.file_field :vehicle_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
-                                <%= f.submit "Submit" %>
-                                <% end %>
-                                <div class = "row">
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_1  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_1  %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_2  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_2 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_3  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_3 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_4  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_4 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_5  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_5 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_6  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_6 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_7  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_7 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_8  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_8 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_9  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_9 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_10  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_10 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_11  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_11 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_12  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_12 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_13  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_13 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_14  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_14 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_15 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_15%>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_16 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_16%>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_17  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_17 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_18  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_18 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_19  %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_19 %>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_20 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_20%>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_21 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_21%>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_22 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_22%>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_23 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_23%>
-                                        </div>
-                                    </div>
-                                    <div class ="row">
-                                        <div class ="col-lg-4">
-                                            <%= image_tag @vehicle.image_24 %>
-                                        </div>
-                                        <div class ="col-lg-8">
-                                            <%= f.input :image_24%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <% end %>
     </div>
 </div>
 <style>
