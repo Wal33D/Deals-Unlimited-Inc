@@ -16,6 +16,7 @@ gem 'edmunds_ruby', '~> 1.0', '>= 1.0.2'
 gem 'ransack'
 gem 'seed_dump'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'rails_12factor'
 
 group :development do
   gem 'web-console', '~> 2.0'
