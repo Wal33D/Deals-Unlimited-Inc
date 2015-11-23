@@ -2,16 +2,12 @@
   <p id="notice"><%= notice %></p>
   <div class ="row"  id="img-scroll">
     <div class = "panel panel-default">
-      <div class = "panel-heading" style="float:left; width:50%;">
+      <div class = "panel-heading" >
         <div class = "panel-title">
-          <h5 style="float:left; "><%= @vehicle.title %></h5>
+          <h5 ><%= @vehicle.title %></h5>
         </div>
       </div>
-      <div class = "panel-heading" style="float:right; width:50%;">
-        <div class = "panel-title">
-          <h5 style="float:right;  ">269-324-4285</h5>
-        </div>
-      </div>
+ 
       <% if @vehicle.import=='import'%>
       <div class = "panel-body">
         <section>
@@ -22,12 +18,12 @@
             </a>
             <% end %>
             <% if @vehicle.image_2 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_2 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_2 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_2 %>
             </a>
             <% end %>
             <% if @vehicle.image_3 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_3 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_3 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_3 %>
             </a>
             <% end %>
@@ -37,7 +33,7 @@
             </a>
             <% end %>
             <% if @vehicle.image_5 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_5 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_5 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_5 %>
             </a>
             <% end %>
@@ -47,7 +43,7 @@
             </a>
             <% end %>
             <% if @vehicle.image_7 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_7 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_7 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_7 %>
             </a>
             <% end %>
@@ -57,7 +53,7 @@
             </a>
             <% end %>
             <% if @vehicle.image_9 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_9 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_9 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_9 %>
             </a>
             <% end %>
@@ -67,7 +63,7 @@
             </a>
             <% end %>
             <% if @vehicle.image_12 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_12 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_12 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_12 %>
             </a>
             <% end %>
@@ -77,7 +73,7 @@
             </a>
             <% end %>
             <% if @vehicle.image_14%>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_14%>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_14%>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_14%>
             </a>
             <% end %>
@@ -87,7 +83,7 @@
             </a>
             <% end %>
             <% if @vehicle.image_16 %>
-            <a class="vehicle_thumb" href="<%= @vehicle.image_16 %>" data-lightbox="example-set" data-title="<%= @vehicle.title %>">
+            <a class="vehicle_thumb" href="<%= @vehicle.image_16 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
               <%= image_tag @vehicle.image_16 %>
             </a>
             <% end %>
