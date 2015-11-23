@@ -1,172 +1,155 @@
-<div class="container" style="margin-top: 4rem!important; padding:2.5rem!important;" >
-  <div class="row" >
-    
-    <div class="col s3"id="s3" style="max-width:400px!important; padding:0.6rem!important;margin:0.6rem!important; padding-right:0!important; margin-left:0!important; margin-top:0!important; padding-top:0!important; padding-right:0.6rem!important;" >
-      <div class="panel panel-default" id = "searchpanel" style="margin:0.6rem!important; margin-left:0!important; margin-top:0!important;"  >
-        <div class = "panel-heading panel-black">
-          <div class="panel-title">
-            Search
-          </div>
+<div class="container" >
+  <div class="col-sm-4" style=""id="left">
+    <div class = "panel panel-default shadow" style=" margin-top:7rem!important; ">
+      <div class = "panel-heading panel-black ">
+        <div class="panel-title">
         </div>
-        <div class="panel-body z-depth-2">
-          <%= search_form_for @q do |f| %>
-          <div class="input-group">
-            <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"General Search" , :style=>"border:1px solid #eee!important;"%>
-            <label for="q_kind" class="black-text">Type of Vehicle</label>
-            <%= f.select :kind_cont, options_for_select([['All', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
-            <%= f.label :make , :class=>"black-text"%>
-            <%= f.search_field :make_cont , :style=>"border:1px solid #eee!important;"%>
-            <%= f.label :model, :class=>"black-text" %>
-            <%= f.search_field :model_cont, :style=>"border:1px solid #eee!important;"%>
-          </div>
-          <label for="Price" class="black-text">Price</label>
-          <div class ="price-search-box">
-            <div class="col-lg-5"><%= f.select :price_gteq , options_for_select([['Any', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :selected => :Any) %>
-            </div>
-            <label  class="black-text col-sm-1">to</label>
-            <div class="col-lg-5"><%= f.select :price_lteq , options_for_select([['Any', '99999'],['Any', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :selected => :Any), :style=>"width:100%!important;" %>
-            </div>
-          </div>
-          
-          <div class="row">
-          </div>
-          <label for="Year" style="" class="black-text">Year</label>
-          <div class ="year-search-box">
-            <div class="col-lg-5" > <%= f.select :year_gteq , options_for_select([['Any', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any) %>
-            </div>
-            <label  class="black-text col-sm-1" >to</label>
-            <div class="col-lg-5" > <%= f.select :year_lteq , options_for_select([['Any', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :selected => :Any), :style=>"width:100%!important;"%>
-            </div>
-          </div>
-          <label for="mileage" class="black-text" style="width:100%!important;">Max Mileage</label>
-          <div class ="mileage_box"style="width:100%!important;">
-            <div class="col-lg-11"><%= f.select :mileage_lteq , options_for_select([['Any', ''],
-              ['25,000','25000'], ['50,000','50000'], ['75,000','750000'], ['100,000','100000'], ['150,000','150000'], ['250,000','250000']], :selected => :Any), :style=>"width:100%!important;" %>
-            </div>
-          </div>
+        <h5></h5>
+      </div>
+      <div class = "panel-body" >
+        <%= search_form_for @q do |f| %>
+        <label for="cont" style="float:left!important; ">Basic Search</label>
+        <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Basic Search" , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+        <label for="q_kind" style="float:left!important;">Type of Vehicle</label>
+        <%= f.select :kind_cont, options_for_select([['', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
+        <label for="q_make" style="float:left!important;">Make</label>
+        <%= f.search_field :make_cont , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+        <label for="q_make" style="float:left!important;">Model</label>
+        <%= f.search_field :model_cont, :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+        <label for ="year"> Year</label>
+        <div class="input-group" id="year">
+          <%= f.select :year_gteq , options_for_select([['From', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :placeholder=>"From", :type=>"text" , :class=>"form-control") %>
+          <span class="input-group-addon">-</span>
+          <%= f.select :year_lteq , options_for_select([['To', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :placeholder=>"To", :type=>"text" , :class=>"form-control")%>
         </div>
-        <div class= "panel-footer panel-black">
-          <%= f.submit :class =>'btn btn-default blue-btn',:style=>'width:100%!important;height:100%!important;' %>
+        <hr style="margin:0.5rem!important;">
+        <label for ="price"> Price</label>
+        <div class="input-group" id="price">
+          <%= f.select :price_gteq , options_for_select([['From', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :placeholder=>"From", :type=>"text" , :class=>"form-control") %>
+          <span class="input-group-addon">-</span>
+          <%= f.select :price_lteq , options_for_select([['To', '99999'], ['$5,000','5000'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','15000'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','50000']], :placeholder=>"To", :type=>"text" , :class=>"form-control") %>
+        </div>
+        <label for="mileage_lteq" style="float:left!important;">Max Mileage</label>
+        <%= f.select :mileage_lteq , options_for_select([['Any', ''],
+        ['25,000','25000'], ['50,000','50000'], ['75,000','750000'], ['100,000','100000'], ['150,000','150000'], ['250,000','250000']], :selected => :Any), :style=>"width:100%!important;" %>
+        
+      </div>
+      <%= f.submit :class =>'btn btn-default blue-btn',:style=>'width:100%!important;height:100%!important;' %>
+      <% end %>
+      
+    </div>
+  </div>
+  <div class="col-sm-8" id="right" >
+    <ul class="pagination"style="margin:0!important; float:right; padding:0!important; margin:0!important; ">
+      <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
+      <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
+      <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
+    </ul>
+    <div class = "jumbotron" style="background-color:rgba(0,0,0,0)!important; border:none!important; margin-top:3.4rem!important;">
+      
+      <% @vehicles.each do |vehicle| %>
+      
+      <div class="row" style="border-radius: 1rem;margin:0!important;  margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:inherit!important; background-color:white; padding:0!important;" >
+        
+        <div class="col-lg-5" id="vehthumb" style=" margin:0!important; padding:0!important;" >
+          <% if vehicle.import =='import'  %>
+          <%=  link_to image_tag(vehicle.image_1),vehicle, :class=>"img-responsive" %>
+          <% else %>
+          <%=  link_to image_tag(vehicle.thumb),vehicle, :class=>"img-responsive" %>
           <% end %>
         </div>
-      </div>
-    </div>
-    <div class="col s9" id="s9"style=" right:0; height:100%;!important; position:fixed!important; padding:0!important; margin:0!important; margin-left:40%!important;margin-right:2%!important; padding-left:0.6rem!important;">
-      <div class="panel panel-default scrollable z-depth-2" style="overflow-y:scroll; height:100%!important; padding-bottom:11rem!important; ">
-        <div class = "panel-heading panel-black "style=" width:100%; float:right; border-radius-left:none!important; padding:5px 6px 0px!important;">
-          <ul class="pagination"style="margin:0!important; float:right; padding:0!important; margin:none!important;">
-            <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
-            <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
-            <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
-          </ul>
-        </div>
-        <div class="panel-body" id="s9" style="padding:0!important; width:100%!important;">
-          <% @vehicles.each do |vehicle| %>
-          <div class="panel panel-default">
-            <div class="panel-body" style="padding:0!important;">
-              <div class = "col s5">
-                <% if vehicle.import='import'  %>
-                <%=  link_to image_tag(vehicle.image_1),vehicle %>
-                <% else %>
-                <%=  link_to image_tag(vehicle.thumb),vehicle %>
-                <% end %>
-              </div>
-              <div class = "col s7">
-                <div class = "row">
-                  <p style="font-size:1.5rem!important;padding-top:0.3rem;padding-bottom:0.4rem;padding-left:1rem;"><%= vehicle.title%></p>
-                </div>
-                <div class = "row">
-                  <div class = "col s3">
-                    <p>Price: $<%= vehicle.price %></p>
-                    <% if vehicle.import='import'  %>
-                    <% else %>
-                    <p>MPG: <%= vehicle.mpg %></p>
-                    <% end %>
-                    <p>Engine: <%= vehicle.engine %></p>
-                    <p>Mileage: <%= vehicle.mileage %></p>
-                  </div>
-                  <div class = "col s4">
-                    <p>Year: <%= vehicle.year %></p>
-                    <p>Make: <%= vehicle.make %></p>
-                    <p>Model: <%= vehicle.model %></p>
-                    <p>Drive: <%= vehicle.drive_type %></p>
-                    <p>Fuel: <%= vehicle.fuel_type %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!--
+        
+        <div class="col-lg-4">
+          
+          <h5 style="padding-top:1rem;"><%= vehicle.title %></h5>
+          <hr>
+          <p>Price: $<%= vehicle.price %></p>
+          <p>Drive: <%= vehicle.drive_type %></p>
+          <% if vehicle.import =='import'  %>
+          <% else %>
+          <p>MPG: <%= vehicle.mpg %></p>
+          <% end %>
+          <p>Engine: <%= vehicle.engine %></p>
+          <p>Fuel Type: <%= vehicle.fuel_type %></p>
+          <p>Mileage: <%= vehicle.mileage %></p>
+          <!--
           <%= link_to 'Show', vehicle %>
           <%= link_to 'Edit', edit_vehicle_path(vehicle) %>
-          <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %>-->
-          <% end %>
+          <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'New Vehicle', new_vehicle_path %>
+          -->
         </div>
-        <%= link_to 'New Vehicle', new_vehicle_path %>
+        <div class="col-lg-3 " style=" padding:2rem;" >
+          <div class="row" style="padding:1rem;" >
+            <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>">
+              <%= link_to image_tag 'carfax.png', :class=>"img-responsive" %>
+            </a>
+          </div>
+          <div class="row">
+            <%= image_tag 'nada.png', :class=>"img-responsive"  %>
+          </div>
+        </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="container" style="width:100%!important; position:absolute;left:0; right:0;">
+<div class="container" style="width:100%!important; position:absolute;left:0; right:0; ">
   <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
     <h4>Deals Unlimited,<span> Inc.</span></h4>
     <h5>269-324-4285</h5>
   </div>
 </div>
 <style>
+.col-lg-5{
+padding-left: 0!important;
+margin-left: 0!important;
+}
+#vehthumb img{
+border-top-left-radius: 1rem;
+border-bottom-left-radius: 1rem;
+width:100%!important;
+padding: 0!important;
+}
+body, html {
+margin: 0;
+overflow: hidden;
+height:100%;
+background-color: #F6F6F6!important;
+}
+@media (min-width: 768px){
+#left {
+position: absolute;
+top: 0px;
+bottom: 0;
+left: 0;
+width: 25%;
+overflow-y: hidden;
+}
+#right {
+position: absolute;
+top: 0;
+bottom: 0;
+right: 0;
+overflow-y: scroll;
+width: 75%;
+}
+}
+#left {
+background-color: rgba(0,0,0,0);
+text-align: center;
+height:95%;
+}
+#right {
+height:95%;
+background-color: rgba(0,0,0,0);
+text-align: center;
+}
 @media (max-width: 1860px) {
-#s9{
-width:75%!important;
 }
-}
-@media (max-width: 1666px) {
-#s9{
-width:73%!important;
-}
-}
-@media (max-width: 1399px) {
-#s9{
-width:72%!important;
-}
-}
-@media (max-width: 1266px) {
-#s9{
-width:70%!important;
-}
-}
-@media (max-width: 980px) {
-#s9{
-width:68%!important;
-}
-}
-@media (max-width: 930px) {
-#s9{
-width:67%!important;
-}
-}
-@media (max-width: 880px) {
-#s3{display: none!important;}
-#s9{width: 99%!important;
-background-color: transparent!important;
-position: relative!important;
-margin-left:2%!important;
-}
-.footer-vehicles{display:none;}
 }
 ::-webkit-scrollbar {
 display: none;
-}
-.row{margin-bottom: 0!important;}
-.col .s5 img{width:90%;border-top-left-radius: 1.5%; border-bottom-left-radius: 1.5%;}
-.col .s5{padding:0!important;}
-.container{background-color:#eee!important;max-width: 100%!important; position: fixed!important; }
-body{background-color:#eee!important;}
-.s9{float:right!important;}
-.col .s3{float:left!important; }
-.col .s3 .panel{ }
-.col .s4{
-height:inherit!important;
-width:40%!important;
-float:right!important;
 }
 .footer-distributed{display:none!important;
 }
@@ -190,62 +173,11 @@ padding: 0.1rem!important;
 font:normal 36px 'Cookie', cursive!important;
 font-size: 3.5vmin!important;
 }
-#q_make_cont{
-}
 .footer-vehicles h4 span{color:#5383d3!important;}
 select{display: inline-block!important;}
-</style>
-<!--
-<div class ="container">
-  <div class = "panel panel-default ">
-    <div class = "panel-body">
-      <table>
-        <tbody>
-          <% @vehicles.each do |vehicle| %>
-          <tr>
-            <td><%= vehicle.kind %></td>
-            <td><%= vehicle.status %></td>
-            <td><%= vehicle.model %></td>
-            <td><%= vehicle.title %></td>
-            <td><%= vehicle.price %></td>
-            <td><%= vehicle.make %></td>
-            <td><%= vehicle.year %></td>
-            <td><%= vehicle.body_style %></td>
-            <td><%= vehicle.mileage %></td>
-            <td><%= vehicle.exterior_color %></td>
-            <td><%= vehicle.interior_color %></td>
-            <td><%= vehicle.engine %></td>
-            <td><%= vehicle.transmission %></td>
-            <td><%= vehicle.drive_type %></td>
-            <td><%= vehicle.vehicle_class %></td>
-            <td><%= vehicle.mpg %></td>
-            <td><%= vehicle.trim %></td>
-            <td><%= vehicle.fuel_type %></td>
-            <td><%= vehicle.stereo %></td>
-            <td><%= vehicle.doors %></td>
-            <td><%= vehicle.stock_number %></td>
-            <td><%= vehicle.vin_num %></td>
-            <td><%= image_tag vehicle.thumb %></td>
-            <td><%= vehicle.description %></td>
-            <td><%= vehicle.other_options %></td>
-            
-            <td></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class = "panel-footer">
-      <%= link_to 'New Vehicle', new_vehicle_path %>
-    </div>
-  </div>
-</div>
-<style>
-#titleV{
-float:left!important;
-}
-#veh-count{
-float:right!important;
+.shadow {
+-moz-box-shadow:    inset 0 0 50px #000000;
+-webkit-box-shadow: inset 0 0 50px #000000;
+box-shadow:         inset 0 0 50px #000000;
 }
 </style>
--->
