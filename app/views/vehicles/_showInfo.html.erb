@@ -1,0 +1,133 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-3">
+        <p>
+          <strong>Price</strong>
+          <%= @vehicle.price %>
+        </p>
+        <p>
+          <strong>Status</strong>
+          <%= @vehicle.status %>
+        </p>
+        <p>
+          <strong>Year</strong>
+          <%= @vehicle.year %>
+        </p>
+        <p>
+          <strong>Make</strong>
+          <%= @vehicle.make %>
+        </p>
+        
+        <p>
+          <strong>Model</strong>
+          <%= @vehicle.model %>
+        </p>
+        
+      </div>
+      <div class="col-lg-3">
+        <p>
+          <strong>ExteriorColor</strong>
+          <%= @vehicle.exterior_color %>
+        </p>
+        <p>
+          <strong>Interior Color</strong>
+          <%= @vehicle.interior_color %>
+        </p>
+        <p>
+          <strong>Body Style</strong>
+          <%= @vehicle.body_style %>
+        </p>
+        <p>
+          <strong>Mileage</strong>
+          <%= @vehicle.mileage %>
+        </p>
+      </div>
+      <div class="col-lg-3">
+        
+        <p>
+          <strong>Engine</strong>
+          <%= @vehicle.engine %>
+        </p>
+        <p>
+          <strong>Transmission</strong>
+          <%= @vehicle.transmission %>
+        </p>
+        <p>
+          <strong>Drive Type</strong>
+          <%= @vehicle.drive_type %>
+        </p>
+        <p>
+          <strong>Fuel Type</strong>
+          <%= @vehicle.fuel_type %>
+        </p>
+      </div>
+      <div class="col-lg-3">
+        <% if @vehicle.import!='import'  %>
+        <p>
+          <strong>Class</strong>
+          <%= @vehicle.vehicle_class %>
+        </p>
+        <p>
+          <strong>Combined MPG</strong>
+          <%= @vehicle.mpg %>
+        </p>
+        <p>
+          <strong>Trim</strong>
+          <%= @vehicle.trim %>
+        </p>
+        <% else  %>
+        <% end %>
+        
+        <p>
+          <strong>Stereo</strong>
+          <%= @vehicle.stereo %>
+        </p>
+        <p>
+          <strong># of Doors</strong>
+          <%= @vehicle.doors %>
+        </p>
+        <p>
+          <strong>Stock Number</strong>
+          <%= @vehicle.stock_number %>
+        </p>
+        <p>
+          <strong>VIN</strong>
+          <%= @vehicle.vin_num %>
+        </p>
+      </div>
+    </div>
+    
+  </div>
+  <div class="panel-footer">
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Features
+      </div>
+      <div class="panel-body features">
+        <%= @vehicle.other_options.html_safe %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Description
+      </div>
+      <div class="panel-body">
+        <%= @vehicle.description %>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+h3.field-label{
+display:none!important;
+}
+</style>
