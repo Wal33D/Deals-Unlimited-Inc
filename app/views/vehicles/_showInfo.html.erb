@@ -5,96 +5,96 @@
     <div class="row">
       <div class="col-lg-3">
         <p>
-          <strong>Price</strong>
+          <label>Price: </label>
           <%= @vehicle.price %>
         </p>
         <p>
-          <strong>Status</strong>
+          <label>Status: </label>
           <%= @vehicle.status %>
         </p>
         <p>
-          <strong>Year</strong>
+          <label>Year: </label>
           <%= @vehicle.year %>
         </p>
         <p>
-          <strong>Make</strong>
+          <label>Make: </label>
           <%= @vehicle.make %>
         </p>
         
         <p>
-          <strong>Model</strong>
+          <label>Model: </label>
           <%= @vehicle.model %>
         </p>
         
       </div>
       <div class="col-lg-3">
         <p>
-          <strong>ExteriorColor</strong>
+          <label>ExteriorColor: </label>
           <%= @vehicle.exterior_color %>
         </p>
         <p>
-          <strong>Interior Color</strong>
+          <label>Interior Color: </label>
           <%= @vehicle.interior_color %>
         </p>
         <p>
-          <strong>Body Style</strong>
+          <label>Body Style: </label>
           <%= @vehicle.body_style %>
         </p>
         <p>
-          <strong>Mileage</strong>
+          <label>Mileage: </label>
           <%= @vehicle.mileage %>
         </p>
       </div>
       <div class="col-lg-3">
         
         <p>
-          <strong>Engine</strong>
+          <label>Engine: </label>
           <%= @vehicle.engine %>
         </p>
         <p>
-          <strong>Transmission</strong>
+          <label>Transmission: </label>
           <%= @vehicle.transmission %>
         </p>
         <p>
-          <strong>Drive Type</strong>
+          <label>Drive Type: </label>
           <%= @vehicle.drive_type %>
         </p>
         <p>
-          <strong>Fuel Type</strong>
+          <label>Fuel Type: </label>
           <%= @vehicle.fuel_type %>
         </p>
       </div>
       <div class="col-lg-3">
         <% if @vehicle.import!='import'  %>
-        <p>
-          <strong>Class</strong>
+        <p >
+          <label>Class: </label>
           <%= @vehicle.vehicle_class %>
         </p>
         <p>
-          <strong>Combined MPG</strong>
+          <label>Combined MPG: </label>
           <%= @vehicle.mpg %>
         </p>
         <p>
-          <strong>Trim</strong>
+          <label>Trim: </label>
           <%= @vehicle.trim %>
         </p>
         <% else  %>
         <% end %>
         
         <p>
-          <strong>Stereo</strong>
+          <label>Stereo: </label>
           <%= @vehicle.stereo %>
         </p>
         <p>
-          <strong># of Doors</strong>
+          <label># of Doors: </label>
           <%= @vehicle.doors %>
         </p>
         <p>
-          <strong>Stock Number</strong>
+          <label>Stock Number: </label>
           <%= @vehicle.stock_number %>
         </p>
         <p>
-          <strong>VIN</strong>
+          <label>VIN: </label>
           <%= @vehicle.vin_num %>
         </p>
       </div>
@@ -111,7 +111,9 @@
         Features
       </div>
       <div class="panel-body features">
+      <p>
         <%= @vehicle.other_options.html_safe %>
+        </p>
       </div>
     </div>
   </div>
@@ -127,7 +129,9 @@
   </div>
 </div>
 <style>
+
 h3.field-label{
 display:none!important;
+font-weight: normal!important;
 }
 </style>

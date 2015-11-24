@@ -1,34 +1,49 @@
+<link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 <div class = "container">
+	<div class="row">
+		<div class="col-lg-8">
+			<div class="card card-front panel-default z-depth-2">
+				<div class="card-image">
+					<%= image_tag "Location_Sign.png"%>
+				</div>
+				<div class="card-content">
+					<h5 id="welcome" style="font-family: 'Black Ops One', cursive;  font-size:1.6rem;">Welcome to</h5>
+					<center>
+					<h5 style="font-family: 'Black Ops One', cursive; font-size:3.3rem;">
+					Deals
+					<span style="color: rgb(83, 131, 211)!important; font-size:4.3rem;">Unlimited,
+						<span style="font-size:2.5rem; font-family: 'Black Ops One', cursive!important;"> Inc.
+						</span>
+					</span>
+					</h5>
+					<p  style="font-style: cursive;  font-size:1.2rem;">
+						We have a large inventory of Certified Used Vehicles to fill all of your transportation needs.
+						We're here to serve, to help you pick out the auto you've always wanted.
+					</p>
+					<p style="font-family: 'Black Ops One', cursive; font-size:1.7rem;"id="seeus">Come see us today!</p>
+					<br>
+					</center>
+				</div>
+				<div class="card-action">
+					<span style="font-size:1.8rem;" >Serving West Michigan since 1988.</span>
+				</div>
+			</div>
+		</div>
+		<%= render "layouts/application/directions" %>
+		<%= render "layouts/application/hours" %>
+	</div>
+</div>
 <style>
+#welcome{}
+*{
+	font-size: 1.2rem;
+}
+span{
+	font-family: 'Cookie', cursive !important;
+	font-size: 1.4rem;
+}
 .loading-screen{
 	visibility: visible !important;
 }
 </style>
-<div class="row">
-	<div class="col-lg-8">
-		<div class="card card-front panel-default z-depth-2">
-			<div class="card-image">
-				<%= image_tag "Location_Sign.png"%>
-			</div>
-			<div class="card-content">
-				<h4 id="welcome">Welcome to</h4>
-				<h4 >Deals Unlimited, <span style="color: rgb(83, 131, 211)!important;">Inc.</span></h4>
-				<p>
-					We have a large inventory of Certified Used Vehicles to fill all of your transportation needs.
-				</p>
-				<p>
-					We're here to serve, to help you pick out the auto you've always wanted.
-				</p>
-				<p id="seeus">Come see us today!</p>
-				<br>
-			</div>
-			<div class="card-action">
-				<span >Serving West Michigan since 1988.</span>
-			</div>
-		</div>
-	</div>
-	<%= render "layouts/application/directions" %>
-	<%= render "layouts/application/hours" %>
-</div>
-
-</div>

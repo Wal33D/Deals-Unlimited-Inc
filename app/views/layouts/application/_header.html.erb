@@ -1,20 +1,19 @@
 <header>
-  <nav style="  min-height:74px!important;
-">
+  <nav style="  min-height:70px!important;">
     <div class="nav-wrapper z-depth-2">
       <a href="/"><div id="header-img"><%= image_tag "logo2.png"%></div></a>
       <a href="#" data-activates="mobile-demo"  class="button-collapse"><i class="material-icons">menu</i></a>
       <a class ="header-phone-btn" href="tel:269-324-4285" class="button-collapse"><i class="fa fa-phone"></i></a>
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med">
         <li>
           <div class="btn-group">
             <a href= "/vehicles"class="btn blue-btn btn-vehicles " data-no-turbolink="true">Vehicles</a>
-          
+            
           </div>
         </li>
-        <li><a href="/directions">Directions</a></li>
-        <li><a href="/finance">Financing</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li id="mobileli"><a href="/directions">Directions</a></li>
+        <li id="mobileli"><a href="/finance">Financing</a></li>
+        <li id="mobileli"><a href="/contact">Contact Us</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="/vehicles">Vehicles</a></li>
@@ -29,3 +28,19 @@
     </div>
   </nav>
 </header>
+<style>
+
+@media (max-width: 993px){
+  #header-img img{
+    min-width: 68px!important;
+    width: 68px!important;
+  }
+  .btn-vehicles{
+        margin-right: 2rem!important;
+
+  }
+  #mobileli{
+display:none!important; }
+
+}
+</style>

@@ -2,13 +2,11 @@
   <div class="col-sm-4" style=""id="left">
     <div class = "panel panel-default shadow" style=" margin-top:7rem!important; ">
       <div class = "panel-heading panel-black">
-        <div class="panel-title">
-        </div>
-        <h5></h5>
+        
+       <div class="panel-title"> <h5 style="font-size:1.1rem;">Search <%=Vehicle.count%> Vehicles</h5></div>
       </div>
       <div class = "panel-body" >
         <%= search_form_for @q do |f| %>
-        <label for="cont" style="float:left!important; ">Basic Search</label>
         <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Basic Search" , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
         <label for="q_kind" style="float:left!important;">Type of Vehicle</label>
         <%= f.select :kind_cont, options_for_select([['', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
@@ -40,13 +38,13 @@
     </div>
   </div>
   <div class="col-sm-8" id="right" >
-    <ul class="pagination"style="margin:0!important; float:right; padding:0!important; margin:0!important; ">
-      <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
-      <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
-      <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
-    </ul>
     <div class = "jumbotron" style="background-color:rgba(0,0,0,0)!important; border:none!important; margin-top:3.4rem!important;">
       
+      <ul class="pagination"style="margin:0!important; float:right; padding:0!important; margin:0!important; ">
+        <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
+        <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
+        <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
+      </ul>
       <% @vehicles.each do |vehicle| %>
       
       <div class="row" style="border-radius: 1rem;margin:0!important;  margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:inherit!important; background-color:white; padding:0!important;" >
@@ -107,5 +105,4 @@
 <style>
 <%= render 'indexStyle' %>
 <%= render 'vehicleFooterStyle' %>
-
 </style>
