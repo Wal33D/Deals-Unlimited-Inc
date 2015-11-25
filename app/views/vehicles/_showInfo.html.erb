@@ -1,36 +1,31 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
+  <div class="panel-heading" style="background-color:#ddd">
+    <%= @vehicle.title %>
   </div>
-  <div class="panel-body">
+  <div class="panel-body" style="background-color:#eff7ff">
     <div class="row">
       <div class="col-lg-3">
         <p>
           <label>Price: </label>
-          <%= @vehicle.price %>
+          $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
         </p>
-        <p>
-          <label>Status: </label>
-          <%= @vehicle.status %>
-        </p>
-        <p>
-          <label>Year: </label>
-          <%= @vehicle.year %>
-        </p>
-        <p>
-          <label>Make: </label>
-          <%= @vehicle.make %>
-        </p>
-        
-        <p>
-          <label>Model: </label>
-          <%= @vehicle.model %>
-        </p>
-        
-      </div>
-      <div class="col-lg-3">
         <p>
           <label>ExteriorColor: </label>
           <%= @vehicle.exterior_color %>
+        </p>
+        <p>
+          <label>Engine: </label>
+          <%= @vehicle.engine %>
+        </p>
+        <p>
+          <label>Trim: </label>
+          <%= @vehicle.trim %>
+        </p>
+      </div>
+      <div class="col-lg-3">
+        <p>
+          <label>Year: </label>
+          <%= @vehicle.year %>
         </p>
         <p>
           <label>Interior Color: </label>
@@ -42,15 +37,15 @@
         </p>
         <p>
           <label>Mileage: </label>
-          <%= @vehicle.mileage %>
+          <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
         </p>
       </div>
       <div class="col-lg-3">
-        
         <p>
-          <label>Engine: </label>
-          <%= @vehicle.engine %>
+          <label>Make: </label>
+          <%= @vehicle.make %>
         </p>
+        
         <p>
           <label>Transmission: </label>
           <%= @vehicle.transmission %>
@@ -65,6 +60,10 @@
         </p>
       </div>
       <div class="col-lg-3">
+        <p>
+          <label>Model: </label>
+          <%= @vehicle.model %>
+        </p>
         <% if @vehicle.import!='import'  %>
         <p >
           <label>Class: </label>
@@ -74,10 +73,7 @@
           <label>Combined MPG: </label>
           <%= @vehicle.mpg %>
         </p>
-        <p>
-          <label>Trim: </label>
-          <%= @vehicle.trim %>
-        </p>
+        
         <% else  %>
         <% end %>
         
@@ -107,29 +103,28 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background-color:#ddd">
         Features
       </div>
-      <div class="panel-body features">
-      <p>
-        <%= @vehicle.other_options.html_safe %>
+      <div class="panel-body features" style="background-color:#eff7ff">
+        <p>
+          <%= @vehicle.other_options.html_safe %>
         </p>
       </div>
     </div>
   </div>
   <div class="col-lg-6">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background-color:#ddd">
         Description
       </div>
-      <div class="panel-body">
+      <div class="panel-body" style="background-color:#eff7ff">
         <%= @vehicle.description %>
       </div>
     </div>
   </div>
 </div>
 <style>
-
 h3.field-label{
 display:none!important;
 font-weight: normal!important;

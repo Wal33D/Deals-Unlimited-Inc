@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
 $(".loading-screen").fadeOut(1150);
 setTimeout(function() {
     $(".body").animate({
@@ -95,3 +96,8 @@ function myFunction(option) {
     js.src = "../../edmunds.api.sdk.js";
     sdkjs.parentNode.insertBefore(js, sdkjs);
 }(document, 'script', 'edmunds-jssdk'));
+
+
+    setTimeout(function(){ $("div.review-box").hide(); }, 3000);
+
+

@@ -1,9 +1,9 @@
 <div class="container" >
   <div class="col-sm-4" style=""id="left">
+  <% render 'searchForm' %>
     <div class = "panel panel-default shadow" style=" margin-top:7rem!important; ">
       <div class = "panel-heading panel-black">
         
-       <div class="panel-title"> <h5 style="font-size:1.1rem;">Search <%=Vehicle.count%> Vehicles</h5></div>
       </div>
       <div class = "panel-body" >
         <%= search_form_for @q do |f| %>
