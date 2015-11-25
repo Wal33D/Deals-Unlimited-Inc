@@ -7,9 +7,9 @@ class CreditsController < ApplicationController
     @credit = Credit.new(params[:credit])
     @credit.request = request
     if @credit.deliver
-      flash.now[:notice] = 'Thank you for your message. We will credit you soon!'
+      flash.now[:notice] = 'Thank you for your application, We will contact you soon!'
     else
-      flash.now[:error] = 'Cannot send message.'
+      flash.now[:error] = 'Cannot send message. Please try again later or call us at 269-324-4285'
       render :new
     end
   end

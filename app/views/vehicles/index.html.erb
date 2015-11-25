@@ -32,7 +32,7 @@
         ['25,000','25000'], ['50,000','50000'], ['75,000','750000'], ['100,000','100000'], ['150,000','150000'], ['250,000','250000']], :selected => :Any), :style=>"width:100%!important;" %>
         
       </div>
-      <%= f.submit :class =>'btn btn-default blue-btn',:style=>'width:100%!important;height:100%!important;' %>
+      <%= f.submit :class =>'btn btn-default blue-btn',:style=>' font-size:1.3rem; width:100%!important;height:100%!important;' %>
       <% end %>
       
     </div>
@@ -57,19 +57,22 @@
           <% end %>
         </div>
         
-        <div class="col-lg-4">
+        <div class="col-lg-4"style="height:auto">
           
           <h5 style="padding-top:1rem;"><%= link_to  vehicle.title, vehicle %></h5>
-          <hr>
-          <p class = "specs">Price: $<%= vehicle.price %></p>
-          <p class = "specs">Drive: <%= vehicle.drive_type %></p>
+          <hr> 
+          <h5 style="color:#5383D3 !important">$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
+         
+         <div class="jumbotron" style="padding:1.3rem;">
+          <p class = "specs" style="font-size:1rem;"><%= vehicle.drive_type %></p>
           <% if vehicle.import =='import'  %>
           <% else %>
-          <p class = "specs">MPG: <%= vehicle.mpg %></p>
+          <p class = "specs" style="font-size:1rem;"> <%= vehicle.mpg %> MPG</p>
           <% end %>
-          <p class = "specs">Engine: <%= vehicle.engine %></p>
-          <p class = "specs">Fuel Type: <%= vehicle.fuel_type %></p>
-          <p class = "specs">Mileage: <%= vehicle.mileage %></p>
+          <p class = "specs" style="font-size:1rem;"> <%= vehicle.engine %> Engine</p>
+          <p class = "specs" style="font-size:1rem;">Fuel Type: <%= vehicle.fuel_type %></p>
+          <p class = "specs" style="font-size:1rem;">Mileage: <%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %></p>
+          </div>
           <!--
           <%= link_to 'Show', vehicle %>
           <%= link_to 'Edit', edit_vehicle_path(vehicle) %>

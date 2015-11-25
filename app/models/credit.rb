@@ -10,11 +10,11 @@ attribute :employer,    :validate => true
 attribute :employer_addr,    :validate => true
 attribute :employer_phone,    :validate => true
 attribute :curr_pos,    :validate => true
-attribute :toj,    :validate => true
+attribute :time_at_job,    :validate => true
 attribute :income,    :validate => true
 attribute :prev_employer,    :validate => true
 attribute :prev_position,    :validate => true
-attribute :toj_l,    :validate => true
+attribute :time_at_last_job,    :validate => true
 attribute :other_income,    :validate => true
 attribute :other_income_source,    :validate => true
 attribute :middle_initial,      :validate => true
@@ -47,8 +47,8 @@ attribute :tel
   def headers
     {
       :subject => "Credit Application",
-      :to => "aquataze91@gmail.com",
-      :from => %("#{name}" <#{email}>)
+      :to => "dealsunlimitedinc@live.com",
+      :from => %("#{name} #{last_name}" <#{email}>)
     }
   end
 end
