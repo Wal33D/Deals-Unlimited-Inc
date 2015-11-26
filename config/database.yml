@@ -9,7 +9,7 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: deals_db
+  database: deals
   pool: 5
-  username: wal33d
+  username: aquataze
   password:
