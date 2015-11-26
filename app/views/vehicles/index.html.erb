@@ -1,11 +1,10 @@
 <div class="container" >
   <div class="col-sm-4" style=""id="left">
-  <% render 'searchForm' %>
-    <div class = "panel panel-default shadow" style=" margin-top:7rem!important; ">
+    <div class = "panel panel-default shadow" style=" margin-top:7rem!important; height:auto!important;  ">
       <div class = "panel-heading panel-black">
         
       </div>
-      <div class = "panel-body" >
+      <div class = "panel-body" style=" height:inherit!important;"  >
         <%= search_form_for @q do |f| %>
         <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Basic Search" , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
         <label for="q_kind" style="float:left!important;">Type of Vehicle</label>
@@ -30,11 +29,11 @@
         <label for="mileage_lteq" style="float:left!important;">Max Mileage</label>
         <%= f.select :mileage_lteq , options_for_select([['Any', ''],
         ['25,000','25000'], ['50,000','50000'], ['75,000','750000'], ['100,000','100000'], ['150,000','150000'], ['250,000','250000']], :selected => :Any), :style=>"width:100%!important;" %>
-        
       </div>
-      <%= f.submit :class =>'btn btn-default blue-btn',:style=>' font-size:1.3rem; width:100%!important;height:100%!important;' %>
+      <div class="panel-footer panel-black">
+        <%= f.submit :class =>'btn btn-default blue-btn',:style=>' font-size:1.3rem; width:100%!important;height:100%!important;' %>
+      </div>
       <% end %>
-      
     </div>
   </div>
   <div class="col-sm-8" id="right" >
@@ -48,7 +47,6 @@
       <% @vehicles.each do |vehicle| %>
       
       <div class="row" style="border-radius: 1rem;margin:0!important;  margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:inherit!important; background-color:white; padding:0!important;" >
-
         <div class="col-lg-5" id="vehthumb" style=" margin:0!important; padding:0!important;" >
           <% if vehicle.import =='import'  %>
           <%=  link_to image_tag(vehicle.image_1),vehicle, :class=>"img-responsive" %>
@@ -60,18 +58,18 @@
         <div class="col-lg-4"style="height:auto">
           
           <h5 style="padding-top:1rem;"><%= link_to  vehicle.title, vehicle %></h5>
-          <hr> 
+          <hr>
           <h5 style="color:#5383D3 !important">$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
-         
-         <div class="jumbotron" style="padding:1.3rem;">
-          <p class = "specs" style="font-size:1rem;"><%= vehicle.drive_type %></p>
-          <% if vehicle.import =='import'  %>
-          <% else %>
-          <p class = "specs" style="font-size:1rem;"> <%= vehicle.mpg %> MPG</p>
-          <% end %>
-          <p class = "specs" style="font-size:1rem;"> <%= vehicle.engine %> Engine</p>
-          <p class = "specs" style="font-size:1rem;">Fuel Type: <%= vehicle.fuel_type %></p>
-          <p class = "specs" style="font-size:1rem;">Mileage: <%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %></p>
+          
+          <div class="jumbotron" style="padding:1.3rem;">
+            <p class = "specs" style="font-size:1rem;"><%= vehicle.drive_type %></p>
+            <% if vehicle.import =='import'  %>
+            <% else %>
+            <p class = "specs" style="font-size:1rem;"> <%= vehicle.mpg %> MPG</p>
+            <% end %>
+            <p class = "specs" style="font-size:1rem;"> <%= vehicle.engine %> Engine</p>
+            <p class = "specs" style="font-size:1rem;">Fuel Type: <%= vehicle.fuel_type %></p>
+            <p class = "specs" style="font-size:1rem;">Mileage: <%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %></p>
           </div>
           <!--
           <%= link_to 'Show', vehicle %>
@@ -101,7 +99,7 @@
 </div>
 <div class="container" style="width:100%!important; position:absolute;left:0; right:0;">
   <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
-    <h4>Deals <span style="font:normal 2.8rem 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
+    <h4>Deals <span style="font:normal 3.5vmin 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
     <h5>269-324-4285</h5>
   </div>
 </div>
