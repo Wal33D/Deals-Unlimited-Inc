@@ -10,6 +10,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: deals
+  host: localhost
   pool: 5
   username: aquataze
   password:
