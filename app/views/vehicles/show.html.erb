@@ -6,7 +6,7 @@
         <div class="panel-title" style="font-size:0.8rem; color:#5383D3; margin-top:-.5rem!important;">
           <div class="row">
             <div class="col-sm-8" style="float:left; ">
-              <h5>
+              <h5 class="" >
               <%= @vehicle.year %>
               <%= @vehicle.make %>
               <%= @vehicle.model %>
@@ -28,6 +28,8 @@
               <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
                 <%=  image_tag 'carfax.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %>
               </a>
+              <button onclick="window.print();">Print this page</button>
+         
             </div>
           </div>
         </div>
@@ -265,6 +267,10 @@
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   }
+    .NonPrintable
+              {
+              display: none;
+              }
   </style>
   <script>
   </script>
