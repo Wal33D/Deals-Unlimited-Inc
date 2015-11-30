@@ -1,12 +1,12 @@
-<div class ="container">
+<div class ="container" id="showpage">
   <p id="notice"><%= notice %></p>
   <div class = "row">
-    <div class = "panel panel-default ">
-      <div class = "panel-heading "style="padding-bottom:0!important; margin:0!important; background-color:#eee; border-color:#eee;" >
-        <div class="panel-title" style="font-size:0.8rem; color:#5383D3; margin-top:-.5rem!important;">
-          <div class="row">
-            <div class="col-sm-8" style="float:left; ">
-              <h5 class="" >
+    <div class = "panel panel-default">
+      <div class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; background-color:#eee; border-color:#eee;" >
+        <div class ="panel-title" style ="font-size:0.8rem; color:#5383D3; margin-top:-.5rem!important;">
+          <div class ="row">
+            <div class ="col-sm-8" style ="float:left; ">
+              <h5 class ="">
               <%= @vehicle.year %>
               <%= @vehicle.make %>
               <%= @vehicle.model %>
@@ -24,12 +24,12 @@
                 <%= @vehicle.vin_num %>
               </div>
             </div>
-            <div class= "col-sm-4 " style="float:right; ">
+            <div class= "col-sm-4 " style="float:right;">
+              <link rel="stylesheet" href="/print.css" type="text/css" media="print">
+              <a href="#" onclick="window.print();return false;">Print this page</a>
               <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
                 <%=  image_tag 'carfax.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %>
               </a>
-              <button onclick="window.print();">Print this page</button>
-         
             </div>
           </div>
         </div>
@@ -48,18 +48,20 @@
     <%= link_to 'Back', vehicles_path, :class=>'btn orange btn-default'  %>
     </center>
   </div>
-  <div class="container" style="width:100%!important; position:absolute;left:0; right:0; ">
-    <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; padding:1rem;">
-      <h4 style="">
-      Deals
-      <span style="color: rgb(83, 131, 211)!important; font: normal 36px 'Cookie', cursive!important; font-size:3.3rem; ">Unlimited,
-        <span style="font-size:2rem; font-family: 'Black Ops One', cursive!important;color:white!important;"> Inc.
-        </span>
+</div>
+<div class="container" style="width:100%!important; position:absolute;left:0; right:0; ">
+  <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; padding:1rem;">
+    <h4 style="">
+    Deals
+    <span style="color: rgb(83, 131, 211)!important; font: normal 36px 'Cookie', cursive!important; font-size:3.3rem; ">Unlimited,
+      <span style="font-size:2rem; font-family: 'Black Ops One', cursive!important;color:white!important;"> Inc.
       </span>
-      </h4>
-      <h5>269-324-4285</h5>
-    </div>
+    </span>
+    </h4>
+    <h5>269-324-4285</h5>
   </div>
+</div>
+<%= render 'print' %>
   <style>
   <%= render 'vehicleFooterStyle' %>
   body {
@@ -267,10 +269,4 @@
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   }
-    .NonPrintable
-              {
-              display: none;
-              }
   </style>
-  <script>
-  </script>

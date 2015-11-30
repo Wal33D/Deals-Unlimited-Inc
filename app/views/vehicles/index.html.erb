@@ -36,16 +36,13 @@
     </div>
   </div>
   <div class="col-sm-8" id="right" >
-
     <div class = "jumbotron" style="background-color:rgba(0,0,0,0)!important; border:none!important; margin-top:3.4rem!important;">
-
       <ul class="pagination"style="margin:0!important; float:right; padding:0!important; margin:0!important; ">
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
       </ul>
       <% @vehicles.each do |vehicle| %>
-      
       <div class="row" style="margin:0!important; border-radius:none!important;border-bottom:2px solid white;background-color:rgba(255,255,255,0)!important; margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:auto!important; height:auto!important;background-color:white; padding:0!important;" >
         <div class="col-lg-5" id="vehthumb" style=" margin:0!important; padding:0!important;" >
           <% if vehicle.import =='import'  %>
@@ -54,13 +51,10 @@
           <%=  link_to image_tag(vehicle.thumb),vehicle, :class=>"indexthumb" %>
           <% end %>
         </div>
-        
         <div class="col-lg-4"style="height:100%;">
-          
           <h5 style="padding-top:1rem;"><%= link_to  vehicle.title, vehicle %></h5>
           <hr>
           <h5 style="color:#5383D3 !important">$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
-          
           <div class="jumbotron" style="padding:0; margin-bottom:0!important;width: 100%;">
             <table class="table "style="  " >
               <tr>
@@ -165,12 +159,11 @@
 <%= render 'vehicleFooterStyle' %>
 .field-label{display: none!important;}
 .indexthumb img{
- max-height:450px!important;
- max-width:450px!important;
+max-height:450px!important;
+max-width:450px!important;
 }
 .indexthumb{
-
- max-height:450px!important;
- max-width:450px!important;
+max-height:450px!important;
+max-width:450px!important;
 }
 </style>

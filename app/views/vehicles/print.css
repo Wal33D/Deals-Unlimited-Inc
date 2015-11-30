@@ -1,0 +1,19 @@
+.panel-heading{
+	display: none!important;
+}
+nav{
+	display: none!important;
+}
+
+#print{
+	display: inline-block!important;
+}
+#showpage{
+	display:none!important;
+}
+label{
+	font-size:1.6rem!important; 
+}
+.container{
+	width:100%!important;
+}
