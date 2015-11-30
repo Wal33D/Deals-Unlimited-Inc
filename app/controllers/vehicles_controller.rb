@@ -24,6 +24,7 @@ class VehiclesController < ApplicationController
   def edit
   end
 
+
   # POST /vehicles
   # POST /vehicles.json
   def create

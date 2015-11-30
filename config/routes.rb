@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   resources "contacts", only: [:new, :create]
   resources "credits", only: [:new, :create]
 
-  get 'vehicles/cars'
-  get 'vehicles/trucks'
-  get 'vehicles/suvs'
-  get 'vehicles/vans'
   get 'pages/welcome'
   get 'pages/finance'
   get 'pages/directions'
@@ -19,17 +15,12 @@ Rails.application.routes.draw do
   match '/policy',    to: 'pages#policy',       via: 'get'
   match '/faq',       to: 'pages#faq',          via: 'get'
   match '/credit-application',   to: 'credits#new',       via: 'get'
-
   match '/about',     to: 'pages#about',          via: 'get'
   match '/meet',     to: 'pages#meet',          via: 'get'
   match '/finance',   to: 'pages#finance',      via: 'get'
   match '/directions',to: 'pages#directions',   via: 'get'
-  match '/cars',      to: 'vehicles#cars',      via: 'get'
-  match '/trucks',    to: 'vehicles#trucks',    via: 'get'
-  match '/suvs',      to: 'vehicles#suvs',      via: 'get'
-  match '/vans',      to: 'vehicles#vans',      via: 'get'
   match '/contacts',  to: 'contacts#new',             via: 'get'
-
+  match '/print',  to: 'vehicles#print',             via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
