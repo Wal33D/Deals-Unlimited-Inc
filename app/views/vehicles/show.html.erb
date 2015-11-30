@@ -26,7 +26,7 @@
             </div>
             <div class= "col-sm-4 " style="float:right;">
               <link rel="stylesheet" href="/print.css" type="text/css" media="print" >
-              <a href="#" onclick="window.print();return false;"> <%=  image_tag 'print.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; " %></a>
+              <a href="#" onclick="window.print();return false;"> <%=  image_tag 'print.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %></a>
               <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
                 <%=  image_tag 'carfax.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %>
               </a>
