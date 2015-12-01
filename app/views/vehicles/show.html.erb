@@ -1,27 +1,28 @@
 <div class ="container" id="showpage" style="margin-bottom:3.5vmin!important;" >
-  <p id="notice"><%= notice %></p>
   <div class = "row">
     <div class = "panel panel-default z-depth-3">
-      <div class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; " >
+      <div id ="headerinfo" class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; " >
         <div class ="panel-title" style ="font-size:0.8rem; color:#5383D3; margin-top:-.5rem!important;">
           <div class ="row">
             <div class ="col-sm-8" style ="float:left; ">
-              <h5 class ="">
+              <h5 >
               <%= @vehicle.year %>
               <%= @vehicle.make %>
               <%= @vehicle.model %>
               </h5>
-              <div class="row" style="margin:0!important;">
-                <label style="color:black">Price: </label>
-                $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
-              </div>
-              <div class="row" style="margin:0!important;">
-                <label style="color:black">Mileage: </label>
-                <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
-              </div>
-              <div class="row" style="margin:0!important;">
-                <label style="color:black">VIN:</label>
-                <%= @vehicle.vin_num %>
+              <div id ="">
+                <div class="row" style="margin:0!important;">
+                  <label style="color:black">Price: </label>
+                  $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
+                </div>
+                <div class="row" style="margin:0!important;">
+                  <label style="color:black">Mileage: </label>
+                  <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
+                </div>
+                <div class="row" style="margin:0!important;">
+                  <label style="color:black">VIN:</label>
+                  <%= @vehicle.vin_num %>
+                </div>
               </div>
             </div>
             <div class= "col-sm-4 " style="float:right;">
@@ -34,6 +35,47 @@
           </div>
         </div>
       </div>
+      <center>
+      <div id ="mobileinfo" class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; display:none; width:98%!important;" >
+        <div class ="panel-title" style ="font-size:0.8rem; color:#5383D3; margin-top:-.5rem!important;">
+          <div class ="row">
+            <table class="table">
+              <tr>
+                <td>
+                  <h5>
+                  <%= @vehicle.year %>
+                  <%= @vehicle.make %>
+                  <%= @vehicle.model %>
+                  </h5>
+                </td>
+                <td>
+                  <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
+                    <%=  image_tag 'carfax.png', :class=>"img-responsive", :style=>"max-height:4.5rem!important; margin:0.4rem 0 0 0!important; float:right;" %>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label style="color:black">Price: </label>
+                </td>
+                <td>
+                  $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label style="color:black">VIN:</label>
+                </td>
+                <td>
+                  <%= @vehicle.vin_num %>
+                </td>
+              </tr>
+              
+            </table>
+            
+          </div>
+        </div>
+      </div></center>
       <%= render 'showImages' %>
       <div class="panel-body">
         <%= render 'showInfo' %>
@@ -268,5 +310,13 @@ transition: opacity 0.2s;
 cursor: pointer;
 filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 opacity: 1;
+}
+@media (max-width: 750px){
+#printbutton, #headerinfo{
+display: none!important;
+}
+#mobileinfo{
+display:inline-block!important;
+}
 }
 </style>
