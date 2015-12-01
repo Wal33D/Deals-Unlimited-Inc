@@ -176,35 +176,39 @@
           </tr>
         </table>
       </div>
-      
     </div>
   </div>
-  <div class="panel-footer">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading" style="background-color:#ddd">
-            Features
-          </div>
-          <div class="panel-body features" style="background-color:#e5f2ff">
-            <tr><td>
-              <%= @vehicle.other_options.html_safe %>
-            </td></tr>
-          </div>
-        </div>
+  <div class="panel-footer" style="background-color:#ddd">
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color:#ddd">
+        Features
       </div>
-      <div class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading" style="background-color:#ddd">
-            Description
-          </div>
-          <div class="panel-body" style="background-color:#e5f2ff">
-            <%= @vehicle.description %>
-          </div>
-        </div>
+      <div class="panel-body features" style="background-color:#e5f2ff">
+        <tr><td>
+          <%= @vehicle.other_options.html_safe %>
+        </td></tr>
+      </div>
+      <div class="panel-footer" style="background-color:#ddd">
       </div>
     </div>
   </div>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color:#ddd">
+        Description
+      </div>
+      <div class="panel-body" style="background-color:#e5f2ff">
+        <%= @vehicle.description %>
+      </div>
+      <div class="panel-footer" style="background-color:#ddd">
+      </div>
+    </div>
+  </div>
+  
 </div>
 <style>
 h3.field-label{
