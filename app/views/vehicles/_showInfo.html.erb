@@ -2,125 +2,206 @@
   <div class="panel-heading" style="background-color:#ddd">
     <%= @vehicle.title %>
   </div>
-  <div class="panel-body" style="background-color:#eff7ff">
+  <div class="panel-body" style="background-color:#e5f2ff">
     <div class="row">
-      <div class="col-lg-3">
-        <p>
-          <label>Price: </label>
-          $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
-        </p>
-        <p>
-          <label>ExteriorColor: </label>
-          <%= @vehicle.exterior_color %>
-        </p>
-        <p>
-          <label>Engine: </label>
-          <%= @vehicle.engine %>
-        </p>
-        <p>
-          <label>Trim: </label>
-          <%= @vehicle.trim %>
-        </p>   
-        
+      <div class="col-md-4">
+        <table class="table">
+          <tr>
+            <td>
+              <label>Price: </label>
+            </td>
+            <td>
+              <p  style="float:right;">$<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>ExteriorColor: </label>
+            </td>
+            <td>
+              <p  style="float:right;"> <%= @vehicle.exterior_color %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Engine: </label>
+            </td>
+            
+            <td>
+              <p  style="float:right;"><%= @vehicle.engine %></p>
+            </td>
+          </tr>
+          <% if @vehicle.import!='import'  %>
+          <tr>
+            <td>
+              <label>Trim: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.trim %></p>
+            </td>
+          </tr>
+          <% end %>
+          <tr>
+            <td>
+              <label>VIN: </label>
+            </td>
+            <td>
+              <p  style="float:right;">    <%= @vehicle.vin_num %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Stock Number: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.stock_number %></p>
+            </td>
+          </tr>
+          <% if @vehicle.import!='import'  %>
+          <tr>
+            <td>
+              <label>Class: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.vehicle_class %></p>
+            </td>
+          </tr>
+          <% end %>
+        </table>
       </div>
-      <div class="col-lg-3">
-        <p>
-          <label>Year: </label>
-          <%= @vehicle.year %>
-        </p>
-        <p>
-          <label>Interior Color: </label>
-          <%= @vehicle.interior_color %>
-        </p>
-        <p>
-          <label>Body Style: </label>
-          <%= @vehicle.body_style %>
-        </p>
-        <p>
-          <label>Mileage: </label>
-          <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
-        </p>
+      <div class="col-md-4">
+        <table class="table">
+          <tr>
+            <td>
+              <label>Year: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.year %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Interior Color: </label>
+            </td>
+            <td>
+              <p  style="float:right;">   <%= @vehicle.interior_color %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Body Style: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.body_style %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Mileage: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label># of Doors: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.doors %></p>
+            </td>
+          </tr>
+          <% if @vehicle.import!='import'  %>
+          <tr>
+            <td>
+              <label>Combined MPG: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.mpg %></p>
+            </td>
+          </tr>
+          
+          <% end %>
+        </table>
       </div>
-      <div class="col-lg-3">
-        <p>
-          <label>Make: </label>
-          <%= @vehicle.make %>
-        </p>
-        
-        <p>
-          <label>Transmission: </label>
-          <%= @vehicle.transmission %>
-        </p>
-        <p>
-          <label>Drive Type: </label>
-          <%= @vehicle.drive_type %>
-        </p>
-        <p>
-          <label>Fuel Type: </label>
-          <%= @vehicle.fuel_type %>
-        </p>
+      <div class="col-md-4">
+        <table class="table">
+          <tr>
+            <td>
+              <label>Make: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.make %></p>
+            </td>
+          </tr>
+          <tr>
+            <tr>
+              <td>
+                <label>Model: </label>
+              </td>
+              <td>
+                <p  style="float:right;">   <%= @vehicle.model %></p>
+              </td>
+            </tr>
+            <td>
+              <label>Transmission: </label>
+            </td>
+            <td>
+              <p  style="float:right;"> <%= @vehicle.transmission %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Drive Type: </label>
+            </td>
+            <td>
+              <p  style="float:right;">   <%= @vehicle.drive_type %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Fuel Type: </label>
+            </td>
+            <td>
+              <p  style="float:right;">    <%= @vehicle.fuel_type %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Stereo: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.stereo %></p>
+            </td>
+          </tr>
+        </table>
       </div>
-      <div class="col-lg-3">
-        <p>
-          <label>Model: </label>
-          <%= @vehicle.model %>
-        </p>
-        <% if @vehicle.import!='import'  %>
-        <p >
-          <label>Class: </label>
-          <%= @vehicle.vehicle_class %>
-        </p>
-        <p>
-          <label>Combined MPG: </label>
-          <%= @vehicle.mpg %>
-        </p>
-        
-        <% else  %>
-        <% end %>
-        
-        <p>
-          <label>Stereo: </label>
-          <%= @vehicle.stereo %>
-        </p>
-        <p>
-          <label># of Doors: </label>
-          <%= @vehicle.doors %>
-        </p>
-        <p>
-          <label>Stock Number: </label>
-          <%= @vehicle.stock_number %>
-        </p>
-        <p>
-          <label>VIN: </label>
-          <%= @vehicle.vin_num %>
-        </p>
-      </div>
+      
     </div>
-    
   </div>
   <div class="panel-footer">
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-6">
-    <div class="panel panel-default">
-      <div class="panel-heading" style="background-color:#ddd">
-        Features
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color:#ddd">
+            Features
+          </div>
+          <div class="panel-body features" style="background-color:#e5f2ff">
+            <tr><td>
+              <%= @vehicle.other_options.html_safe %>
+            </td></tr>
+          </div>
+        </div>
       </div>
-      <div class="panel-body features" style="background-color:#eff7ff">
-        <p>
-          <%= @vehicle.other_options.html_safe %>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="panel panel-default">
-      <div class="panel-heading" style="background-color:#ddd">
-        Description
-      </div>
-      <div class="panel-body" style="background-color:#eff7ff">
-        <%= @vehicle.description %>
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color:#ddd">
+            Description
+          </div>
+          <div class="panel-body" style="background-color:#e5f2ff">
+            <%= @vehicle.description %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -129,5 +210,8 @@
 h3.field-label{
 display:none!important;
 font-weight: normal!important;
+}
+label{
+color:#444!important;
 }
 </style>
