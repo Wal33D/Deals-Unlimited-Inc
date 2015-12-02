@@ -1,10 +1,3 @@
-Admin.create!(:name => "Wal33d",
-             :email => "aquataze@yahoo.com", 
-                 :password =>"testpass", 
-                 :created_at => 2.days.ago,
-             :last_sign_in_at => 1.day.ago,
-             :updated_at => 5.hours.ago)
-
 
 require 'csv'      
 CSV.foreach('db/cars.csv', :headers => true, :encoding => 'windows-1251:utf-8') do |row|

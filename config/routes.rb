@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'pages/meet'
   get 'pages/policy'
   root 'pages#welcome'
+  devise_scope :admin do get "/some/route" 
+    match '/login',   to: 'devise/sessions#new',       via: 'get'
+  end
   match '/contact',   to: 'contacts#new',       via: 'get'
   match '/policy',    to: 'pages#policy',       via: 'get'
   match '/faq',       to: 'pages#faq',          via: 'get'
