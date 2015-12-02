@@ -17,6 +17,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/new
   def new
+    
     @vehicle = Vehicle.new
   end
 

@@ -38,12 +38,13 @@
   <div class="col-sm-8" id="right" >
     <div class = "jumbotron " style="background-color:rgba(0,0,0,0)!important; border:none!important; margin-top:3.4rem!important;">
       <ul class="pagination" style="margin:0!important; float:right; padding:0!important; margin:0!important; ">
+        <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;", :class=>"button btn green btn-default"%></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
       </ul>
       <% @vehicles.each do |vehicle| %>
-      <div class="row" style="margin:0!important; border-radius:none!important;border-bottom:3px solid #ccc;background-color:rgba(255,255,255,0)!important; margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:auto!important; height:auto!important;background-color:white; padding:0!important;" >
+      <div class="row" style="margin:0!important; border-radius:none!important;border-bottom:0.7vmin double white;background-color:rgba(255,255,255,0)!important; margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:auto!important; height:auto!important;background-color:white; padding:0!important;" >
         <div class="col-lg-5" id="vehthumb" style=" margin:0!important; padding:0!important;" >
           <% if vehicle.import =='import'  %>
           <%=  link_to image_tag(vehicle.image_1),vehicle, :class=>"indexthumb" %>
@@ -102,12 +103,7 @@
               </tr>
             </table>
           </div>
-          <!--
-          <%= link_to 'Show', vehicle %>
-          <%= link_to 'Edit', edit_vehicle_path(vehicle) %>
-          <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to 'New Vehicle', new_vehicle_path %>
-          -->
+          
         </div>
         <div class="col-lg-3" style="margin:0!important; padding:0!important; "  >
           <div class="row row1" style="padding:0.7rem 2.5rem 0 2.5rem!important; " >
@@ -141,6 +137,16 @@
                 <%= vehicle.body_style %>
               </td>
             </tr>
+            <% if admin_signed_in? %>
+            <tr>
+              <td>
+                <%= link_to 'Edit', edit_vehicle_path(vehicle), :class=>"button btn blue btn-default"%>
+              </td>
+              <td>
+                <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button btn red btn-default"%>
+              </td>
+            </tr>
+            <% end %>
           </table>
         </div>
       </div>
@@ -150,7 +156,7 @@
 </div>
 <div class="container" style="width:100%!important; position:absolute;left:0; right:0;">
   <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
-    <h4>Deals <span style="font:normal 3.5vmin 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
+    <h4>Deals <span style="font:normal 3.8vmin 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
     <h5>269-324-4285</h5>
   </div>
 </div>
