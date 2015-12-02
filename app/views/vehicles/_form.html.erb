@@ -2,54 +2,65 @@
     <div class = "row">
         <div class = "col-lg-6">
             <div class = "panel panel-default ">
-                <div class = "panel-heading">
+                <div class = "panel-heading" style="background-color:#292c2f !important">
                     <div class = "panel-title">
-                        <h5>Vehicle Info</h5>
+                        <h5 style="color:#eee">Vehicle Info
+                        <button class="btn blue" style="float:right;" onclick="myFunction(document.getElementById('vehicle_vin_num').value)">Fill Using VIN</button>
+                        </h5>
                     </div>
                 </div>
                 <div class = "panel-body">
                     <div class="form-inputs">
-                        <button onclick="myFunction(document.getElementById('vehicle_vin_num').value)">run</button>
                         <%= simple_form_for(@vehicle) do |f| %>
                         <%= f.error_notification %>
                         <%= f.input :vin_num %>
-                        <%= f.input :kind, collection: [:Car, :Truck, :SUV, :Van]%>
-                        <%= f.input :status, collection: [:Sale, :Sold, :Pending, ] %>
-                        <%= f.input :model, :class => "form-control" %>
-                        <%= f.input :title %>
-                        <%= f.input :import %>
                         <%= f.input :price %>
-                        <%= f.input :make %>
-                        <%= f.input :year %>
-                        <%= f.input :body_style %>
                         <%= f.input :mileage %>
                         <%= f.input :exterior_color %>
                         <%= f.input :interior_color %>
-                        <%= f.input :engine %>
-                        <%= f.input :transmission %>
-                        <%= f.input :drive_type %>
-                        <%= f.input :vehicle_class %>
-                        <%= f.input :mpg %>
-                        <%= f.input :trim %>
-                        <%= f.input :fuel_type %>
                         <%= f.input :stereo %>
-                        <%= f.input :doors %>
                         <%= f.input :stock_number %>
                         <%= f.input :description %>
                         <%= f.input :other_options %>
-                        <%= f.label :Image_Folder %>
                         <%= f.label :vehicle_images %>
                         <%= f.file_field :vehicle_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
-                        
-                        <%= f.button :submit %>
                     </div>
-                    <% end %>
                 </div>
                 <div class = "panel-footer">
                 </div>
             </div>
         </div>
+        <div class = "col-lg-6">
+            <div class = "panel panel-default ">
+                <div class = "panel-heading"  style="background-color:#292c2f !important">
+                    <div class = "panel-title">
+                        <h5 style="background-color:#292c2f;">.</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <%= f.input :kind, collection: [:Car, :Truck, :SUV, :Van]%>
+                    <%= f.input :status, collection: [:Sale, :Sold, :Pending, ] %>
+                    <%= f.input :title %>
+                    <%= f.input :year %>
+                    <%= f.input :make %>
+                    <%= f.input :model, :class => "form-control" %>
+                    <%= f.input :body_style %>
+                    <%= f.input :engine %>
+                    <%= f.input :transmission %>
+                    <%= f.input :drive_type %>
+                    <%= f.input :vehicle_class %>
+                    <%= f.input :doors %>
+                    <%= f.input :mpg %>
+                    <%= f.input :trim %>
+                    <%= f.input :fuel_type %>
+                </div>
+                <div class = "panel-footer">
+                    <%= f.button :submit ,:class=>"blue", :style=>"width:100%!important;"%>
+                </div>
+            </div>
+        </div>
     </div>
+    <% end %>
 </div>
 <style>
 select{display: block!important;}
