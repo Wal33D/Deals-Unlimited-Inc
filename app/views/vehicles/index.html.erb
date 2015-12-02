@@ -38,7 +38,9 @@
   <div class="col-sm-8" id="right" >
     <div class = "jumbotron " style="background-color:rgba(0,0,0,0)!important; border:none!important; margin-top:3.4rem!important;">
       <ul class="pagination" style="margin:0!important; float:right; padding:0!important; margin:0!important; ">
+        <% if admin_signed_in? %>
         <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;", :class=>"button btn green btn-default"%></li>
+        <% end %>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
