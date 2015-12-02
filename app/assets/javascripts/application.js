@@ -2,12 +2,12 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(".loading-screen").fadeOut(1150);
+$(".loading-screen").fadeOut(1000);
 setTimeout(function() {
     $(".body").animate({
         opacity: "1"
-    }, 600);
-}, 500);
+    }, 500);
+}, 400);
 jQuery(document).ready(function($) {
 
     $(".clickable-row").click(function() {

@@ -58,7 +58,7 @@
           <h5 style="padding-top:1rem;"><%= link_to  vehicle.title, vehicle %></h5>
           <hr>
           <h5 style="color:#5383D3 !important">$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
-          <div class="jumbotron" style="padding:0; margin-bottom:0!important;width: 100%;">
+          <div class="jumbotron inner-jumbo" style="padding:0; margin-bottom:0!important;width: 100%;">
             <table class="table "style="  " >
               <tr>
                 <td>
@@ -173,5 +173,22 @@ max-width:450px!important;
 .indexthumb{
 max-height:450px!important;
 max-width:450px!important;
+}
+@media (max-width: 830px) {
+  .col-lg-5{
+    float:left!important;
+    width:35%!important;
+  }
+
+  .indexthumb img, .index-thumb{
+    max-height:45vmin!important;
+    max-width:45vmin!important;
+  }
+  .col-lg-3{
+    display: none!important;
+  }
+.inner-jumbo{
+  display: none!important;
+}
 }
 </style>
