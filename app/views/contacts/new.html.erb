@@ -1,31 +1,36 @@
-<div class="container "  >
-
-<div class="panel panel-default hours" >
-  <div class="panel-heading "><h5>Contact us<a style="float:right;" href="tel:2693244285"id="blue">269-324-4285</a></h5>
-  </div>
-  <div class="panel-body ">
-    <div class="contact-form col-left">
-      <%= simple_form_for @contact, :html => {:class => '  form-horizontal' } do |f| %>
-      <div>
-        <%= f.input :name, :class =>"span3", :placeholder => "first name" ,:required => true %>
-        <%= f.input :email, :class =>"span3", :placeholder => "email address", :required => true %>
-        <%= f.input :tel, :class =>"span3", :placeholder => "phone number - (Optional)" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default hours z-depth-3" style="margin-top:0.95vmin!important;">
+        <div class="panel-heading "><h5>Contact us<a style="float:right;" href="tel:2693244285"id="blue">269-324-4285</a></h5>
       </div>
-      <%= f.input :message, :as => :text, :required => true, :class =>"textarea" %>
-      <div class= "hidden">
-        <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+      <div class="panel-body ">
+        <%= simple_form_for @contact, :html => {:class => '  form-horizontal' } do |f| %>
+        <div>
+          <%= f.input :name, :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "first name" ,:required => true %>
+          <%= f.input :email, :class =>"span3", :style=>"color:#428bca!important;",:placeholder => "email address", :required => true %>
+          <%= f.input :tel, :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "phone number - (Optional)" %>
+        </div>
+        <%= f.input :message, :as => :text, :required => true, :class =>"textarea" %>
+        <div class= "hidden">
+          <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+        </div>
+        
       </div>
-      <div>
-        <%= f.button :submit, 'Send message', :class=> "btn btn-primary contact-sub-btn blue-btn" %>
+      <div class="panel-footer" style="background:#292c2f !important;">
+        <%= f.button :submit, 'Send message',:style=>"width:100%!important; color:white!important; font-size:2.3vmin!important;" ,:class=> "btn btn-primary blue-btn" %>
       </div>
       <% end %>
     </div>
-    <div class="col-right">
-      <%= render"/layouts/application/info"%>
-    </div>
+  </div>
+  <div class="col-md-4">
+    <%= render"/layouts/application/info"%>
   </div>
 </div>
 </div>
 <style>
+.span3{
+
+}
 label{display:none!important;}
 </style>
