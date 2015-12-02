@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   match '/policy',    to: 'pages#policy',       via: 'get'
   match '/faq',       to: 'pages#faq',          via: 'get'
   match '/credit-application',   to: 'credits#new',       via: 'get'
+    match '/credits',   to: 'credits#new',       via: 'get'
+
   match '/about',     to: 'pages#about',          via: 'get'
   match '/meet',     to: 'pages#meet',          via: 'get'
   match '/finance',   to: 'pages#finance',      via: 'get'
