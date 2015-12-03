@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'mail_form'
 gem 'simple_form'
+gem 'will_paginate', github: 'jonatack/will_paginate'
 gem 'edmunds_ruby', '~> 1.0', '>= 1.0.2'
 gem 'ransack'
 gem 'seed_dump'
