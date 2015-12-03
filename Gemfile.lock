@@ -8,6 +8,12 @@ GIT
       json (>= 1.7)
       mime-types (>= 1.16)
 
+GIT
+  remote: git://github.com/jonatack/will_paginate.git
+  revision: e8537b75f822d994701abcb0598b74d4fd24375b
+  specs:
+    will_paginate (3.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -225,6 +231,7 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate!
 
 BUNDLED WITH
    1.10.6

@@ -1,0 +1,30 @@
+<%= search_form_for @q do |f| %>
+<div class="panel-body">
+  <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Basic Search" , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+  <label for="q_kind" style="float:left!important;">Type of Vehicle</label>
+  <%= f.select :kind_cont, options_for_select([['', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
+  <label for="q_make" style="float:left!important;">Make</label>
+  <%= f.search_field :make_cont , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+  <label for="q_make" style="float:left!important;">Model</label>
+  <%= f.search_field :model_cont, :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+  <label for ="year"> Year</label>
+  <div class="input-group" id="year">
+    <%= f.select :year_gteq , options_for_select([['From', '0'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :placeholder=>"From", :type=>"text" , :class=>"form-control") %>
+    <span class="input-group-addon">-</span>
+    <%= f.select :year_lteq , options_for_select([['To', '2050'], ['2016'], ['2015'], ['2014'], ['2013'], ['2012'], ['2011'], ['2010'], ['2009'], ['2008'], ['2007'], ['2006'], ['2005'], ['2004'], ['2003'], ['2002'], ['2001'], ['2000'], ['1999'], ['1990'], ['1980']], :placeholder=>"To", :type=>"text" , :class=>"form-control")%>
+  </div>
+  <hr style="margin:0.5rem!important;">
+  <label for ="price"> Price</label>
+  <div class="input-group" id="price">
+    <%= f.select :price_gteq , options_for_select([['From', '0'], ['$1,000','1000'], ['$2,000','2000'], ['$3,000','3000'], ['$4,000','4000'], ['$5,000','4500'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000']], :placeholder=>"From", :type=>"text" , :class=>"form-control") %>
+    <span class="input-group-addon">-</span>
+    <%= f.select :price_lteq , options_for_select([['To', '99999'], ['$5,000','4500'], ['$6,000','6000'], ['$8,000','8000'], ['$10,000','10000'], ['$12,000','12000'], ['$15,000','14500'], ['$20,000','20000'], ['$30,000','30000'], ['$50,000','45000']], :placeholder=>"To", :type=>"text" , :class=>"form-control") %>
+  </div>
+  <label for="mileage_lteq" style="float:left!important;">Max Mileage</label>
+  <%= f.select :mileage_lteq , options_for_select([['Any', ''],
+  ['25,000','24500'], ['50,000','45000'], ['75,000','745000'], ['100,000','100000'], ['150,000','145000'], ['250,000','245000']], :selected => :Any), :style=>"width:100%!important;" %>
+</div>
+<div class="panel-footer">
+  <%= f.submit :class =>'btn btn-default blue-btn',:style=>' font-size:1.3rem; width:100%!important;height:100%!important;' %>
+</div>
+<% end %>
