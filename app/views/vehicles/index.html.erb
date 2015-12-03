@@ -46,110 +46,122 @@
         <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
       </ul>
       <% @vehicles.each do |vehicle| %>
-      <div class="row" style="margin:0!important; border-radius:none!important;border-bottom:0.7vmin double white;background-color:rgba(255,255,255,0)!important; margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:auto!important; height:auto!important;background-color:white; padding:0!important;" >
-        <div class="col-lg-5" id="vehthumb" style=" margin:0!important; padding:0!important;" >
-          <% if vehicle.import =='import'  %>
-          <%=  link_to image_tag(vehicle.image_1),vehicle, :class=>"indexthumb" %>
-          <% else %>
-          <%=  link_to image_tag(vehicle.thumb),vehicle, :class=>"indexthumb" %>
-          <% end %>
+      <div class="panel panel-default" style="margin:0!important; border-radius:none!important;border-bottom:0.7vmin double white;background-color:rgba(255,255,255,0)!important; margin-top:0.5rem!important; margin-bottom:0.5rem!important; width:auto!important; height:auto!important;background-color:white; padding:0!important;" >
+        <div class="panel-heading" style="padding:0.1vmin!important;">
+          <div class="panel-title" style="padding:0!important;">
+            <h5 id="title"style="text-align:left!important; font-size:2.35min!important;"><%= link_to  vehicle.title, vehicle %></h5>
+          </div>
         </div>
-        <div class="col-lg-4"style="height:100%;">
-          <h5 style="padding-top:1rem;"><%= link_to  vehicle.title, vehicle %></h5>
-          <hr>
-          <h5 style="color:#5383D3 !important">$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
-          <div class="jumbotron inner-jumbo" style="padding:0; margin-bottom:0!important;width: 100%;">
-            <table class="table "style="  " >
+        <div class="panel-body">
+          <div class="col-lg-5" id="vehthumb" style=" margin:0!important; padding:0!important;" >
+            <% if vehicle.import =='import'  %>
+            <%=  link_to image_tag(vehicle.image_1),vehicle, :class=>"indexthumb img-responsive" %>
+            <% else %>
+            <%=  link_to image_tag(vehicle.thumb),vehicle, :class=>"indexthumb img-responsive" %>
+            <% end %>
+          </div>
+          <div class="col-lg-4"style="height:100%;">
+            
+            
+            <div class="jumbotron inner-jumbo" style="padding:0; margin-bottom:0!important;width: 100%;">
+              <table class="table" style="" >
+                <tr>
+                <td><label>Price:</label></td>
+                  <td>
+                    <p style="color:#5383D3 !important">$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Drive Type:</label>
+                  </td>
+                  <td>
+                    <%= vehicle.drive_type %>
+                  </td>
+                </tr>
+                <% if vehicle.import =='import'  %>
+                <% else %>
+                <tr>
+                  <td>
+                    <label>MPG</label>
+                  </td>
+                  <td>
+                    <%= vehicle.mpg %>
+                  </td>
+                </tr>
+                <% end %>
+                <tr>
+                  <td>
+                    <label>Engine</label>
+                  </td>
+                  <td>
+                    <%= vehicle.engine %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Fuel Type</label>
+                  </td>
+                  <td>
+                    <%= vehicle.fuel_type %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label>Mileage</label>
+                  </td>
+                  <td>
+                    <%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            
+          </div>
+          <div class="col-lg-3" style="margin:0!important; padding:0!important; "  >
+            <div class="row row1" style="padding:0.7rem 2.5rem 0 2.5rem!important; " >
+              <center>
+              <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>">
+                <%=  image_tag 'carfax.png', :class=>"img-responsive 1" %>
+              </a>
+              </center>
+            </div>
+            <table class="table table-condensed">
               <tr>
-                <td>
-                  <label>Drive Type:</label>
+                <td >
+                  <label>Exterior Color</label>
                 </td>
                 <td>
-                  <%= vehicle.drive_type %>
+                  <%= vehicle.exterior_color %>
                 </td>
               </tr>
-              <% if vehicle.import =='import'  %>
-              <% else %>
               <tr>
                 <td>
-                  <label>MPG</label>
+                  <label>Interior Color</label>
+                </td>
+                <td> <%= vehicle.interior_color %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Body Style</label>
                 </td>
                 <td>
-                  <%= vehicle.mpg %>
+                  <%= vehicle.body_style %>
+                </td>
+              </tr>
+              <% if admin_signed_in? %>
+              <tr>
+                <td>
+                  <%= link_to 'Edit', edit_vehicle_path(vehicle), :class=>"button btn blue btn-default"%>
+                </td>
+                <td>
+                  <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button btn red btn-default"%>
                 </td>
               </tr>
               <% end %>
-              <tr>
-                <td>
-                  <label>Engine</label>
-                </td>
-                <td>
-                  <%= vehicle.engine %>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>Fuel Type</label>
-                </td>
-                <td>
-                  <%= vehicle.fuel_type %>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>Mileage</label>
-                </td>
-                <td>
-                  <%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %>
-                </td>
-              </tr>
             </table>
           </div>
-          
-        </div>
-        <div class="col-lg-3" style="margin:0!important; padding:0!important; "  >
-          <div class="row row1" style="padding:0.7rem 2.5rem 0 2.5rem!important; " >
-            <center>
-            <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>">
-              <%=  image_tag 'carfax.png', :class=>"img-responsive 1" %>
-            </a>
-            </center>
-          </div>
-          <table class="table table-condensed">
-            <tr>
-              <td >
-                <label>Exterior Color</label>
-              </td>
-              <td>
-                <%= vehicle.exterior_color %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Interior Color</label>
-              </td>
-              <td> <%= vehicle.interior_color %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Body Style</label>
-              </td>
-              <td>
-                <%= vehicle.body_style %>
-              </td>
-            </tr>
-            <% if admin_signed_in? %>
-            <tr>
-              <td>
-                <%= link_to 'Edit', edit_vehicle_path(vehicle), :class=>"button btn blue btn-default"%>
-              </td>
-              <td>
-                <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button btn red btn-default"%>
-              </td>
-            </tr>
-            <% end %>
-          </table>
         </div>
       </div>
       <% end %>
@@ -167,28 +179,28 @@
 <%= render 'vehicleFooterStyle' %>
 .field-label{display: none!important;}
 .indexthumb img{
-max-height:450px!important;
-max-width:450px!important;
+height:100%;
 }
 .indexthumb{
-max-height:450px!important;
-max-width:450px!important;
+height:100%;
 }
 @media (max-width: 830px) {
-  .col-lg-5{
-    float:left!important;
-    width:35%!important;
-  }
-
-  .indexthumb img, .index-thumb{
-    max-height:45vmin!important;
-    max-width:45vmin!important;
-  }
-  .col-lg-3{
-    display: none!important;
-  }
+#title{
+font-size:3vmin!important;"
+}
+.col-lg-5{
+float:left!important;
+width:35%!important;
+}
+.indexthumb img, .index-thumb{
+max-height:45vmin!important;
+max-width:45vmin!important;
+}
+.col-lg-3{
+display: none!important;
+}
 .inner-jumbo{
-  display: none!important;
+display: none!important;
 }
 }
 </style>
