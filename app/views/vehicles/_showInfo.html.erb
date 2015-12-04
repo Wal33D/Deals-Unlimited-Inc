@@ -202,14 +202,41 @@
         Description
       </div>
       <div class="panel-body" style="background-color:#e5f2ff">
-        <%= @vehicle.description %>
+        <p id="textArea">
+          <%=  truncate(@vehicle.description.html_safe, :length => 900, :escape => false)%>....
+        </p>  
+        <a id="toggleButton" onclick="toggleText();" href="javascript:void(0);">See More</a>
+      </div>
+      </div>
       </div>
       <div class="panel-footer" style="background-color:#ddd">
       </div>
     </div>
   </div>
-  
 </div>
+<div id="moretext" style="display:none;">
+  <%= @vehicle.description.html_safe %>
+</div>
+<div id="lesstext" style="display:none;">
+  <%=  truncate(@vehicle.description.html_safe, :length => 900 , :escape => false)%>....
+</div>
+<script>
+var status = "more";
+var lesstext=document.getElementById("lesstext").innerHTML;
+var text=document.getElementById("moretext").innerHTML;
+function toggleText()
+{
+if (status == "less") {
+document.getElementById("textArea").innerHTML=lesstext;
+document.getElementById("toggleButton").innerText = "See More";
+document.getElementById("textArea").innerHTML="";
+status = "more";
+} else if (status == "more") {
+document.getElementById("textArea").innerHTML = text;
+document.getElementById("toggleButton").innerText = "See Less";
+status = "less"
+}
+}</script>
 <style>
 h3.field-label{
 display:none!important;
