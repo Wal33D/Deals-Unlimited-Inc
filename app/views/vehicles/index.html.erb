@@ -36,13 +36,13 @@
             </div>
             <div class="panel-body" id="vehicle-row" >
               <div class="row">
-                <div class="col-xs-5" id="img-col">
+                <div class="col-xs-5 " id="img-col">
                   <% if vehicle.import == 'import' %>
-                  <%=  link_to image_tag(vehicle.image_1 , :class=>"img-responsive"),vehicle %>
+                  <%=  link_to image_tag(vehicle.image_1 , :class=>"img-responsive" ,:id=>"vehthumb"),vehicle %>
                   <% else %>
-                  <%=  link_to image_tag(vehicle.thumb , :class=>"img-responsive"),vehicle %>
+                  <%=  link_to image_tag(vehicle.thumb , :class=>"img-responsive",:id=>"vehthumb"),vehicle %>
                   <% end %>
-                </div>
+                  </div>
                 <div class="col-xs-4" id="middle-col">
                   <div class ="table-responsive">
                     <table class="table"id="first-table" >
@@ -149,7 +149,6 @@
             </div>
           </div>
           <% end %>
-          <center><%= will_paginate @vehicles %></center>
         </div>
       </div>
     </div>
@@ -164,8 +163,8 @@
   <div class="container mb" style="width:100%!important; position:absolute;left:0; right:0; display:none;">
     <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
       <%= search_form_for @q do |f| %>
-        <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,..." , :style=>"float:left !important;width:75%!important; color:white!important;"%>
-        <%= f.submit :class =>'btn btn-default blue-btn',:style=>'float:right!important; width:25%!important;' %>
+      <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,..." , :style=>"float:left !important;width:75%!important; color:white!important;"%>
+      <%= f.submit :class =>'btn btn-default blue-btn',:style=>'float:right!important; width:25%!important;' %>
       <% end %>
     </div>
   </div>
@@ -173,6 +172,7 @@
   <style>
   <%= render 'vehicleFooterStyle' %>
   body{min-height: 100%!important;}
+  html,body, .row{height:100%;}
   select {display: inline-block!important;}
   #vehicle_title a, #vehicle_title{
   margin:0 0 0 0!important;
@@ -199,15 +199,37 @@
   background-color:#292c2f!important;}
   #search, #vehicle-window{
   max-height:100%!important;
-  height:100%!important;
+  height:auto!important;
   top:calc(0px + 11vmin)!important;
-  bottom:0!important;
+  bottom:0;
   }
   #search{
   position: fixed!important;
   float:left;
   width:35%;
   left:0;
+  bottom:calc(0px + 7%);
+  }
+  #search .panel-default *{
+  height:100%;
+  max-height: 100%;
+  }
+  .searchbox{
+  width:99%!important;
+  }
+  #vehthumb{
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;
+padding-top:1vmin;
+padding-bottom: 1vmin;
+background-color: #eee;
+  }
+  select, input, #q_year_gteq{
+  line-height: 4.2vmin!important;
+  margin-bottom: 0.7vmin!important;
+  }
+  #q_year_gteq, select{
+  padding-bottom:2vmin!important;
   }
   #vehicle-container{
   padding-top: 0!important;
@@ -240,6 +262,10 @@
   padding-top:2vmin;
   margin-top: 2vmin;
   }
+  #q_year_lteq, #q_year_gteq, #q_price_lteq, #q_price_gteq{
+  height:100%!important;
+  padding:0!important;
+  }
   /*==================================================
   =            Bootstrap 3 Media Queries             =
   ==================================================*/
@@ -264,7 +290,7 @@
   width:26%!important;
   }
   #vehicle-window{
-  width:70%!important;
+  width:74%!important;
   }
   }
   /* Medium Devices, Desktops */
