@@ -21,7 +21,8 @@
                         <%= f.input :stereo %>
                         <%= f.input :stock_number %>
                         <%= f.input :description %>
-                        <%= f.input :other_options %>
+                        <%= f.input :other_options, :id=>"other_options" %>
+                        <%= render "feature_list" %>
                         <%= f.label :vehicle_images %>
                         <%= f.file_field :vehicle_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
                     </div>
@@ -66,3 +67,4 @@
 select{display: block!important;}
 .col-lg-4 img{ width:100%;}
 </style>
+
