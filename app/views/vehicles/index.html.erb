@@ -45,11 +45,11 @@
                 </div>
                 <div class="col-xs-4" id="middle-col">
                   <div class ="table-responsive">
-                    <table class="table"id="first-table" >
+                    <table class="table" id="first-table">
                       <tr id="pt" >
                         <td id = "price-tag-alert"colspan="2" style="border-top:none!important;">
                           <center>
-                          <h5 style="font-size: 6vmin!important;" id="pricetag" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
+                          <h5 style="font-size: 6vmin;" id="pricetag" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h5>
                           </center>
                         </td>
                       </tr>
@@ -104,7 +104,7 @@
                     <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>">
                       <%=  image_tag 'carfax.png', :class=>"img-responsive", :id=>"carfax" %>
                     </a>
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="second-table">
                       <tr>
                         <td >
                           <label>Exterior Color</label>
@@ -170,6 +170,9 @@
   </div>
   
   <style>
+  .btn-vehicles{
+    display: none!important;
+  }
   <%= render 'vehicleFooterStyle' %>
   body{min-height: 100%!important;}
   html,body, .row{height:100%;}
@@ -247,10 +250,10 @@
   margin:0!important;
   }
   #img-col{padding:0 0 0 0!important;}
-  #right-col{  margin-top: 1vmin!important;
-  }
-  #price-tag{
+  #right-col{  margin-top: 1vmin!important;}
+  #pricetag{
   padding: 0 0 0 0!important;
+  margin-top: 0!important;
   }
   #price-tag-alert{
   text-align: center!important;
@@ -258,9 +261,14 @@
   font-family:'Cookie', cursive;
   padding: 0 0 0 0!important;
   }
+  #first-table tr td, #second-table tr td{
+  padding:0!important;
+  font-size:2vmin !important;
+  }
   #first-table{
-  padding-top:2vmin;
-  margin-top: 2vmin;
+  padding-top:1vmin;
+  margin-top: 1vmin;
+  margin-bottom:0;
   }
   #q_year_lteq, #q_year_gteq, #q_price_lteq, #q_price_gteq{
   height:100%!important;
@@ -292,20 +300,63 @@
   #vehicle-window{
   width:74%!important;
   }
+  #pricetag{
+  font-size: 7vmin!important;
+  }
+  #first-table tr td,#second-table tr td{
+  font-size:2vmin;
+  padding:.5vmin!important;
+  }
+  
+  }
+  @media only screen and (max-width : 1190px) {
+  #vehicle-window, #search{
+  margin-top: 2vmin!important;
+  }
   }
   /* Medium Devices, Desktops */
   @media only screen and (max-width : 992px) {
+      @media only screen and (max-width : 1190px) {
+  #vehicle-window, #search{
+  margin-top: 0!important;
+  }
   .table-responsive{ overflow:hidden!important;
   border:none!important;}
-  
-  .img-col{
-  padding:1vmin!important;
+  #img-col{padding:0 0 0 0!important;
+  width:50%!important;}
+  #first-table{
+  margin-top: 0.5vmin!important;
+  }
+  #first-table tr td{
+  font-size:2.2vmin!important;
+  }
+  #pricetag{
+  margin-top: 0.5vmin!important;
+  padding-top: 0!important;
+  font-size:4.3vmin!important;
+  margin-bottom: 1.5vmin!important;
+  }
+  #middle-col{
+  width:27%!important;
+  padding: 0 0.25vmin 0vmin 1vmin;
+  }
+  #right-col{
+  float:right!important;
+  width:23%!important;
+  padding: 0 0.25vmin 0vmin 0.25vmin;
+  }
+  #first-table tr td, #second-table tr td{
+  padding:0!important;
+  font-size:1.5vmin !important;
   }
   #search{
   width:25%!important;
   }
   #vehicle-window{
   width:75%!important;
+  }
+  .panel-footer{
+  display: hidden!important;
   }
   #first-table{
   font-size:1.4vmin!important;
@@ -348,10 +399,64 @@
   max-height: 7%!important;
   height: 7%!important;
   }
+  #pricetag{
+  padding-bottom:0.5vmin!important;
+  padding-top:0.5vmin!important;
+  font-size: 5.7vmin!important;
+  }
+  #first-table tr td,  #first-table tr td label{
+  font-size:2.4vmin!important;
+  padding:0.8vmin;
+  }
   /* Extra Small Devices, Phones */
-  @media only screen and (max-width : 480px) {
+  @media only screen and (max-width : 830px) {
+  #first-table tr td,  #first-table tr td label,  #first-table tr{
+  padding:0!important;
+  margin: 1vmin!important
+  }
+  #pricetag{
+  padding-bottom:0.3vmin!important;
+  padding-top:0.3vmin!important;
+  font-size: 5.2vmin!important;
+  }
+  #first-table tr td,  #first-table tr td label{
+  font-size:2vmin!important;
+  padding:0.5vmin;
+  }
+  }
+   @media only screen and (max-width : 540px) {
+  #vehicle-window{
+  margin-top:3vmin!important;
+  }
+  }
+  @media only screen and (max-width : 440px) {
+  #vehicle-window{
+  margin-top:7vmin!important;
+  }
   }
   /* Custom, iPhone Retina */
-  @media only screen and (max-width : 320px) {
+  @media only screen and (max-width : 450px) {
+  .panel-footer{display: none!important;}
+  .table-responsive{
+  margin-bottom: 0!important;
   }
+  #pricetag{
+  padding-bottom:0.1vmin!important;
+  padding-top:0.1vmin!important;
+  font-size: 4.7vmin!important;
+  }
+  #first-table tr td,  #first-table tr td label,  #first-table tr{
+  font-size:2.7vmin!important;
+  padding:0!important;
+  margin: 0.3vmin!important
+  }
+  #first-table tr td label{
+  font-size:2.25vmin!important;
+  }
+  }
+      @media only screen and (max-width : 380px) {
+  #vehicle-window{
+  margin-top: 13vmin!important;
+  }
+}
   </style>
