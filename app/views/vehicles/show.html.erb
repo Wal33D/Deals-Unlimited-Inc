@@ -41,7 +41,7 @@
           <div class ="row">
             <table class="table">
               <tr>
-                <td>
+                <td  style="border:none!important;">
                   <h5>
                   <%= @vehicle.year %>
                   <%= @vehicle.make %>
@@ -107,6 +107,25 @@
 
 <style>
 <%= render 'vehicleFooterStyle' %>
+  @media only screen and (max-width : 800px) {
+    .row{
+      margin-top:2vmin!important;
+      width:96%!important;
+    margin-left:2%!important;
+    margin-right: 2%!important; 
+    }
+    #mobileinfo .row, #mobileinfo table{
+      margin-bottom: 0!important;
+    }
+    section .vehicle_thumb img{
+      max-width: 80%!important;
+      width:80%!important;
+      margin-right: 5%!important
+    }
+    section{
+      border:1vmin double #eee;
+    }
+}
 body {
 overflow: hidden;
 }

@@ -161,17 +161,17 @@
     </div>
   </div>
   <div class="container mb" style="width:100%!important; position:absolute;left:0; right:0; display:none;">
-    <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
+    <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; height:100%;">
       <%= search_form_for @q do |f| %>
-      <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,..." , :style=>"float:left !important;width:74%!important; color:white!important;"%>
-      <%= f.submit :class =>'btn btn-default blue-btn',:style=>'float:right!important; width:24%!important; margin:.92vmin;' %>
+      <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,...", :id=>"mobile-search-form" %>
+      <%= f.submit :class =>'btn btn-default blue-btn', :id=>"mobile-search-btn" %>
       <% end %>
     </div>
   </div>
   
   <style>
   .btn-vehicles{
-    display: none!important;
+  display: none!important;
   }
   <%= render 'vehicleFooterStyle' %>
   body{min-height: 100%!important;}
@@ -316,7 +316,7 @@
   }
   /* Medium Devices, Desktops */
   @media only screen and (max-width : 992px) {
-      @media only screen and (max-width : 1190px) {
+  @media only screen and (max-width : 1190px) {
   #vehicle-window, #search{
   margin-top: 0!important;
   }
@@ -373,6 +373,40 @@
   .mb{
   display:inline-block!important;
   }
+  .mb .footer-vehicles, .mb{
+  padding-right: 0!important;
+  padding-bottom:0!important;
+  height:8%!important;
+  max-height: 8%!important;
+  min-height:8%!important;
+  }
+  #mobile-search-form{
+  position: absolute!important;
+  float:left!important;
+  width:72%!important;
+  bottom:0!important;
+  color:white!important;
+  font-size:4vmin;
+  border-radius:1vmin;
+border:1px solid #5383D3 !important; 
+padding:0!important;
+padding-left:1vmin!important;
+ height:78%!important;
+  margin-bottom: 11%;
+  margin-top: 11%;
+ }
+  #mobile-search-btn{
+  position: absolute!important;
+  right:0!important;
+  width:23%!important;
+  bottom:0!important;
+  padding: 1vmin 1.9vmin 1vmin 2vmin;
+  margin-right: 1vmin;
+  height:78%!important;
+  margin-bottom: 11%;
+  margin-top: 11%;
+  font-size: 3.5vmin;
+  }
   .table-responsive  td{
   padding:0!important;
   margin:0!important;
@@ -424,7 +458,7 @@
   padding:0.5vmin;
   }
   }
-   @media only screen and (max-width : 540px) {
+  @media only screen and (max-width : 540px) {
   #vehicle-window{
   margin-top:3vmin!important;
   }
@@ -454,9 +488,9 @@
   font-size:2.25vmin!important;
   }
   }
-      @media only screen and (max-width : 380px) {
+  @media only screen and (max-width : 380px) {
   #vehicle-window{
   margin-top: 13vmin!important;
   }
-}
+  }
   </style>
