@@ -84,7 +84,8 @@
               <label>Interior Color: </label>
             </td>
             <td>
-              <p  style="float:right;">   <%= @vehicle.interior_color %></p>
+              <p  style="float:right;">
+              <%= @vehicle.interior_color %></p>
             </td>
           </tr>
           <tr>
@@ -140,7 +141,8 @@
                 <label>Model: </label>
               </td>
               <td>
-                <p  style="float:right;">   <%= @vehicle.model %></p>
+                <p  style="float:right;">
+              <%= @vehicle.model %></p>
               </td>
             </tr>
             <td>
@@ -155,7 +157,8 @@
               <label>Drive Type: </label>
             </td>
             <td>
-              <p  style="float:right;">   <%= @vehicle.drive_type %></p>
+              <p  style="float:right;">
+              <%= @vehicle.drive_type %></p>
             </td>
           </tr>
           <tr>
@@ -202,41 +205,16 @@
         Description
       </div>
       <div class="panel-body" style="background-color:#e5f2ff">
-        <p id="textArea">
-          <%=  truncate(@vehicle.description.html_safe, :length => 900, :escape => false)%>....
-        </p>  
-        <a id="toggleButton" onclick="toggleText();" href="javascript:void(0);">See More</a>
-      </div>
-      </div>
+        <%= @vehicle.description.html_safe %>
       </div>
       <div class="panel-footer" style="background-color:#ddd">
       </div>
     </div>
   </div>
 </div>
-<div id="moretext" style="display:none;">
-  <%= @vehicle.description.html_safe %>
 </div>
-<div id="lesstext" style="display:none;">
-  <%=  truncate(@vehicle.description.html_safe, :length => 900 , :escape => false)%>....
-</div>
-<script>
-var status = "more";
-var lesstext=document.getElementById("lesstext").innerHTML;
-var text=document.getElementById("moretext").innerHTML;
-function toggleText()
-{
-if (status == "less") {
-document.getElementById("textArea").innerHTML=lesstext;
-document.getElementById("toggleButton").innerText = "See More";
-document.getElementById("textArea").innerHTML="";
-status = "more";
-} else if (status == "more") {
-document.getElementById("textArea").innerHTML = text;
-document.getElementById("toggleButton").innerText = "See Less";
-status = "less"
-}
-}</script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <style>
 h3.field-label{
 display:none!important;
