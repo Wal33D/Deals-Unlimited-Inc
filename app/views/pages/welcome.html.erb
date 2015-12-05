@@ -1,4 +1,4 @@
-<div class = "container">
+<div class = "container" id="homepage">
 	<div class="row">
 		<div class="col-lg-8">
 			<div class="card card-front panel-default z-depth-4">
@@ -6,24 +6,23 @@
 					<%= image_tag "Location_Sign.png"%>
 				</div>
 				<div class="card-content">
-					<h5 id="welcome" style="font-family: 'Black Ops One', cursive;  font-size:1.6rem;">Welcome to</h5>
+					<h5 id="welcome">Welcome to</h5>
 					<center>
-					<h5 style="font-family: 'Black Ops One', cursive; font-size:3.3rem;">
+					<h5 id ="deals">
 					Deals
-					<span style="color: rgb(83, 131, 211)!important; font-size:4.3rem;">Unlimited,
+					<span id="unlimited" >Unlimited,
 						<span style="font-size:2.5rem; font-family: 'Black Ops One', cursive!important; color:#333!important;"> Inc.
 						</span>
 					</span>
 					</h5>
-					<p  style="font-style: cursive;  font-size:1.2rem;">
+					<p  id="greeting">
 						We have been serving south west michigan since 1988. Our focus is on customer service and creating life long customer relationships. Deals Unlimited prides itself on its integrity, loyality, professionalism and low pressure sales experience.
 					</p>
 					<p style="font-family: 'Black Ops One', cursive; font-size:1.7rem;"id="seeus">Come see us today!</p>
-					<br>
 					</center>
 				</div>
-				<div class="card-action">
-					<span style="font-size:1.8rem;" >Serving West Michigan since 1988.</span>
+				<div class="card-action" id= "welcome-panel-footer">
+					<span id="serving" >Serving West Michigan since 1988.</span>
 				</div>
 			</div>
 		</div>
@@ -32,15 +31,39 @@
 	</div>
 </div>
 <style>
-#welcome{}
-*{
-	font-size: 1.2rem;
-}
-span{
+*{font-size: 1.2rem;}
+#unlimited{
 	font-family: 'Cookie', cursive !important;
-	font-size: 1.4rem;
+	font-size: 4.3rem!important;
+	color: #5383D3 !important;
 }
-.loading-screen{
-	visibility: visible !important;
+#greeting{
+	font-style: cursive;
+	font-size:3.3vmin!important;
+}
+#serving{font-size:1.8rem;}
+#deals{font-family: 'Black Ops One', cursive; font-size:3.3rem;}
+#welcome{font-family: 'Black Ops One', cursive;  font-size:1.6rem;}
+.loading-screen{visibility: visible !important;}
+@media only screen and (max-width : 500px) {
+	#homepage table tr td, #homepage table th{font-size:3vmin!important;}
+	#welcome-panel-footer{display: none!important;}
+	.panel-heading a, .panel-heading{
+		font-size:3.3vmin!important;
+	}
+#serving{font-size:4.2vmin!important;}
+#seeus{
+	color: #5383D3 !important;
+	font-family: 'Cookie' !important;
+	font-weight:normal!important;
+	font-size:3.3rem!important;
+}
+#unlimited{
+font-family: 'Cookie', cursive !important;
+font-size: 3.5rem!important;
+color: #5383D3 !important;
+}
+#deals{font-family: 'Black Ops One', cursive; font-size:2.5rem;}
+#welcome{font-family: 'Black Ops One', cursive;  font-size:1.2rem;}
 }
 </style>
