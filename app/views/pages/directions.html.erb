@@ -1,18 +1,18 @@
-<div class="container">
-	<div class="row">
+<div class="container" >
+	<div class="row" id="directions">
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-10">
-			<div class="panel panel-default z-depth-4">
+			<div class="panel panel-default z-depth-4" id = "panel-directions">
 				<div class="google-maps">
 					<div class="panel-heading panel-directions mobile-panel">
-						<h5>Directions</h5>
+						<h5 id = "title-directions">Directions</h5>
 					</div>
 					<iframe style="width:100%!important;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="100%!important;" height="100%;" src="https://maps.google.com/maps?hl=en&q=8705 Portage Road &ie=UTF8&t=roadmap&z=6&iwloc=B&output=embed"></iframe>
 				</div>
 				<div class = "panel-footer panel-black">
 					<a  href="https://www.google.com/maps/dir//Deals+Unlimited+Inc.,+Portage+Road,+Portage,+MI/@42.1905751,-85.6312239,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x88179e5544b87a95:0xd2a631e35ca7f10f!2m2!1d-85.5611843!2d42.1904692?hl=en">
-						<button class="btn btn-default blue-btn" style="width:100%!important; font-size:2vmin!important;" >Get Directions to Us!</button>
+						<button id = "directions-btn" class="btn btn-default blue-btn">Get Directions to Us!</button>
 					</a>
 				</div>
 			</div>
@@ -22,10 +22,22 @@
 	</div>
 </div>
 <style>
+#directions-btn{
+width:100%!important;
+font-size:2vmin!important;
+}
 .google-maps iframe {
 position: absolute;
 left: 0;
 width: 100% !important;
 height: 100% !important;
+}
+@media (max-width: 500px) {
+	#panel-directions{margin-bottom:0!important;}
+#title-directions{margin:0;}
+#directions-btn{
+font-size:4vmin!important;
+}
+#directions{margin-top: 3vmin !important;}
 }
 </style>

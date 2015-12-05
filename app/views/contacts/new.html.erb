@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container" id="contact">
   <div class="row">
     <div class="col-md-8">
-      <div class="panel panel-default hours z-depth-3" style="margin-top:0.95vmin!important;">
-        <div class="panel-heading "><h5>Contact us<a style="float:right;" href="tel:2693244285"id="blue">269-324-4285</a></h5>
+      <div class="panel panel-default hours z-depth-3" id="panel-contact">
+        <div class="panel-heading "><h5 id="title-contact">Contact us<a style="float:right;" href="tel:2693244285"id="blue">269-324-4285</a></h5>
       </div>
       <div class="panel-body ">
         <%= simple_form_for @contact, :html => {:class => '  form-horizontal' } do |f| %>
         <div>
-          <%= f.input :name, :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "first name" ,:required => true %>
+          <%= f.input :name, :type=>"text", :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "first name" ,:required => true %>
           <%= f.input :email, :class =>"span3", :style=>"color:#428bca!important;",:placeholder => "email address", :required => true %>
           <%= f.input :tel, :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "phone number - (Optional)" %>
         </div>
@@ -18,7 +18,7 @@
         
       </div>
       <div class="panel-footer" style="background:#292c2f !important;">
-        <%= f.button :submit, 'Send message',:style=>"width:100%!important; color:white!important; font-size:2.3vmin!important;" ,:class=> "btn btn-primary blue-btn" %>
+        <%= f.button :submit, 'Send message',:id=>"contact-btn" ,:class=> "btn btn-primary blue-btn" %>
       </div>
       <% end %>
     </div>
@@ -29,5 +29,28 @@
 </div>
 </div>
 <style>
+ 
 label{display:none!important;}
+#panel-contact{
+margin-bottom:0!important;
+margin-top:0.95vmin!important;
+}
+#contact-btn{
+color:white!important;
+width:100%!important;
+font-size:2.2vmin!important;
+}
+@media (max-width: 500px) {
+#contact-btn{
+color:white!important;
+width:100%!important;
+font-size:4vmin!important;
+}
+#panel-contact .row{margin-bottom:0!important;}
+#title-contact{margin:0;}
+#contact-btn{font-size:4.5vmin!important;}
+#contact{margin-top: 22vmin !important;}
+#contact .row{margin-bottom: 3vmin!important;}
+
+}
 </style>

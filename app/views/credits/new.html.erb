@@ -1,9 +1,9 @@
 <div class="container">
-	<div class="panel panel-default" style="margin-top:1.5rem; box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+	<div class="panel panel-default" id="credit-panel" style="margin-top:1.5rem; box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
 		">
 		<div class="panel-heading" style="background-color:#292c2f; color:#eee;">
 			<div class="panel-title">
-				<h5 style="font-weight: bold;">Credit Application</h5>
+				<h5  id="title-credit">Credit Application</h5>
 			</div>
 		</div>
 		<div class="panel-body">
@@ -205,7 +205,7 @@
 			</div>
 		</div>
 		<div class="panel-footer" style="background-color:#292c2f;">
-			<%= f.button :submit, 'Submit Application', :class=> "btn btn-primary contact-sub-btn blue-btn" %>
+			<%= f.button :submit, 'Submit Application',:id=>"credit-btn", :class=> "btn btn-primary contact-sub-btn blue-btn" %>
 		</div>
 		<% end %>
 	</div>
@@ -224,7 +224,6 @@ input[type="submit"],
 	display:inline-block!important;
 }
 .input-group label{
-
 	visibility: hidden!important;
 	display:none!important;
 }
@@ -268,15 +267,40 @@ box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
 .box-shadow--16dp {
 box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)
 }
+#credit-btn{
+width:100%!important;
+font-size:3vmin!important;
+}
+@media (max-width: 880px) {
+#credit-panel{
+		margin-left: 2vmin!important;
+		margin-right:2vmin!important;
+		width:96%!important;
+	}
+}
+@media (max-width: 500px) {
+	#credit-panel{
+		margin-left: 2vmin!important;
+		margin-right:2vmin!important;
+		width:96%!important;
+	}
+#title-credit{
+margin:0;
+font-weight: bold;
+}
+#credit-btn{
+font-size:4vmin!important;
+}
+}
 </style>
 <script>
 function tradeIn_yes(val){
 	if (val=="true"){
-		$( ".tradein" ).fadeIn(1000); 
+		$( ".tradein" ).fadeIn(1000);
 		$( "#credit_tradein" ).val("Yes, I have a trade in.");
 		$( "#credit_tradein" ).prop( "disabled", true );
 	}else{
-		$( ".tradein" ).fadeOut(1500); 
+		$( ".tradein" ).fadeOut(1500);
 		$( "#credit_tradein" ).val("No, I do not have a trade in.");
 		$( "#credit_tradein" ).prop( "disabled", false );
 	}
