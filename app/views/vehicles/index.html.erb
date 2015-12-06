@@ -22,9 +22,7 @@
       </div>
       <div class="col-xs-7" id = "vehicle-window">
         
-        
         <div class="panel" id="vehicle-container">
-          
           <% @vehicles.each do |vehicle| %>
           <div class="panel panel-default z-depth-2" id="each-vehicle">
             <div class="panel-heading ">
@@ -149,6 +147,7 @@
             </div>
           </div>
           <% end %>
+        <center>  <%= paginate @vehicles %></center>
         </div>
       </div>
     </div>
@@ -184,15 +183,26 @@
   font-size:3.3vmin;
   color:#5383D3 !important;
   }
+  #vehicle-container{
+  margin-bottom: 10vmin!important;
+  }
   .pagination{
-  margin-bottom: 6vmin!important;
-  width:100%;
+    margin-top: 0!important;
+  background-color:transparent!important;
+  width:auto;
+  border:none!important;
+  box-shadow: none!important;bottom:0;
+  position: relative!important;
+  display: inline-block!important;
   }
   .pagination a,.pagination em,.pagination span{
   padding:1vmin 2vmin 1vmin 2vmin;
   border-radius:1vmin;
-  border:0.3vmin double #ddd;
   background-color: #f5f5f5;
+  color:black;
+  }
+  .pagination span{
+  border:0.3vmin double #ddd;
   }
   .footer-distributed{
   display: none!important;}
@@ -388,13 +398,13 @@
   color:white!important;
   font-size:4vmin;
   border-radius:1vmin;
-border:1px solid #5383D3 !important; 
-padding:0!important;
-padding-left:1vmin!important;
- height:78%!important;
+  border:1px solid #5383D3 !important;
+  padding:0!important;
+  padding-left:1vmin!important;
+  height:78%!important;
   margin-bottom: 11%;
   margin-top: 11%;
- }
+  }
   #mobile-search-btn{
   position: absolute!important;
   right:0!important;
