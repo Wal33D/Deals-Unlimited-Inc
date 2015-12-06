@@ -7,8 +7,10 @@ class VehiclesController < ApplicationController
   def index      
      #@start = Vehicle.paginate(page: params[:page], per_page: 15)  
     # @q = @start.ransack(params[:q])
+
       @q = Vehicle.ransack(params[:q])
-      @vehicles= @q.result()
+      @vehicle= @q.result()
+      @vehicles=@vehicle.order(:title).page params[:page]
   end
 
   # GET /vehicles/1
