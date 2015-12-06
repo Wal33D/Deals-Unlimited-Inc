@@ -1,1 +1,119 @@
+<div class="container" style ="position:relative!important;">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default" id ="panel-status">
+				<% if @vehicle.status == ("Sale" || "sale") %>
+				<div class="panel-heading green">
+					<div class="panel-title">
+						<h5>For Sale</h5>
+					</div>
+				</div>
+				<% elsif @vehicle.status == ("Sold" || "sold") %>
+				<div class="panel-heading red">
+					<div class="panel-title">
+						<h5>Sold</h5>
+					</div>
+				</div>
+				<% else %>
+				<div class="panel-heading blue">
+					<div class="panel-title">
+						<h5>Pending</h5>
+					</div>
+				</div>
+				<% end %>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-5">
+							<table class="">
+								<tr>
+									<td>
+										Vehicle Created at
+									</td>
+									<td>
+										<%= @vehicle.created_at %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Last Updated on
+									</td>
+									<td>
+										<%= @vehicle.updated_at %>
+									</td>
+								</tr>
+								<tr>
+									<%= simple_form_for(@vehicle) do |f| %>
+									<tr>
+										<td><%= f.input :price %></td>
+										<td><%= f.button :submit ,:class=>"blue", :value=>"Update $",:style=>"height:70%!important;  margin-top:5%!important;"%></td>
+									</tr>
+									<% end %>
+								</tr>
+							</table>
+						</div>
+						
+						<div class="col-sm-3">
+						</div>
+						<div class="col-sm-3">
+							<table style="margin-top:0!important;">
+							<thead><h5 style="color:#444!important; ">Set Status</h5></thead>
+							<tr>
+								<td id = "forsale-btn">
+									<button class="btn btn-default green  " onclick = "setstatus(this.innerHTML)"style="width:100%!important;  " >For Sale</button>
+								</td>
+							</tr>
+							<tr>
+								<td id="forsale-btn">
+									<button class="btn btn-default blue " onclick = "setstatus(this.innerHTML)"style="width:100%!important;">Pending</button>
+								</td>
+							</tr>
+							<tr>
+								<td id="forsale-btn">
+									<button class="btn btn-default red " onclick = "setstatus(this.innerHTML)"style="width:100%!important;">Sold</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<% if @vehicle.status == ("Sale" || "sale") %>
+			<div class="panel-footer green">
+			</div>
+			<% elsif @vehicle.status == ("Sold" || "sold") %>
+			<div class="panel-footer red">
+			</div>
+			<% else %>
+			<div class="panel-footer blue">
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div>
 <%= render 'form' %>
+<script>
+function setstatus(status){
+	if(status=="For Sale"){
+document.getElementById('vehicle_status').value="Sale";
+	}else{
+document.getElementById('vehicle_status').value=status;
+
+	}
+document.getElementById('update').click();
+}
+</script>
+<style>
+#form{margin-top: 0!important;}
+#panel-edit{
+	margin-bottom:0!important;
+}
+#panel-status{
+		margin-bottom:0!important;
+}
+#panel-status h5{
+		color:white!important;
+}
+#forsale-btn{
+	padding-top:0!important;
+}
+</style>
