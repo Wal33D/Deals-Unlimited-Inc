@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading" style="background-color:#ddd">
-    <%= @vehicle.title %>
+    <%= @vehicle.title%>
   </div>
   <div class="panel-body" style="background-color:#e5f2ff">
     <div class="row">
@@ -12,6 +12,14 @@
             </td>
             <td>
               <p  style="float:right;">$<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</p>
+            </td>
+          </tr>
+           <tr>
+            <td>
+              <label>Status: </label>
+            </td>
+            <td>
+              <p  style="float:right;"><% if (@vehicle.status =="Sale") %>For Sale<% else %>  <%= @vehicle.status %> <% end %> </p>
             </td>
           </tr>
           <tr>
@@ -185,7 +193,7 @@
   </div>
 </div>
 <div class="row" style="margin:0!important; width:100%!important;">
-  <div class="col-lg-6" style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
+  <div class="col-lg-6" style="padding-left:0.2vmin!important; padding-right:0.2vmin!important;">
     <div class="panel panel-default">
       <div class="panel-heading" style="background-color:#ddd">
         Features
@@ -199,7 +207,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6" style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
+  <div class="col-lg-6" style="padding-left:0.2vmin!important; padding-right:0.2vmin!important;">
     <div class="panel panel-default">
       <div class="panel-heading" style="background-color:#ddd">
         Description
