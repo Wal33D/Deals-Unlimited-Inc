@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body" style="background-color:#e5f2ff">
     <div class="row">
-      <div class="col-md-4"  style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
+      <div class="col-sm-4" >
         <table class="table">
           <tr>
             <td>
@@ -46,7 +46,7 @@
               <label>VIN: </label>
             </td>
             <td>
-              <p  style="float:right;">    <%= @vehicle.vin_num %></p>
+              <p  style="float:right;">  <%= @vehicle.vin_num %></p>
             </td>
           </tr>
           <tr>
@@ -69,14 +69,15 @@
           <% end %>
         </table>
       </div>
-      <div class="col-md-4">
+
+      <div class="col-sm-4">
         <table class="table">
           <tr>
             <td>
               <label>Year: </label>
             </td>
             <td>
-              <p  style="float:right;">  <%= @vehicle.year %></p>
+              <p style="float:right;">  <%= @vehicle.year %></p>
             </td>
           </tr>
           <tr>
@@ -84,7 +85,7 @@
               <label>Interior Color: </label>
             </td>
             <td>
-              <p  style="float:right;">
+              <p style="float:right;">
               <%= @vehicle.interior_color %></p>
             </td>
           </tr>
@@ -121,11 +122,10 @@
               <p  style="float:right;">  <%= @vehicle.mpg %></p>
             </td>
           </tr>
-          
           <% end %>
         </table>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-4" >
         <table class="table">
           <tr>
             <td>
@@ -183,36 +183,35 @@
   </div>
   <div class="panel-footer" style="background-color:#ddd">
   </div>
-  </div>
-  <div class="row" style="margin:0!important; width:100%!important;">
-    <div class="col-lg-6" style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
-      <div class="panel panel-default">
-        <div class="panel-heading" style="background-color:#ddd">
-          Features
-        </div>
-        <div class="panel-body features" style="background-color:#e5f2ff">
-          <tr><td>
-            <%= @vehicle.other_options.html_safe %>
-          </td></tr>
-        </div>
-        <div class="panel-footer" style="background-color:#ddd">
-        </div>
+</div>
+<div class="row" style="margin:0!important; width:100%!important;">
+  <div class="col-lg-6" style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color:#ddd">
+        Features
       </div>
-    </div>
-    <div class="col-lg-6" style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
-      <div class="panel panel-default">
-        <div class="panel-heading" style="background-color:#ddd">
-          Description
-        </div>
-        <div class="panel-body" style="background-color:#e5f2ff">
-          <%= @vehicle.description.html_safe %>
-        </div>
-        <div class="panel-footer" style="background-color:#ddd">
-        </div>
+      <div class="panel-body features" style="background-color:#e5f2ff">
+        <tr><td>
+          <%= @vehicle.other_options.html_safe %>
+        </td></tr>
+      </div>
+      <div class="panel-footer" style="background-color:#ddd">
       </div>
     </div>
   </div>
-  
+  <div class="col-lg-6" style="padding-left:0.1vmin!important; padding-right:0.1vmin!important;">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color:#ddd">
+        Description
+      </div>
+      <div class="panel-body" style="background-color:#e5f2ff">
+        <%= @vehicle.description.html_safe %>
+      </div>
+      <div class="panel-footer" style="background-color:#ddd">
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <style>
 h3.field-label{
@@ -221,5 +220,10 @@ font-weight: normal!important;
 }
 label{
 color:#444!important;
+}
+@media (max-width: 490px) {
+#mobile-hr{
+  display: inline-block!important;
+}
 }
 </style>
