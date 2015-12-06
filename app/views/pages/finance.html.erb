@@ -1,32 +1,35 @@
-<div class="container ">
-	<div class="row">
+<div class="container" >
+	<div class="row" id="finance">
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-10">
-			<div class="panel panel-default z-depth-4">
-				<div class="">
+			<div class="panel panel-default z-depth-4" id="panel-finance">
+				<div >
 					<!-- Default panel contents -->
 					<div class="panel-heading panel-directions mobile-panel">
-						<h5>Financing<a style="float:right"href="tel:2693244285"id="blue">269-324-4285</a>
+						<h5 id="title-finance">Financing<a style="float:right"href="tel:2693244285"id="blue">269-324-4285</a>
 						</h5>
 					</div>
-					<div  style="padding:3rem!important;">
-						<p style="text-align: center;">
-							<span style="font-family: courier new, courier; font-size: xx-large;">
+					<div id="finance-contents">
+	<div id="finance-contents">
+						<div class="row">
+							<div class="col-md-6">
 								<a href="/credit-application" title="Deals Unlimited Credit Application">
-									<img style="border-radius:2.5%;" src="https://www.dealsunlimitedinc.com/sites/default/files/public/credit-application-icon.png" alt="Credit Application" title="Credit Application" width="40%" >
+									<img style="border-radius:2.5%;" class="img-responsive"src="https://www.dealsunlimitedinc.com/sites/default/files/public/credit-application-icon.png" alt="Credit Application" title="Credit Application" width="100%" >
 								</a>
+							</div>
+							<div class="col-md-6">
 								<a href="/policy">
-									<img style="border-radius:2.5%;" src="https://www.dealsunlimitedinc.com/sites/default/files/public/privacy-statement-icon.png" alt="Privacy Statement" title="Privacy Statement" width="40%" >
+									<img style="border-radius:2.5%;"  class="img-responsive" src="https://www.dealsunlimitedinc.com/sites/default/files/public/privacy-statement-icon.png" alt="Privacy Statement" title="Privacy Statement" width="100%" >
 								</a>
-							</span>
-							
+							</div>
+					</div>
+				
+						<p style="text-align: center;">
+							<div class="alert alert-danger"  id="alert-finance">WE DO NOT OFFER BAD CREDIT, SPECIAL FINANCING OR BUY HERE/PAY HERE IN HOUSE FINANCING</div>
 						</p>
 						<p style="text-align: center;">
-							<div class="alert alert-danger" style="font-family: 'arial black', 'avant garde'; font-size:1.8vmin!important;">WE DO NOT OFFER BAD CREDIT, SPECIAL FINANCING OR BUY HERE/PAY HERE IN HOUSE FINANCING</div>
-						</p>
-						<p style="text-align: center;">
-							<div class="alert alert-success" style="font-family: 'arial black', 'avant garde';font-size:1.8vmin!important;">
+							<div class="alert alert-success" id="alert-finance">
 								WE NOW OFFER OUT OF STATE FINANCING ON QUALIFIED VEHICLES FOR THE FOLLOWING STATES:
 								<ul style="font-size:1.5vmin!important; padding-left:1vmin!important;">
 									<li>INDIANA</li>
@@ -41,11 +44,11 @@
 								</ul>
 							</div>
 						</p>
-						<div class="jumbotron">
-							<p>
+						<div class="jumbotron jumbotron-finance" >
+							<p id ="smaller-text">
 								At Deals Unlimited we offer Traditional Financing Options through Local Credit Unions,as well as a couple of Banks, that service Customers within the South West Michigan Area and entire Midwest region on qualifying vehicles.
 							</p>
-							<ul style="padding-left:1vmin!important;">
+							<ul id="banklist" style="padding-left:1vmin!important;">
 								<li>Kalsee</li>
 								<li>Consumers</li>
 								<li>Advia</li>
@@ -53,15 +56,15 @@
 								<li>Post</li>
 								<li>Chemical Bank</li>
 								<li>Merit First Bank</li>
-							</ul>
+							</ul>	
 						</div>
-						<div class="jumbotron">
-							<p>
+						<div class="jumbotron jumbotron-finance">
+							<p id = "smaller-text">
 								We make applying for an Auto Loan Online Fast, Easy and Secure.
 								Simply fill out our <%= link_to  "Secure Online Application",'credits' %> and a member of our Sales Staff will contact you to help you take the next step toward the purchase of your desired Truck, SUV, Van or Auto.
 							</p>
 						</div>
-						<div class="alert alert-info" style="font-size:1.7vmin!important;">If you have further Finance questions, please contact Bill Smith at (269) 324-4285
+						<div class="alert alert-info" id="info-finance" >If you have further Finance questions, please contact Bill Smith at (269) 324-4285
 						</div>
 					</div>
 				</div>
@@ -73,3 +76,28 @@
 		</div>
 	</div>
 </div>
+</div>
+<style>
+#finance-contents{padding:1rem!important;}
+#info-finance{font-size:2vmin!important; text-align: center!important;}
+#alert-finance{font-family: 'arial black', 'avant garde'; font-size:1.8vmin!important;}
+#banklist{font-size:2.5vmin;}
+.jumbotron-finance p {font-size:2.5vmin!important;}
+@media (max-width: 500px) {
+#smaller-text{font-size:3vmin!important;}
+#alert-finance{font-size:3.5vmin!important;}
+#alert-finance ul li{padding:.25vmin .25vmin 0.25vmin 2vmin!important;font-size:2.8vmin!important;}
+.jumbotron-finance{padding:10px!important;}
+#finance-contents{padding:0 2vmin 0 2vmin!important; }
+#finance-contents .row{ margin-bottom:0!important;}
+#finance-contents .col-md-6{ max-width:90%!important; width:90%!important; margin-left: 5%!important; margin-right:5%!important;}
+#banklist  { text-align: center!important;}
+#info-finance{font-size:3vmin!important;}
+#panel-finance{margin-bottom:0!important;}
+#title-finance{margin:0;}
+#finance{margin-top: 3vmin !important;}
+.jumbotron-finance p {
+	font-size:4vmin!important;
+}
+}
+</style>
