@@ -1,0 +1,101 @@
+<div class="container" id="test-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default z-depth-4" style="border-color:#bbb;">
+        <div class="panel-heading panel-black" id="testi-heading">
+          <div class="panel-title" id="testimonial-title">
+            <h4>Testimonials</h4>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table" id="testimonial-table">
+            <%= link_to 'New Testimonial', new_testimonial_path, :style=>"float:right;", :class=>"btn green"%>
+            <% @testimonials.each do |testimonial| %>
+            <div class"row">
+              <div class="col-sm-3">
+                <%= image_tag 'qoute.png', :class=>"img-responsive" %>
+              </div>
+              <div class="col-sm-9">
+                <div class="jumbotron z-depth-3">
+                  <p>
+                    <%= testimonial.testimonial %>
+                  </p>
+                  <hr>
+                  <p id="sig"><%= testimonial.name %> - <%= testimonial.date %></p>
+                    <% if admin_signed_in? %>
+                <div class="admin_edit_links" style="position:absolute width:100%;border:1px solid black; background-color:#eee;">
+                  <center>
+                  <%= link_to 'Show', testimonial,  :class=>"btn green" %>
+                  <%= link_to 'Edit', edit_testimonial_path(testimonial),  :class=>"btn blue"  %>
+                  <%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' },  :class=>" btn red"  %>
+                  </center>
+                </div>
+                <% end %>
+                </div>
+              
+              </div>
+            </div>
+            <!-- <%= testimonial.stars %> -->
+            
+            <% end %>
+          </table>
+        </div>
+        <div class="panel-footer panel-black">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+#testimonial-title, #testimonial-title h4{margin:0!important;}
+#testi-heading{}
+#testimonial-table img{
+margin-bottom:40px;
+max-width:200px;
+}
+#sig{
+font-family: "Cookie", cursive;
+font-size: 3.3vmin!important;
+}
+.jumbo{
+padding-top: 6vmin!important;
+margin-bottom: 0!important;}
+.jumbotron{
+background-color: #f2f2f2!important;
+padding-bottom:3vmin!important;
+margin-top: 8vmin!important;}
+.jumbotron p{
+font-size: 2.4vmin!important;
+}
+@media only screen and (max-width : 800px) {
+#test-container{
+margin-top:15vmin!important;
+}
+.col-sm-3{display: none!important;}
+.col-sm-9{
+width:100%!important;
+}
+}
+@media only screen and (max-width : 600px) {
+#test-container{
+margin-top:18vmin!important;
+}
+#sig{
+font-size: 4.3vmin!important;
+}
+.jumbotron p{
+font-size: 3.3vmin!important;
+}
+}
+@media only screen and (max-width : 450px) {
+#test-container{
+margin-top:22vmin!important;
+}
+#sig{
+font-size: 4.7vmin!important;
+}
+.jumbotron p{
+font-size: 4vmin!important;
+}
+}
+</style>

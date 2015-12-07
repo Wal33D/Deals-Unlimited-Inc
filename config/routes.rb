@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testimonials
   devise_for :admins
   resources :vehicles 
 
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   get 'pages/welcome'
   get 'pages/finance'
   get 'pages/directions'
-  get 'pages/testimonials'
   get 'pages/meet'
   get 'pages/policy'
   root 'pages#welcome'
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   end
   match '/contact',   to: 'contacts#new',       via: 'get'
   match '/policy',    to: 'pages#policy',       via: 'get'
-  match '/testimonials',       to: 'pages#testimonials',          via: 'get'
   match '/credit-application',   to: 'credits#new',       via: 'get'
     match '/meet',       to: 'pages#meet',          via: 'get'
 

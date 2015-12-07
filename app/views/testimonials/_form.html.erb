@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading panel-black">
+          <div class="panel-title">
+            <h5>Testimonial</h5>
+          </div>
+        </div>
+        <div class="panel-body">
+          <%= simple_form_for(@testimonial) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :stars %>
+            <%= f.input :testimonial %>
+            <%= f.input :date %>
+          </div>
+        </div>
+        <div class="panel-footer panel-black">
+          <%= f.button :submit, :style=>"width:100%!important;", :class=>"blue-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

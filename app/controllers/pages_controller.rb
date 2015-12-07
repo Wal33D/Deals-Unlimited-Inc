@@ -12,10 +12,8 @@ class PagesController < ApplicationController
   end
 
   def meet
-  	
-  end
-  def testimonials
 
   end
+
 
 end
