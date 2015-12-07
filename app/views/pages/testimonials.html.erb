@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="test-container">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default z-depth-4" style="border-color:#bbb;">
@@ -145,14 +145,40 @@ padding-top: 6vmin!important;
 	margin-bottom: 0!important;}
 .jumbotron{
 	background-color: #f2f2f2!important;
-	padding-bottom:3vmin!important;}
+	padding-bottom:3vmin!important;
+margin-top: 8vmin!important;}
 	.jumbotron p{
 			font-size: 2.4vmin!important;
 	}
 @media only screen and (max-width : 800px) {
+	#test-container{
+		margin-top:15vmin!important;
+	}
 .col-sm-3{display: none!important;}
 .col-sm-9{
 	width:100%!important;
 }
 }
+@media only screen and (max-width : 600px) {
+	#test-container{
+		margin-top:18vmin!important;
+	}
+	#sig{
+	font-size: 4.3vmin!important;
+}
+	.jumbotron p{
+			font-size: 3.3vmin!important;
+	}
+}
+@media only screen and (max-width : 450px) {
+	#test-container{
+		margin-top:22vmin!important;
+	}
+		#sig{
+	font-size: 4.7vmin!important;
+}
+	.jumbotron p{
+			font-size: 4vmin!important;
+	}
+	}
 </style>
