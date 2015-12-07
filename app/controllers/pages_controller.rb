@@ -10,4 +10,12 @@ class PagesController < ApplicationController
 
   def policy
   end
+
+  def meet
+  	
+  end
+  def testimonials
+
+  end
+
 end
