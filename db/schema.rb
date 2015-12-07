@@ -57,9 +57,10 @@ ActiveRecord::Schema.define(version: 20151207102627) do
     t.string   "headshot"
     t.integer  "duration"
     t.text     "about"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "position"
+    t.jsonb    "headshot_images"
   end
 
   create_table "testimonials", force: :cascade do |t|

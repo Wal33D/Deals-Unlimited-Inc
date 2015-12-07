@@ -13,7 +13,9 @@
           <div class="form-inputs">
             <%= f.input :employee_name %>
             <%= f.input :position %>
-            <%= f.input :headshot %>
+            <%= f.label :headshot %>
+            <%= image_tag @meet.headshot_images[0] %>
+            <%= f.file_field :headshot_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
             <%= f.input :duration %>
             <%= f.input :about %>
           </div>
@@ -26,3 +28,10 @@
     </div>
   </div>
 </div>
+<style>
+img{
+  max-width: 500px!important;
+border-radius: 100%!important;
+}
+
+</style>
