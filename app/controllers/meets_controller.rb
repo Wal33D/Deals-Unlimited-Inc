@@ -69,6 +69,6 @@ class MeetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meet_params
-      params.require(:meet).permit(:employee_name, :headshot, :duration, :about, :position)
+      params.require(:meet).permit(:employee_name, :headshot, {headshot_images: []}, :headshot_images_cache,:duration, :about, :position)
     end
 end

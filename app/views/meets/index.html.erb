@@ -25,7 +25,8 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-sm-4">
-                      <%= image_tag meet.headshot %>
+
+                      <%= image_tag meet.headshot_images[0] %>
                     </div>
                     <div class="col-sm-2">
                       <p><%= meet.position %></p>
@@ -58,4 +59,8 @@
 <style>
 #meet-title, #meet-title h4{margin:0!important;}
 #meet-heading{}
+img{
+  max-width: 500px!important;
+  border-radius:100%!important;
+}
 </style>
