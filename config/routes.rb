@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'pages/welcome'
   get 'pages/finance'
   get 'pages/directions'
-  get 'pages/about'
+  get 'pages/testimonials'
   get 'pages/meet'
   get 'pages/policy'
   root 'pages#welcome'
@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   end
   match '/contact',   to: 'contacts#new',       via: 'get'
   match '/policy',    to: 'pages#policy',       via: 'get'
-  match '/faq',       to: 'pages#faq',          via: 'get'
+  match '/testimonials',       to: 'pages#testimonials',          via: 'get'
   match '/credit-application',   to: 'credits#new',       via: 'get'
+    match '/meet',       to: 'pages#meet',          via: 'get'
+
     match '/credits',   to: 'credits#new',       via: 'get'
 
   match '/about',     to: 'pages#about',          via: 'get'
