@@ -9,7 +9,9 @@
         </div>
         <div class="panel-body">
           <table class="table" id="testimonial-table">
+            <% if admin_signed_in? %>
             <%= link_to 'New Testimonial', new_testimonial_path, :style=>"float:right;", :class=>"btn green"%>
+            <% end %>
             <% @testimonials.each do |testimonial| %>
             <div class"row">
               <div class="col-sm-3">
@@ -22,17 +24,17 @@
                   </p>
                   <hr>
                   <p id="sig"><%= testimonial.name %> - <%= testimonial.date %></p>
-                    <% if admin_signed_in? %>
-                <div class="admin_edit_links" style="position:absolute width:100%;border:1px solid black; background-color:#eee;">
-                  <center>
-                  <%= link_to 'Show', testimonial,  :class=>"btn green" %>
-                  <%= link_to 'Edit', edit_testimonial_path(testimonial),  :class=>"btn blue"  %>
-                  <%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' },  :class=>" btn red"  %>
-                  </center>
+                  <% if admin_signed_in? %>
+                  <div class="admin_edit_links" style="position:absolute width:100%;border:1px solid black; background-color:#eee;">
+                    <center>
+                    <%= link_to 'Show', testimonial,  :class=>"btn green" %>
+                    <%= link_to 'Edit', edit_testimonial_path(testimonial),  :class=>"btn blue"  %>
+                    <%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' },  :class=>" btn red"  %>
+                    </center>
+                  </div>
+                  <% end %>
                 </div>
-                <% end %>
-                </div>
-              
+                
               </div>
             </div>
             <!-- <%= testimonial.stars %> -->
