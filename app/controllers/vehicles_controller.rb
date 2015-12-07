@@ -3,7 +3,7 @@ class VehiclesController < ApplicationController
   def index     
       @q = Vehicle.ransack(params[:q])
       @vehicle= @q.result()
-      @vehicles=@vehicle.order(:title).page params[:page]
+      @vehicles=@vehicle.order(:price).page params[:page]
   end
  
   def show
