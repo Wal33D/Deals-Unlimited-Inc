@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading panel-black">
+          <div class="panel-title">
+            <h5>Staff Member Form</h5>
+          </div>
+        </div>
+        <div class="panel-body">
+          <%= simple_form_for(@meet) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :employee_name %>
+            <%= f.input :position %>
+            <%= f.input :headshot %>
+            <%= f.input :duration %>
+            <%= f.input :about %>
+          </div>
+        </div>
+        <div class="panel-footer panel-black">
+          <%= f.button :submit, :style=>"width:100%!important;", :class=>"blue-btn", :value=>"Create New Staff Member" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
