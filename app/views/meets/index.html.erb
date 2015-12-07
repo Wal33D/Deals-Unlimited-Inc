@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default z-depth-4" style="border-color:#ccc;">
+        <div class="panel-heading panel-black" id="meet-heading">
+          <div class="panel-title" id="meet-title">
+            <h4>Meet the Staff!
+            </h4>
+          </div>
+        </div>
+        <div class="panel-body">
+          <% if admin_signed_in? %>
+          <%= link_to 'Add  a Staff Member', new_meet_path, :class=>"btn green", :style=>"float:right!important;" %>
+          <% end %>
+          <% @meets.each do |meet| %>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="panel panel-default z-depth-2" >
+                <div class="panel-heading">
+                  <div class="panel-title">
+                    <h5><%= meet.employee_name %>
+                    </h5>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <%= image_tag meet.headshot %>
+                    </div>
+                    <div class="col-sm-2">
+                      <p><%= meet.position %></p>
+                      <p><%= meet.duration %></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p><%= meet.about %></p>
+                      <% if admin_signed_in? %>
+                      <%= link_to 'Show', meet, :class=>"btn blue",:style=>"width:28%!important;" %>
+                      <%= link_to 'Edit', edit_meet_path(meet), :class=>"btn yellow",:style=>"width:28%!important;" %>
+                      <%= link_to 'Destroy', meet, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn red",:style=>"width:41%!important;" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="panel-footer panel-black">
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+<style>
+#meet-title, #meet-title h4{margin:0!important;}
+#meet-heading{}
+</style>

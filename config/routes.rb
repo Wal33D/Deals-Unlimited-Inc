@@ -1,33 +1,33 @@
 Rails.application.routes.draw do
-  resources :testimonials
+  resources :meets
   devise_for :admins
+  resources :testimonials
   resources :vehicles 
-
   resources "contacts", only: [:new, :create]
   resources "credits", only: [:new, :create]
+
+   devise_scope :admin do get "/some/route" 
+    match '/login',   to: 'devise/sessions#new',       via: 'get'
+  end
 
   get 'pages/welcome'
   get 'pages/finance'
   get 'pages/directions'
-  get 'pages/meet'
   get 'pages/policy'
-  root 'pages#welcome'
-  devise_scope :admin do get "/some/route" 
-    match '/login',   to: 'devise/sessions#new',       via: 'get'
-  end
+ 
   match '/contact',   to: 'contacts#new',       via: 'get'
   match '/policy',    to: 'pages#policy',       via: 'get'
   match '/credit-application',   to: 'credits#new',       via: 'get'
-    match '/meet',       to: 'pages#meet',          via: 'get'
-
-    match '/credits',   to: 'credits#new',       via: 'get'
-
+  match '/credits',   to: 'credits#new',       via: 'get'
   match '/about',     to: 'pages#about',          via: 'get'
-  match '/meet',     to: 'pages#meet',          via: 'get'
+  match '/meet',     to: 'meets#index',          via: 'get'
   match '/finance',   to: 'pages#finance',      via: 'get'
   match '/directions',to: 'pages#directions',   via: 'get'
   match '/contacts',  to: 'contacts#new',             via: 'get'
   match '/print',  to: 'vehicles#print',             via: 'get'
+
+  root 'pages#welcome'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

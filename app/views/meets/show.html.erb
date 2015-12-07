@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading panel-black">
+					<div class="panel-title">
+						<h5>Testimonial Created</h5>
+					</div>
+				</div>
+				<div class="panel-body">
+					
+					
+					<p>
+						<strong>Employee name:</strong>
+						<%= @meet.employee_name %>
+					</p>
+					<p>
+						<strong>Headshot:</strong>
+						<%= @meet.headshot %>
+					</p>
+					<p>
+						<strong>Position:</strong>
+						<%= @meet.position %>
+					</p>
+					<p>
+						<strong>Duration:</strong>
+						<%= @meet.duration %>
+					</p>
+					<p>
+						<strong>About:</strong>
+						<%= @meet.about %>
+					</p>
+				</div>
+				<div class="panel-footer panel-black">
+					<% if admin_signed_in? %>
+					<center>
+					<%= link_to 'Edit', edit_meet_path(@meet) %> |
+					<%= link_to 'Back', meets_path %>
+					</center>
+					<% end %>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
