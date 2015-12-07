@@ -100,7 +100,7 @@
                 <div class="col-xs-3" id="right-col">
                   <div class ="table-responsive">
                     <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>">
-                      <%=  image_tag 'carfax.png', :class=>"img-responsive", :id=>"carfax" %>
+                      <center><%=  image_tag 'carfax.png', :class=>"img-responsive", :id=>"carfax" %></center>
                     </a>
                     <table class="table table-striped" id="second-table">
                       <tr>
@@ -147,7 +147,7 @@
             </div>
           </div>
           <% end %>
-        <center>  <%= paginate @vehicles %></center>
+          <center>  <%= paginate @vehicles %></center>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@
   margin-bottom: 10vmin!important;
   }
   .pagination{
-    margin-top: 0!important;
+  margin-top: 0!important;
   background-color:transparent!important;
   width:100%;
   overflow-y:scroll;
@@ -231,6 +231,8 @@
   .searchbox{
   width:99%!important;
   }
+  #carfax{
+  max-width: 280px!important;}
   #vehthumb{
   margin-top: 1vmin;
   margin-bottom: 1vmin;
@@ -312,7 +314,7 @@
   width:74%!important;
   }
   #pricetag{
-  font-size: 7vmin!important;
+  font-size: 6.5vmin!important;
   }
   #first-table tr td,#second-table tr td{
   font-size:2vmin;
