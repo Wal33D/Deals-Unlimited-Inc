@@ -33,10 +33,10 @@
 										<p >Do you have a trade in?</p>
 									</div>
 									<div class="col-xs-3">
-										<button class ="btn btn-default blue"type="button" onclick="tradeIn_yes('true')" >Yes</button>
+										<button class ="btn btn-default blue"type="button" id="credit-true" onclick="tradeIn_yes('true')" >Yes</button>
 									</div>
 									<div class="col-xs-3">
-										<button class ="btn btn-default red" type="button"  onclick="tradeIn_yes('false')">No</button>
+										<button class ="btn btn-default red" type="button" id="credit-false" onclick="tradeIn_yes('false')">No</button>
 									</div>
 								</div>
 							</div>
@@ -314,23 +314,25 @@ function tradeIn_yes(val){
 	if (val=="true"){
 		$( ".tradein" ).fadeIn(1000);
 		$( "#credit_tradein" ).val("Yes, I have a trade in.");
-		$( "#credit_tradein" ).prop( "disabled", true );
+		$( "#credit-true" && "#creditco-true" ).prop( "disabled", true );
+		$( "#credit-false" && "#creditco-false").prop( "disabled", false );
 	}else{
 		$( ".tradein" ).fadeOut(1500);
 		$( "#credit_tradein" ).val("No, I do not have a trade in.");
-		$( "#credit_tradein" ).prop( "disabled", false );
+		$( "#credit-true" && "#creditco-true" ).prop( "disabled", false );
+		$( "#credit-false"&& "#creditco-false").prop( "disabled", true );
 	}
 }
 function coap(val){
 	if (val=="true"){
 	
-		$( "#single-applicant" ).delay(300).fadeOut(300);
-		$( "#double-applicant" ).fadeIn(300);
+		$( "#single-applicant" ).delay(500).fadeOut(500);
+		$( "#double-applicant" ).fadeIn(500);
 	
 	}else{
 	
-		$( "#double-applicant" ).fadeOut(300);
-		$( "#single-applicant" ).delay(300).fadeIn(300);
+		$( "#double-applicant" ).fadeOut(500);
+		$( "#single-applicant" ).delay(500).fadeIn(500);
 	}
 }
 </script>
