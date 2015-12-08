@@ -4,19 +4,52 @@
 		<div class="panel-heading" style="background-color:#292c2f; color:#eee;">
 			<div class="panel-title">
 				<h5  id="title-credit">Credit Application</h5>
-				
 			</div>
 		</div>
-		
 		<div class="panel-body" id="single-applicant">
 			<%= simple_form_for @credit, :html => {:class => '  form-horizontal' } do |f| %>
-			
+			<div class="panel panel-default">
+				<div class="panel-body" style="background-color:#ddd; padding-bottom:0!important;">
+					<div class="row" style="margin-bottom:0!important;" >
+						<div class="col-xs-6" style=" padding-bottom:0!important;">
+							<div class="input-group" >
+								<div class="row"  style="margin-bottom:0!important;">
+									<div class="col-xs-6">
+										<p> Have a Co-Applicant?</p>
+									</div>
+									<div class="col-xs-3">
+										<button class ="btn btn-default blue"type="button" onclick="coap('true')" >Yes</button>
+									</div>
+									<div class="col-xs-3">
+										<button class ="btn btn-default red" type="button"  onclick="coap('false')">No</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="input-group" >
+								<div class="row"  style="margin-bottom:0!important;">
+									<div class="col-xs-6">
+										<p >Do you have a trade in?</p>
+									</div>
+									<div class="col-xs-3">
+										<button class ="btn btn-default blue"type="button" onclick="tradeIn_yes('true')" >Yes</button>
+									</div>
+									<div class="col-xs-3">
+										<button class ="btn btn-default red" type="button"  onclick="tradeIn_yes('false')">No</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="panel panel-default">
 						<div class="panel-heading" style="background-color:#ddd">
 							<div class="panel-title">
-								Vehicle your trying to get credit
+								Vehicle your trying to get credit for
 							</div>
 						</div>
 						<div class="panel-body" style="background-color:#eff7ff">
@@ -83,17 +116,8 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" style="background-color:#ddd">
 							<div class="panel-title">
-								Your Information
+								Your Info
 							</div>
-							<center>
-							<div class="input-group" >
-								<p style="color:#111; font-size:1rem; display:inline-block!important;"> Have a Co-Applicant?</p>
-							</div>
-							<div class="input-group" >
-								<button class ="btn btn-default green"type="button" onclick="coap('true')" >Yes</button>
-								<button class ="btn btn-default blue" type="button"  onclick="coap('false')">No</button>
-							</div>
-							</center>
 						</div>
 						<div class="panel-body" style="background-color:#eff7ff">
 							<div class="input-group" >
@@ -137,7 +161,6 @@
 								
 								<%= f.input :prev_addr_time ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at previous address", :required=>"true" %>
 							</div>
-
 							<div class="input-group" >
 								<%= f.input :transfer ,:type=>"text",  :class=>"form-control", :placeholder=>"Transferring a Plate or Need a New Plate?" %>
 							</div>
@@ -147,13 +170,7 @@
 							<div class="input-group" >
 								<%= f.input :howmuch ,:type=>"text",  :class=>"form-control", :placeholder=>"If Yes, How much" %>
 							</div>
-							<div class="input-group" >
-								<p style="color:#111; font-size:1.3rem; display:inline-block!important;">Do you have a trade in?</p>
-							</div>
-							<div class="input-group" >
-								<button class ="btn btn-default green"type="button" onclick="tradeIn_yes('true')" >Yes</button>
-								<button class ="btn btn-default blue" type="button"  onclick="tradeIn_yes('false')">No</button>
-							</div>
+							
 						</div>
 					</div>
 				</div>
