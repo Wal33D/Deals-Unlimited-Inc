@@ -5,7 +5,7 @@
   <label for="q_kind" style="float:left!important;">Type of Vehicle</label>
   <%= f.select :kind_cont, options_for_select([['', ''], ['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray" %>
   <label for="q_make" style="float:left!important;">Make</label>
-  <%= f.search_field :make_cont , :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
+<%= f.collection_select :make_cont, AutoMake.all, :code, :title, { :prompt => "" }, {  :style=>"border:1px solid #eee!important; padding-left:5px!important;" } %>
   <label for="q_make" style="float:left!important;">Model</label>
   <%= f.search_field :model_cont, :style=>"border:1px solid #eee!important; padding-left:5px!important;"%>
   <label for ="year"> Year</label>
