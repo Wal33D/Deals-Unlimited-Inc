@@ -24,10 +24,10 @@
 							<p >Do you have a trade in?</p>
 						</div>
 						<div class="col-xs-3">
-							<button class ="btn btn-default blue"type="button" id="creditco-true" onclick="tradeIn_yes('true')" >Yes</button>
+							<button class ="btn btn-default blue"type="button" id="creditco-true" onclick="tradeIn('true')" >Yes</button>
 						</div>
 						<div class="col-xs-3">
-							<button class ="btn btn-default red" type="button" id="creditco-false" onclick="tradeIn_yes('false')">No</button>
+							<button class ="btn btn-default red" type="button" id="creditco-false" onclick="tradeIn('false')">No</button>
 						</div>
 					</div>
 				</div>
@@ -388,3 +388,19 @@ font-size:4vmin!important;
 }
 }
 </style>
+
+<script>
+function tradeIn(val){
+	if (val=="true"){
+		$( ".tradein" ).fadeIn(1000);
+		$( "#credit_tradein" ).val("Yes, I have a trade in.");
+		$( "#creditco-true" ).prop( "disabled", true );
+		$( "#creditco-false").prop( "disabled", false );
+	}else{
+		$( ".tradein" ).fadeOut(1500);
+		$( "#credit_tradein" ).val("No, I do not have a trade in.");
+		$( "#creditco-true"  ).prop( "disabled", false );
+		$( "#creditco-false").prop( "disabled", true );
+	}
+}
+</script>

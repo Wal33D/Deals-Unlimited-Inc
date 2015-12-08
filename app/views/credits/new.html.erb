@@ -314,13 +314,13 @@ function tradeIn_yes(val){
 	if (val=="true"){
 		$( ".tradein" ).fadeIn(1000);
 		$( "#credit_tradein" ).val("Yes, I have a trade in.");
-		$( "#credit-true" && "#creditco-true" ).prop( "disabled", true );
-		$( "#credit-false" && "#creditco-false").prop( "disabled", false );
+		$( "#credit-true" ).prop( "disabled", true );
+		$( "#credit-false" ).prop( "disabled", false );
 	}else{
 		$( ".tradein" ).fadeOut(1500);
 		$( "#credit_tradein" ).val("No, I do not have a trade in.");
-		$( "#credit-true" && "#creditco-true" ).prop( "disabled", false );
-		$( "#credit-false"&& "#creditco-false").prop( "disabled", true );
+		$( "#credit-true" ).prop( "disabled", false );
+		$( "#credit-false" ).prop( "disabled", true );
 	}
 }
 function coap(val){
