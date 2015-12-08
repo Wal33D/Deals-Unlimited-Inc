@@ -11,71 +11,74 @@
 						</h5>
 					</div>
 					<div id="finance-contents">
-	<div id="finance-contents">
-						<div class="row">
-							<div class="col-md-6">
-								<a href="/credit-application" title="Deals Unlimited Credit Application">
-									<img style="border-radius:2.5%;" class="img-responsive"src="https://www.dealsunlimitedinc.com/sites/default/files/public/credit-application-icon.png" alt="Credit Application" title="Credit Application" width="100%" >
-								</a>
+						<div id="finance-contents">
+							<div class="row">
+								<div class="col-md-6">
+									<a href="/credit-application" title="Deals Unlimited Credit Application">
+										<center>
+										<%= image_tag 'credit-application-icon.png', :style=>"border-radius:2.5%;",:width=>"100%" ,:title=>"Privacy Statement", :alt=>"Privacy Statement", :class=>"img-responsive"  %>
+										</center>
+									</a>
+								</div>
+								<div class="col-md-6">
+									<a href="/policy">
+										<center>
+										<%= image_tag 'privacy-statement-icon.png', :style=>"border-radius:2.5%;",:width=>"100%",:title=>"Privacy Statement", :alt=>"Privacy Statement", :class=>"img-responsive"  %>
+										</center>
+									</a>
+								</div>
 							</div>
-							<div class="col-md-6">
-								<a href="/policy">
-									<img style="border-radius:2.5%;"  class="img-responsive" src="https://www.dealsunlimitedinc.com/sites/default/files/public/privacy-statement-icon.png" alt="Privacy Statement" title="Privacy Statement" width="100%" >
-								</a>
-							</div>
-					</div>
-				
-						<p style="text-align: center;">
-							<div class="alert alert-danger"  id="alert-finance">WE DO NOT OFFER BAD CREDIT, SPECIAL FINANCING OR BUY HERE/PAY HERE IN HOUSE FINANCING</div>
-						</p>
-						<p style="text-align: center;">
-							<div class="alert alert-success" id="alert-finance">
-								WE NOW OFFER OUT OF STATE FINANCING ON QUALIFIED VEHICLES FOR THE FOLLOWING STATES:
-								<ul style="font-size:1.5vmin!important; padding-left:1vmin!important;">
-									<li>INDIANA</li>
-									<li>OHIO</li>
-									<li>ILLINOIS</li> <li>PENNSYLVANIA</li>
-									<li>WEST VIRGINIA</li>
-									<li>KENTUCKY</li>
-									<li>MINNESOTA</li>
-									<li>WISCONSIN</li>
-									<li>IOWA</li>
-									<li>KENTUCKY</li>
+							<p style="text-align: center;">
+								<div class="alert alert-danger"  id="alert-finance">WE DO NOT OFFER BAD CREDIT, SPECIAL FINANCING OR BUY HERE/PAY HERE IN HOUSE FINANCING</div>
+							</p>
+							<p style="text-align: center;">
+								<div class="alert alert-success" id="alert-finance">
+									WE NOW OFFER OUT OF STATE FINANCING ON QUALIFIED VEHICLES FOR THE FOLLOWING STATES:
+									<ul style="font-size:1.5vmin!important; padding-left:1vmin!important;">
+										<li>INDIANA</li>
+										<li>OHIO</li>
+										<li>ILLINOIS</li> <li>PENNSYLVANIA</li>
+										<li>WEST VIRGINIA</li>
+										<li>KENTUCKY</li>
+										<li>MINNESOTA</li>
+										<li>WISCONSIN</li>
+										<li>IOWA</li>
+										<li>KENTUCKY</li>
+									</ul>
+								</div>
+							</p>
+							<div class="jumbotron jumbotron-finance" >
+								<p id ="smaller-text">
+									At Deals Unlimited we offer Traditional Financing Options through Local Credit Unions,as well as a couple of Banks, that service Customers within the South West Michigan Area and entire Midwest region on qualifying vehicles.
+								</p>
+								<ul id="banklist" style="padding-left:1vmin!important;">
+									<li>Kalsee</li>
+									<li>Consumers</li>
+									<li>Advia</li>
+									<li>United Bay</li>
+									<li>Post</li>
+									<li>Chemical Bank</li>
+									<li>Merit First Bank</li>
 								</ul>
 							</div>
-						</p>
-						<div class="jumbotron jumbotron-finance" >
-							<p id ="smaller-text">
-								At Deals Unlimited we offer Traditional Financing Options through Local Credit Unions,as well as a couple of Banks, that service Customers within the South West Michigan Area and entire Midwest region on qualifying vehicles.
-							</p>
-							<ul id="banklist" style="padding-left:1vmin!important;">
-								<li>Kalsee</li>
-								<li>Consumers</li>
-								<li>Advia</li>
-								<li>United Bay</li>
-								<li>Post</li>
-								<li>Chemical Bank</li>
-								<li>Merit First Bank</li>
-							</ul>	
-						</div>
-						<div class="jumbotron jumbotron-finance">
-							<p id = "smaller-text">
-								We make applying for an Auto Loan Online Fast, Easy and Secure.
-								Simply fill out our <%= link_to  "Secure Online Application",'credits' %> and a member of our Sales Staff will contact you to help you take the next step toward the purchase of your desired Truck, SUV, Van or Auto.
-							</p>
-						</div>
-						<div class="alert alert-info" id="info-finance" >If you have further Finance questions, please contact Bill Smith at (269) 324-4285
+							<div class="jumbotron jumbotron-finance">
+								<p id = "smaller-text">
+									We make applying for an Auto Loan Online Fast, Easy and Secure.
+									Simply fill out our <%= link_to  "Secure Online Application",'credits' %> and a member of our Sales Staff will contact you to help you take the next step toward the purchase of your desired Truck, SUV, Van or Auto.
+								</p>
+							</div>
+							<div class="alert alert-info" id="info-finance" >If you have further Finance questions, please contact Bill Smith at (269) 324-4285
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="panel-footer" style="background-color:#292c2f !important;">
+					<div class="panel-footer" style="background-color:#292c2f !important;">
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-1">
+			<div class="col-sm-1">
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 <style>
 #finance-contents{padding:1rem!important;}
@@ -95,9 +98,14 @@
 #info-finance{font-size:3vmin!important;}
 #panel-finance{margin-bottom:0!important;}
 #title-finance{margin:0;}
-#finance{margin-top: 3vmin !important;}
+#finance{margin-top:3vmin !important;}
 .jumbotron-finance p {
-	font-size:4vmin!important;
+font-size:4vmin!important;
 }
+}
+@media (max-width: 750px) {
+	#finance{margin-top: 4.5vmin !important;}
+
+.img-responsive{ max-width:375px!important;
 }
 </style>
