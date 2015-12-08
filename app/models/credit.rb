@@ -42,6 +42,33 @@ attribute :down_payment
 attribute :howmuch
 attribute :tradein
 attribute :tel
+attribute :email_2,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+
+attribute :name_2,      :validate => true
+attribute :employer_2,    :validate => true
+attribute :employer_addr_2,    :validate => true
+attribute :employer_phone_2,    :validate => true
+attribute :curr_pos_2,    :validate => true
+attribute :time_at_job_2,    :validate => true
+attribute :income_2,    :validate => true
+attribute :prev_employer_2,    :validate => true
+attribute :prev_position_2,    :validate => true
+attribute :time_at_last_job_2,    :validate => true
+attribute :other_income_2,    :validate => true
+attribute :other_income_source_2,    :validate => true
+attribute :middle_initial_2,      :validate => true
+attribute :last_name_2,      :validate => true
+attribute :street_address_2,      :validate => true
+attribute :state_2,      :validate => true
+attribute :dob_2,      :validate => true
+attribute :ssn_2,      :validate => true
+attribute :res_status_2,      :validate => true
+attribute :rent_2,      :validate => true
+attribute :prev_addr_2,      :validate => true
+attribute :phone_2,      :validate => true
+attribute :prev_addr_time_2,      :validate => true
+
+
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
   def headers

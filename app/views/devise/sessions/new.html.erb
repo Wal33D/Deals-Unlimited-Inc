@@ -4,21 +4,23 @@
 		</div>
 		<div class="col-sm-6">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-black">
 					<div class="panel-title">
-						<h5 style="color:white!important;">Log In</h5>
+						<h4 >Deals Unlimited, Inc. - Administration</h4>
 					</div>
 				</div>
 				<div class="panel-body">
 					<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 					<div class="form-inputs">
+						<p>Email Address</p>
 						<%= f.input :email, required: false, autofocus: true %>
+						<p>Password</p>
 						<%= f.input :password, required: false %>
 					</div>
 				</div>
 				<div class="panel-footer">
 					<div class="form-actions">
-						<center><%= f.button :submit, "Log in", :style=>"width:100%!important;", :class=>"blue" %></center>
+						<center><%= f.button :submit, "Log in", :style=>"width:100%; color:black; background-color:#5383D3 !important", :class=>"blue" %></center>
 						<%= render "devise/shared/links" %>
 					</div>
 				</div>
@@ -31,13 +33,12 @@
 </div>
 <style>
 footer{
-	position: absolute;
-	bottom:0!important;
-}
+display: none!important;}
 .panel-heading, .panel-footer{
-    background-color: #292c2f!important;
+background-color: #292c2f!important;
 }
-
+.panel-title h4{margin:0!important;}
+label{display: none!important;}
 .input .boolean, .optional, .admin_remember_me{
 visibility:visible!important;}
 </style>

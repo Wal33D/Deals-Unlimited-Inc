@@ -4,9 +4,11 @@
 		<div class="panel-heading" style="background-color:#292c2f; color:#eee;">
 			<div class="panel-title">
 				<h5  id="title-credit">Credit Application</h5>
+				
 			</div>
 		</div>
-		<div class="panel-body">
+		
+		<div class="panel-body" id="single-applicant">
 			<%= simple_form_for @credit, :html => {:class => '  form-horizontal' } do |f| %>
 			
 			<div class="row">
@@ -14,7 +16,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" style="background-color:#ddd">
 							<div class="panel-title">
-								Vehicle your trying to get credit for
+								Vehicle your trying to get credit
 							</div>
 						</div>
 						<div class="panel-body" style="background-color:#eff7ff">
@@ -83,6 +85,15 @@
 							<div class="panel-title">
 								Your Information
 							</div>
+							<center>
+							<div class="input-group" >
+								<p style="color:#111; font-size:1rem; display:inline-block!important;"> Have a Co-Applicant?</p>
+							</div>
+							<div class="input-group" >
+								<button class ="btn btn-default green"type="button" onclick="coap('true')" >Yes</button>
+								<button class ="btn btn-default blue" type="button"  onclick="coap('false')">No</button>
+							</div>
+							</center>
 						</div>
 						<div class="panel-body" style="background-color:#eff7ff">
 							<div class="input-group" >
@@ -126,6 +137,16 @@
 								
 								<%= f.input :prev_addr_time ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at previous address", :required=>"true" %>
 							</div>
+
+							<div class="input-group" >
+								<%= f.input :transfer ,:type=>"text",  :class=>"form-control", :placeholder=>"Transferring a Plate or Need a New Plate?" %>
+							</div>
+							<div class="input-group" >
+								<%= f.input :down_payment ,:type=>"text",  :class=>"form-control", :placeholder=>"Do you have a down Payment?" %>
+							</div>
+							<div class="input-group" >
+								<%= f.input :howmuch ,:type=>"text",  :class=>"form-control", :placeholder=>"If Yes, How much" %>
+							</div>
 							<div class="input-group" >
 								<p style="color:#111; font-size:1.3rem; display:inline-block!important;">Do you have a trade in?</p>
 							</div>
@@ -138,31 +159,6 @@
 				</div>
 			</div>
 			<div class="row tradein" style="display:none;">
-				<div class="col-lg-6">
-					<div class="panel panel-default" >
-						<div class="panel-heading" style="background-color:#ccc ">
-							<div class="panel-title">
-								Trade In Information
-							</div>
-						</div>
-						
-						<div class="panel-body" style="background-color:#e5f2ff;">
-							<div class="input-group" >
-								
-								<%= f.input :tradein ,:type=>"text", :class=>"form-control", :placeholder=>"Do you have a Trade In" %>
-							</div>
-							<div class="input-group" >
-								<%= f.input :transfer ,:type=>"text",  :class=>"form-control", :placeholder=>"Transferring a Plate or Need a New Plate?" %>
-							</div>
-							<div class="input-group" >
-								<%= f.input :down_payment ,:type=>"text",  :class=>"form-control", :placeholder=>"Do you have a down Payment?" %>
-							</div>
-							<div class="input-group" >
-								<%= f.input :howmuch ,:type=>"text",  :class=>"form-control", :placeholder=>"If Yes, How much" %>
-							</div>
-						</div>
-					</div>
-				</div>
 				<div class="col-lg-6">
 					<div class="panel panel-default" >
 						<div class="panel-heading" style="background-color:#ccc;">
@@ -203,6 +199,9 @@
 				</div>
 				
 			</div>
+		</div>
+		<div class="panel-body" id="double-applicant" style="display:none;">
+			<%= render 'coap' %>
 		</div>
 		<div class="panel-footer" style="background-color:#292c2f;">
 			<%= f.button :submit, 'Submit Application',:id=>"credit-btn", :class=> "btn btn-primary contact-sub-btn blue-btn" %>
@@ -303,6 +302,18 @@ function tradeIn_yes(val){
 		$( ".tradein" ).fadeOut(1500);
 		$( "#credit_tradein" ).val("No, I do not have a trade in.");
 		$( "#credit_tradein" ).prop( "disabled", false );
+	}
+}
+function coap(val){
+	if (val=="true"){
+	
+		$( "#single-applicant" ).delay(300).fadeOut(300);
+		$( "#double-applicant" ).fadeIn(300);
+	
+	}else{
+	
+		$( "#double-applicant" ).fadeOut(300);
+		$( "#single-applicant" ).delay(300).fadeIn(300);
 	}
 }
 </script>
