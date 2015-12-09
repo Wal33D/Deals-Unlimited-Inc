@@ -17,8 +17,6 @@
                             </ul>
                             </center>
                         </div>
-
-
                     </div>
                     <%= render 'search_form_for_vehicles' %>
                 </div>
@@ -27,7 +25,6 @@
                 
                 <div class="panel" id="vehicle-container">
                     <% @vehicles.each do |vehicle| %>
-
                     <% if (vehicle.status == "Sold") &! (admin_signed_in?) %>
                     <% else %>
                     <div class="panel panel-default z-depth-2" id="each-vehicle">
@@ -46,8 +43,7 @@
                                         <% if vehicle.import == 'import' %>
                                         <%=  link_to image_tag(vehicle.image_1 , :class=>"img-responsive" ,:id=>"vehthumb"),vehicle %>
                                         <% else %>
-                                        <%=  link_to image_tag(vehicle.thumb , :class=>"img-responsive",:id=>"vehthumb"),vehicle %>
-                                        <% end %>
+                                        <%=  link_to image_tag @vehicle.vehicle_images[0].url, :class=>"img-responsive",:id=>"vehthumb"),vehicle  %>
                                     </div>
                                     <div class="col-xs-4" id="middle-col">
                                         <div class ="table-responsive">
@@ -67,7 +63,7 @@
                                                         <%= vehicle.drive_type %>
                                                     </td>
                                                 </tr>
-                                                <% if vehicle.import =='import'  %>
+                                                <% if (vehicle.import =='import') && (vehicle.mpg != "undefined") %>
                                                 <% else %>
                                                 <tr>
                                                     <td>
