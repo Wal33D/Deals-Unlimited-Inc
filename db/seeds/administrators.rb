@@ -1,5 +1,5 @@
 if Admin.exists?(:email => "aquataze@yahoo.com")
-Admin.create!(:name => "Wal33d",
+else Admin.create!(:name => "Wal33d",
 :email => "aquataze@yahoo.com",
 :password =>"testpass",
 :created_at => 2.days.ago,
@@ -7,7 +7,7 @@ Admin.create!(:name => "Wal33d",
 :updated_at => 5.hours.ago)
 end
 if Admin.exists?(:email => "dealsunlimitedinc@gmail.com")
-Admin.create!(:name => "Bill",
+else Admin.create!(:name => "Bill",
 :email => "dealsunlimitedinc@gmail.com",
 :password =>"testpass",
 :created_at => 2.days.ago,
@@ -15,7 +15,7 @@ Admin.create!(:name => "Bill",
 :updated_at => 5.hours.ago)
 end
 if Admin.exists?(:email => "dealsunlimited@live.com")
-Admin.create!(:name => "Hussein",
+else Admin.create!(:name => "Hussein",
 :email => "dealsunlimited@live.com",
 :password =>"testpass",
 :created_at => 2.days.ago,
@@ -23,7 +23,7 @@ Admin.create!(:name => "Hussein",
 :updated_at => 5.hours.ago)
 end
 if Admin.exists?(:email => "dealsunlimitedinc@live.com")
-Admin.create!(:name => "Admin",
+else Admin.create!(:name => "Admin",
 :email => "dealsunlimitedinc@live.com",
 :password =>"testpass",
 :created_at => 2.days.ago,
