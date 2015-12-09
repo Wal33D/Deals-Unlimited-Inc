@@ -153,11 +153,19 @@
           <div class="col-xs-12">
             <div class="jumbotron">
               <h4>Feautures</h4>
-              <div id="featuresprint">
+              <% if @vehicle.import == "import" %>
+              <div class="panel-body features" id="featuresprint" style="background-color:#e5f2ff">
                 <% if @vehicle.other_options %>
-                <%= @vehicle.other_options.html_safe %>
+                <%= @vehicle.other_options.html_safe%>
                 <% end %>
               </div>
+              <% else %>
+              <div class="panel-body features" id="featuresprint" style="background-color:#e5f2ff">
+                <% if @vehicle.other_options %>
+                <%= @vehicle.other_options.html_safe%>
+                <% end %>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -178,4 +186,3 @@
   font-weight: normal!important;
   }
   </style>
-  
