@@ -65,16 +65,7 @@
               <p  style="float:right;">  <%= @vehicle.stock_number %></p>
             </td>
           </tr>
-          <% if @vehicle.import!='import'  %>
-          <tr>
-            <td>
-              <label>Class: </label>
-            </td>
-            <td>
-              <p  style="float:right;">  <%= @vehicle.vehicle_class %></p>
-            </td>
-          </tr>
-          <% end %>
+          
         </table>
       </div>
       <div class="col-sm-4">
@@ -123,12 +114,27 @@
           <% if @vehicle.import!='import'  %>
           <tr>
             <td>
+              <label>Class: </label>
+            </td>
+            <td>
+              <p  style="float:right;">  <%= @vehicle.vehicle_class %></p>
+            </td>
+          </tr>
+          <% end %>
+          
+          <% if @vehicle.import != 'import'  %>
+          <% if @vehicle.mpg != 'undefined' %>
+          <% if @vehicle.mpg != "" %>
+          <tr>
+            <td>
               <label>Combined MPG: </label>
             </td>
             <td>
               <p  style="float:right;">  <%= @vehicle.mpg %></p>
             </td>
           </tr>
+          <% end %>
+          <% end %>
           <% end %>
         </table>
       </div>
