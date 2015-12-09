@@ -1,0 +1,30 @@
+if Testimonial.exists?(:name => "Lu C")
+Testimonial.create!(name: "Lu C", stars: 5, testimonial: "Amazing customer service!  Jeff our sales person was fantastic and the owners where great!  We usually lease vehicles and this was our first used car experience.  I would go back in a heart beat!", date: "2013"
+)
+end
+if Testimonial.exists?(:name => "David B")
+Testimonial.create!(name: "David B", stars: 5, testimonial: "We had an excellent experience with Jeff. I had been looking for some time for a corvette and they had an excellent one. When I made arrangements to see the car they were more than willing to accommodate my time. After driving the car I mentioned the things I thought should be looked at and they agreed with out hesitation. They also did not put any pressure on me when I indicated I was not making a decision that day. When I called a few days later and indicated that I was ready to deal he was very good at looking after every thing that he could including the paperwork I needed to export the car since I am from Canada. When we picked the car up they even took us to lunch while we waited for the licensing paper work. I would buy from them again with out reservation.", date: "2014"
+)
+end
+if Testimonial.exists?(:name => "James K. Berard")
+Testimonial.create!(name: "James K. Berard", stars: 5, testimonial: "Brad was very helpful and pointed out the various options I had available. The sales process was smooth and I drove the car home that day. Very good service :)", date: "November 2015"
+)
+end
+if Testimonial.exists?(:name => "Heath Evans")
+Testimonial.create!(name: "Heath Evans", stars: 5, testimonial: "The experience at Deals Unlimited was great. Fast and courteous service. I had all my questions answered and our salesman Brad was outstanding with great customer service skills. Will be back to buy from there again. If you need a great used vehicle at affordable prices you simply can't beat Deals Unlimited.", date: "March 2015"
+)
+endif Testimonial.exists?(:name => "Benjamin Goodrow")
+Testimonial.create!(name: "Benjamin Goodrow", stars: 5, testimonial: "My wife and I had the pleasure of working with Bill here at \"Deals\". We were provided with excellent service and guidence throughout the process of trading-in, and getting our new car. I highley recomend everyone to go to \"Deals\" as they will certianly be treated the same way we were :) ", date: "2013"
+)
+end
+if Testimonial.exists?(:name => "Michelle Lucker")
+Testimonial.create!(name: "Michelle Lucker", stars: 5, testimonial: "My experience at this dealership was EXCELLENT and Deals Unlimited now has a customer for life!!  I purchased a 2004 Kia Sedona with 100K+ miles on it that was very clean and well maintenanced by the previous owner, it had a Carfax available and it was priced right at NADA Clean Retail value.  Bill Smith was extremely helpful by keeping us within our price range and did not badger us into a car that we couldn't afford.  Bill also provided a new battery for the Kia at no extra cost to us. The dealership, itself, was very clean and accomodating with clean restrooms, entertainment for my 4 yr old and a clean showroom.  I would highly recommend this dealership to people I care about.  I chose this dealership to purchase a vehicle from because I've had friends who have purchased from this company and they were very pleased with the service and the vehicles they purchased.    Bill is very personable and listened to our needs.  My 4 old doesn't like strangers, but he LOVED Bill from the moment he met him :)  Thanks for the great experience and awesome customer service!!!", date: "2013"
+)
+end
+if Testimonial.exists?(:name => "David Posey")
+Testimonial.create!(name: "David Posey", stars: 5, testimonial: "Overall a good experience.  I'm not one to buy from dealer's, I prefer individuals, but I was looking for a Suburban and their selection was excellent.  Bill treated my wife and I well and we ended up purchasing a nice used vehicle which was surprisingly competitively priced.  There were a few minor issues which they agreed to correct before we purchased and they accomplished everyone.  I would always suggest to get purchase terms in writing, that's just good business practice, before signing the sales agreement.\r\n                Overall a good experience and I wouldn't hesitate to recommend them.", date: "2011"
+)
+end
+if Testimonial.exists?(:name => "Aly Lipari")
+Testimonial.create!(name: "Aly Lipari", stars: 5, testimonial: "My experience with Deals Unlimited was fantastic! As a single mom searching for a used minivan, I was dreading buying a used car after previous high pressure sales tactics with the used cars I'd purchased in the past. When I went into Deals Unlimited, Bill Smith left me to look at their large selections of minivans and got all the keys for the ones that I wanted to test drive. He didn't stand over me or ride with me with a sales spiel. I chose the one that I possibly wanted, with the understanding that I would look at a few other places first. He quickly wrote down the exact costs for me and hoped I would be back later, no high pressure sales tactics, very honest and straightforward, in and out in an hour. The other places I went, they practically held me hostage for hours in an effort to get me to buy. I did some more research on the minivan I wanted in the meantime, and found that Deals had the best price in the Kalamazoo/ Portage area. More than that, I liked the way that I was treated, so I went back a few days later. The locks were not working in the car, and they fixed them for me within a couple of hours and later that day I was the proud owner of a new minivan. I wouldn't hesistate to recommend Deals Unlimited to friends and family. The customer service is stellar, the honesty and integrity is unmatched, the selection is large, and the prices are fair. I look forward to working with them on my next car purchase a few years down the road.", date: "2012")
+end
