@@ -45,110 +45,121 @@
             </td>
             <% end %>
           </tr>
+        </table>
+      </section>
+      <% end %>
+      <div class="row" style=" padding-top: 0!important; margin:0px!important;">
+        <div class="col-xs-6" style=" padding-top: 0!important; margin:0px!important;">
+          <table class="table" style=" padding-top: 0!important; margin:0px!important;">
+            <tr>
+              <td><label>Price: </label></td>
+              <td>$<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</td>
+            </tr>
+            <tr>
+              <td><label>Year: </label></td>
+              <td> <%= @vehicle.year %></td>
+            </tr>
+            <tr>
+              <td><label>Make: </label></td>
+              <td><%= @vehicle.make %></td>
+            </tr>
+            <tr>
+              <td><label>Model: </label></td>
+              <td> <%= @vehicle.model %></td>
+            </tr>
+            
+            <tr>
+              <td><label>Engine: </label></td>
+              <td><%= @vehicle.engine %></td>
+            </tr>
+            
+            <tr>
+              <td><label>Interior Color: </label></td>
+              <td><%= @vehicle.interior_color %></td>
+            </tr>
+            <tr>
+              <td><label>ExteriorColor: </label></td>
+              <td><%= @vehicle.exterior_color %></td>
+            </tr>
+            <tr>
+              <td><label>Mileage: </label></td>
+              <td><%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %></td>
+            </tr>
+            <% if @vehicle.import!='import'  %>
+            <tr>
+              <td><label>Trim: </label></td>
+              <td><%= @vehicle.trim %></td>
+            </tr>
+            <tr>
+              <td><label>Stock Number: </label></td>
+              <td> <%= @vehicle.stock_number %></td>
+            </tr>
+            
+            <% end %>
           </table>
-    </section>
-
-    <% end %>
-    <div class="row" style=" padding-top: 0!important; margin:0px!important;">
-      <div class="col-xs-6" style=" padding-top: 0!important; margin:0px!important;">
-        <table class="table" style=" padding-top: 0!important; margin:0px!important;">
-          <tr>
-            <td><label>Price: </label></td>
-            <td>$<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</td>
-          </tr>
-          <tr>
-            <td><label>Year: </label></td>
-            <td> <%= @vehicle.year %></td>
-          </tr>
-          <tr>
-            <td><label>Make: </label></td>
-            <td><%= @vehicle.make %></td>
-          </tr>
-          <tr>
-            <td><label>Model: </label></td>
-            <td> <%= @vehicle.model %></td>
-          </tr>
-          
-          <tr>
-            <td><label>Engine: </label></td>
-            <td><%= @vehicle.engine %></td>
-          </tr>
-          <% if @vehicle.import!='import'  %>
-          <tr>
-            <td><label>Trim: </label></td>
-            <td><%= @vehicle.trim %></td>
-          </tr>
-          <% end %>
-          <tr>
-            <td><label>Interior Color: </label></td>
-            <td><%= @vehicle.interior_color %></td>
-          </tr>
-          <tr>
-            <td><label>ExteriorColor: </label></td>
-            <td><%= @vehicle.exterior_color %></td>
-          </tr>
-          <tr>
-            <td><label>Mileage: </label></td>
-            <td><%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %></td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-xs-6">
-        <table class="table">
-          <tr>
-            <td><label>VIN: </label></td>
-            <td> <%= @vehicle.vin_num %></td>
-          </tr>
-          <% if @vehicle.import!='import'  %>
-          <tr>
-            <td><label>Class: </label></td>
-            <td> <%= @vehicle.vehicle_class %></td>
-          </tr>
-          <tr>
-            <td><label>Combined MPG: </label></td>
-            <td> <%= @vehicle.mpg %></td>
-          </tr>
-          <% else  %>
-          <% end %>
-          <tr>
-            <td><label>Body Style: </label></td>
-            <td><%= @vehicle.body_style %></td>
-          </tr>
-          
-          <tr>
-            <td><label>Transmission: </label></td>
-            <td> <%= @vehicle.transmission %></td>
-          </tr>
-          <tr>
-            <td><label>Drive Type: </label></td>
-            <td> <%= @vehicle.drive_type %></td>
-          </tr>
-          <tr>
-            <td><label>Fuel Type: </label></td>
-            <td> <%= @vehicle.fuel_type %></td>
-          </tr>
-          <tr>
-            <td><label>Stereo: </label></td>
-            <td> <%= @vehicle.stereo %></td>
-          </tr>
-          <tr>
-            <td><label># of Doors: </label></td>
-            <td> <%= @vehicle.doors %></td>
-          </tr>
-          <tr>
-            <td><label>Stock Number: </label></td>
-            <td> <%= @vehicle.stock_number %></td>
-          </tr>
-          
-        </table>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="jumbotron">
-            <h4>Feautures</h4>
-            <%= @vehicle.other_options.html_safe %>
-          </div>
         </div>
+        <div class="col-xs-6">
+          <table class="table">
+            <tr>
+              <td><label>VIN: </label></td>
+              <td> <%= @vehicle.vin_num %></td>
+            </tr>
+            <% if @vehicle.import!='import'  %>
+            <tr>
+              <td><label>Class: </label></td>
+              <td> <%= @vehicle.vehicle_class %></td>
+            </tr>
+            <tr>
+              <td><label>Combined MPG: </label></td>
+              <td> <%= @vehicle.mpg %></td>
+            </tr>
+            <% else  %>
+            <% end %>
+            <tr>
+              <td><label>Body Style: </label></td>
+              <td><%= @vehicle.body_style %></td>
+            </tr>
+            
+            <tr>
+              <td><label>Transmission: </label></td>
+              <td> <%= @vehicle.transmission %></td>
+            </tr>
+            <tr>
+              <td><label>Drive Type: </label></td>
+              <td> <%= @vehicle.drive_type %></td>
+            </tr>
+            <tr>
+              <td><label>Fuel Type: </label></td>
+              <td> <%= @vehicle.fuel_type %></td>
+            </tr>
+            <tr>
+              <td><label>Stereo: </label></td>
+              <td> <%= @vehicle.stereo %></td>
+            </tr>
+            <tr>
+              <td><label># of Doors: </label></td>
+              <td> <%= @vehicle.doors %></td>
+            </tr>
+            
+            <% if @vehicle.import %>
+            <tr>
+              <td><label>Stock Number: </label></td>
+              <td> <%= @vehicle.stock_number %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="jumbotron">
+              <h4>Feautures</h4>
+              <div id="featuresprint">
+                <% if @vehicle.other_options %>
+                <%= @vehicle.other_options.html_safe %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
@@ -158,12 +169,13 @@
             </div>
           </div>
         </div>
-</div>
-</div>
-</div>
-<style>
-h3.field-label{
-display:none!important;
-font-weight: normal!important;
-}
-</style>
+      </div>
+    </div>
+  </div>
+  <style>
+  h3.field-label{
+  display:none!important;
+  font-weight: normal!important;
+  }
+  </style>
+  

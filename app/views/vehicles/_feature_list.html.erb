@@ -40,11 +40,7 @@ window.onload = function fillFeaturesList(){
 	var selected =  document.getElementById('vehicle_other_options').value;
 
 	document.getElementById('selected-list').innerHTML = selected;
-	$( "#vehicle_other_options" ).prop( "disabled", true );
 
-	$( "#available-list" ).fadeOut();
-	$( "#accept" ).prop( "disabled", true );
-	$( "#edit" ).prop( "disabled", false );
 }
 function acceptFeatures() {
 	
@@ -60,7 +56,6 @@ function acceptFeatures() {
 	$( "#available-list" ).fadeOut();
 	$( "#accept" ).prop( "disabled", true );
 	$( "#edit" ).prop( "disabled", false );
-	$( "#vehicle_other_options" ).prop( "disabled", true );
 
 }
 
@@ -100,11 +95,3 @@ selected = selected.replace('onclick="remove(this)"','');
 }
 </script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<!--
-<script>
-function getPaging(str) {
-document.getElementById('vehicle_other_options').value = document.getElementById('vehicle_other_options').value +' <li class="list-group-item">' + str + '</li> ';
-}
-</script>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
--->
