@@ -1,4 +1,5 @@
 AutoMake.seed([
+{ :id => 0,  :code=>'', 			  :title => 'Make'},
 { :id => 1,  :code=>'ACURA', 			  :title => 'Acura'},
 { :id => 2,  :code =>'ALFA',				:title => 'Alfa Romeo'},
 { :id => 3,  :code =>'AMC',    		  :title => 'AMC'},
