@@ -38,7 +38,7 @@
                       <p><%= meet.about %></p>
                       <% if admin_signed_in? %>
                       <%= link_to 'Show', meet, :class=>"btn blue",:style=>"width:28%!important;" %>
-                      <%= link_to 'Edit', edit_meet_path(meet), :class=>"btn yellow",:style=>"width:28%!important;" %>
+                      <%= link_to 'Edit', edit_meet_path(meet), :class=>"btn orange",:style=>"width:28%!important;" %>
                       <%= link_to 'Destroy', meet, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn red",:style=>"width:41%!important;" %>
                       <% end %>
                     </div>
