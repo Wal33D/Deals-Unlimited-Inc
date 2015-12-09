@@ -43,7 +43,7 @@
                                         <% if vehicle.import == 'import' %>
                                         <%=  link_to image_tag(vehicle.image_1 , :class=>"img-responsive" ,:id=>"vehthumb"),vehicle %>
                                         <% else %>
-                                        <%=  link_to image_tag @vehicle.vehicle_images[0].url, :class=>"img-responsive",:id=>"vehthumb"),vehicle  %>
+                                        <%=  link_to image_tag (vehicle.vehicle_images[0].url, :class=>"img-responsive",:id=>"vehthumb"),vehicle  %>
                                     </div>
                                     <div class="col-xs-4" id="middle-col">
                                         <div class ="table-responsive">
