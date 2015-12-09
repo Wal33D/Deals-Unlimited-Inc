@@ -120,7 +120,8 @@
               <p  style="float:right;">  <%= @vehicle.doors %></p>
             </td>
           </tr>
-          <% if @vehicle.import!='import'  %>
+          <% if @vehicle.import != 'import'  %>
+          <% if @vehicle.mpg != 'undefined' %>
           <tr>
             <td>
               <label>Combined MPG: </label>
@@ -129,6 +130,7 @@
               <p  style="float:right;">  <%= @vehicle.mpg %></p>
             </td>
           </tr>
+          <% end %>
           <% end %>
         </table>
       </div>
