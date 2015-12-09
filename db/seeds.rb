@@ -1397,11 +1397,12 @@ AutoModel.create!([
   {code: "GVX", title: "GVX", auto_make_id: 71},
   {code: "YUOTH", title: "Yugo", auto_make_id: 71}
 ])
-Meet.create!([
-  {employee_name: "Bill Smith", headshot: "", duration: nil, about: "", position: nil},
-  {employee_name: "Jeff Arms", headshot: "", duration: nil, about: "", position: nil},
+Meet.update!([
+  {employee_name: "Jeff Arms", headshot: "", duration: nil, about: "", position: ""},
+  {employee_name: "Bill Smith", headshot: "", duration: nil, about: "", position: ""},
   {employee_name: "Denice Gudah", headshot: "", duration: nil, about: "", position: ""},
-  {employee_name: "Brad", headshot: "", duration: nil, about: "", position: ""}
+  {employee_name: "Nikki Paliga", headshot: "", duration: nil, about: "", position: ""},
+  {employee_name: "Brad Bosker", headshot: "", duration: nil, about: "", position: ""}
 ])
 Testimonial.create!([
   {name: "Lu C", stars: 5, testimonial: "Amazing customer service!  Jeff our sales person was fantastic and the owners where great!  We usually lease vehicles and this was our first used car experience.  I would go back in a heart beat!", date: "2013"},
