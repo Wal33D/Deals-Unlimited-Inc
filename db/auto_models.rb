@@ -1,4 +1,6 @@
 AutoModel.create([
+    { :id =>  0,  :auto_make_id =>  0,  :code =>  '',  :title =>  'Model'},  
+
   { :id =>  1,  :auto_make_id =>  1,  :code =>  'CL_MODELS',  :title =>  'CL '},  
   { :id =>  2,  :auto_make_id =>  1,  :code =>  '2.2CL',  :title =>  '2.2CL'},  
   { :id =>  3,  :auto_make_id =>  1,  :code =>  '2.3CL',  :title =>  '2.3CL'},  
