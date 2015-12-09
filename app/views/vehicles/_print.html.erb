@@ -149,10 +149,10 @@
             <% end %>
           </table>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="jumbotron">
-              <h4>Feautures</h4>
+        <div class="row" style="margin-top:0!important;padding-top:0!important;">
+          <div class="col-xs-12" style="margin-top:0!important;padding-top:0!important;">
+            <div class="jumbotron" style="margin-top:0!important;padding-top:0!important;">
+              <h4 style="margin-top:0!important;padding-top:0!important;">Feautures</h4>
               <% if @vehicle.import == "import" %>
               <div class="panel-body features" id="featuresprint" style="background-color:#e5f2ff">
                 <% if @vehicle.other_options %>
@@ -169,9 +169,9 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="jumbotron">
+     <div class="row" style="margin-top:0!important;padding-top:0!important;">
+          <div class="col-xs-12" style="margin-top:0!important;padding-top:0!important;">
+            <div class="jumbotron" style="margin-top:0!important;padding-top:0!important;">
               <h4>Description</h4>
               <%= @vehicle.description.html_safe %>
             </div>
