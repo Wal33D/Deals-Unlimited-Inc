@@ -64,7 +64,9 @@
                                                         <%= vehicle.drive_type %>
                                                     </td>
                                                 </tr>
-                                                <% if (vehicle.import =='import') && (vehicle.mpg != "undefined") %>
+                                                <% if (vehicle.import =='import') %>
+                                                <% else %>
+                                                <% if (vehicle.mpg == "undefined") %>
                                                 <% else %>
                                                 <tr>
                                                     <td>
@@ -74,6 +76,7 @@
                                                         <%= vehicle.mpg %>
                                                     </td>
                                                 </tr>
+                                                <% end %>
                                                 <% end %>
                                                 <tr>
                                                     <td>
