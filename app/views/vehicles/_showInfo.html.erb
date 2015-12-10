@@ -124,7 +124,7 @@
           
           <% if @vehicle.import != 'import'  %>
           <% if @vehicle.mpg != 'undefined' %>
-          <% if @vehicle.mpg.is_a? Integer %>
+          <% if @vehicle.mpg.present? %>
           <tr>
             <td>
               <label>Combined MPG: </label>
