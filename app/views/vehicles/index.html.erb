@@ -5,17 +5,7 @@
                 <div class="panel panel-default z-depth-4">
                     <div class="panel-heading ">
                         <div class="panel-title">
-                            <center>
-                            <ul class="pagination" style="margin:0!important;  padding:0!important;">
-                                <% if admin_signed_in? %>
-                                
-                                <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;", :class=>"button btn green btn-default"%></li>
-                                <% end %>
-                                <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
-                                <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
-                                <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
-                            </ul>
-                            </center>
+                            
                         </div>
                     </div>
                     <%= render 'search_form_for_vehicles' %>
@@ -23,7 +13,28 @@
             </div>
             <div class="col-xs-7" id = "vehicle-window">
                 
-                <div class="panel" id="vehicle-container">
+                <div class="panel panel-default" id="vehicle-container">
+                    <div class="panel-heading" style="padding:0!important;" >
+                        <div class="row" style="margin-bottom:0!important;" >
+                            <center>
+                            <div class="row" style="margin-bottom:0!important;">
+                                <ul class="pagination" style="margin:0!important;  padding:0!important;">
+                                    <% if admin_signed_in? %>
+                                    <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;", :class=>"button btn green btn-default"%></li>
+                                    <% end %>
+                                    <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :created,'New Listings', :class=>"blue-btn") %></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;" ><a type="button"class="sort_link" href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=ar&=&commit=Search" id="car-btn">Cars</a></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;" ><a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=ruck&=&commit=Search"id="car-btn">Trucks</a></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;" ><a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=uv&=&commit=Search">SUVs</a></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;" ><a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=an&=&commit=Search">Vans</a></li>
+                                </ul>
+                            </div>
+                            </center>
+                        </div>
+                    </div>
                     <% @vehicles.each do |vehicle| %>
                     <% if (vehicle.status == "Sold") &! (admin_signed_in?) %>
                     <% else %>
@@ -156,7 +167,9 @@
                         </div>
                         <% end %>
                         <% end %>
-                        <center>  <%= paginate @vehicles %></center>
+                        <div class="panel-footer ">
+                            <center>  <%= paginate @vehicles %></center>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,7 +189,6 @@
                 <% end %>
             </div>
         </div>
-        
         <style>
         .btn-vehicles{
         display: none!important;

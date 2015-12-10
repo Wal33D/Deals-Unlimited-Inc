@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
       @vehicle= @q.result()
       @vehicles=@vehicle.order(:price).page params[:page]
   end
- 
+
   def show
   end
   
@@ -19,6 +19,7 @@ class VehiclesController < ApplicationController
   end
 def vin
 end
+
   def create
     @vehicle = Vehicle.new(vehicle_params)
 
