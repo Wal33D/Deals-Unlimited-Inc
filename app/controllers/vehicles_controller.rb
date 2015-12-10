@@ -17,7 +17,8 @@ class VehiclesController < ApplicationController
 
   def edit
   end
-
+def vin
+end
   def create
     @vehicle = Vehicle.new(vehicle_params)
 
