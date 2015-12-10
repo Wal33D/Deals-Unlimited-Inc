@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default z-depth-4" style="border-color:#ccc;">
+        <div class="panel-heading panel-black" id="meet-heading">
+          <div class="panel-title" id="meet-title">
+            <h4>VIN Lookup
+            </h4>
+          </div>
+        </div>
+        <div class="panel-body">
+        <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin= "></a>
+        <button type="button" onclick="lookup()">Lookup CarFax</button>
+        <input type="text" id="vin_num">
+        </div>
+         <div class="panel-footer panel-black">
+        </div>
+        </div>
+       
+      </div>
+    </div>
+    
+  </div>
+</div>
+<style>
+#meet-title, #meet-title h4{margin:0!important;}
+#meet-heading{}
+#headshot-thumb img{
+max-width: 500px!important;
+border-radius:100%!important;
+}
+</style>
+<script>
+function lookup(){
+window.location = "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin="+document.getElementById('vin_num').value;
+
+
+}
+
+</script>

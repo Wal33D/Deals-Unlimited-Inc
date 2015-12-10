@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'lookup/vin'
   resources :meets
   devise_for :admins
   resources :testimonials
