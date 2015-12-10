@@ -2,7 +2,7 @@
 <div class="panel-body">
   <div class="searchbox">
     <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Quick Search" , :style=>"border:1px solid #eee!important; padding-left:5px!important; width:98.3%!important;"%>
-    <%= f.select :kind_cont, options_for_select([['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray", :prompt=>"Body Style" %>
+    <%= f.select :kind_cont, options_for_select([['Body Style', ''],['Any', ''],['Car'], ['Truck'], ['SUV'], ['Van']]), :class=>"gray"%>
     <%= f.collection_select :make_cont, AutoMake.all, :code, :title, {  :style=>"border:1px solid #eee!important; padding-left:5px!important;" } %>
     <%= f.search_field :model_cont,:placeholder=>"Model" , :style=>"border:1px solid #eee!important; padding-left:5px!important;padding-top:3px!important; padding-right:0!important;"%>
     
