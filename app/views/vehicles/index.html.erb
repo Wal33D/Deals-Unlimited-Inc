@@ -22,7 +22,7 @@
                                     <% if admin_signed_in? %>
                                     <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;", :class=>"button btn green btn-default"%></li>
                                     <% end %>
-                                    <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :updated_at,'New Listings', :class=>"blue-btn") %></li>
+                                    <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link @q, :created_at, "Date Listed" %></li>
                                     <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :price, :class=>"blue-btn") %></li>
                                     <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :year, :class=>"blue-btn") %></li>
                                     <li style="padding:0!important; font-size:0.8rem!important;"><%= sort_link(@q, :mileage, :class=>"blue-btn") %></li>
