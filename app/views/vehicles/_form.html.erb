@@ -6,10 +6,11 @@
                 <div class = "panel-heading" style="background-color:#292c2f !important">
                     <div class = "panel-title">
                         <h5 style="color:#eee">Vehicle Info
-                        <button class="btn blue" style="float:right;" onclick="myFunction(document.getElementById('vehicle_vin_num').value)">Fill Using VIN</button>
+                        <button class="btn blue" style="float:right;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value); $('#button').click();" >Fill Using VIN</button>
                         </h5>
                     </div>
                 </div>
+                <button  style="visibility:hidden!important;"type="button" id="button">ssss</button>
                 <div class = "panel-body">
                     <div class="form-inputs">
                         <%= simple_form_for(@vehicle) do |f| %>
@@ -21,7 +22,7 @@
                         <%= f.input :interior_color %>
                         <%= f.input :stereo %>
                         <%= f.input :stock_number %>
-                        <%= f.input :description %>
+                        <%= f.input :description , as: :text,:id=>"descr"%>
                         <%= f.input :other_options, :id=>"other_options" %>
                         <%= render "feature_list" %>
                         <%= f.label :vehicle_images %>
@@ -65,6 +66,12 @@
     <% end %>
 </div>
 <style>
+#vehicle_other_options{
+    display: none!important;
+}
+#vehicle_description{
+    height:150px!important;
+}
 select{display: block!important;}
 .col-lg-4 img{ width:100%;}
 </style>
