@@ -80,8 +80,8 @@
   </div>
 </section>
 <% else %>
-<section>
-  <div>
+<section >
+  <div id="pics">
     <%= @vehicle.vehicle_images.each do |p| %>
     <a class="vehicle_thumb" href="<%= p.url %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
       <%=image_tag p.url %>
@@ -90,3 +90,8 @@
   </div>
 </section>
 <% end %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$('#pics').contents().filter(function(){ return !(this.tagName == 'DIV'
+|| this.tagName == 'A');}).remove();
+</script>

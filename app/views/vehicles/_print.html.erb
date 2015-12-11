@@ -29,6 +29,11 @@
       <section>
         <table>
           <tr>
+            <% if @vehicle.vehicle_images[0] %>
+            <td>
+              <%= image_tag @vehicle.vehicle_images[0].url %>
+            </td>
+            <% end %>
             <% if @vehicle.vehicle_images[1] %>
             <td>
               <%= image_tag @vehicle.vehicle_images[1].url %>
@@ -37,11 +42,6 @@
             <% if @vehicle.vehicle_images[2] %>
             <td>
               <%= image_tag @vehicle.vehicle_images[2].url %>
-            </td>
-            <% end %>
-            <% if @vehicle.vehicle_images[3] %>
-            <td>
-              <%= image_tag @vehicle.vehicle_images[3].url %>
             </td>
             <% end %>
           </tr>
@@ -185,4 +185,5 @@
   display:none!important;
   font-weight: normal!important;
   }
+
   </style>
