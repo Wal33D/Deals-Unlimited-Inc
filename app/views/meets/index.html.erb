@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-10">
       <div class="panel panel-default z-depth-4" style="border-color:#ccc;">
         <div class="panel-heading panel-black" id="meet-heading">
           <div class="panel-title" style="color:white!important;" id="meet-title">
@@ -25,12 +27,11 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-sm-4" id="headshot-thumb">
-
                       <%= image_tag meet.headshot_images[0] %>
                     </div>
                     <div class="col-sm-2">
-                      <p><%= meet.position %></p>
-                      <p><%= meet.duration %></p>
+                      <p>Position:<%= meet.position %></p>
+                      <p>Since:<%= meet.duration %></p>
                     </div>
                   </div>
                   <div class="row">
@@ -53,14 +54,15 @@
         </div>
       </div>
     </div>
-   
+    <div class="col-xs-10">
+    </div>
   </div>
 </div>
 <style>
 #meet-title, #meet-title h4{margin:0!important;}
 #meet-heading{}
 #headshot-thumb img{
-  max-width: 500px!important;
-  border-radius:100%!important;
+max-width: 500px!important;
+border-radius:100%!important;
 }
 </style>
