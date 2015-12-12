@@ -564,3 +564,86 @@ padding-right:0!important;
 display:none!important;
 visibility: hidden!important;
 }
+
+   input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, select:focus, input:focus, label:focus {
+     border:1px solid #86a7df!important;
+     box-shadow: 0 1px 0 0 #86a7df!important;
+   }
+   .active {
+      color: rgb(158, 158, 158)!important;
+  }
+  /* latin-ext */
+  @font-face {
+  font-family: 'Black Ops One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1X1PgMwFt2V-WJ2uOZ4WXLU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+  font-family: 'Black Ops One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1TxObtw73-qQgbr7Be51v5c.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+  }
+  /* latin */
+  @font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cookie-Regular'), url(https://fonts.gstatic.com/s/cookie/v7/crMuSvy3krjox1JAKfe7Ew.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+  }
+  @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v10/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+  }
+  .material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  }
+
+
+#finance-contents{padding:1rem!important;}
+#info-finance{font-size:2vmin!important; text-align: center!important;}
+#alert-finance{font-family: 'arial black', 'avant garde'; font-size:1.8vmin!important;}
+#banklist{font-size:2.5vmin;}
+.jumbotron-finance p {font-size:2.5vmin!important;}
+@media (max-width: 500px) {
+#smaller-text{font-size:3vmin!important;}
+#alert-finance{font-size:3.5vmin!important;}
+#alert-finance ul li{padding:.25vmin .25vmin 0.25vmin 2vmin!important;font-size:2.8vmin!important;}
+.jumbotron-finance{padding:10px!important;}
+#finance-contents{padding:0 2vmin 0 2vmin!important; }
+#finance-contents .row{ margin-bottom:0!important;}
+#finance-contents .col-md-6{ max-width:90%!important; width:90%!important; margin-left: 5%!important; margin-right:5%!important;}
+#banklist  { text-align: center!important;}
+#info-finance{font-size:3vmin!important;}
+#panel-finance{margin-bottom:0!important;}
+#title-finance{margin:0;}
+#finance{margin-top:3vmin !important;}
+.jumbotron-finance p {
+font-size:4vmin!important;
+}
+}
+@media (max-width: 750px) {
+	#finance{margin-top: 4.5vmin !important;}
+
+.img-responsive{ max-width:375px!important;
+}
+}

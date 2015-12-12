@@ -1,87 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-
+    <title>Deals Unlimited Inc.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= csrf_meta_tags %>
+    <meta name="title" content="Deals Unlimited Inc.">
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="540">
+    <meta name="description" content="Deals Unlimited, Inc. Fine Used Vehicles. Cars, Trucks, SUVs and Vans 8705 Portage Road, Portage MI 49002. Call Us at (269)-324-4285">
+    <meta name="author" content="Deals Unlimited, Inc - Portage MI">
+    <link rel="copyright" href="https://www.DealsUnlimitedInc.com/policy">
+    <link rel="Privacy Policy" href="https://www.DealsUnlimitedInc.com/policy">
+    <link rel="Vehicles" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <link rel="Inventory" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <link rel="Cars" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <link rel="Trucks" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <link rel="SUVs" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <link rel="Vans" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <link rel="Minivans" href="https://www.DealsUnlimitedInc.com/vehicles">
+    <meta property="og:title" content="Deals Unlimited, Inc.">
+    <meta property="og:image" content="https://www.DealsUnlimitedInc.com/Location_Sign.png">
+    <meta property="og:description" content="Deals Unlimited, Inc. Fine Used Vehicles. Cars, Trucks, SUVs and Vans 8705 Portage Road, Portage MI 49002. Call Us at (269)-324-4285">
+    <meta name="keywords" content="Cars, Trucks, SUVs, Vans, Deals, Unlimited, Deals Unlimited,used cars for sale dealership, used cars battlecreek, new cars, used trucks, used cars battlecreek, best used cars for sale, find used motors, cars for sale by owner, local used car dealerships, used cars site, used car sales, users cars, look for cars online, car websites, local used car sales, cheap cars, low price used cars for sale, used cars portage, pre owned car dealerships, certified used cars, looking for a car, used cars, cars for sale in, pre owned cars, second cars for sale, cheap used trucks, cars on sale, used cars portage, used car dealerships, auto car sales, used car finder, autos for sale, used cars in pa, find used, auto for sale, used cars classifieds, search for used cars for sale, used cars schoolcraft, website for used cars, used cars for sale around my area, find a used, used trucks vicksburg, cars for sale used cars, cars for sale near me, used cars portage mi, used cars on sale, car of sale, good used cars, used trucks for sale, search used cars for sale, certified used cars, used trucks kalamazoo, used trucks kalamazoo, used cars battle creek, used pickups for sale, used cars under 5000, used car finder, search used, used car listings, used cars for sale, car sales used cars, car trader online, car on auto sales, used autos online, used car lots, use car for sale, used cars kalamazoo, buy used suvs, pre used cars for sale, car dealerships, cars for sale online, cars for sale, new & used cars for sale, used cars kalamazoo mi, what car used cars, a and a car sales, cars for sale in my area, used car 4 sale, used pickups for sale, sale of used cars, good cars for sale, used cars vicksburg, used cars used cars, new and used, used camaros, cars in sale, auto used cars for sale, used car lots near me, used cars under 5000, used trucks schoolcraft, used autos, used auto listings, used trucks for sale, car trader, cars 4 sale, use car sale, used hondas, used suvs,
+    used trucks schoolcraft, local used cars for sale, used car prices, pickups for sale, cheapest used cars for sale, new car sales, used cars vicksburg, used cars battle creek, used vehicles for sale,new cars for sale,new used cars for sale, car for sale,recon cars,used car sites,good used cars for sale,purchase used cars,cars listings, used jeeps,search for used,used car values,cars kalamazoo,car sales,used cars portage mi,used cars kalamazoo, used vehicles for sale,car sites, second hand cars, cheap used trucks, used trucks vicksburg, used suvs for sale, auto car for sale, foreclosed cars for sale,
+    trucks for sale,pre owned cars for sale,sales cars used,buy used auto,used and new cars,cars 4,looking for cars,used peugeots,used cars online,used trucks,cars,use car,a used car,online car dealers,used cars near me,used suvs for sale,automobiles used,used car websites,car sales unlimited,used cars schoolcraft,used autos classifieds,new car listings,car listings in your area,certified pre owned car, car sale, used cars kalamazoo mi, buy used motors,second car sales,buy used minivan,used car auto sales, new used cars, certified used car dealers,
+    ">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <%= stylesheet_link_tag    'application'%>
   </head>
-  <body class="body" style="opacity:0;">
+  <body class="body" >
     <%= render "layouts/application/header" %>
     <%= yield %>
     <%= render "layouts/application/footer" %>
   </body>
-  <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application'%>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-  <script>
-  $(".button-collapse").sideNav();
-  $(".dropdown-button").dropdown();
-  </script>
-  <style>
-
-   input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, select:focus, input:focus, label:focus {
-     border:1px solid #86a7df!important;
-     box-shadow: 0 1px 0 0 #86a7df!important;
-   }
-   .active {
-      color: rgb(158, 158, 158)!important;
-  }
-  /* latin-ext */
-  @font-face {
-  font-family: 'Black Ops One';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1X1PgMwFt2V-WJ2uOZ4WXLU.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* latin */
-  @font-face {
-  font-family: 'Black Ops One';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1TxObtw73-qQgbr7Be51v5c.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-  }
-  /* latin */
-  @font-face {
-  font-family: 'Cookie';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cookie-Regular'), url(https://fonts.gstatic.com/s/cookie/v7/crMuSvy3krjox1JAKfe7Ew.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-  }
-  @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v10/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
-  }
-  .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  }
-  </style>
-  <script>
-  (function titleScroller(text) {
-    document.title = text;
-    setTimeout(function () {
-        titleScroller(text.substr(1) + text.substr(0, 1));
-    }, 500);
-}("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
-  </script>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js" %>
 </html>
