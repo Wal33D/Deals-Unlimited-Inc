@@ -5,8 +5,8 @@
 //////////////////////////////////////////////////////////////////////
 
 jQuery(document).ready(function($) {
-
-    
+      $(".button-collapse").sideNav();
+  $(".dropdown-button").dropdown();
   (function titleScroller(text) {
   document.title = text;
   setTimeout(function () {
@@ -69,7 +69,7 @@ $('#button').click(function() {
 
         emptyTextBoxes.css("background-color", "#ddd");
 
-    }, 2000);
+    }, 2500);
 
 });
 
