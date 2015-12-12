@@ -18,6 +18,8 @@ jQuery(document).ready(function($) {
     var $textarea = $('#contact_message');
     $textarea.height($(window).height() * 0.2);
 });
+
+
 /////////////////////////To Lower Case////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function tLC(string) {
@@ -48,12 +50,12 @@ $('#button').click(function() {
         var emptyTextBoxes = $('input:empty').filter(function() {
             return this.value == "";
         });
-        emptyTextBoxes.css("border", "1px double red");
+        emptyTextBoxes.css("border", "1px double blue");
         emptyTextBoxes.css("background-color", "#eee");
         var emptyTextBoxes = $('textarea:empty').filter(function() {
             return this.value == "";
         });
-        emptyTextBoxes.css("border", "1px double red");
+        emptyTextBoxes.css("border", "1px double blue");
         emptyTextBoxes.css("background-color", "#eee");
 
         emptyTextBoxes = $('input:empty').filter(function() {
@@ -162,11 +164,8 @@ function fail(data) {
 //////////////////////////////////////////////////////////////////////
 function VIN_O_Matic(option) {
     var edmunds = new EDMUNDSAPI('8rs3xebeza59dtsv3azp647p');
-
     v1(option, edmunds);
     v2(option, edmunds);
-
-
 }
 /////////////////////EDMUNDS INIT/////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

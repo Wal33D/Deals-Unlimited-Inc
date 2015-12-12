@@ -54,6 +54,49 @@ font: bold sans-serif !important;
 font: bold sans-serif !important;
 }
 }
+
+
+	#unlimited{
+	font-family: 'Cookie', cursive !important;
+	font-size: 4rem!important;
+	color: #5383D3 !important;
+}
+#greeting{
+	font-size:2.3vmin!important;
+	text-align: center!important;
+}
+#inc{
+	font-family: 'Black Ops One', cursive;
+	font-size:2.3rem;
+	color:#333!important;
+}
+#serving{font-size:2.3rem;
+	font-family: 'Cookie', cursive !important;
+}
+#deals{font-family: 'Black Ops One', cursive; font-size:3.1rem;}
+#welcome{font-family: 'Black Ops One', cursive;  font-size:1.4rem;}
+.loading-screen{visibility: visible !important;}
+@media only screen and (max-width : 500px) {
+	#homepage table tr td, #homepage table th{font-size:3vmin!important;}
+	#welcome-panel-footer{display: none!important;}
+	.panel-heading a, .panel-heading{
+		font-size:3.3vmin!important;
+	}
+	#inc{
+	font-family: 'Black Ops One', cursive; font-size:2rem;
+	color:#333!important;
+}
+#serving{font-size:4.2vmin!important;}
+#seeus{
+	color: #5383D3 !important;
+	font-family: 'Cookie' !important;
+	font-weight:normal!important;
+	font-size:3.3rem!important;
+}
+#unlimited{font-size: 3.2rem!important;}
+#deals{font-family: 'Black Ops One', cursive; font-size:2.5rem;}
+#welcome{font-family: 'Black Ops One', cursive;  font-size:1.2rem;}
+}
 .our-info-box{
   tr{
     border:none!important;
