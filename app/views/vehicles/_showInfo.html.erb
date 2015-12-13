@@ -14,16 +14,17 @@ for (i=0; i<7; i++){
 col1 = col1 + res[i]
 }
 col1 = top + col1 + bottom
-for (i=7; i<16; i++){
+for (i=8; i<14; i++){
 col2 = col2 + res[i]
 }
 col2 = top + col2 + bottom
-for (i=16; i<25; i++){
+for (i=15; i<27; i++){
 col3 = col3 + res[i]
 }
 col3 = top + col3 + bottom
 selected =  col1 + col2+ col3;
-for (i = 25; i < 34; i++) {
+
+for (i = 0; i < 27; i++) {
 selected = selected.replace('<ul id="list-0" class="veh-features-list" style="float: left; display: block; width: 33%;">NaN</ul>','');
 selected = selected.replace('undefined','');
 }
