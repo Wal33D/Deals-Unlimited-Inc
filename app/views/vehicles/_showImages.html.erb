@@ -1,7 +1,7 @@
 
 <% if @vehicle.import=='import'%>
-<section style="overflow-y:hidden!important;">
-  <div id="pics" style="display:none;">
+<section   id="pics-section" style="display:none; overflow-y:hidden!important;">
+  <div>
     
     <% if @vehicle.image_1 %>
     <a class="vehicle_thumb" href="<%= @vehicle.image_1 %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
@@ -81,8 +81,8 @@
   </div>
 </section>
 <% else %>
-<section >
-  <div id="pics" style="display:none;">
+<section  id="pics-section" style="display:none; overflow-y:hidden!important;">
+  <div id="pics" >
     <%= @vehicle.vehicle_images.each do |p| %>
     <a class="vehicle_thumb" href="<%= p.url %>" data-lightbox="<%= @vehicle.title %> Images" data-title="<%= @vehicle.title %>">
       <%=image_tag p.url %>
@@ -95,5 +95,5 @@
 <script>
 $('#pics').contents().filter(function(){ return !(this.tagName == 'DIV'
 || this.tagName == 'A');}).remove();
-jQuery(document).ready(function($){try{setTimeout("$('#pics').slideDown(1200);", 400);}catch(err){}});  
+jQuery(document).ready(function($){try{setTimeout("$('#pics-section').slideDown(2100);", 1600);}catch(err){}});  
 </script>
