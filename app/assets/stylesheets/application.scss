@@ -623,34 +623,6 @@ visibility: hidden!important;
   }
 
 
-#finance-contents{padding:1rem!important;}
-#info-finance{font-size:2vmin!important; text-align: center!important;}
-#alert-finance{font-family: 'arial black', 'avant garde'; font-size:1.8vmin!important;}
-#banklist{font-size:2.5vmin;}
-.jumbotron-finance p {font-size:2.5vmin!important;}
-@media (max-width: 500px) {
-#smaller-text{font-size:3vmin!important;}
-#alert-finance{font-size:3.5vmin!important;}
-#alert-finance ul li{padding:.25vmin .25vmin 0.25vmin 2vmin!important;font-size:2.8vmin!important;}
-.jumbotron-finance{padding:10px!important;}
-#finance-contents{padding:0 2vmin 0 2vmin!important; }
-#finance-contents .row{ margin-bottom:0!important;}
-#finance-contents .col-md-6{ max-width:90%!important; width:90%!important; margin-left: 5%!important; margin-right:5%!important;}
-#banklist  { text-align: center!important;}
-#info-finance{font-size:3vmin!important;}
-#panel-finance{margin-bottom:0!important;}
-#title-finance{margin:0;}
-#finance{margin-top:3vmin !important;}
-.jumbotron-finance p {
-font-size:4vmin!important;
-}
-}
-@media (max-width: 750px) {
-	#finance{margin-top: 4.5vmin !important;}
-
-#finance .img-responsive{ max-width:375px!important;
-}
-}
 
 #panel-contact{
 margin-bottom:0!important;
