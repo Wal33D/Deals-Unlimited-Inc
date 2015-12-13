@@ -1,6 +1,6 @@
 <div class ="container" style="margin-bottom:3.5vmin!important;" >
   <div class = "row"  >
-    <div class = "panel panel-default z-depth-4" id="showpage">
+    <div class = "panel panel-default z-depth-4" id="showpage"style="display:none;">
       <% if @vehicle.status == "Sold" %>
       <div id ="headerinfo" class = "panel-heading red lighten-1" style ="padding-bottom:0!important; margin:0!important;" >
         <% else %>
@@ -104,6 +104,9 @@
       <h5 style="font-size:2.75vmin;">269-324-4285</h5>
     </div>
   </div>
+<script>
+jQuery(document).ready(function($){try{$('#showpage').fadeIn(200);}catch(err){}});  
+</script>
   <%= render 'print' %>
   <style>
   <%= render 'vehicleFooterStyle' %>
@@ -340,8 +343,4 @@
   }
   }
   </style>
-  <script>
-  function remove(link) {
-alert();
-}
-</script>
+  
