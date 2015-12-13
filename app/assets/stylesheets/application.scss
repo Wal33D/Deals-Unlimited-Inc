@@ -59,6 +59,50 @@
   -webkit-font-smoothing: antialiased;
   }
 
+
+
+  #unlimited{
+  font-family: 'Cookie', cursive !important;
+  font-size: 4rem!important;
+  color: #5383D3 !important;
+}
+#greeting{
+  font-size:2.3vmin!important;
+  text-align: center!important;
+}
+#inc{
+  font-family: 'Black Ops One', cursive;
+  font-size:2.3rem;
+  color:#333!important;
+}
+#serving{font-size:2.3rem;
+  font-family: 'Cookie', cursive !important;
+}
+#deals{font-family: 'Black Ops One', cursive; font-size:3.1rem;}
+#welcome{font-family: 'Black Ops One', cursive;  font-size:1.4rem;}
+.loading-screen{visibility: visible !important;}
+@media only screen and (max-width : 500px) {
+  #homepage table tr td, #homepage table th{font-size:3vmin!important;}
+  #welcome-panel-footer{display: none!important;}
+  .panel-heading a, .panel-heading{
+    font-size:3.3vmin!important;
+  }
+  #inc{
+  font-family: 'Black Ops One', cursive; font-size:2rem;
+  color:#333!important;
+}
+#serving{font-size:4.2vmin!important;}
+#seeus{
+  color: #5383D3 !important;
+  font-family: 'Cookie' !important;
+  font-weight:normal!important;
+  font-size:3.3rem!important;
+}
+#unlimited{font-size: 3.2rem!important;}
+#deals{font-family: 'Black Ops One', cursive; font-size:2.5rem;}
+#welcome{font-family: 'Black Ops One', cursive;  font-size:1.2rem;}
+}
+
 html, body{
 overflow-x:hidden!important;
 }
@@ -646,3 +690,42 @@ font-size:4vmin!important;
 #contact .row{margin-bottom: 3vmin!important;}
 
 }
+
+@media (max-width: 820px){
+#header-img img{
+min-width: 59px!important;
+}
+#header-img{
+margin-top: 1vmin!important;
+}
+.btn-vehicles{
+margin-right: 2rem!important;
+}
+#mobileli{
+display:none!important; }
+}
+#menubtn:hover, #menubtn:active{
+text-decoration: none;
+}
+#dropdown1{
+width:100%!important;
+}
+#menubtn{
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
+text-align: center;
+border: none;
+border-radius: 2px;
+display: inline-block;
+height: 36px;
+font-size: 1rem!important;
+line-height: 36px;
+outline: 0;
+padding: 0 1rem;
+text-transform: uppercase;
+-webkit-tap-highlight-color: transparent;
+margin-left:0.5vmin;
+margin-right:0.5vmin;
+margin-top: 0!important;
+}
+#menubtn i{line-height: 36.2px; padding-right:0!important;}
+@media (max-width: 992px){#menubtn{display: none!important;}}

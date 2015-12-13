@@ -3,13 +3,10 @@
 //= require_tree .
 //////////////////Fundamental Code////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
 jQuery(document).ready(function($) {
-    $(".button-collapse").sideNav();
-
-  $(".dropdown-button").dropdown();
-
+   try{$(".button-collapse").sideNav();} catch (err) {}
+   try{$(".dropdown-button").dropdown();} catch (err) {}
+    try{$('#showpagecontainer').fadeIn(500);}catch(err){}
   (function titleScroller(text) {
   document.title = text;
   setTimeout(function () {
@@ -23,12 +20,7 @@ jQuery(document).ready(function($) {
 
     try{setTimeout("$('#reselect').fadeOut('slow')", 5000);  } catch (err) {}
     try{setTimeout("$('.alert').fadeOut('slow')", 4000);  } catch (err) {}
-
-
-
 });
-
-
 /////////////////////////To Lower Case////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function tLC(string) {
