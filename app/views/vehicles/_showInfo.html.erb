@@ -253,33 +253,4 @@ display: inline-block!important;
 }
 </style>
 <script>
-window.onload = function fillFeaturesList(){
-var selected =  document.getElementById('features').innerHTML;
-for (i = 0; i < 42; i++) {
-selected = selected.replace('<li class="list-group-item">','.<li>');
-}
-var top = '<div class="item-list"><ul id="list-0" class="veh-features-list" style="float: left; display: block; width: 33%;">';
-var bottom = '</ul></div>';
-var res = selected.split(".");
-var col1, col2, col3;
-for (i=0; i<9; i++){
-col1 = col1 + res[i]
-}
-col1 = top + col1 + bottom
-for (i=9; i<18; i++){
-col2 = col2 + res[i]
-}
-col2 = top + col2 + bottom
-for (i=18; i<27; i++){
-col3 = col3 + res[i]
-}
-col3 = top + col3 + bottom
-selected =  col1 + col2+ col3;
-for (i = 0; i < 42; i++) {
-selected = selected.replace('<ul id="list-0" class="veh-features-list" style="float: left; display: block; width: 33%;">NaN</ul>','');
-selected = selected.replace('undefined','');
-}
-document.getElementById('features').innerHTML = selected;
-document.getElementById('featuresprint').innerHTML = selected;
-}
 </script>
