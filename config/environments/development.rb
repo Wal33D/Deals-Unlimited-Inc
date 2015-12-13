@@ -1,7 +1,4 @@
-
-
 Rails.application.configure do
-
   config.cache_classes = false
   config.action_controller.action_on_unpermitted_parameters =:log
   config.eager_load = false
