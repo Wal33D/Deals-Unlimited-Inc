@@ -6,11 +6,9 @@
 
 
 jQuery(document).ready(function($) {
-    try{
       $(".button-collapse").sideNav();
 
   $(".dropdown-button").dropdown();
-  } catch (err) {}
 
   (function titleScroller(text) {
   document.title = text;
