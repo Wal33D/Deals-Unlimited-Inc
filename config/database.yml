@@ -1,6 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: deals
   host: localhost
   pool: 5
