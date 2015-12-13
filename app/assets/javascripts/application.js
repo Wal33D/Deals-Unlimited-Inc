@@ -6,7 +6,10 @@
 
 
 jQuery(document).ready(function($) {
-   
+    $(".button-collapse").sideNav();
+
+  $(".dropdown-button").dropdown();
+
   (function titleScroller(text) {
   document.title = text;
   setTimeout(function () {
