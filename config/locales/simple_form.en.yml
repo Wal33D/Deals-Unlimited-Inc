@@ -9,7 +9,7 @@ en:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: <div class="required panel panel-default" id="reselect"style="position:fixed!important; right:0; margin:0!important; z-index:10; left:0; background-color:rgba(190,30,30,0.8);"><div style="text-align:center;" class="panel-body"><h4 style=" color:white;"> If your adding a new vehicle make sure to re select your images!</h4></div></div>
     # Examples
     # labels:
     #   defaults:

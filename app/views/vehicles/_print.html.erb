@@ -152,7 +152,7 @@
         <div class="row" style="margin-top:0!important;padding-top:0!important;">
           <div class="col-xs-12" style="margin-top:0!important;padding-top:0!important;">
             <div class="jumbotron" style="margin-top:0!important;padding-top:0!important;">
-              <h4 style="margin-top:0!important;padding-top:0!important;">Feautures</h4>
+              <h5 style="margin-top:0!important;padding-top:0!important;">Feautures</h5>
               <% if @vehicle.import == "import" %>
               <div class="panel-body features" id="featuresprint" style="background-color:#e5f2ff">
                 <% if @vehicle.other_options %>
@@ -172,7 +172,7 @@
      <div class="row" style="margin-top:0!important;padding-top:0!important;">
           <div class="col-xs-12" style="margin-top:0!important;padding-top:0!important;">
             <div class="jumbotron" style="margin-top:0!important;padding-top:0!important;">
-              <h4>Description</h4>
+            <hr>
               <%= @vehicle.description.html_safe %>
             </div>
           </div>

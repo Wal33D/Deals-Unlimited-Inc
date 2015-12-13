@@ -1,21 +1,22 @@
 <% if admin_signed_in? %>
 <div class ="container" id="form">
     <div class = "row">
+         <%= simple_form_for(@vehicle) do |f| %>
+                    <%= f.error_notification %>
         <div class = "col-lg-6">
             <div class = "panel panel-default ">
                 <div class = "panel-heading" style="background-color:#292c2f !important">
                     <div class = "panel-title">
                         <h5 style="color:#eee">Vehicle Info
-                        <button class="btn blue" style="float:right;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value); $('#button').click();" >Fill Using VIN</button>
+                        <button class="btn blue" type="button"style="float:right;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value); $('#button').click();" >Fill Using VIN</button>
                         </h5>
                     </div>
                 </div>
                 <button  style="visibility:hidden!important;"type="button" id="button">ssss</button>
                 <div class = "panel-body">
+
                     <div class="form-inputs">
-                        <%= simple_form_for(@vehicle) do |f| %>
                         <table class="table">
-                            <%= f.error_notification %>
                             <tr><td class="featurelabel">VIN:</td> <td><%= f.input :vin_num %></td></tr>
                             <tr><td class="featurelabel">Price:</td> <td><%= f.input :price %></td></tr>
                             <tr><td class="featurelabel">Mileage:</td> <td><%= f.input :mileage %></td></tr>
@@ -23,7 +24,7 @@
                             <tr><td class="featurelabel">Interior Color</td> <td><%= f.input :interior_color %></td></tr>
                             <tr><td class="featurelabel">Stereo</td> <td><%= f.input :stereo %></td></tr>
                             <tr><td class="featurelabel">Stock Number</td> <td><%= f.input :stock_number %></td></tr>
-                            <tr><td class="featurelabel">Description</td> <td><%= f.input :description , as: :text,:id=>"descr"%></td></tr>
+                            <tr> <td colspan="2"><%= f.input :description , as: :text,:id=>"descr", :placeholder=>"Description..."%></td></tr>
                             <tr><td></td> <td><%= f.input :other_options, :id=>"other_options" %></td></tr>
                             <tr><td colspan="2"><%= render "feature_list" %></td></tr>
                             <tr><td colspan="2" id="accept-div"> <button onclick="acceptFeatures();" class="btn green" id="accept" type="button" style="width:100%!important;">Accept Options</button></td></tr>
@@ -60,7 +61,7 @@
                         <tr><td class="featurelabel">Doors </td> <td><%= f.input :doors %></td></tr>
                         <tr><td class="featurelabel">MPG</td> <td><%= f.input :mpg %></td></tr>
                         <tr><td class="featurelabel">Trim</td> <td><%= f.input :trim %></td></tr>
-                       <tr><td class="featurelabel">Fuel Type</td> <td> <%= f.input :fuel_type %></td></tr>
+                        <tr><td class="featurelabel">Fuel Type</td> <td> <%= f.input :fuel_type %></td></tr>
                     </table>
                 </div>
                 <div class = "panel-footer">
@@ -80,11 +81,11 @@ font-size: 1.5vmin!important;
 width:15%!important;
 }
 .error, .error_notification{
-    color:red!important;
+color:red!important;
 }
 input{
-    margin-bottom: 0!important;
-    border-bottom: none!important;
+margin-bottom: 0!important;
+border-bottom: none!important;
 }
 td{
 padding: 0!important;
