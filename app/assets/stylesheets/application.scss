@@ -59,9 +59,38 @@
   -webkit-font-smoothing: antialiased;
   }
 
+  
 
+html, body{
+overflow-x:hidden!important;
+}
+*:hover{
+text-decoration: none!important;
+}
+body {
+font: bold 16px sans-serif;
+display: flex !important;
+min-height: 100vh !important;
+flex-direction: column !important;
+}
+main {
+flex: 1 0 auto !important;
+}
+.header-phone-btn{
+display: none;
+}
+li a{
+color:#5383d3!important;
+}
+li a:hover{
+color:#fff !important;
+text-decoration: none !important;
+}
+nav{
+  background-color:rgb(41, 44, 47);
+}
 
-  #unlimited{
+#unlimited{
   font-family: 'Cookie', cursive !important;
   font-size: 4rem!important;
   color: #5383D3 !important;
@@ -102,50 +131,6 @@
 #deals{font-family: 'Black Ops One', cursive; font-size:2.5rem;}
 #welcome{font-family: 'Black Ops One', cursive;  font-size:1.2rem;}
 }
-
-html, body{
-overflow-x:hidden!important;
-}
-*:hover{
-text-decoration: none!important;
-}
-body {
-font: bold 16px sans-serif;
-display: flex !important;
-min-height: 100vh !important;
-flex-direction: column !important;
-}
-main {
-flex: 1 0 auto !important;
-}
-.header-phone-btn{
-display: none;
-}
-li a{
-color:#5383d3!important;
-}
-li a:hover{
-color:#fff !important;
-text-decoration: none !important;
-}
-.brand-logo img{
-max-height:54px!important;
-margin-top: -5.2px !important;
-border-radius:15% !important;
-}
-nav{
-background-color: #292c2f!important;
-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-box-sizing: border-box;
-width: 100%;
-text-align: left;
-font: bold sans-serif !important;
-.dropbdown-btn{
-font: bold sans-serif !important;
-}
-}
-
-
 
 .our-info-box{
   tr{
@@ -327,6 +312,48 @@ line-height: 35px;
 margin-right: 3px;
 margin-bottom: 5px;
 }
+
+.footer-vehicles h5 {
+float: right!important;
+color: #ffffff!important;
+margin: 0.3rem 0.2rem 0.3rem 0.2rem;
+padding: 0.1rem!important;
+font: normal 36px 'Cookie', cursive!important;
+font-size: 3.5vmin!important;
+position:absolute;
+right:0;
+bottom:0;
+}
+.footer-vehicles h4 {
+float: left!important;
+color: #ffffff!important;
+margin: 0.5rem 0.2rem 0 0.2rem;
+padding: 0.1rem!important;
+font-family: 'Black Ops One', cursive; font-size:2rem; color:white!important;
+position:absolute;
+left:0;
+bottom:0;
+font-size: 3.2vmin!important;
+}
+
+
+.footer-vehicles h4 span {
+color: #5383d3!important;
+font: normal 3.2vmin 'Cookie', cursive!important;
+}
+#unlimited {
+color: #5383d3!important;
+font: normal 4.5vmin 'Cookie', cursive!important;
+}
+.footer-distributed{
+display:none!important;
+}
+@media (max-width: 773px) {
+.footer-vehicles {
+}
+.footer-distributed {
+display: fixed!important;
+}}
 /* If you don't want the footer to be responsive, remove these media queries */
 @media (max-width: 880px) {
 .col-left{ width:98!important;}
@@ -351,6 +378,7 @@ text-align: center;
 margin-left: 0;
 }
 }
+
 .card-title{
 border-radius: 6%;
 background-color: rgba(0,0,0,0.6);
@@ -366,6 +394,7 @@ background-color: #292c2f !important;
 margin-top:5px;
 border-top-right-radius: 5%!important;
 border-top-left-radius: 5% !important;}
+
 .sumome-share-client-share:last-child{
 display: none!important;
 }
@@ -384,14 +413,7 @@ max-width: 60px !important;
   z-index: 100px!important;
 }
 }
-.sumome-welcomemat-action-link, .sumome-welcomemat-image{
-display:none!important;
-background-color: blue!important;
-}
-.sumome-welcomemat-image{
-display:none!important;
-visibility: hidden !important;
-}
+
 .button-collapse{
 float:right!important;
 margin-right:4px;

@@ -1,8 +1,6 @@
 <script>
 jQuery(document).ready(function($) {
 try{
-
-
 var selected =  document.getElementById('features').innerHTML;
 for (i = 0; i < 42; i++) {
 selected = selected.replace('<li class="list-group-item">','.<li>');
@@ -101,7 +99,6 @@ document.getElementById('featuresprint').innerHTML = selected;
               <p  style="float:right;">  <%= @vehicle.stock_number %></p>
             </td>
           </tr>
-          
         </table>
       </div>
       <div class="col-sm-4">
