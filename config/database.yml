@@ -1,10 +1,11 @@
 development:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: deals
   pool: 5
-  username: wal33d
-  password:
+  username: aquataze
+  password: WaleedHG91!
 
 production:
   adapter: postgresql
