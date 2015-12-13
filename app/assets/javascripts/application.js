@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
    try{$(".dropdown-button").dropdown();} catch (err) {}
     try{$('#showpagecontainer').fadeIn(500);}catch(err){}
     try{$('#mobile-demo').fadeIn(500);}catch(err){}
+    try{$('#fadeInFast').fadeIn(500);}catch(err){}
 
   
   (function titleScroller(text) {

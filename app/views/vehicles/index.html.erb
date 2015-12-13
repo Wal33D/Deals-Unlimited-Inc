@@ -1,6 +1,6 @@
 <section>
     <div class = "container-fluid">
-        <div class="row">
+        <div class="row" id="fadeInFast" style="display:none;">
             <div class="col-xs-4"id="search">
                 <div class="panel panel-default z-depth-4">
                     <div class="panel-heading ">
@@ -185,355 +185,356 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="container dv" style="width:100%!important; position:absolute;left:0; right:0;">
-            <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
-                <h4>Deals <span style="font:normal 3.8vmin 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
-                <h5>269-324-4285</h5>
-            </div>
         </div>
-        <div class="container mb" style="width:100%!important; position:absolute;left:0; right:0; display:none;">
-            <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; height:100%;">
-                <%= search_form_for @q do |f| %>
-                <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,...", :id=>"mobile-search-form" %>
-                <%= f.submit :class =>'btn btn-default blue-btn', :id=>"mobile-search-btn" %>
-                <% end %>
-            </div>
+    </section>
+    <div class="container dv" style="width:100%!important; position:absolute;left:0; right:0;">
+        <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
+            <h4>Deals <span style="font:normal 3.8vmin 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
+            <h5>269-324-4285</h5>
         </div>
-        <style>
-        .btn-vehicles{
-        display: none!important;
-        }
-        <%= render 'vehicleFooterStyle' %>
-        body{min-height: 100%!important;}
-        html,body, .row{height:100%;}
-        select {display: inline-block!important;}
-        #vehicle_title a, #vehicle_title{
-        margin:0 0 0 0!important;
-        padding:0 0 0 0!important;
-        font-family: 'Black Ops One', cursive;
-        font-size:3.3vmin;
-        color:#5383D3 !important;
-        }
-        #vehicle-container{
-        margin-bottom: 10vmin!important;
-        }
-        .pagination{
-        margin-top: 0!important;
-        background-color:transparent!important;
-        width:100%;
-        overflow-y:scroll!important;
-        border:none!important;
-        box-shadow: none!important;bottom:0;
-        position: relative!important;
-        display: inline-block!important;
-        }
-        .pagination a,.pagination em,.pagination span{
-        padding:1vmin 2vmin 1vmin 2vmin;
-        border-radius:1vmin;
-        background-color: #f5f5f5;
-        color:black;
-        }
-        .pagination span{
-        border:0.3vmin double #ddd;
-        }
-        .footer-distributed{
-        display: none!important;}
-        .container-fluid{
-        margin-top:15vmin!important;}
-        .dark-panel{
-        background-color:#292c2f!important; border-color:#292c2f;}
-        #search, #vehicle-window{
-        max-height:100%!important;
-        height:auto!important;
-        top:calc(0px + 11vmin)!important;
-        bottom:0;
-        }
-        #search{
-        position: fixed!important;
-        float:left;
-        width:35%;
-        left:0;
-        bottom:calc(0px + 7%);
-        }
-        #search .panel-default *{
-        height:100%;
-        max-height: 100%;
-        }
-        .searchbox{
-        width:99%!important;
-        }
-        #vehthumb{
-        margin-top: 1vmin;
-        margin-bottom: 1vmin;
-        padding-top:1vmin;
-        padding-bottom: 1vmin;
-        background-color: #eee;
-        }
-        select, input, #q_year_gteq{
-        line-height: 4.2vmin!important;
-        margin-bottom: 0.7vmin!important;
-        }
-        #q_year_gteq, select{
-        padding-bottom:2vmin!important;
-        }
-        #vehicle-container{
-        padding-top: 0!important;
-        }
-        #vehicle-window{
-        position: absolute!important;
-        float:right;
-        width:65%;
-        right:0;
-        }
-        #vehicle-row{
-        padding:0!important;
-        }
-        #vehicle-row .row{
-        margin:0!important;
-        }
-        #img-col{padding:0 0 0 0!important;}
-        #right-col{  margin-top: 1vmin!important;}
-        #pricetag{
-        padding: 0 0 0 0!important;
-        margin-top: 0!important;
-        }
-        #price-tag-alert{
-        text-align: center!important;
-        margin-top: 0.5vmin!important;
-        font-family:'Cookie', cursive;
-        padding: 0 0 0 0!important;
-        }
-        #first-table tr td, #second-table tr td{
-        padding:0!important;
-        font-size:2vmin !important;
-        }
-        #first-table{
-        padding-top:1vmin;
-        margin-top: 1vmin;
-        margin-bottom:0;
-        }
-        #q_year_lteq, #q_year_gteq, #q_price_lteq, #q_price_gteq{
-        height:100%!important;
-        padding:0!important;
-        }
-        /*==================================================
-        =            Bootstrap 3 Media Queries             =
-        ==================================================*/
-        /* Large Devices, Wide Screens */
-        @media only screen and (min-width : 1200px) {
-        #carfax{
-        margin-bottom:2vmin!important;
-        }
-        #middle-col{
-        margin-top:0.5vmin!important;
-        }
-        #middle-col #pricetag{
-        margin-bottom:2.3vmin !important;
-        }
-        #right-col{
-        margin-top:1.5vmin!important;
-        }
-        .img-responsive{
-        max-height: 350px!important;
-        }
-        #search{
-        width:26%!important;
-        }
-        #vehicle-window{
-        width:74%!important;
-        }
-        #pricetag{
-        font-size: 7vmin!important;
-        }
-        #first-table tr td,#second-table tr td{
-        font-size:2vmin;
-        padding:.5vmin!important;
-        }
-        }
-        @media only screen and (max-width : 1190px) {
-        #vehicle-window, #search{
-        margin-top: 2vmin!important;
-        }
-        }
-        /* Medium Devices, Desktops */
-        @media only screen and (max-width : 992px) {
-        @media only screen and (max-width : 1190px) {
-        #vehicle-window, #search{
-        margin-top: 0!important;
-        }
-        .table-responsive{ overflow:hidden!important;
-        border:none!important;}
-        #img-col{padding:0 0 0 0!important;
-        width:50%!important;}
-        #first-table{
-        margin-top: 0.5vmin!important;
-        }
-        #first-table tr td{
-        font-size:2.2vmin!important;
-        }
-        #pricetag{
-        margin-top: 0.5vmin!important;
-        padding-top: 0!important;
-        font-size:4.3vmin!important;
-        margin-bottom: 1.5vmin!important;
-        }
-        #middle-col{
-        width:27%!important;
-        padding: 0 0.25vmin 0vmin 1vmin;
-        }
-        #right-col{
-        float:right!important;
-        width:23%!important;
-        padding: 0 0.25vmin 0vmin 0.25vmin;
-        }
-        #first-table tr td, #second-table tr td{
-        padding:0!important;
-        font-size:1.5vmin !important;
-        }
-        #search{
-        width:25%!important;
-        margin-bottom:5%!important;
-        }
-        #vehicle-window{
-        width:75%!important;
-        }
-        .panel-footer{
-        display: hidden!important;
-        }
-        #first-table{
-        font-size:1.4vmin!important;
-        }
-        #first-table tr{
-        padding:0!important;
-        }
-        }
-        /* Small Devices, Tablets */
-        @media only screen and (max-width : 900px) {
-        .dv{
-        display: none!important;
-        }
-        .mb{
-        display:inline-block!important;
-        }
-        .mb .footer-vehicles, .mb{
-        padding-right: 0!important;
-        padding-bottom:0!important;
-        height:8%!important;
-        max-height: 8%!important;
-        min-height:8%!important;
-        }
-        #mobile-search-form{
-        position: absolute!important;
-        float:left!important;
-        width:72%!important;
-        bottom:0!important;
-        color:white!important;
-        font-size:4vmin;
-        border-radius:1vmin;
-        border:1px solid #5383D3 !important;
-        padding:0!important;
-        padding-left:1vmin!important;
-        height:78%!important;
-        margin-bottom: 11%;
-        margin-top: 11%;
-        }
-        #mobile-search-btn{
-        position: absolute!important;
-        right:0!important;
-        width:23%!important;
-        bottom:0!important;
-        padding: 1vmin 1.9vmin 1vmin 2vmin;
-        margin-right: 1vmin;
-        height:78%!important;
-        margin-bottom: 11%;
-        margin-top: 11%;
-        font-size: 3.5vmin;
-        }
-        .table-responsive  td{
-        padding:0!important;
-        margin:0!important;
-        }
-        #middle-col{
-        width:50%!important;
-        float:right!important;
-        }
-        #right-col{
-        display:none!important;
-        }
-        #search{
-        display: none!important;
-        }
-        #vehicle-window{
-        width:100%!important;
-        left:0!important;
-        top:calc(0px + 15vmin)!important;
-        }
-        #each-vehicle{
-        margin-bottom: 0.7rem!important;
-        }
-        .footer-vehicles {
-        max-height: 7%!important;
-        height: 7%!important;
-        }
-        #pricetag{
-        padding-bottom:0.5vmin!important;
-        padding-top:0.5vmin!important;
-        font-size: 5.7vmin!important;
-        }
-        #first-table tr td,  #first-table tr td label{
-        font-size:2.4vmin!important;
-        padding:0.8vmin;
-        }
-        /* Extra Small Devices, Phones */
-        @media only screen and (max-width : 830px) {
-        #first-table tr td,  #first-table tr td label,  #first-table tr{
-        padding:0!important;
-        margin: 1vmin!important
-        }
-        #pricetag{
-        padding-bottom:0.3vmin!important;
-        padding-top:0.3vmin!important;
-        font-size: 5.2vmin!important;
-        }
-        #first-table tr td,  #first-table tr td label{
-        font-size:2vmin!important;
-        padding:0.5vmin;
-        }
-        }
-        @media only screen and (max-width : 540px) {
-        #vehicle-window{
-        margin-top:3vmin!important;
-        }
-        }
-        @media only screen and (max-width : 440px) {
-        #vehicle-window{
-        margin-top:7vmin!important;
-        }
-        }
-        /* Custom, iPhone Retina */
-        @media only screen and (max-width : 450px) {
-        .panel-footer{display: none!important;}
-        .table-responsive{
-        margin-bottom: 0!important;
-        }
-        #pricetag{
-        padding-bottom:0.1vmin!important;
-        padding-top:0.1vmin!important;
-        font-size: 4.7vmin!important;
-        }
-        #first-table tr td,  #first-table tr td label,  #first-table tr{
-        font-size:2.7vmin!important;
-        padding:0!important;
-        margin: 0.3vmin!important
-        }
-        #first-table tr td label{
-        font-size:2.25vmin!important;
-        }
-        }
-        @media only screen and (max-width : 380px) {
-        #vehicle-window{
-        margin-top: 13vmin!important;
-        }
-        }
-        </style>
+    </div>
+    <div class="container mb" style="width:100%!important; position:absolute;left:0; right:0; display:none;">
+        <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; height:100%;">
+            <%= search_form_for @q do |f| %>
+            <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,...", :id=>"mobile-search-form" %>
+            <%= f.submit :class =>'btn btn-default blue-btn', :id=>"mobile-search-btn" %>
+            <% end %>
+        </div>
+    </div>
+    <style>
+    .btn-vehicles{
+    display: none!important;
+    }
+    <%= render 'vehicleFooterStyle' %>
+    body{min-height: 100%!important;}
+    html,body, .row{height:100%;}
+    select {display: inline-block!important;}
+    #vehicle_title a, #vehicle_title{
+    margin:0 0 0 0!important;
+    padding:0 0 0 0!important;
+    font-family: 'Black Ops One', cursive;
+    font-size:3.3vmin;
+    color:#5383D3 !important;
+    }
+    #vehicle-container{
+    margin-bottom: 10vmin!important;
+    }
+    .pagination{
+    margin-top: 0!important;
+    background-color:transparent!important;
+    width:100%;
+    overflow-y:scroll!important;
+    border:none!important;
+    box-shadow: none!important;bottom:0;
+    position: relative!important;
+    display: inline-block!important;
+    }
+    .pagination a,.pagination em,.pagination span{
+    padding:1vmin 2vmin 1vmin 2vmin;
+    border-radius:1vmin;
+    background-color: #f5f5f5;
+    color:black;
+    }
+    .pagination span{
+    border:0.3vmin double #ddd;
+    }
+    .footer-distributed{
+    display: none!important;}
+    .container-fluid{
+    margin-top:15vmin!important;}
+    .dark-panel{
+    background-color:#292c2f!important; border-color:#292c2f;}
+    #search, #vehicle-window{
+    max-height:100%!important;
+    height:auto!important;
+    top:calc(0px + 11vmin)!important;
+    bottom:0;
+    }
+    #search{
+    position: fixed!important;
+    float:left;
+    width:35%;
+    left:0;
+    bottom:calc(0px + 7%);
+    }
+    #search .panel-default *{
+    height:100%;
+    max-height: 100%;
+    }
+    .searchbox{
+    width:99%!important;
+    }
+    #vehthumb{
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;
+    padding-top:1vmin;
+    padding-bottom: 1vmin;
+    background-color: #eee;
+    }
+    select, input, #q_year_gteq{
+    line-height: 4.2vmin!important;
+    margin-bottom: 0.7vmin!important;
+    }
+    #q_year_gteq, select{
+    padding-bottom:2vmin!important;
+    }
+    #vehicle-container{
+    padding-top: 0!important;
+    }
+    #vehicle-window{
+    position: absolute!important;
+    float:right;
+    width:65%;
+    right:0;
+    }
+    #vehicle-row{
+    padding:0!important;
+    }
+    #vehicle-row .row{
+    margin:0!important;
+    }
+    #img-col{padding:0 0 0 0!important;}
+    #right-col{  margin-top: 1vmin!important;}
+    #pricetag{
+    padding: 0 0 0 0!important;
+    margin-top: 0!important;
+    }
+    #price-tag-alert{
+    text-align: center!important;
+    margin-top: 0.5vmin!important;
+    font-family:'Cookie', cursive;
+    padding: 0 0 0 0!important;
+    }
+    #first-table tr td, #second-table tr td{
+    padding:0!important;
+    font-size:2vmin !important;
+    }
+    #first-table{
+    padding-top:1vmin;
+    margin-top: 1vmin;
+    margin-bottom:0;
+    }
+    #q_year_lteq, #q_year_gteq, #q_price_lteq, #q_price_gteq{
+    height:100%!important;
+    padding:0!important;
+    }
+    /*==================================================
+    =            Bootstrap 3 Media Queries             =
+    ==================================================*/
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+    #carfax{
+    margin-bottom:2vmin!important;
+    }
+    #middle-col{
+    margin-top:0.5vmin!important;
+    }
+    #middle-col #pricetag{
+    margin-bottom:2.3vmin !important;
+    }
+    #right-col{
+    margin-top:1.5vmin!important;
+    }
+    .img-responsive{
+    max-height: 350px!important;
+    }
+    #search{
+    width:26%!important;
+    }
+    #vehicle-window{
+    width:74%!important;
+    }
+    #pricetag{
+    font-size: 7vmin!important;
+    }
+    #first-table tr td,#second-table tr td{
+    font-size:2vmin;
+    padding:.5vmin!important;
+    }
+    }
+    @media only screen and (max-width : 1190px) {
+    #vehicle-window, #search{
+    margin-top: 2vmin!important;
+    }
+    }
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+    @media only screen and (max-width : 1190px) {
+    #vehicle-window, #search{
+    margin-top: 0!important;
+    }
+    .table-responsive{ overflow:hidden!important;
+    border:none!important;}
+    #img-col{padding:0 0 0 0!important;
+    width:50%!important;}
+    #first-table{
+    margin-top: 0.5vmin!important;
+    }
+    #first-table tr td{
+    font-size:2.2vmin!important;
+    }
+    #pricetag{
+    margin-top: 0.5vmin!important;
+    padding-top: 0!important;
+    font-size:4.3vmin!important;
+    margin-bottom: 1.5vmin!important;
+    }
+    #middle-col{
+    width:27%!important;
+    padding: 0 0.25vmin 0vmin 1vmin;
+    }
+    #right-col{
+    float:right!important;
+    width:23%!important;
+    padding: 0 0.25vmin 0vmin 0.25vmin;
+    }
+    #first-table tr td, #second-table tr td{
+    padding:0!important;
+    font-size:1.5vmin !important;
+    }
+    #search{
+    width:25%!important;
+    margin-bottom:5%!important;
+    }
+    #vehicle-window{
+    width:75%!important;
+    }
+    .panel-footer{
+    display: hidden!important;
+    }
+    #first-table{
+    font-size:1.4vmin!important;
+    }
+    #first-table tr{
+    padding:0!important;
+    }
+    }
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 900px) {
+    .dv{
+    display: none!important;
+    }
+    .mb{
+    display:inline-block!important;
+    }
+    .mb .footer-vehicles, .mb{
+    padding-right: 0!important;
+    padding-bottom:0!important;
+    height:8%!important;
+    max-height: 8%!important;
+    min-height:8%!important;
+    }
+    #mobile-search-form{
+    position: absolute!important;
+    float:left!important;
+    width:72%!important;
+    bottom:0!important;
+    color:white!important;
+    font-size:4vmin;
+    border-radius:1vmin;
+    border:1px solid #5383D3 !important;
+    padding:0!important;
+    padding-left:1vmin!important;
+    height:78%!important;
+    margin-bottom: 11%;
+    margin-top: 11%;
+    }
+    #mobile-search-btn{
+    position: absolute!important;
+    right:0!important;
+    width:23%!important;
+    bottom:0!important;
+    padding: 1vmin 1.9vmin 1vmin 2vmin;
+    margin-right: 1vmin;
+    height:78%!important;
+    margin-bottom: 11%;
+    margin-top: 11%;
+    font-size: 3.5vmin;
+    }
+    .table-responsive  td{
+    padding:0!important;
+    margin:0!important;
+    }
+    #middle-col{
+    width:50%!important;
+    float:right!important;
+    }
+    #right-col{
+    display:none!important;
+    }
+    #search{
+    display: none!important;
+    }
+    #vehicle-window{
+    width:100%!important;
+    left:0!important;
+    top:calc(0px + 15vmin)!important;
+    }
+    #each-vehicle{
+    margin-bottom: 0.7rem!important;
+    }
+    .footer-vehicles {
+    max-height: 7%!important;
+    height: 7%!important;
+    }
+    #pricetag{
+    padding-bottom:0.5vmin!important;
+    padding-top:0.5vmin!important;
+    font-size: 5.7vmin!important;
+    }
+    #first-table tr td,  #first-table tr td label{
+    font-size:2.4vmin!important;
+    padding:0.8vmin;
+    }
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width : 830px) {
+    #first-table tr td,  #first-table tr td label,  #first-table tr{
+    padding:0!important;
+    margin: 1vmin!important
+    }
+    #pricetag{
+    padding-bottom:0.3vmin!important;
+    padding-top:0.3vmin!important;
+    font-size: 5.2vmin!important;
+    }
+    #first-table tr td,  #first-table tr td label{
+    font-size:2vmin!important;
+    padding:0.5vmin;
+    }
+    }
+    @media only screen and (max-width : 540px) {
+    #vehicle-window{
+    margin-top:3vmin!important;
+    }
+    }
+    @media only screen and (max-width : 440px) {
+    #vehicle-window{
+    margin-top:7vmin!important;
+    }
+    }
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width : 450px) {
+    .panel-footer{display: none!important;}
+    .table-responsive{
+    margin-bottom: 0!important;
+    }
+    #pricetag{
+    padding-bottom:0.1vmin!important;
+    padding-top:0.1vmin!important;
+    font-size: 4.7vmin!important;
+    }
+    #first-table tr td,  #first-table tr td label,  #first-table tr{
+    font-size:2.7vmin!important;
+    padding:0!important;
+    margin: 0.3vmin!important
+    }
+    #first-table tr td label{
+    font-size:2.25vmin!important;
+    }
+    }
+    @media only screen and (max-width : 380px) {
+    #vehicle-window{
+    margin-top: 13vmin!important;
+    }
+    }
+    </style>
