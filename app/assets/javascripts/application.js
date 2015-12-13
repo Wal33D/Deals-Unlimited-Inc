@@ -3,23 +3,9 @@
 //= require_tree .
 //////////////////Fundamental Code////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 jQuery(document).ready(function($) {
-      $(".button-collapse").sideNav();
-  $(".dropdown-button").dropdown();
-  (function titleScroller(text) {
-  document.title = text;
-  setTimeout(function () {
-  titleScroller(text.substr(1) + text.substr(0, 1));
-  }, 500);
-  }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
-  
-    var $window = $('#window');
-    var $textarea = $('#contact_message');
-    $textarea.height($(window).height() * 0.2);
 
 
-window.onload = function fillFeaturesList(){
 var selected =  document.getElementById('features').innerHTML;
 for (i = 0; i < 42; i++) {
 selected = selected.replace('<li class="list-group-item">','.<li>');
@@ -47,7 +33,24 @@ selected = selected.replace('undefined','');
 }
 document.getElementById('features').innerHTML = selected;
 document.getElementById('featuresprint').innerHTML = selected;
-}
+
+});
+
+jQuery(document).ready(function($) {
+      $(".button-collapse").sideNav();
+  $(".dropdown-button").dropdown();
+  (function titleScroller(text) {
+  document.title = text;
+  setTimeout(function () {
+  titleScroller(text.substr(1) + text.substr(0, 1));
+  }, 500);
+  }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
+  
+    var $window = $('#window');
+    var $textarea = $('#contact_message');
+    $textarea.height($(window).height() * 0.2);
+
+
 
 });
 
