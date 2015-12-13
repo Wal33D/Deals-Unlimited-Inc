@@ -247,7 +247,7 @@ document.getElementById('featuresprint').innerHTML = selected;
       <% else %>
       <div class="panel-body features" id="features" style="background-color:#e5f2ff">
         <% if @vehicle.other_options %>
-        <%= @vehicle.other_options.html_safe%>
+        <p><%= @vehicle.other_options.html_safe%></p>
         <% end %>
       </div>
       <% end %>

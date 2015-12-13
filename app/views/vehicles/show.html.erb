@@ -94,7 +94,7 @@
   </div>
   <div class="container" style="width:100%!important;bottom:0; position:absolute;left:0; right:0; ">
     <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; padding:1rem;">
-      <h4 style="">
+      <h4 style="font-family: 'Black Ops One', cursive!important;">
       Deals
       <span style="color: rgb(83, 131, 211)!important;"id="unlimited">Unlimited,
         <span style="font-size:2.75vmin; font-family: 'Black Ops One', cursive!important;color:white!important;"> Inc.
@@ -110,63 +110,30 @@ jQuery(document).ready(function($){try{$('#showpagecontainer').fadeIn(500);}catc
 </script>
 <%= render 'print' %>
 <style>
-.footer-distributed {
-display: none!important;
-}
-.footer-vehicles {
-max-height: 5%;
-height: 6.5%;
-bottom: 0;
-position: fixed!important;
-padding: 1rem;
-padding-top: 0.1rem!important;
-padding-left: 0.15rem!important;
-background-color: #292c2f !important;
-line-height: 50px!important;
-width: 100%;
-}
-.footer-vehicles h5 {
-float: right!important;
-color: #ffffff!important;
-margin: 0.3rem 0.2rem 0.3rem 0.2rem;
-padding: 0.1rem!important;
-font: normal 36px 'Cookie', cursive!important;
-font-size: 3.5vmin!important;
-position:absolute;
-right:0;
-bottom:0;
-}
-.footer-vehicles h4 {
-float: left!important;
-color: #ffffff!important;
-margin: 0.5rem 0.2rem 0 0.2rem;
-padding: 0.1rem!important;
-font-family: 'Black Ops One', cursive; font-size:2rem; color:white!important;
-position:absolute;
-left:0;
-bottom:0;
-font-size: 3.2vmin!important;
-}
-
-
-.footer-vehicles h4 span {
-color: #5383d3!important;
-font: normal 3.2vmin 'Cookie', cursive!important;
-}
-#unlimited {
-color: #5383d3!important;
-font: normal 4.5vmin 'Cookie', cursive!important;
-}
-.footer-distributed{
-display:none!important;
-}
-@media (max-width: 773px) {
-.footer-vehicles {
-}
-.footer-distributed {
-display: fixed!important;
-}
-}
+ 
+ @font-face {
+  font-family: 'Black Ops One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1X1PgMwFt2V-WJ2uOZ4WXLU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+  font-family: 'Black Ops One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(https://fonts.gstatic.com/s/blackopsone/v7/2XW-DmDsGbDLE372KrMW1TxObtw73-qQgbr7Be51v5c.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+  }
+  /* latin */
+  @font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cookie-Regular'), url(https://fonts.gstatic.com/s/cookie/v7/crMuSvy3krjox1JAKfe7Ew.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+  }
 @media only screen and (max-width : 800px) {
 .row{
 margin-top:2vmin!important;
@@ -398,5 +365,62 @@ display: none!important;
 #mobileinfo{
 display:inline-block!important;
 }
+}
+
+.footer-distributed {
+display: none!important;
+}
+.footer-vehicles {
+max-height: 5%;
+height: 6.5%;
+bottom: 0;
+position: fixed!important;
+padding: 1rem;
+padding-top: 0.1rem!important;
+padding-left: 0.15rem!important;
+background-color: #292c2f !important;
+line-height: 50px!important;
+width: 100%;
+}
+.footer-vehicles h5 {
+float: right!important;
+color: #ffffff!important;
+margin: 0.3rem 0.2rem 0.3rem 0.2rem;
+padding: 0.1rem!important;
+font: normal 36px 'Cookie', cursive!important;
+font-size: 3.5vmin!important;
+position:absolute;
+right:0;
+bottom:0;
+}
+.footer-vehicles h4 {
+float: left!important;
+color: #ffffff!important;
+margin: 0.5rem 0.2rem 0 0.2rem;
+padding: 0.1rem!important;
+font-family: 'Black Ops One', cursive; font-size:2rem; color:white!important;
+position:absolute;
+left:0;
+bottom:0;
+font-size: 3.2vmin!important;
+}
+
+
+.footer-vehicles h4 span {
+color: #5383d3!important;
+font: normal 3.2vmin 'Cookie', cursive!important;
+}
+#unlimited {
+color: #5383d3!important;
+font: normal 4.5vmin 'Cookie', cursive!important;
+}
+.footer-distributed{
+display:none!important;
+}
+@media (max-width: 773px) {
+.footer-vehicles {
+}
+.footer-distributed {
+display: fixed!important;
 }
 </style>
