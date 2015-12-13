@@ -1,6 +1,6 @@
-<div class ="container" style="margin-bottom:3.5vmin!important;" >
+<div class ="container"  id="showpagecontainer" style="margin-bottom:3.5vmin!important; display:none;" >
   <div class = "row"  >
-    <div class = "panel panel-default z-depth-4" id="showpage"style="display:none;">
+    <div class = "panel panel-default z-depth-4" id="showpage">
       <% if @vehicle.status == "Sold" %>
       <div id ="headerinfo" class = "panel-heading red lighten-1" style ="padding-bottom:0!important; margin:0!important;" >
         <% else %>
@@ -92,255 +92,255 @@
       </center>
     </div>
   </div>
-  <div class="container" style="width:100%!important; position:absolute;left:0; right:0; ">
-    <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; padding:1rem;">
-      <h4 style="">
-      Deals
-      <span style="color: rgb(83, 131, 211)!important; font: normal 5vmin 'Cookie', cursive!important; ">Unlimited,
-        <span style="font-size:2.75vmin; font-family: 'Black Ops One', cursive!important;color:white!important;"> Inc.
-        </span>
+</div>
+<div class="container" style="width:100%!important;bottom:0; position:absolute;left:0; right:0; ">
+  <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; padding:1rem;">
+    <h4 style="">
+    Deals
+    <span style="color: rgb(83, 131, 211)!important; font: normal 5vmin 'Cookie', cursive!important; ">Unlimited,
+      <span style="font-size:2.75vmin; font-family: 'Black Ops One', cursive!important;color:white!important;"> Inc.
       </span>
-      </h4>
-      <h5 style="font-size:2.75vmin;">269-324-4285</h5>
-    </div>
+    </span>
+    </h4>
+    <h5 style="font-size:2.75vmin;">269-324-4285</h5>
   </div>
+</div>
 <script>
-jQuery(document).ready(function($){try{$('#showpage').fadeIn(350);}catch(err){}});  
+jQuery(document).ready(function($){try{$('#showpagecontainer').fadeIn(500);}catch(err){}});
 </script>
-  <%= render 'print' %>
-  <style>
-  <%= render 'vehicleFooterStyle' %>
-  @media only screen and (max-width : 800px) {
-  .row{
-  margin-top:2vmin!important;
-  width:96%!important;
-  margin-left:2%!important;
-  margin-right: 2%!important;
-  }
-  #mobileinfo .row, #mobileinfo table{
-  margin-bottom: 0!important;
-  }
-  section .vehicle_thumb img{
-  max-width: 80%!important;
-  width:80%!important;
-  margin-right: 5%!important
-  }
-  section{
-  border:1vmin double #eee;
-  }
-  }
-  body {
-  overflow: hidden;
-  }
-  section {
-  /* The width of your document, I suppose */
-  width:100%!important;
-  margin: 0 auto;
-  white-space:nowrap;
-  overflow: scroll;
-  }
-  .pic-container {
-  /* As large as it needs to be */
-  width: auto;
-  }​
-  .pic-container img{
-  width:25rem!important;
-  }
-  .vehicle_thumb img{max-width:30rem!important;}
-  select{display: block!important;}
-  #img-scroll img{ width:30rem!important;}
-  /* Preload images */
-  body:after {
-  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
-  display: none;
-  }
-  .lightboxOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  background-color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
-  display: none;
-  }
-  .lightbox {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 10000;
-  text-align: center;
-  line-height: 0;
-  font-weight: normal;
-  }
-  .lightbox .lb-image {
-  display: block;
-  height: auto;
-  max-width: inherit;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  }
-  .lightbox a img {
-  border: none;
-  }
-  .lb-outerContainer {
-  position: relative;
-  background-color: white;
-  *zoom: 1;
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  }
-  .lb-outerContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-  }
-  .lb-container {
-  padding: 4px;
-  }
-  .lb-loader {
-  position: absolute;
-  top: 43%;
-  left: 0;
-  height: 25%;
-  width: 100%;
-  text-align: center;
-  line-height: 0;
-  }
-  .lb-cancel {
-  display: block;
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  background: url(../images/loading.gif) no-repeat;
-  }
-  .lb-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  }
-  .lb-container > .nav {
-  left: 0;
-  }
-  .lb-nav a {
-  outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
-  }
-  .lb-prev, .lb-next {
-  height: 100%;
-  cursor: pointer;
-  display: block;
-  }
-  .lb-nav a.lb-prev {
-  width: 34%;
-  left: 0;
-  float: left;
-  background: url(../images/prev.png) left 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-  }
-  .lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  }
-  .lb-nav a.lb-next {
-  width: 64%;
-  right: 0;
-  float: right;
-  background: url(../images/next.png) right 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-  }
-  .lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  }
-  .lb-dataContainer {
-  margin: 0 auto;
-  padding-top: 5px;
-  *zoom: 1;
-  width: 100%;
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  }
-  .lb-dataContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-  }
-  .lb-data {
-  padding: 0 4px;
-  color: #ccc;
-  }
-  .lb-data .lb-details {
-  width: 85%;
-  float: left;
-  text-align: left;
-  line-height: 1.1em;
-  }
-  .lb-data .lb-caption {
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1em;
-  }
-  .lb-data .lb-number {
-  display: block;
-  clear: left;
-  padding-bottom: 1em;
-  font-size: 12px;
-  color: #999999;
-  }
-  .lb-data .lb-close {
-  display: block;
-  float: right;
-  width: 30px;
-  height: 30px;
-  background: url(../images/close.png) top right no-repeat;
-  text-align: right;
-  outline: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  }
-  .lb-data .lb-close:hover {
-  cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  }
-  @media (max-width: 750px){
-  #printbutton, #headerinfo{
-  display: none!important;
-  }
-  #mobileinfo{
-  display:inline-block!important;
-  }
-  }
-  </style>
-  
+<%= render 'print' %>
+<style>
+<%= render 'vehicleFooterStyle' %>
+@media only screen and (max-width : 800px) {
+.row{
+margin-top:2vmin!important;
+width:96%!important;
+margin-left:2%!important;
+margin-right: 2%!important;
+}
+#mobileinfo .row, #mobileinfo table{
+margin-bottom: 0!important;
+}
+section .vehicle_thumb img{
+max-width: 80%!important;
+width:80%!important;
+margin-right: 5%!important
+}
+section{
+border:1vmin double #eee;
+}
+}
+body {
+overflow: hidden;
+}
+section {
+/* The width of your document, I suppose */
+width:100%!important;
+margin: 0 auto;
+white-space:nowrap;
+overflow: scroll;
+}
+.pic-container {
+/* As large as it needs to be */
+width: auto;
+}​
+.pic-container img{
+width:25rem!important;
+}
+.vehicle_thumb img{max-width:30rem!important;}
+select{display: block!important;}
+#img-scroll img{ width:30rem!important;}
+/* Preload images */
+body:after {
+content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+display: none;
+}
+.lightboxOverlay {
+position: absolute;
+top: 0;
+left: 0;
+z-index: 9999;
+background-color: black;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+opacity: 0.8;
+display: none;
+}
+.lightbox {
+position: absolute;
+left: 0;
+width: 100%;
+z-index: 10000;
+text-align: center;
+line-height: 0;
+font-weight: normal;
+}
+.lightbox .lb-image {
+display: block;
+height: auto;
+max-width: inherit;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+}
+.lightbox a img {
+border: none;
+}
+.lb-outerContainer {
+position: relative;
+background-color: white;
+*zoom: 1;
+width: 250px;
+height: 250px;
+margin: 0 auto;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+}
+.lb-outerContainer:after {
+content: "";
+display: table;
+clear: both;
+}
+.lb-container {
+padding: 4px;
+}
+.lb-loader {
+position: absolute;
+top: 43%;
+left: 0;
+height: 25%;
+width: 100%;
+text-align: center;
+line-height: 0;
+}
+.lb-cancel {
+display: block;
+width: 32px;
+height: 32px;
+margin: 0 auto;
+background: url(../images/loading.gif) no-repeat;
+}
+.lb-nav {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+z-index: 10;
+}
+.lb-container > .nav {
+left: 0;
+}
+.lb-nav a {
+outline: none;
+background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+}
+.lb-prev, .lb-next {
+height: 100%;
+cursor: pointer;
+display: block;
+}
+.lb-nav a.lb-prev {
+width: 34%;
+left: 0;
+float: left;
+background: url(../images/prev.png) left 48% no-repeat;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+opacity: 0;
+-webkit-transition: opacity 0.6s;
+-moz-transition: opacity 0.6s;
+-o-transition: opacity 0.6s;
+transition: opacity 0.6s;
+}
+.lb-nav a.lb-prev:hover {
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+opacity: 1;
+}
+.lb-nav a.lb-next {
+width: 64%;
+right: 0;
+float: right;
+background: url(../images/next.png) right 48% no-repeat;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+opacity: 0;
+-webkit-transition: opacity 0.6s;
+-moz-transition: opacity 0.6s;
+-o-transition: opacity 0.6s;
+transition: opacity 0.6s;
+}
+.lb-nav a.lb-next:hover {
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+opacity: 1;
+}
+.lb-dataContainer {
+margin: 0 auto;
+padding-top: 5px;
+*zoom: 1;
+width: 100%;
+-moz-border-radius-bottomleft: 4px;
+-webkit-border-bottom-left-radius: 4px;
+border-bottom-left-radius: 4px;
+-moz-border-radius-bottomright: 4px;
+-webkit-border-bottom-right-radius: 4px;
+border-bottom-right-radius: 4px;
+}
+.lb-dataContainer:after {
+content: "";
+display: table;
+clear: both;
+}
+.lb-data {
+padding: 0 4px;
+color: #ccc;
+}
+.lb-data .lb-details {
+width: 85%;
+float: left;
+text-align: left;
+line-height: 1.1em;
+}
+.lb-data .lb-caption {
+font-size: 13px;
+font-weight: bold;
+line-height: 1em;
+}
+.lb-data .lb-number {
+display: block;
+clear: left;
+padding-bottom: 1em;
+font-size: 12px;
+color: #999999;
+}
+.lb-data .lb-close {
+display: block;
+float: right;
+width: 30px;
+height: 30px;
+background: url(../images/close.png) top right no-repeat;
+text-align: right;
+outline: none;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+opacity: 0.7;
+-webkit-transition: opacity 0.2s;
+-moz-transition: opacity 0.2s;
+-o-transition: opacity 0.2s;
+transition: opacity 0.2s;
+}
+.lb-data .lb-close:hover {
+cursor: pointer;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+opacity: 1;
+}
+@media (max-width: 750px){
+#printbutton, #headerinfo{
+display: none!important;
+}
+#mobileinfo{
+display:inline-block!important;
+}
+}
+</style>
