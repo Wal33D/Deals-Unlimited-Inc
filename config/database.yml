@@ -4,5 +4,4 @@ development:
   database: deals
   pool: 5
   username: wal33d
-  password:
-
+  password: 
