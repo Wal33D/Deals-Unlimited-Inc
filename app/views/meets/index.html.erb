@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-1">
+    <div class="col-xs-1 col-hide">
     </div>
-    <div class="col-xs-10">
-      <div class="panel panel-default z-depth-4" style="border-color:#ccc;">
+    <div class="col-xs-10" id="meetcol">
+      <div class="panel panel-default z-depth-4" id="meet-panel" style="border-color:#ccc;">
         <div class="panel-heading panel-black" id="meet-heading">
           <div class="panel-title" style="color:white!important;" id="meet-title">
             <h4>Meet the Staff!
@@ -16,7 +16,7 @@
           <% end %>
           <% @meets.each do |meet| %>
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12">
               <div class="panel panel-default z-depth-2" >
                 <div class="panel-heading">
                   <div class="panel-title">
@@ -26,16 +26,16 @@
                 </div>
                 <div class="panel-body">
                   <div class="row">
-                    <div class="col-sm-4" id="headshot-thumb">
+                    <div class="col-md-4" id="headshot-thumb">
                       <%= image_tag meet.headshot_images[0] %>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                       <p>Position:<%= meet.position %></p>
                       <p>Since:<%= meet.duration %></p>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-md-4">
                       <p><%= meet.about %></p>
                       <% if admin_signed_in? %>
                       <%= link_to 'Show', meet, :class=>"btn blue",:style=>"width:28%!important;" %>
@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-10 col-hide">
     </div>
   </div>
 </div>
@@ -65,4 +65,21 @@
 max-width: 500px!important;
 border-radius:100%!important;
 }
+@media (max-width: 600px) {
+
+ #meetcol{
+  width:100%!important;
+  margin-top: 2vmin!important;
+margin-left: 0!important;
+margin-right:0!important;}
+
+#meet-panel{
+    width:100%!important;
+  margin-top: 2vmin!important;
+}
+.col-hide{
+  display: none!important;
+}}
+
+</style>
 </style>

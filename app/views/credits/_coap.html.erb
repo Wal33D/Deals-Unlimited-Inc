@@ -1,423 +1,308 @@
-<div class="container" id="double-applicant" style="display:none;">
-	<div class="panel panel-default" id="credit-panel" style="margin-top:1.5rem; box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
-		">
-		<div class="panel-heading" style="background-color:#292c2f; color:#eee;">
-			<div class="panel-title">
-				<h5  id="title-credit">Credit Application</h5>
+<div id="double-applicant" style="display:none;">
+	<div class="panel-body"  >
+		<%= simple_form_for @credit, :html => {:class => '  form-horizontal' } do |g| %>
+		<div class="panel panel-default">
+			<div class="panel-body" style="background-color:#ddd; padding-bottom:0!important;">
+				<div class="row" style="margin-bottom:0!important;" >
+					<div class="col-md-6" style=" padding-bottom:0!important;">
+						<div class="input-group" >
+							<div class="row" >
+								<div class="col-md-6">
+									<p> Have a Co-Applicant?</p>
+								</div>
+								<div class="col-md-3" id="coap-div">
+									<button class ="btn btn-default red" type="button"  onclick="coap(1)">No</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input-group" >
+							<div class="row"  >
+								<div class="col-md-6">
+									<p >Do you have a trade in?</p>
+								</div>
+								<div class="col-md-3" id="tradein-div">
+									<button class ="btn btn-default blue"type="button" id="credit-true" onclick="tradeIn_yes(0)" >Yes</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="panel-body" >
-			<%= simple_form_for @credit, :html => {:class => '  form-horizontal' } do |g| %>
+		<div class="row">
+			<div class="col-lg-6">
 				<div class="panel panel-default">
-				<div class="panel-body" style="background-color:#ddd; padding-bottom:0!important;">
-					<div class="row" style="margin-bottom:0!important;" >
-						<div class="col-md-6" style=" padding-bottom:0!important;">
-							<div class="input-group" >
-								<div class="row"  >
-									<div class="col-md-6">
-										<p> Have a Co-Applicant?</p>
-									</div>
-									<div class="col-md-3">
-										<button class ="btn btn-default blue"type="button" onclick="coap('true')" >Yes</button>
-									</div>
-									<div class="col-md-3">
-										<button class ="btn btn-default red" type="button"  onclick="coap('false')">No</button>
-									</div>
-								</div>
-							</div>
+					<div class="panel-heading" style="background-color:#ddd">
+						<div class="panel-title">
+							Your Information
 						</div>
-						<div class="col-md-6">
-							<div class="input-group" >
-								<div class="row"  >
-									<div class="col-md-6">
-										<p >Do you have a trade in?</p>
-									</div>
-									<div class="col-md-3">
-										<button class ="btn btn-default blue"type="button" id="credit-true" onclick="tradeIn_yes('true')" >Yes</button>
-									</div>
-									<div class="col-md-3">
-										<button class ="btn btn-default red" type="button" id="credit-false" onclick="tradeIn_yes('false')">No</button>
-									</div>
-								</div>
-							</div>
+					</div>
+					<div class="panel-body" style="background-color:#eff7ff">
+						<div class="input-group" >
+							<%= g.input :name ,:type=>"text",  :class=>"form-control", :placeholder=>"First Name", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :middle_initial ,:type=>"text",  :class=>"form-control", :placeholder=>"Middle Initial", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :last_name ,:type=>"text",  :class=>"form-control", :placeholder=>"Last Name", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :street_address ,:type=>"text",  :class=>"form-control", :placeholder=>"Street Address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :state ,:type=>"text",  :class=>"form-control", :placeholder=>"State", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :dob ,:type=>"text",  :class=>"form-control", :placeholder=>"Date of Birth", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :ssn ,:type=>"text",  :class=>"form-control", :placeholder=>"SSN", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :res_status ,:type=>"text",  :class=>"form-control", :placeholder=>"Living Situation: Rent / Own / Family", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :rent ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent Per Month", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :phone ,:type=>"text",  :class=>"form-control", :placeholder=>"Phone Number", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :email, :class =>"span3", :placeholder => "email address", :required => true %>
+						</div>
+						<div class="input-group" >
+							
+							<%= g.input :prev_addr ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Address if less than 2 years at your current address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							
+							<%= g.input :prev_addr_time ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at previous address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :transfer ,:type=>"text",  :class=>"form-control", :placeholder=>"Transferring a Plate or Need a New Plate?" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :down_payment ,:type=>"text",  :class=>"form-control", :placeholder=>"Do you have a down Payment?" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :howmuch ,:type=>"text",  :class=>"form-control", :placeholder=>"If Yes, How much" %>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="background-color:#ddd">
-							<div class="panel-title">
-								Employment Information
-							</div>
-						</div>
-						<div class="panel-body" style="background-color:#eff7ff">
-							<div class="input-group" >
-								<%= g.input :employer ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :employer_addr ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :employer_phone ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Phone Number", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :curr_pos ,:type=>"text",  :class=>"form-control", :placeholder=>"Current Position", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :time_at_job ,:type=>"text",  :class=>"form-control", :placeholder=>"Time on Job", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :income ,:type=>"text",  :class=>"form-control", :placeholder=>"Monthly Income Before Taxes", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :prev_employer ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Employer", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :prev_position ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Position", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :time_at_last_job  ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at Last Job", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :other_income ,:type=>"text",  :class=>"form-control", :placeholder=>"Other Monthly Income", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :other_income_source ,:type=>"text",  :class=>"form-control", :placeholder=>"Other monthly income source", :required=>"true" %>
-							</div>
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background-color:#ddd">
+						<div class="panel-title">
+							Co-Applicants Info
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="background-color:#ddd">
-							<div class="panel-title">
-								Employment Information - Co-Applicant
-							</div>
+					<div class="panel-body" style="background-color:#eff7ff">
+						<div class="input-group" >
+							<%= g.input :name_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"First Name", :required=>"true" %>
 						</div>
-						<div class="panel-body" style="background-color:#eff7ff">
-							<div class="input-group" >
-								<%= g.input :employer_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :employer_addr_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :employer_phone_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Phone Number", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :curr_pos_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Current Position", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :time_at_job_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Time on Job", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :income_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Monthly Income Before Taxes", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :prev_employer_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Employer", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :prev_position_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Position", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :time_at_last_job_2  ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at Last Job", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :other_income_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Other Monthly Income", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :other_income_source_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Other monthly income source", :required=>"true" %>
-							</div>
+						<div class="input-group" >
+							<%= g.input :middle_initial_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Middle Initial", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :last_name_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Last Name", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :street_address_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Street Address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :state_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"State", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :dob_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Date of Birth", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :ssn_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"SSN", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :res_status_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent / Own / Family", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :rent_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent Per Month", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :phone_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Phone Number", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :email_2, :class =>"span3", :placeholder => "email address", :required => true %>
+						</div>
+						<div class="input-group" >
+							
+							<%= g.input :prev_addr_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Address if less than 2 years at your current address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							
+							<%= g.input :prev_addr_time_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at previous address", :required=>"true" %>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="background-color:#ddd">
-							<div class="panel-title">
-								Your Information
-							</div>
-						</div>
-						<div class="panel-body" style="background-color:#eff7ff">
-							<div class="input-group" >
-								<%= g.input :name ,:type=>"text",  :class=>"form-control", :placeholder=>"First Name", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :middle_initial ,:type=>"text",  :class=>"form-control", :placeholder=>"Middle Initial", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :last_name ,:type=>"text",  :class=>"form-control", :placeholder=>"Last Name", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :street_address ,:type=>"text",  :class=>"form-control", :placeholder=>"Street Address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :state ,:type=>"text",  :class=>"form-control", :placeholder=>"State", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :dob ,:type=>"text",  :class=>"form-control", :placeholder=>"Date of Birth", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :ssn ,:type=>"text",  :class=>"form-control", :placeholder=>"SSN", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :res_status ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent / Own / Family", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :rent ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent Per Month", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :phone ,:type=>"text",  :class=>"form-control", :placeholder=>"Phone Number", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :email, :class =>"span3", :placeholder => "email address", :required => true %>
-							</div>
-							<div class="input-group" >
-								
-								<%= g.input :prev_addr ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Address if less than 2 years at your current address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								
-								<%= g.input :prev_addr_time ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at previous address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :transfer ,:type=>"text",  :class=>"form-control", :placeholder=>"Transferring a Plate or Need a New Plate?" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :down_payment ,:type=>"text",  :class=>"form-control", :placeholder=>"Do you have a down Payment?" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :howmuch ,:type=>"text",  :class=>"form-control", :placeholder=>"If Yes, How much" %>
-							</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background-color:#ddd">
+						<div class="panel-title">
+							Employment Information
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="background-color:#ddd">
-							<div class="panel-title">
-								Co-Applicants Info
-							</div>
+					<div class="panel-body" style="background-color:#eff7ff">
+						<div class="input-group" >
+							<%= g.input :employer ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer", :required=>"true" %>
 						</div>
-						<div class="panel-body" style="background-color:#eff7ff">
-							<div class="input-group" >
-								<%= g.input :name_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"First Name", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :middle_initial_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Middle Initial", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :last_name_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Last Name", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :street_address_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Street Address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :state_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"State", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :dob_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Date of Birth", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :ssn_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"SSN", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :res_status_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent / Own / Family", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :rent_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Rent Per Month", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :phone_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Phone Number", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :email_2, :class =>"span3", :placeholder => "email address", :required => true %>
-							</div>
-							<div class="input-group" >
-								
-								<%= g.input :prev_addr_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Address if less than 2 years at your current address", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								
-								<%= g.input :prev_addr_time_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at previous address", :required=>"true" %>
-							</div>
+						<div class="input-group" >
+							<%= g.input :employer_addr ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :employer_phone ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Phone Number", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :curr_pos ,:type=>"text",  :class=>"form-control", :placeholder=>"Current Position", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :time_at_job ,:type=>"text",  :class=>"form-control", :placeholder=>"Time on Job", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :income ,:type=>"text",  :class=>"form-control", :placeholder=>"Monthly Income Before Taxes", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :prev_employer ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Employer", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :prev_position ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Position", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :time_at_last_job  ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at Last Job", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :other_income ,:type=>"text",  :class=>"form-control", :placeholder=>"Other Monthly Income", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :other_income_source ,:type=>"text",  :class=>"form-control", :placeholder=>"Other monthly income source", :required=>"true" %>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row" >
-				
-				<div class="col-lg-6">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="background-color:#ddd">
-							<div class="panel-title">
-								Vehicle your trying to get credit
-							</div>
-						</div>
-						<div class="panel-body" style="background-color:#eff7ff">
-							<div class="input-group" >
-								<%= g.input :year ,:type=>"text",  :class=>"form-control", :placeholder=>"Year", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :make ,:type=>"text",  :class=>"form-control", :placeholder=>"Make", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :model ,:type=>"text",  :class=>"form-control", :placeholder=>"Model", :required=>"true" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :vin ,:type=>"text",  :class=>"form-control", :placeholder=>"VIN", :required=>"true" %>
-							</div>
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background-color:#ddd">
+						<div class="panel-title">
+							Employment Information - Co-Applicant
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-6  tradein" style="display:none;">
-					<div class="panel panel-default" >
-						<div class="panel-heading" style="background-color:#ccc;">
-							<div class="panel-title">
-								Required for Trade In
-							</div>
+					<div class="panel-body" style="background-color:#eff7ff">
+						<div class="input-group" >
+							<%= g.input :employer_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer", :required=>"true" %>
 						</div>
-						<div class="panel-body" style="background-color:#e5f2ff">
-							<div class="input-group" >
-								<%= g.input :tradein_year ,:type=>"text",  :class=>"form-control", :placeholder=>"Year" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :tradein_make ,:type=>"text",  :class=>"form-control", :placeholder=>"Make" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :tradein_model ,:type=>"text",  :class=>"form-control", :placeholder=>"Model" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :tradein_mileage ,:type=>"text",  :class=>"form-control", :placeholder=>"Mileage" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :tradein_options ,:type=>"text",  :class=>"form-control textarea", :placeholder=>"List out any Vehicle Options here" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :tradein_condition ,:type=>"text",  :class=>"form-control", :placeholder=>"Condition of Trade" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :damage ,:type=>"text",  :class=>"form-control", :placeholder=>"Any Damage / Non-Working Items" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :paidoff ,:type=>"text",  :class=>"form-control", :placeholder=>"Vehicle Paid Off?" %>
-							</div>
-							<div class="input-group" >
-								<%= g.input :paidoff_est ,:type=>"text",  :class=>"form-control", :placeholder=>"If No, Estimated Payoff?" %>
-							</div>
+						<div class="input-group" >
+							<%= g.input :employer_addr_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Address", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :employer_phone_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Employer Phone Number", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :curr_pos_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Current Position", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :time_at_job_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Time on Job", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :income_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Monthly Income Before Taxes", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :prev_employer_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Employer", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :prev_position_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Previous Position", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :time_at_last_job_2  ,:type=>"text",  :class=>"form-control", :placeholder=>"Time at Last Job", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :other_income_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Other Monthly Income", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :other_income_source_2 ,:type=>"text",  :class=>"form-control", :placeholder=>"Other monthly income source", :required=>"true" %>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="row" >
 			
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background-color:#ddd">
+						<div class="panel-title">
+							Vehicle your trying to get credit
+						</div>
+					</div>
+					<div class="panel-body" style="background-color:#eff7ff">
+						<div class="input-group" >
+							<%= g.input :year ,:type=>"text",  :class=>"form-control", :placeholder=>"Year", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :make ,:type=>"text",  :class=>"form-control", :placeholder=>"Make", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :model ,:type=>"text",  :class=>"form-control", :placeholder=>"Model", :required=>"true" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :vin ,:type=>"text",  :class=>"form-control", :placeholder=>"VIN", :required=>"true" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6  tradein" style="display:none;">
+				<div class="panel panel-default" >
+					<div class="panel-heading" style="background-color:#ccc;">
+						<div class="panel-title">
+							Required for Trade In
+						</div>
+					</div>
+					<div class="panel-body" style="background-color:#e5f2ff">
+						<div class="input-group" >
+							<%= g.input :tradein_year ,:type=>"text",  :class=>"form-control", :placeholder=>"Year" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :tradein_make ,:type=>"text",  :class=>"form-control", :placeholder=>"Make" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :tradein_model ,:type=>"text",  :class=>"form-control", :placeholder=>"Model" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :tradein_mileage ,:type=>"text",  :class=>"form-control", :placeholder=>"Mileage" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :tradein_options ,:type=>"text",  :class=>"form-control textarea", :placeholder=>"List out any Vehicle Options here" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :tradein_condition ,:type=>"text",  :class=>"form-control", :placeholder=>"Condition of Trade" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :damage ,:type=>"text",  :class=>"form-control", :placeholder=>"Any Damage / Non-Working Items" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :paidoff ,:type=>"text",  :class=>"form-control", :placeholder=>"Vehicle Paid Off?" %>
+						</div>
+						<div class="input-group" >
+							<%= g.input :paidoff_est ,:type=>"text",  :class=>"form-control", :placeholder=>"If No, Estimated Payoff?" %>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-		<div class="panel-footer" style="background-color:#292c2f;">
-			<%= g.button :submit, 'Submit Application',:id=>"credit-btn", :class=> "btn btn-primary contact-sub-btn blue-btn" %>
-		</div>
-		<% end %>
 	</div>
+	<div class="panel-footer" style="background-color:#292c2f;">
+		<%= g.button :submit, 'Submit Application',:id=>"credit-btn", :class=> "btn btn-primary contact-sub-btn blue-btn" %>
+	</div>
+	<% end %>
 </div>
-</div>
-<style>
-input[type="submit"],
-	.input, .radio_buttons, .radio, .optional, .credit_tradein{
-		display: inline-block!important;
-	}
-.error{
-	color:red!important;
-}
-.input-group, .input{width:100%;}
-.input-group *{
-	visibility: visible!important;
-	display:inline-block!important;
-}
-.input-group label{
-	visibility: hidden!important;
-	display:none!important;
-}
-label{
-	display: none!important;
-}
-input::-webkit-input-placeholder {
-color: rgba(77, 77, 77, 1) !important;
-}
-input:-moz-placeholder { /* Firefox 18- */
-color: rgba(77, 77, 77, 1) !important;
-}
-input::-moz-placeholder {  /* Firefox 19+ */
-color: rgba(77, 77, 77, 1) !important;
-}
-input:-ms-input-placeholder {
-color: rgba(77, 77, 77, 1) !important;
-}
-input[type="submit"] {
--webkit-appearance: button;
-width: 100%!important;
-cursor: pointer;
-margin: 0!important;
-font-size:3vmin!important;
-}
-.box-shadow--2dp {
-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
-}
-.box-shadow--3dp {
-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)
-}
-.box-shadow--4dp {
-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
-}
-.box-shadow--6dp {
-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2)
-}
-.box-shadow--8dp {
-box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
-}
-.box-shadow--16dp {
-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)
-}
-#credit-btn{
-width:100%!important;
-font-size:3vmin!important;
-}
-@media (max-width: 880px) {
-#credit-panel{
-		margin-left: 2vmin!important;
-		margin-right:2vmin!important;
-		width:96%!important;
-	}
-}
-@media (max-width: 500px) {
-	#credit-panel{
-		margin-left: 2vmin!important;
-		margin-right:2vmin!important;
-		width:96%!important;
-	}
-#title-credit{
-margin:0;
-font-weight: bold;
-}
-#credit-btn{
-font-size:4vmin!important;
-}
-}
-</style>
-<script>
-function tradeIn(val){
-	if (val=="true"){
-		$( ".tradein" ).fadeIn(1000);
-		$( "#credit_tradein" ).val("Yes, I have a trade in.");
-		$( "#creditco-true" ).prop( "disabled", true );
-		$( "#creditco-false").prop( "disabled", false );
-	}else{
-		$( ".tradein" ).fadeOut(1500);
-		$( "#credit_tradein" ).val("No, I do not have a trade in.");
-		$( "#creditco-true"  ).prop( "disabled", false );
-		$( "#creditco-false").prop( "disabled", true );
-	}
-}
-</script>

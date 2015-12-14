@@ -6,9 +6,10 @@
 jQuery(document).ready(function($) {
    try{$(".button-collapse").sideNav();} catch (err) {}
    try{$(".dropdown-button").dropdown();} catch (err) {}
-    try{$('#showpagecontainer').fadeIn(500);}catch(err){}
-    try{$('#mobile-demo').fadeIn(500);}catch(err){}
-    try{$('#fadeInFast').fadeIn(500);}catch(err){}
+    try{$('#showpagecontainer').fadeIn(400);}catch(err){}
+    try{$('#mobile-demo').fadeIn(400);}catch(err){}
+    try{$('#fadeInFast').fadeIn(300);}catch(err){}
+    //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
 
   
   (function titleScroller(text) {
@@ -26,6 +27,36 @@ jQuery(document).ready(function($) {
     try{setTimeout("$('.alert').fadeOut('slow')", 4000);  } catch (err) {}
 
 });
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+function tradeIn_yes(val){
+    if (val===0){
+        $( ".tradein" ).slideDown(1000);
+        $( "#credit_tradein" ).val("Yes, I have a trade in.");
+        try{document.getElementById('tradein-div').innerHTML = "<button class ='btn btn-default red' type='button' id='credit-false' onclick='tradeIn_yes(1)'>No</button>";}catch(err){}
+        try{document.getElementById('tradein-div-2').innerHTML = "<button class ='btn btn-default red' type='button' id='credit-false' onclick='tradeIn_yes(1)'>No</button>";}catch(err){}
+
+    }
+    if(val===1){
+        $( ".tradein" ).slideUp(1000);
+        $( "#credit_tradein" ).val("No, I do not have a trade in.");
+        try{document.getElementById('tradein-div').innerHTML = "<button class='btn btn-default blue' type='button' id='credit-true' onclick='tradeIn_yes(0)'>Yes</button>";}catch(err){}
+        try{document.getElementById('tradein-div-2').innerHTML = "<button class='btn btn-default blue' type='button' id='credit-true' onclick='tradeIn_yes(0)'>Yes</button>";}catch(err){}
+
+    }
+}
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+function coap(val){
+    if (val===0){    
+        $( "#single-applicant" ).fadeOut(200);
+        $( "#double-applicant" ).fadeIn(200);
+    }
+    if(val===1){    
+        $( "#double-applicant" ).fadeOut(200);
+        $( "#single-applicant" ).fadeIn(200);
+    }
+}
 /////////////////////////To Lower Case////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function tLC(string) {

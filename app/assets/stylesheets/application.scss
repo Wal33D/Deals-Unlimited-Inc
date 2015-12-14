@@ -607,6 +607,34 @@ label:focus {
     line-height: 36.2px;
     padding-right: 0!important;
 }
+
+#contact-tab p{
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+    line-height: 5.2vmin!important;
+
+ }
+#contact-tab{
+  display: none;
+    background-color: rgba(0,0,0,0.6)!important;
+    height:50px!important;
+    width:180px!important;
+    position: fixed;
+    top:80%;
+    right:-74px!important; 
+    text-align: center;
+    font-family: 'Black Ops One', cursive;
+    font-size:2.5vmin;
+    border:2.3px dashed white;
+    color:white;
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+-o-transform: rotate(90deg);
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
 @media (max-width: 500px) {
     #homepage table tr td,
     #homepage table th {
@@ -708,14 +736,18 @@ label:focus {
     .header-phone-btn {
         float: right;
         display: inline;  
+
     }
     .header-phone-btn i {
-     line-height: 64px;
+     line-height: 68px;
    }
     .button-collapse{
   display:inline-block!important;
 
 }
+ #header-img img{
+        width: 50px!important;
+ }
 }
 @media (max-width: 910px) {
     .fa-phone {
