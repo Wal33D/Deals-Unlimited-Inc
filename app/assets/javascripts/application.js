@@ -6,9 +6,8 @@
 jQuery(document).ready(function($) {
    try{$(".button-collapse").sideNav();} catch (err) {}
    try{$(".dropdown-button").dropdown();} catch (err) {}
-    try{$('#showpagecontainer').fadeIn(400);}catch(err){}
-    try{$('#mobile-demo').fadeIn(400);}catch(err){}
-    try{$('#fadeInFast').fadeIn(300);}catch(err){}
+    try{$('#mobile-demo').fadeIn();}catch(err){}
+    try{$('#fadeInFast').fadeIn(100);}catch(err){}
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
 
   
