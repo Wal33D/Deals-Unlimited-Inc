@@ -3,32 +3,16 @@
 		<%= simple_form_for @credit, :html => {:class => '  form-horizontal' } do |g| %>
 		<div class="panel panel-default">
 			<div class="panel-body" style="background-color:#ddd; padding-bottom:0!important;">
-				<div class="row" style="margin-bottom:0!important;" >
-					<div class="col-md-6" style=" padding-bottom:0!important;">
-						<div class="input-group" >
-							<div class="row" >
-								<div class="col-md-6">
-									<p> Have a Co-Applicant?</p>
-								</div>
-								<div class="col-md-3" id="coap-div">
-									<button class ="btn btn-default red" type="button"  onclick="coap(1)">No</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="input-group" >
-							<div class="row"  >
-								<div class="col-md-6">
-									<p >Do you have a trade in?</p>
-								</div>
-								<div class="col-md-3" id="tradein-div">
-									<button class ="btn btn-default blue"type="button" id="credit-true" onclick="tradeIn_yes(0)" >Yes</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<table class="table">
+					<tr>
+						<td><h5>Have a Co-Applicant?</h5></td>
+						<td><div id="coap-div"><button class ="btn red"type="button" style="width:100%!important;" onclick="coap(1)" >No</button></div></td>
+					</tr>
+					<tr>
+						<td><h5>Do you have a trade in?</h5></td>
+						<td><div id="tradein-div-2"><button class ="btn blue"type="button" style="width:100%!important;" id="credit-true" onclick="tradeIn_yes(0)" >Yes</button></div></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 		<div class="row">
