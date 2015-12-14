@@ -192,7 +192,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer ">
+                            <div class="panel-footer veh-footer" >
                             </div>
                         </div>
                         <% end %>
@@ -233,18 +233,20 @@ font-family: 'Black Ops One', cursive;
     -webkit-font-smoothing: antialiased;
     }
     .caption {
+
         padding-left: 0!important;
         padding-right:0!important;
         padding-bottom: 0!important;
     width:100%;
     bottom: 0;
     position: absolute;
-    background:none;}
+}
     .thumbnail {
     border: 0 none;
     box-shadow: none;
     margin:0;
     padding:0;
+
     }
 
 
@@ -316,6 +318,8 @@ font-family: 'Black Ops One', cursive;
     padding-top:1vmin;
     padding-bottom: 1vmin;
     background-color: #eee;
+    height:100%!important;
+    width:100%!important;
     }
     select, input, #q_year_gteq{
     line-height: 4.2vmin!important;
@@ -391,7 +395,7 @@ font-family: 'Black Ops One', cursive;
     width:74%!important;
     }
     #pricetag{
-    font-size: 6.3vmin!important;
+    font-size: 6.6vmin!important;
     }
     #first-table tr td,#second-table tr td{
     font-size:2vmin;
@@ -557,10 +561,15 @@ font-family: 'Black Ops One', cursive;
     #vehicle-window{
     margin-top:7vmin!important;
     }
+       .panel-footer{
+    margin-bottom:10vmin!important;
+    display: inline-block!important;
+
+    }
     }
     /* Custom, iPhone Retina */
     @media only screen and (max-width : 450px) {
-    .panel-footer{display: none!important;}
+    .veh-footer{display: none!important;}
     .table-responsive{
     margin-bottom: 0!important;
     }
