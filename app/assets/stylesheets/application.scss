@@ -112,7 +112,6 @@ nav{
 .loading-screen{visibility: visible !important;}
 @media only screen and (max-width : 500px) {
   #homepage table tr td, #homepage table th{font-size:3vmin!important;}
-  #welcome-panel-footer{display: none!important;}
   .panel-heading a, .panel-heading{
     font-size:3.3vmin!important;
   }
@@ -343,7 +342,7 @@ font: normal 3.2vmin 'Cookie', cursive!important;
 }
 #unlimited {
 color: #5383d3!important;
-font: normal 8vmin 'Cookie', cursive!important;
+font: normal 6vmin 'Cookie', cursive!important;
 }
 .footer-distributed{
 display:none!important;

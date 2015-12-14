@@ -105,9 +105,10 @@
     </div>
   </div>
 </div>
+
 <%= render 'print' %>
+
 <style>
- 
 @media only screen and (max-width : 800px) {
 .row{
 margin-top:2vmin!important;
@@ -118,20 +119,21 @@ margin-right: 2%!important;
 #mobileinfo .row, #mobileinfo table{
 margin-bottom: 0!important;
 }
+
 section .vehicle_thumb img{
 max-width: 80%!important;
 width:80%!important;
 margin-right: 5%!important
 }
 section{
-border:1vmin double #eee;
-}
-}
+  border:1vmin double #eee;
+}}
+
 body {
 overflow: hidden;
 }
 section {
-/* The width of your document, I suppose */
+/* The  width of your document, I suppose */
 width:100%!important;
 margin: 0 auto;
 white-space:nowrap;
@@ -356,5 +358,45 @@ background-color: #292c2f !important;
 line-height: 50px!important;
 width: 100%;
 }
+.footer-vehicles h5 {
+float: right!important;
+color: #ffffff!important;
+margin: 0.3rem 0.2rem 0.3rem 0.2rem;
+padding: 0.1rem!important;
+font: normal 36px 'Cookie', cursive!important;
+font-size: 3.5vmin!important;
+position:absolute;
+right:0;
+bottom:0;
+}
+.footer-vehicles h4 {
+float: left!important;
+color: #ffffff!important;
+margin: 0.5rem 0.2rem 0 0.2rem;
+padding: 0.1rem!important;
+font-family: 'Black Ops One', cursive; font-size:2rem; color:white!important;
+position:absolute;
+left:0;
+bottom:0;
+font-size: 3.2vmin!important;
+}
 
+
+.footer-vehicles h4 span {
+color: #5383d3!important;
+font: normal 3.2vmin 'Cookie', cursive!important;
+}
+#unlimited {
+color: #5383d3!important;
+font: normal 4.5vmin 'Cookie', cursive!important;
+}
+.footer-distributed{
+display:none!important;
+}
+@media (max-width: 773px) {
+.footer-vehicles {
+}
+.footer-distributed {
+display: fixed!important;
+}
 </style>
