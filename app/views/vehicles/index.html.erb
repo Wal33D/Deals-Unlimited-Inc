@@ -66,7 +66,7 @@
                                 <div class="row">
                                     <div class="col-xs-5 " id="img-col">
                                         <% if vehicle.import == 'import' %>
-                                        <div class="col-sm-12 thumbnail text-center" class="img-responsive">
+                                        <div class="col-sm-12 thumbnail text-center">
                                             <%=  link_to image_tag(vehicle.image_1 , :class=>"img-responsive" ,:id=>"vehthumb"),vehicle %>
                                             <div class="caption">
                                                 <% if vehicle.status.present? %>
@@ -79,7 +79,7 @@
                                         <% end %>
                                         <% if vehicle.import == nil%>
                                         <% if vehicle.vehicle_images.present? %>
-                                        <div class="col-sm-12 thumbnail text-center" class="img-responsive">
+                                        <div class="col-sm-12 thumbnail text-center" >
                                             <%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"img-responsive",:id=>"vehthumb"),vehicle  %>
                                             <div class="caption">
                                                 <% if vehicle.status.present? %>
@@ -382,7 +382,7 @@ font-family: 'Black Ops One', cursive;
     margin-top:1.5vmin!important;
     }
     .img-responsive{
-    max-height: 350px!important;
+    max-height: 500px!important;
     }
     #search{
     width:26%!important;
