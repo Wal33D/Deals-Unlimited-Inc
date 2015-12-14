@@ -1,13 +1,51 @@
-<div class="container ">
-	<div class = "panel panel-default">
-		<div class = "panel-body"
-			<% flash.each do |key, value| %>
-			<div>
-				<h5> <a href="/" data-dismiss="alert">×</a>
-				<%= value %></h5>
+<div class="container" id="contact">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default hours z-depth-3" id="panel-contact">
+				<div class="panel-heading "><h4 id="title-contact" style=" margin:0!important;">Contact us<a style="float:right;" href="tel:2693244285"id="blue">269-324-4285</a></h4>
 			</div>
-			<meta http-equiv="refresh" content="5;url=http://dealsunlimitedinc.net" />
+			<div class="panel-body ">
+				<div id="sent" class="blue lighten-5">
+					<% flash.each do |key, value| %>
+					<h5> <a href="https://dealsunlimitedinc.com" data-dismiss="alert">×</a>
+					<%= value %></h5>
+					<% end %>
+				</div>
+				<%= simple_form_for @contact, :html => {:class => '  form-horizontal' } do |f| %>
+				<div>
+					<%= f.input :name, :type=>"text", :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "Name" ,:required => true, :disabled=>"true"%>
+					<%= f.input :email, :class =>"span3", :style=>"color:#428bca!important;",:placeholder => "Email", :required => true , :disabled=>"true"%>
+					<%= f.input :tel, :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "Phone Number - (Optional)" , :disabled=>"true"%>
+				</div>
+				<%= f.input :message , as: :text, :required => true, :class =>"textarea", :id=>"contact_mess" , :disabled=>"true"%>
+				<div class= "hidden">
+					<%= f.input :nickname, :hint => 'Leave this field blank!' %>
+				</div>
+				
+			</div>
+			<div class="panel-footer" style="background:#292c2f !important;">
+				<%= f.button :submit, 'Send message',:id=>"contact-btn" ,:class=> "btn btn-primary blue-btn", :disabled=>"true" %>
+			</div>
 			<% end %>
+			<meta http-equiv="refresh" content="5;url=https://dealsunlimitedinc.com" />
 		</div>
 	</div>
+	<div class="col-md-4">
+		<%= render"/layouts/application/info"%>
+	</div>
 </div>
+</div>
+<style>
+#contact_message{
+height:400px;
+}
+#sent{padding:3vmin;}
+label{display:none!important;}
+</style>
+<script >
+	$('.string :input').prop('disabled', true);
+		$('.required :input').prop('disabled', true);
+		$('.text :input').css("background", 'lightgrey')	
+
+
+</script>

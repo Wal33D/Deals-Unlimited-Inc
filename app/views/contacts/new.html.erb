@@ -11,7 +11,7 @@
           <%= f.input :email, :class =>"span3", :style=>"color:#428bca!important;",:placeholder => "Email", :required => true %>
           <%= f.input :tel, :class =>"span3",:style=>"color:#428bca!important;", :placeholder => "Phone Number - (Optional)" %>
         </div>
-        <%= f.input :message, :as => :text, :required => true, :class =>"textarea" %>
+        <%= f.input :message , as: :text, :required => true, :class =>"textarea", :id=>"contact_mess" %>
         <div class= "hidden">
           <%= f.input :nickname, :hint => 'Leave this field blank!' %>
         </div>
@@ -29,6 +29,8 @@
 </div>
 </div>
 <style>
- 
+ #contact_message{
+height:400px;
+ }
 label{display:none!important;}
 </style>

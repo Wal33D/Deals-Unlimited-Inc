@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
   
     var $window = $('#window');
     var $textarea = $('#contact_message');
-    $textarea.height($(window).height() * 0.2);
+   $textarea.height($(window).height() * 0.2);
 
     try{setTimeout("$('#reselect').fadeOut('slow')", 5000);  } catch (err) {}
     try{setTimeout("$('.alert').fadeOut('slow')", 4000);  } catch (err) {}
