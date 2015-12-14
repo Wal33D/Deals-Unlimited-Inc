@@ -29,7 +29,20 @@ jQuery(document).ready(function($) {
 });
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function tradeIn_yes(val){
+    if (val==0){
+        $( ".tradein" ).slideDown(1000);
+        $( "#credit_tradein" ).val("Yes, I have a trade in.");
+        document.getElementById('tradein-div').innerHTML = "<button class ='btn btn-default red' type='button' id='credit-false' style='width:100%!important;' onclick='tradeIn_yes(1);'>No</button>";
+        try{document.getElementById('tradein-div-2').innerHTML = "<button class ='btn btn-default red' type='button' id='credit-false' style='width:100%!important;' onclick='tradeIn_yes(1);'>No</button>";}catch(err){}
 
+    }else{
+        $( ".tradein" ).slideUp(1000);
+        $( "#credit_tradein" ).val("No, I do not have a trade in.");
+        document.getElementById('tradein-div').innerHTML = "<button class='btn btn-default blue' type='button' id='credit-true' style='width:100%!important; 'onclick='tradeIn_yes(0);'>Yes</button>";
+        try{document.getElementById('tradein-div-2').innerHTML = "<button class='btn btn-default blue' type='button' id='credit-true' style='width:100%!important;' onclick='tradeIn_yes(0);'>Yes</button>";}catch(err){}
+    }
+}
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function coap(val){
