@@ -4,6 +4,41 @@
 //////////////////Fundamental Code////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function($) {
+var url      = window.location.href;     // Returns full URL
+
+
+var carUrl = /&q%5Bkind_cont%5D=ar&=&commit=Search/;
+var truckUrl = /&q%5Bkind_cont%5D=ruck&=&commit=Search/;
+var suvUrl = /&q%5Bkind_cont%5D=uv&=&commit=Search/;
+var vanUrl = /&q%5Bkind_cont%5D=an&=&commit=Search/;
+var priceUrl = /price/;
+var newUrl = /class=blue-btn&q%5Bs%5D=created_at/;
+var mileageUrl = /mileage/;
+var yearUrl = /year/;
+
+
+    if(carUrl.test(url)){
+               $( "#car-btn" ).css('background-color', '#bbbfc4');
+        }else if(truckUrl.test(url)){
+               $( "#truck-btn" ).css('background-color', '#bbbfc4');
+        }else if(suvUrl.test(url)){
+               $( "#suv-btn" ).css('background-color', '#bbbfc4');
+        }else if(vanUrl.test(url)){
+               $( "#van-btn" ).css('background-color', '#bbbfc4');
+        }else if(priceUrl.test(url)){
+               $( "#price-btn a.sort_link.asc, #price-btn a.sort_link.desc " ).css('background-color', '#bbbfc4');
+        }else if(newUrl.test(url)){
+               $( "#new-btn" ).css('background-color', '#bbbfc4');
+        }else if(mileageUrl.test(url)){
+               $("#mileage-btn a.sort_link.asc, #mileage-btn a.sort_link.desc "  ).css('background-color', '#bbbfc4');
+        }else if(yearUrl.test(url)){
+               $( "#year-btn a.sort_link.asc, #year-btn a.sort_link.desc " ).css('background-color', '#bbbfc4');
+    }
+
+});
+
+
+jQuery(document).ready(function($) {
     try {
         $(".button-collapse").sideNav();
     } catch (err) {}

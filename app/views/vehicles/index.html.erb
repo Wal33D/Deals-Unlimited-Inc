@@ -18,31 +18,31 @@
                             <div class="row" style="margin-bottom:0!important;">
                                 <ul class="pagination" style="margin:0!important; z-index:10; padding:0!important;">
                                     <% if admin_signed_in? %>
-                                    <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;", :class=>"button btn green btn-default"%></li>
+                                    <li><%= link_to 'New Vehicle', new_vehicle_path,:style=>"color:white!important;",:class=>"button btn green btn-default"%></li>
                                     <% end %>
                                     <li style="padding:0!important; font-size:0.8rem!important;">
-                                        <a type="button"class="sort_link" href="vehicles?class=blue-btn&q%5Bs%5D=created_at+desc" id="car-btn">New Arrivals</a>
+                                        <a type="button"class="sort_link" href="vehicles?class=blue-btn&q%5Bs%5D=created_at+desc" id="new-btn">New Arrivals</a>
                                     </li>
-                                    <li style="padding:0!important; font-size:0.8rem!important;">
+                                    <li style="padding:0!important; font-size:0.8rem!important;" id="price-btn">
                                         <%= sort_link(@q, :price, :class=>"blue-btn") %>
                                     </li>
-                                    <li style="padding:0!important; font-size:0.8rem!important;">
+                                    <li style="padding:0!important; font-size:0.8rem!important;" id="year-btn"  >
                                         <%= sort_link(@q, :year, :class=>"blue-btn") %>
                                     </li>
-                                    <li style="padding:0!important; font-size:0.8rem!important;">
+                                    <li style="padding:0!important; font-size:0.8rem!important;" id="mileage-btn">
                                         <%= sort_link(@q, :mileage, :class=>"blue-btn") %>
                                     </li>
                                     <li style="padding:0!important; font-size:0.8rem!important;" >
                                         <a type="button"class="sort_link" href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=ar&=&commit=Search" id="car-btn">Cars</a>
                                     </li>
                                     <li style="padding:0!important; font-size:0.8rem!important;" >
-                                        <a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=ruck&=&commit=Search"id="car-btn">Trucks</a>
+                                        <a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=ruck&=&commit=Search"id="truck-btn">Trucks</a>
                                     </li>
                                     <li style="padding:0!important; font-size:0.8rem!important;" >
-                                        <a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=uv&=&commit=Search">SUVs</a>
+                                        <a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=uv&=&commit=Search" id="suv-btn">SUVs</a>
                                     </li>
                                     <li style="padding:0!important; font-size:0.8rem!important;" >
-                                        <a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=an&=&commit=Search">Vans</a>
+                                        <a type="button" class="sort_link"  href="/vehicles?utf8=%E2%9C%93&q%5Bkind_cont%5D=an&=&commit=Search" id="van-btn">Vans</a>
                                     </li>
                                 </ul>
                             </div>
