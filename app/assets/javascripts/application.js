@@ -18,7 +18,6 @@ jQuery(document).ready(function($) {
     } catch (err) {}
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
 
-
     (function titleScroller(text) {
         document.title = text;
         setTimeout(function() {
@@ -123,13 +122,8 @@ function highlight(timeout) {
 
         emptyTextBoxes.css("background-color", "#ddd");
 
-
-
-
     }, timeout);
 };
-
-
 //////////////////////////////////////////////////////////////////////
 function title() {
     var veh_title = document.getElementById('vehicle_title');
@@ -300,6 +294,7 @@ function VIN_O_Matic(option) {
         var edmunds = new EDMUNDSAPI('8rs3xebeza59dtsv3azp647p');
         v1(option, edmunds);
         v2(option, edmunds);
+        highlight(2500)
     }
 }
 /////////////////////EDMUNDS INIT/////////////////////////////////////
@@ -317,34 +312,34 @@ function VIN_O_Matic(option) {
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function acceptFeatures() {
-    
-    var selected =  document.getElementById('selected-list').innerHTML;
-    
+
+    var selected = document.getElementById('selected-list').innerHTML;
+
     for (i = 0; i < 42; i++) {
-        selected = selected.replace('onclick="remove(this)"','');
+        selected = selected.replace('onclick="remove(this)"', '');
     };
     document.getElementById('selected-list').innerHTML = selected;
     document.getElementById('vehicle_other_options').value = selected;
-    
-    $( "#available-list" ).fadeOut();
+
+    $("#available-list").fadeOut();
     //$( "#accept" ).prop( "disabled", true );
     document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class=" btn waves-effect waves-white" id="edit" style="  font-weight:bold; width:100%!important; background-color:#5383D3;" type="button">Edit Selections</button>';
-    $( "#feature-panel" ).slideUp(1000);
+    $("#feature-panel").slideUp(1000);
 }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function editFeatures(){
-    var selected =  document.getElementById('selected-list').innerHTML;
+function editFeatures() {
+    var selected = document.getElementById('selected-list').innerHTML;
     for (i = 0; i < 42; i++) {
-        selected = selected.replace('<li class="list-group-item">','<li class="list-group-item" onclick="remove(this)">');
+        selected = selected.replace('<li class="list-group-item">', '<li class="list-group-item" onclick="remove(this)">');
     };
-        document.getElementById('selected-list').innerHTML = selected;
-        $( "#available-list" ).fadeIn();
-        $( "#selected-list" ).fadeIn();
-        $( "#accept" ).prop( "disabled", false );
-        $( "#edit" ).prop( "disabled", true );
-        document.getElementById('accept-div').innerHTML = '<button onclick="acceptFeatures();" class="btn green btn waves-effect waves-teal" id="accept" type="button" style="width:100%!important; font-weight:bold;">Accept Options</button>';
-    $( "#feature-panel" ).slideDown(1000);
+    document.getElementById('selected-list').innerHTML = selected;
+    $("#available-list").fadeIn();
+    $("#selected-list").fadeIn();
+    $("#accept").prop("disabled", false);
+    $("#edit").prop("disabled", true);
+    document.getElementById('accept-div').innerHTML = '<button onclick="acceptFeatures();" class="btn green btn waves-effect waves-teal" id="accept" type="button" style="width:100%!important; font-weight:bold;">Accept Options</button>';
+    $("#feature-panel").slideDown(1000);
 
 }
 //////////////////////////////////////////////////////////////////////
@@ -359,34 +354,34 @@ function remove(link) {
 }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function toggleRemovable(state){
-var text =  document.getElementById('selected-list').innerHTML;
-selected = selected.replace('onclick="remove(this)"','');
+function toggleRemovable(state) {
+    var text = document.getElementById('selected-list').innerHTML;
+    selected = selected.replace('onclick="remove(this)"', '');
 }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function sortUnorderedList(ul, sortDescending) {
-if(typeof ul == "string")
-ul = document.getElementById(ul);
-// Idiot-proof, remove if you want
-if(!ul) {
-alert("The UL object is null!");
-return;
-}
-// Get the list items and setup an array for sorting
-var lis = ul.getElementsByTagName("LI");
-var vals = [];
-// Populate the array
-for(var i = 0, l = lis.length; i < l; i++)
-vals.push(lis[i].innerHTML);
-// Sort it
-vals.sort();
-// Sometimes you gotta DESC
-if(sortDescending)
-vals.reverse();
-// Change the list on the page
-for(var i = 0, l = lis.length; i < l; i++)
-lis[i].innerHTML = vals[i];
+    if (typeof ul == "string")
+        ul = document.getElementById(ul);
+    // Idiot-proof, remove if you want
+    if (!ul) {
+        alert("The UL object is null!");
+        return;
+    }
+    // Get the list items and setup an array for sorting
+    var lis = ul.getElementsByTagName("LI");
+    var vals = [];
+    // Populate the array
+    for (var i = 0, l = lis.length; i < l; i++)
+        vals.push(lis[i].innerHTML);
+    // Sort it
+    vals.sort();
+    // Sometimes you gotta DESC
+    if (sortDescending)
+        vals.reverse();
+    // Change the list on the page
+    for (var i = 0, l = lis.length; i < l; i++)
+        lis[i].innerHTML = vals[i];
 }
 
 //////////////////////////////////////////////////////////////////////

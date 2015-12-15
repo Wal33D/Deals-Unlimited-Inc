@@ -8,7 +8,7 @@
                 <div class = "panel-heading" style="background-color:#292c2f !important">
                     <div class = "panel-title">
                         <h5 style="color:#eee">Vehicle Info
-                        <button class="btn waves-effect waves-teal" type="button"style="float:right; font-weight:bold; background-color:#5383D3;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value); highlight(2500);" >Fill with VIN</button>
+                        <button class="btn waves-effect waves-teal" type="button"style="float:right; font-weight:bold; background-color:#5383D3;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value);" >Fill with VIN</button>
                         <button class="btn waves-effect waves-yellow" type="button"style="float:right; font-weight:bold; background-color:#ffab40!important;  margin-right:1vmin;"  onclick="highlight(0);"id="highlight_button">Highlight Emptys</button>
                         </h5>
                     </div>
@@ -157,8 +157,7 @@
         <% end %>
     </div>
 </div>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<script>tinymce.init({ selector:'textarea' });</script>
+
 <style>
 #vehicle_other_options{
 display: none!important;
@@ -184,6 +183,8 @@ label{display: none!important;}
 select{display: block!important;}
 .col-lg-4 img{ width:100%;}
 </style>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 <% else %>
 <script type="text/javascript">window.location = "../../login";
 </script>
