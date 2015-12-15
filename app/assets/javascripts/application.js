@@ -170,17 +170,17 @@ function v2(option, res) {
         try {
             filler(res.numOfDoors, "vehicle_doors");
         } catch (err) {}
-        try {
-            filler("Highway " + res.MPG.highway, "vehicle_mpg");
-        } catch (err) {}
-        try {
-            filler("City " + res.MPG.city, "vehicle_mpg");
-        } catch (err) {}
+
         try {
             if ((res.MPG.city !== "undefined") && (res.MPG.highway !== "undefined")) {
                 filler("City " + res.MPG.city + "/Hwy " + res.MPG.city, "vehicle_mpg");
             }
+        } catch (err) {        try {
+            filler("Highway " + res.MPG.highway, "vehicle_mpg");
         } catch (err) {}
+        try {
+            filler("City " + res.MPG.city, "vehicle_mpg");
+        } catch (err) {}}
         try {
             filler(res.transmissionType, "vehicle_transmission");
         } catch (err) {}
@@ -217,7 +217,8 @@ function v1(option, res) {
     };
 
     function success(res) {
-
+        
+        var minivan = /Pass/;
         var base = res.styleHolder[0];
         var aG = base.attributeGroups;
         var cat = base.categories;
@@ -241,7 +242,13 @@ function v1(option, res) {
             filler(cFL(aG.DRIVE_TYPE.attributes.DRIVEN_WHEELS.value), 'vehicle_drive_type');
         } catch (err) {}
         try {
+            if(cat.PRIMARY_BODY_TYPE =="Minivan"){
+            filler("Van", 'vehicle_kind');
+          }else if(cat.market=="Minivan"){
+            filler("Van", 'vehicle_kind');
+            }else{
             filler(cat.PRIMARY_BODY_TYPE, 'vehicle_kind');
+            }
         } catch (err) {}
         try {
             filler(aG.DOORS.attributes.NUMBER_OF_DOORS.value, 'vehicle_doors');
@@ -249,9 +256,7 @@ function v1(option, res) {
         try {
             filler(aG.MAIN.attributes.NAME.value, 'vehicle_body_style');
         } catch (err) {}
-        try {
-            filler("HWY " + aG.SPECIFICATIONS.attributes.EPA_HIGHWAY_MPG.value + "/CITY " + aG.SPECIFICATIONS.attributes.EPA_CITY_MPG.value, 'vehicle_mpg');
-        } catch (err) {}
+    
         try {
             filler("Highway " + aG.SPECIFICATIONS.attributes.EPA_HIGHWAY_MPG.value, "vehicle_mpg");
         } catch (err) {}
@@ -262,6 +267,9 @@ function v1(option, res) {
             if ((aG.SPECIFICATIONS.attributes.EPA_HIGHWAY_MPG.value == "undefined") || (aG.SPECIFICATIONS.attributes.EPA_CITY_MPG.value == "undefined")) {
                 filler("UNDEFINED ", "vehicle_mpg");
             }
+        } catch (err) {}
+            try {
+            filler("HWY " + aG.SPECIFICATIONS.attributes.EPA_HIGHWAY_MPG.value + "/CITY " + aG.SPECIFICATIONS.attributes.EPA_CITY_MPG.value, 'vehicle_mpg');
         } catch (err) {}
         try {
             filler(base.trim.name, 'vehicle_trim');

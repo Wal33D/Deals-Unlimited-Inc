@@ -29,3 +29,11 @@ label{
   	padding-bottom: 0!important;
 
   }
+.field-item p{
+    font-size: 1.6rem!important;
+    line-height: 1.55rem!important;
+  }
+  .field-item strong{
+    font-size: 1.7rem!important;
+    line-height: 1.65rem!important;
+  }
