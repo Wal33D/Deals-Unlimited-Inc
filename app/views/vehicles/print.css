@@ -29,7 +29,7 @@ label{
   	padding-bottom: 0!important;
 
   }
-.field-item p{
+.field-item p, p, strong{
     font-size: 1.6rem!important;
     line-height: 1.55rem!important;
   }
