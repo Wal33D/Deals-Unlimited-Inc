@@ -27,4 +27,6 @@ jQuery(document).ready(function($) {
         if(mileageUrl.test(url)){ $("#mileage-btn a.sort_link.asc, #mileage-btn a.sort_link.desc "  ).css('background-color', '#bbbfc4');}
         if(yearUrl.test(url)){ $( "#year-btn a.sort_link.asc, #year-btn a.sort_link.desc " ).css('background-color', '#bbbfc4');
     }
+
+ 
 });
