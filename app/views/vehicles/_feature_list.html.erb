@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="border:3px double lightblue;">
+<div class="panel panel-default" style="border:3px double lightblue;" id="feature-panel">
 	<div class="panel-body" >
 		
 		<div class="selected" style="float:left; max-height:420px;  width:49%!important; overflow-y:scroll!important;">
@@ -99,75 +99,9 @@ background-color: #b9f6ca!important;
 }
 </style>
 <script>
-function sortUnorderedList(ul, sortDescending) {
-if(typeof ul == "string")
-ul = document.getElementById(ul);
-// Idiot-proof, remove if you want
-if(!ul) {
-alert("The UL object is null!");
-return;
-}
-// Get the list items and setup an array for sorting
-var lis = ul.getElementsByTagName("LI");
-var vals = [];
-// Populate the array
-for(var i = 0, l = lis.length; i < l; i++)
-vals.push(lis[i].innerHTML);
-// Sort it
-vals.sort();
-// Sometimes you gotta DESC
-if(sortDescending)
-vals.reverse();
-// Change the list on the page
-for(var i = 0, l = lis.length; i < l; i++)
-lis[i].innerHTML = vals[i];
-}
 window.onload = function fillFeaturesList(){
-		//$( "#accept" ).prop( "disabled", true );
-	//$( "#available-list" ).fadeOut();
-
 	var selected =  document.getElementById('vehicle_other_options').value;
 	document.getElementById('selected-list').innerHTML = selected;
-sortUnorderedList("available-list", !"desc");
-}
-function acceptFeatures() {
-	
-	var selected =  document.getElementById('selected-list').innerHTML;
-	
-	for (i = 0; i < 42; i++) {
-		selected = selected.replace('onclick="remove(this)"','');
-	};
-	document.getElementById('selected-list').innerHTML = selected;
-	document.getElementById('vehicle_other_options').value = selected;
-	
-	$( "#available-list" ).fadeOut();
-	//$( "#accept" ).prop( "disabled", true );
-	$( "#edit" ).prop( "disabled", false );
-document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class="btn blue" id="edit" style="width:100%!important;" type="button">Edit Selections</button>';
-				
-
-}
-function editFeatures(){
-	var selected =  document.getElementById('selected-list').innerHTML;
-	for (i = 0; i < 42; i++) {
-		selected = selected.replace('<li class="list-group-item">','<li class="list-group-item" onclick="remove(this)">');
-	};
-	document.getElementById('selected-list').innerHTML = selected;
-		$( "#available-list" ).fadeIn();
-		$( "#selected-list" ).fadeIn();
-		$( "#accept" ).prop( "disabled", false );
-		$( "#edit" ).prop( "disabled", true );
-			document.getElementById('accept-div').innerHTML = '<button onclick="acceptFeatures();" class="btn green" style="width:100%!important;" id="accept"type="button">Accept Selections</button>';
-
-}
-function getPaging(str) {
-	document.getElementById('selected-list').innerHTML = document.getElementById('selected-list').innerHTML + '<li class="list-group-item" onclick="remove(this)">' + str + '</li>';
-}
-function remove(link) {
-	link.parentNode.parentNode.removeChild(link.parentNode);
-}
-function toggleRemovable(state){
-var text =  document.getElementById('selected-list').innerHTML;
-selected = selected.replace('onclick="remove(this)"','');
+	sortUnorderedList("available-list", !"desc");
 }
 </script>

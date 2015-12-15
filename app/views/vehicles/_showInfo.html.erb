@@ -38,7 +38,7 @@ document.getElementById('featuresprint').innerHTML = selected;
   </div>
   <div class="panel-body" style="background-color:#e5f2ff">
     <div class="row">
-      <div class="col-sm-4" >
+      <div class="col-md-4" >
         <table class="table">
           <tr>
             <td>
@@ -101,7 +101,7 @@ document.getElementById('featuresprint').innerHTML = selected;
           </tr>
         </table>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <table class="table">
           <tr>
             <td>
@@ -160,7 +160,7 @@ document.getElementById('featuresprint').innerHTML = selected;
           <% if @vehicle.mpg.present? %>
           <tr>
             <td>
-              <label>Combined MPG: </label>
+              <label>MPG: </label>
             </td>
             <td>
               <p  style="float:right;">  <%= @vehicle.mpg %></p>
@@ -171,7 +171,7 @@ document.getElementById('featuresprint').innerHTML = selected;
           <% end %>
         </table>
       </div>
-      <div class="col-sm-4" >
+      <div class="col-md-4" >
         <table class="table">
           <tr>
             <td>
@@ -259,11 +259,10 @@ document.getElementById('featuresprint').innerHTML = selected;
         Description
       </div>
       <div class="panel-body" style="background-color:#e5f2ff">
-        <% if @vehicle.import == "import" %>
+
         <%= @vehicle.description.html_safe %>
-        <% else %>
-        <%= @vehicle.description %>
-        <% end %>
+    
+   
       </div>
       <div class="panel-footer" style="background-color:#ddd">
       </div>
