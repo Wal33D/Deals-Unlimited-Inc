@@ -323,7 +323,7 @@ function acceptFeatures() {
 
     $("#available-list").fadeOut();
     //$( "#accept" ).prop( "disabled", true );
-    document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class=" btn waves-effect waves-white" id="edit" style="  font-weight:bold; width:100%!important; background-color:#5383D3;" type="button">Edit Selections</button>';
+    document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class=" btn waves-effect waves-white" id="edit" style="font-weight:bold; width:100%!important; background-color:#ffab40!important;" type="button">Edit Selections</button>';
     $("#feature-panel").slideUp(1000);
 }
 //////////////////////////////////////////////////////////////////////
