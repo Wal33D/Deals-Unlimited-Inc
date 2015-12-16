@@ -20,7 +20,7 @@
               <div class="col-sm-9">
                 <div class="jumbotron z-depth-3">
                   <p>
-                    <%= testimonial.testimonial %>
+                    <%= testimonial.testimonial.html_safe %>
                   </p>
                   <hr>
                   <p id="sig"><%= testimonial.name %> - <%= testimonial.date %></p>
@@ -49,7 +49,7 @@
   </div>
 </div>
 <style>
-#testimonial-title, #testimonial-title h4{margin:0!important;}
+
 #testi-heading{}
 #testimonial-table img{
 margin-bottom:40px;

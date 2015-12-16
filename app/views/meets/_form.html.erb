@@ -1,27 +1,40 @@
+<%= render 'layouts/application/htmlEdit' %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="panel panel-default">
+      <div class="panel panel-default z-depth-4">
         <div class="panel-heading panel-black">
           <div class="panel-title">
-            <h5>Staff Member Form</h5>
+            <h4>Staff Member Form</h4>
           </div>
         </div>
         <div class="panel-body">
-          <%= simple_form_for(@meet) do |f| %>
-          <%= f.error_notification %>
-          <div class="form-inputs">
-            <%= f.input :employee_name %>
-            <%= f.input :position %>
-            <%= f.label :headshot %>
-            <%= image_tag @meet.headshot_images[0] %>
-            <%= f.file_field :headshot_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
-            <%= f.input :duration %>
-            <%= f.input :about %>
+          <div class="well">
+          <table class="table ">
+            <%= simple_form_for(@meet) do |f| %>
+            <%= f.error_notification %>
+            <thead>
+              <td><h5>Staff Member Name</h5></td>
+              <td><h5>Position</h5></td>
+            </thead>
+            <tr>
+              <td><%= f.input :employee_name %></td>
+              <td><%= f.input :position %></td>
+            </tr>
+            <thead>
+              <td><h5>HeadShot</h5></td>
+              <td><h5>Since</h5></td>
+            </thead>
+            <tr>
+              <td><%= f.label :headshot %><%= image_tag @meet.headshot_images[0] %><%= f.file_field :headshot_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %></td>
+              <td> <%= f.input :duration %></td>
+            </tr>
+          </table>
           </div>
+          <%= f.input :about %>
         </div>
         <div class="panel-footer panel-black">
-          <%= f.button :submit, :style=>"width:100%!important;", :class=>"blue-btn", :value=>"Create New Staff Member" %>
+          <%= f.button :submit, :style=>"width:100%!important;", :class=>"btn blue", :style=>"background-color:#5383D3!important; width:100%!important;",:value=>"Create New Staff Member" %>
           <% end %>
         </div>
       </div>
@@ -30,8 +43,19 @@
 </div>
 <style>
 img{
-  max-width: 500px!important;
+max-width: 500px!important;
 border-radius: 100%!important;
 }
-
+table td, table tr, table thead{
+  border:none!important;
+}
+input{
+  background-color: #eee!important;
+  border-radius: 0.5vmin 2vmin 2vmin 2vmin!important; 
+}
+.panel-title h4{
+color:white!important;
+margin: 0!important;
+}
+label{display: none!important;}
 </style>

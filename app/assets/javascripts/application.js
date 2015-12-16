@@ -4,6 +4,7 @@
 //////////////////Fundamental Code////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function($) {
+   
     try {
         $(".button-collapse").sideNav();
     } catch (err) {}
@@ -242,13 +243,13 @@ function v1(option, res) {
             filler(cFL(aG.DRIVE_TYPE.attributes.DRIVEN_WHEELS.value), 'vehicle_drive_type');
         } catch (err) {}
         try {
-            if(cat.PRIMARY_BODY_TYPE =="Minivan"){
+        if(cat.PRIMARY_BODY_TYPE =="Minivan"){
             filler("Van", 'vehicle_kind');
-          }else if(cat.market=="Minivan"){
+        }else if(cat.market=="Minivan"){
             filler("Van", 'vehicle_kind');
-            }else{
+        }else{
             filler(cat.PRIMARY_BODY_TYPE, 'vehicle_kind');
-            }
+        }
         } catch (err) {}
         try {
             filler(aG.DOORS.attributes.NUMBER_OF_DOORS.value, 'vehicle_doors');
@@ -277,13 +278,16 @@ function v1(option, res) {
         try {
             filler(cat.Market, 'vehicle_vehicle_class');
         } catch (err) {}
-        try {
-            filler("Sale", 'vehicle_status');
-        } catch (err) {}
+        
         try {
             filler(cFL(tLC(base.transmissionType)), 'vehicle_transmission');
         } catch (err) {}
         title();
+
+        filler("Sale", 'vehicle_status');
+
+        $('#vehicle_status').css('background-color', "rgb(76, 175, 80)");
+      
 
     }
     res.api('/v1/api/toolsrepository/vindecoder', options, success, fail);

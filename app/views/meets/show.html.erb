@@ -1,41 +1,44 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<div class="panel panel-default">
+			
+			<div class="panel panel-default z-depth-4">
 				<div class="panel-heading panel-black">
 					<div class="panel-title">
-						<h5>Testimonial Created</h5>
+						<h4>Staff Member Form</h4>
 					</div>
 				</div>
 				<div class="panel-body">
-					
-					
-					<p>
-						<strong>Employee name:</strong>
-						<%= @meet.employee_name %>
-					</p>
-					<p>
-						<strong>Headshot:</strong>
-						<%= @meet.headshot_images[1] %>
-					</p>
-					<p>
-						<strong>Position:</strong>
-						<%= @meet.position %>
-					</p>
-					<p>
-						<strong>Duration:</strong>
-						<%= @meet.duration %>
-					</p>
-					<p>
+						<table class="table ">
+							
+							<thead>
+								<td><h5>Staff Member Name</h5></td>
+								<td><h5>Position</h5></td>
+							</thead>
+							<tr>
+								<td><%= @meet.employee_name %></td>
+								<td><%= @meet.position %></td>
+							</tr>
+							<thead>
+								<td><h5>HeadShot</h5></td>
+								<td><h5>Since</h5></td>
+							</thead>
+							<tr>
+								<td><% if @meet.headshot_images.present? %>
+										<%= image_tag @meet.headshot_images[1].url %>
+									<% end %>
+								</td>
+								<td><%= @meet.duration %></td>
+							</tr>
+						</table>
 						<strong>About:</strong>
-						<%= @meet.about %>
-					</p>
+					<div class="well"><%= @meet.about %></div>
 				</div>
 				<div class="panel-footer panel-black">
 					<% if admin_signed_in? %>
 					<center>
-					<%= link_to 'Edit', edit_meet_path(@meet) %> |
-					<%= link_to 'Back', meets_path %>
+					<%= link_to 'Edit', edit_meet_path(@meet), :class=>"btn blue" %> |
+					<%= link_to 'Back', meets_path , :class=>"btn orange"%>
 					</center>
 					<% end %>
 				</div>
@@ -47,6 +50,19 @@
 </div>
 <style>
 img{
-	max-width: 360px!important;
+max-width: 500px!important;
+border-radius: 100%!important;
 }
+ table thead{
+  border:none!important;
+}
+input{
+  background-color: #eee!important;
+  border-radius: 0.5vmin 2vmin 2vmin 2vmin!important; 
+}
+.panel-title h4{
+color:white!important;
+margin: 0!important;
+}
+label{display: none!important;}
 </style>
