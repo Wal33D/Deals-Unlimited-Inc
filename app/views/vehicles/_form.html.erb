@@ -15,33 +15,33 @@
                 </div>
                 <div class = "panel-body">
                     <div class="form-inputs">
-                        <table class="table">
+                        <table class="table table-hover">
                             <tr>
-                                <td class="featurelabel">VIN:</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">VIN: </p></td>
                                 <td><%= f.input :vin_num %></td>
                             </tr>
                             <tr>
-                                <td class="featurelabel">Price:</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Price: </p></td>
                                 <td><%= f.input :price %></td>
                             </tr>
                             <tr>
-                                <td class="featurelabel">Mileage:</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Mileage: </p></td>
                                 <td><%= f.input :mileage %></td>
                             </tr>
                             <tr>
-                                <td class="featurelabel">Exterior Color</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:0.2vmin!important;position:absolute;">Exterior Color: </p></td>
                                 <td><%= f.input :exterior_color %></td>
                             </tr>
                             <tr>
-                                <td class="featurelabel">Interior Color</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:0.2vmin!important;position:absolute;">Interior Color: </p></td>
                                 <td><%= f.input :interior_color %></td>
                             </tr>
                             <tr>
-                                <td class="featurelabel">Stereo</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Stereo: </p></td>
                                 <td><%= f.input :stereo %></td>
                             </tr>
                             <tr>
-                                <td class="featurelabel">Stock Number</td>
+                                <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Stock #: </p></td>
                                 <td><%= f.input :stock_number %></td>
                             </tr>
                             <tr>
@@ -89,61 +89,63 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <table class="table">
-                        <tr><td class="featurelabel">Vehicle Type</td>
-                        <td> <%= f.input :kind, collection: [:Car, :Truck, :SUV, :Van]%></td></tr>
-                        <tr><td class="featurelabel">Status</td>
-                        <td><%= f.input :status, collection: [:Sale, :Sold, :Pending, ] %></td></tr>
+                    <table class="table table-hover">
                         <tr>
-                            <td class="featurelabel">Title</td>
+                           <%= f.input :kind, collection: [:Car, :Truck, :SUV, :Van],:style=>"width:100%!important;", :prompt =>"Type of Vehicle"%>
+                        </tr>
+                        <tr>
+                            <%= f.input :status, collection: [:Sale, :Sold, :Pending], :prompt =>"Sale Status"%>
+                        </tr>
+                        <tr>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Title:</p></td>
                             <td><%= f.input :title %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Year</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Year:</td>
                             <td><%= f.input :year %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Make</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Make:</p></td>
                             <td><%= f.input :make %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Model</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Model:</p></td>
                             <td><%= f.input :model, :class => "form-control" %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Body Style</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Body Style:</p></td>
                             <td><%= f.input :body_style %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Engine</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Engine:</p></td>
                             <td><%= f.input :engine %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Transmission</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Trans:</p></td>
                             <td><%= f.input :transmission %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Drive Type</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Drive Type:</p></td>
                             <td><%= f.input :drive_type %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Vehicle Class</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Class:</p></td>
                             <td><%= f.input :vehicle_class %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Doors </td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Doors:</p></td>
                             <td><%= f.input :doors %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">MPG</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">MPG:</p></td>
                             <td><%= f.input :mpg %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Trim</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Trim:</p></td>
                             <td><%= f.input :trim %></td>
                         </tr>
                         <tr>
-                            <td class="featurelabel">Fuel Type</td>
+                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Fuel Type:</p></td>
                             <td> <%= f.input :fuel_type %>
                             </td>
                         </tr>
@@ -157,7 +159,6 @@
         <% end %>
     </div>
 </div>
-
 <style>
 #vehicle_other_options{
 display: none!important;

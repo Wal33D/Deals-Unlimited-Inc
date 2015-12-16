@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207102627) do
+ActiveRecord::Schema.define(version: 20151215091057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20151207102627) do
   end
 
   add_index "auto_models", ["auto_make_id"], name: "index_auto_models_on_auto_make_id", using: :btree
+
+  create_table "features", force: :cascade do |t|
+    t.string   "name"
+    t.string   "disabled"
+    t.string   "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "meets", force: :cascade do |t|
     t.string   "employee_name"
