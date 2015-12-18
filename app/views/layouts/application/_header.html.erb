@@ -7,7 +7,8 @@
       <ul class="right hide-on-med">
         <li>
           <div class="btn-group">
-            <a href= "/vehicles"class="btn blue-btn btn-vehicles " data-no-turbolink="true">Vehicles</a>
+            <a href= "/vehicles"class="btn blue-btn btn-vehicles waves-effect waves-light" >Vehicles</a>
+            
           </div>
         </li>
         <li>
@@ -16,6 +17,9 @@
           <li id="mobileli"><a href="/meet">Meet the Staff</a></li>
           <li id="mobileli"><a href="/testimonials">Testimonials</a></li>
           <li id="mobileli"><a href="/contact">Contact Us</a></li>
+          <% if admin_signed_in? %>
+          <li style="margin-right:4px;"><%= link_to('Logout', destroy_admin_session_path, :method => :delete,  :style=>" color:white!important;", :class=>"btn  blue-btn waves-effect waves-teal",:style=>"margin-left:1px; background-color:#eceff1!important;" ,:id=>"logout-btn") %> </li>
+          <% end %>
         </li>
       </ul>
       <ul class="side-nav" id="mobile-demo" style="visibility:none!important;">
@@ -30,6 +34,7 @@
           <li><a class="inner-side-menu" href="/policy">Privacy Policy</a></li>
         </ul>
         <li><a href="/contact">Contact Us</a></li>
+        
       </ul>
     </div>
   </nav>

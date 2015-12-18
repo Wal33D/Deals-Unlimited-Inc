@@ -1,4 +1,29 @@
 <% if admin_signed_in? %>
+<style>
+#vehicle_other_options{
+display: none!important;
+}
+.featurelabel{
+font-size: 1.5vmin!important;
+width:15%!important;
+}
+.error, .error_notification{
+color:red!important;
+}
+input{
+margin-bottom: 0!important;
+border-bottom: none!important;
+}
+td{
+padding: 0!important;
+}
+#vehicle_description{
+height:150px!important;
+}
+label{display: none!important;}
+select{display: block!important;}
+.col-lg-4 img{ width:100%;}
+</style>
 <%= render 'layouts/application/htmlEdit' %>
 <div class ="container" id="form">
     <div class = "row">
@@ -47,7 +72,7 @@
                         <tr>
                             <td colspan="2"><%= f.input :description , as: :text,:id=>"descr"%></td>
                         </tr>
-                       
+                        
                         <tr>
                             <td><%= f.input :other_options, :id=>"other_options" %></td>
                         </tr>
@@ -156,32 +181,6 @@
         <% end %>
     </div>
 </div>
-
-<style>
-#vehicle_other_options{
-display: none!important;
-}
-.featurelabel{
-font-size: 1.5vmin!important;
-width:15%!important;
-}
-.error, .error_notification{
-color:red!important;
-}
-input{
-margin-bottom: 0!important;
-border-bottom: none!important;
-}
-td{
-padding: 0!important;
-}
-#vehicle_description{
-height:150px!important;
-}
-label{display: none!important;}
-select{display: block!important;}
-.col-lg-4 img{ width:100%;}
-</style>
 <% else %>
 <script type="text/javascript">window.location = "../../login";
 </script>

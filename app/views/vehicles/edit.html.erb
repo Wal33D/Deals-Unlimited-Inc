@@ -1,3 +1,25 @@
+<style>
+#status-container #vehicle_price{
+border:1px solid black!important;
+}
+#form{margin-top: 0!important;}
+#panel-edit{margin-bottom:0!important;}
+#panel-status{margin-bottom:0!important;}
+#panel-status h5{color:white!important;}
+#forsale-btn{padding-top:0!important;}
+@media only screen and (max-width : 800px) {
+#status-container{margin-top: 5vmin!important;}
+#panel-title{
+	padding:0!important;
+	margin:0!important;
+}
+#panel-title h5{
+	color:white!important;
+	padding:0!important;
+	margin:0!important;
+}
+}
+</style>
 <% if admin_signed_in? %>
 <div class="container" >
 	<div class="row" id="status-container">
@@ -22,74 +44,78 @@
 					</div>
 				</div>
 				<% end %>
-				<div class="panel-body">
-					<div class="row">
+				<div class="panel-body" style="padding-bottom:0!important;">
+					<div class="row" style="margin:0!important;">
 						<div class="col-sm-5">
-							<table class="">
+							<table class="table">
 								<tr>
-									<td>
-										Vehicle Created at
+									<td style="padding:1vmin!important;">
+										Vehicle Created at:
 									</td>
-									<td>
+									<td style="padding:1vmin!important; color:#777;">
 										<%= @vehicle.created_at %>
 									</td>
 								</tr>
 								<tr>
-									<td>
-										Last Updated on
+									<td style="padding:1vmin!important;">
+										Last Edited on:
 									</td>
-									<td>
+									<td style="padding:1vmin!important; color:#777;">
 										<%= @vehicle.updated_at %>
 									</td>
 								</tr>
+								<%= simple_form_for(@vehicle) do |f| %>
 								<tr>
-									<%= simple_form_for(@vehicle) do |f| %>
-									<tr>
-										<td><%= f.input :price %></td>
-										<td><%= f.button :submit ,:class=>"blue", :value=>"Update $",:style=>"height:70%!important;  margin-top:5%!important;"%></td>
-									</tr>
-									<% end %>
+									<td style="padding:1vmin!important;" >
+										<div class="input-group" >
+											<span class="input-group-addon">$</span>
+											<%= f.input :price ,:class=>"form-control", :type=>"text", :'aria-label'=>"Amount (to the nearest dollar)"%>
+											<span class="input-group-addon">.00</span>
+										</div>
+									</td>
+									<td style="padding:1vmin!important;"><%= f.button :submit ,:class=>"blue z-depth-2 ", :value=>"Update $",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;	 "%></td>
 								</tr>
+								<% end %>
+								
 							</table>
 						</div>
 						
 						<div class="col-sm-3">
 						</div>
-						<div class="col-sm-3">
+						<div class="col-sm-3" style="height:100%!important; padding-bottom:0!important;" >
 							<table style="margin-top:0!important;">
-							<thead><h5 style="color:#444!important; ">Set Status</h5></thead>
-							<tr>
-								<td id = "forsale-btn">
-									<button class="btn btn-default green  " onclick = "setstatus(this.innerHTML)"style="width:100%!important;" >For Sale</button>
-								</td>
-							</tr>
-							<tr>
-								<td id="forsale-btn">
-									<button class="btn btn-default blue " onclick = "setstatus(this.innerHTML)"style="width:100%!important;">Pending</button>
-								</td>
-							</tr>
-							<tr>
-								<td id="forsale-btn">
-									<button class="btn btn-default red " onclick = "setstatus(this.innerHTML)"style="width:100%!important;">Sold</button>
-								</td>
-							</tr>
-						</table>
+								<tr>
+									<td id = "forsale-btn" style="padding:1vmin!important;">
+										<button class="btn btn-default green z-depth-3  " onclick = "setstatus(this.innerHTML)"style="font-weight:bold!important; width:100%!important;" >For Sale</button>
+									</td>
+								</tr>
+								<tr>
+									<td id="forsale-btn" style="padding:1vmin!important;">
+										<button class="btn btn-default blue z-depth-3" onclick = "setstatus(this.innerHTML)"style="font-weight:bold!important; width:100%!important;">Pending</button>
+									</td>
+								</tr>
+								<tr>
+									<td id="forsale-btn" style="padding:1vmin!important;">
+										<button class="btn btn-default red z-depth-3" onclick = "setstatus(this.innerHTML)"style="font-weight:bold!important; width:100%!important;">Sold</button>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
+				<% if @vehicle.status == ("Sale" || "sale") %>
+				<div class="panel-footer green">
+				</div>
+				<% elsif @vehicle.status == ("Sold" || "sold") %>
+				<div class="panel-footer red">
+				</div>
+				<% else %>
+				<div class="panel-footer blue">
+				</div>
+				<% end %>
 			</div>
-			<% if @vehicle.status == ("Sale" || "sale") %>
-			<div class="panel-footer green">
-			</div>
-			<% elsif @vehicle.status == ("Sold" || "sold") %>
-			<div class="panel-footer red">
-			</div>
-			<% else %>
-			<div class="panel-footer blue">
-			</div>
-			<% end %>
 		</div>
 	</div>
-</div>
 </div>
 <%= render 'form' %>
 <script>
@@ -99,25 +125,6 @@ function setstatus(status){
 	document.getElementById('update').click();
 }
 </script>
-<style>
-#form{margin-top: 0!important;}
-#panel-edit{margin-bottom:0!important;}
-#panel-status{margin-bottom:0!important;}
-#panel-status h5{color:white!important;}
-#forsale-btn{padding-top:0!important;}
-@media only screen and (max-width : 800px) {
-#status-container{margin-top: 5vmin!important;}
-#panel-title{
-	padding:0!important;
-	margin:0!important;
-}
-#panel-title h5{
-	color:white!important;
-	padding:0!important;
-	margin:0!important;
-}
-}
-</style>
 <% else %>
 <script type="text/javascript">window.location = "../../login";
 </script>

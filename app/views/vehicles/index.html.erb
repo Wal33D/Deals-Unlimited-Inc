@@ -198,7 +198,7 @@
                         <% end %>
                         <% end %>
                         <div class="panel-footer ">
-                            <center>  <%= paginate @vehicles %></center>
+                           <center><%= paginate @vehicles, :window => 6, :outer_window => 10%></center>
                         </div>
                     </div>
                 </div>
@@ -220,36 +220,30 @@
         </div>
     </div>
     <style>
-
     .pending-banner{
-        background: #eee!important;
-        margin-bottom: 1vmin!important;
-         padding-top: 1.2vmin!important;
-
+    background: #eee!important;
+    margin-bottom: 1vmin!important;
+    padding-top: 1.2vmin!important;
     }
     .caption h4 {
-font-family: 'Black Ops One', cursive;
+    font-family: 'Black Ops One', cursive;
     color: #5383D3 !important;
     -webkit-font-smoothing: antialiased;
     }
     .caption {
-
-        padding-left: 0!important;
-        padding-right:0!important;
-        padding-bottom: 0!important;
+    padding-left: 0!important;
+    padding-right:0!important;
+    padding-bottom: 0!important;
     width:100%;
     bottom: 0;
     position: absolute;
-}
+    }
     .thumbnail {
     border: 0 none;
     box-shadow: none;
     margin:0;
     padding:0;
-
     }
-
-
     .btn-vehicles{
     display: none!important;
     }
@@ -268,18 +262,20 @@ font-family: 'Black Ops One', cursive;
     margin-bottom: 10vmin!important;
     }
     .pagination{
-    margin-top: 0!important;
+    margin:0!important;
     background-color:transparent!important;
-    width:100%;
-    overflow-y:scroll!important;
+    width:100%!important;
+    height:100%!important;
     border:none!important;
     box-shadow: none!important;bottom:0;
-    position: relative!important;
     display: inline-block!important;
     }
+    .pagination li{
+        margin:0!important;
+    }
     .pagination a,.pagination em,.pagination span{
-    padding:1vmin 2vmin 1vmin 2vmin;
-    border-radius:1vmin;
+    border-radius:0.7vmin;
+    margin: 0!important;
     background-color: #f5f5f5;
     color:black;
     }
@@ -561,10 +557,9 @@ font-family: 'Black Ops One', cursive;
     #vehicle-window{
     margin-top:7vmin!important;
     }
-       .panel-footer{
+    .panel-footer{
     margin-bottom:10vmin!important;
     display: inline-block!important;
-
     }
     }
     /* Custom, iPhone Retina */

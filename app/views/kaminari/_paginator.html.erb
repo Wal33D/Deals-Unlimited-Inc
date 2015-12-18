@@ -1,0 +1,113 @@
+<%= paginator.render do -%>
+<nav class="page-links">
+  <table class="table" id = "page-link-table">
+    <tr>
+      
+      <% if  current_page.first? %>
+      <td style = "float:left!important; background-color:#eceff1!important;" disabled="true" class="btn first">
+        <span class="first" >
+          <a href="/vehicles">« First</a>
+        </span>
+      </td>
+      <% else %>
+      <td style = "float:left!important; background-color:#eceff1!important; " class="btn prev">
+        <%= first_page_tag%>
+      </td>
+      <% end %>
+      <% if  current_page.first? %>
+      <td style = "float:left!important; background-color:#eceff1!important;" disabled="true" class="btn prev">
+        <span class="prev" >
+          <a rel="prev" href="/vehicles">‹ Prev</a>
+        </span>
+      </td>
+      <% else %>
+      <td style = "float:left!important; background-color:#eceff1!important; " class="btn prev">
+        <%= prev_page_tag%>
+      </td>
+      <% end %>
+      <td id="center-links" style="height:100%!important;"  >
+        <% each_page do |page| -%>
+        <button style="background-color:#eceff1!important; height:100%!important;"  >
+        <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+        <%= page_tag page %>
+        <% elsif !page.was_truncated? -%>
+        <%= gap_tag %>
+        <% end -%>
+        </button>
+        <% end -%>
+      </td>
+      <% if  current_page.last? %>
+      <td style = "float:right!important; background-color:#eceff1!important;" disabled="true" class="btn next">
+        <span class="next" >
+          <a href="/vehicles">« Next</a>
+        </span>
+      </td>
+      <% else %>
+      <td style = "float:right!important; background-color:#eceff1!important; " class="btn next">
+        <%= next_page_tag%>
+      </td>
+      <% end %>
+      <% if  current_page.last? %>
+      <td style = "float:right!important; background-color:#eceff1!important;" disabled="true" class="btn last">
+        <span class="last" >
+          <a rel="last" href="/vehicles">‹ Last</a>
+        </span>
+      </td>
+      <% else %>
+      <td style = "float:right!important; background-color:#eceff1!important; " class="btn last ">
+        <%= last_page_tag%>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+</nav>
+
+<% end %>
+<style>
+td{
+text-align: center!important;
+}
+.next a, .prev a, .first a, .last a {
+margin:0!important;
+color:black!important;
+}
+.page a, .page{
+height:100%!important;
+width:100%!important;
+}
+.page-links {
+height:100%!important;
+color:black!important;
+background: none!important;
+display: block!important;
+position: relative!important;
+width:100%;
+max-width: 100%!important;
+}
+#page-link-table.gap{
+display: none!important;
+}
+#page-link-table{
+margin:0!important;
+}
+#center-links{
+padding:0!important;
+padding-bottom: 0!important;
+color:black!important;
+text-align: center!important;
+height:100%!important;
+}
+#center-links button{
+margin: 0.2vmin 0 0 0!important;
+}
+#center-links a{
+height:100%!important;
+color:black!important;
+}
+.panel-footer{
+padding:0!important;
+}
+.current{
+color:#ddd!important;
+}
+</style>

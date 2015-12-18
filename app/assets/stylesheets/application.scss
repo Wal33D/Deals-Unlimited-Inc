@@ -96,12 +96,16 @@ nav {
     font-family: 'Black Ops One', cursive;
     font-size: 3.1rem;
 }
+
 #welcome {
     font-family: 'Black Ops One', cursive;
     font-size: 1.4rem;
 }
 .loading-screen {
     visibility: visible !important;
+}
+#logout-btn:hover{
+color:rgb(83, 131, 211)!important;
 }
 .our-info-box {
     tr {
