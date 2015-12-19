@@ -643,12 +643,15 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
   .pending-banner{
     background: #eee!important;
-    margin-bottom: 1vmin!important;
+    margin-bottom: .5vmin!important;
     padding-top: 1.2vmin!important;
     }
     .caption h4 {
     font-family: 'Black Ops One', cursive;
+    font-size:3vmin!important;
     color: #5383D3 !important;
+        padding-bottom: 2px!important;
+
     -webkit-font-smoothing: antialiased;
     }
     .caption {

@@ -1,5 +1,4 @@
 <style>
-
 #showpagecontainer{
 margin-top:0!important;
 }
@@ -72,16 +71,16 @@ input .integer .optional .vehicle_price{
 									<%= @vehicle.updated_at %>
 								</td>
 							</tr>
-							<%= simple_form_for(@vehicle) do |f| %>
+							<%= simple_form_for(@vehicle) do |s| %>
 							<tr>
 								<td style="padding:1vmin!important;" >
 									<div class="input-group" >
 										<span class="input-group-addon">$</span>
-										<%= f.input :price , :class=>"form-control", :type=>"text", label: false%>
+										<%= s.input :price , :class=>"form-control", :type=>"text", label: false%>
 										<span class="input-group-addon">.00</span>
 									</div>
 								</td>
-								<td style="padding:1vmin!important;"><%= f.button :submit ,:class=>"blue z-depth-2 ", :value=>"Update $",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;	 "%></td>
+								<td style="padding:1vmin!important;"><%= s.button :submit ,:class=>"blue z-depth-2 ", :value=>"Update $",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;	 "%></td>
 							</tr>
 							<% end %>
 						</table>
@@ -96,12 +95,12 @@ input .integer .optional .vehicle_price{
 								</td>
 							</tr>
 							<tr>
-								<td id="forsale-btn" style="padding:1vmin!important;">
+								<td id="pending-btn" style="padding:1vmin!important;">
 									<button class="btn btn-default z-depth-3 waves-effect waves-white" onclick = "setstatus('Pending')"style="font-weight:bold!important; width:100%!important; background-color:#5383D3!important">Pending</button>
 								</td>
 							</tr>
 							<tr>
-								<td id="forsale-btn" style="padding:1vmin!important;">
+								<td id="sold-btn" style="padding:1vmin!important;">
 									<button class="btn btn-default red z-depth-3 waves-effect waves-white" onclick = "setstatus('Sold')"style="font-weight:bold!important; width:100%!important;">Sold</button>
 								</td>
 							</tr>
@@ -123,9 +122,15 @@ input .integer .optional .vehicle_price{
 	</div>
 </div>
 <div style="display:none!important;">
-	<%= simple_form_for(@vehicle) do |f| %>
-	<%= f.input :price %>
-	<%= f.input :status %>
+	<%= simple_form_for(@vehicle) do |s| %>
+	<%= s.input :price %>
+	<%= s.input :status %>
+	<p id="status-indicator"><%= @vehicle.status %></p>
 	<button id= "update"%>Submit Vehicle</button>
 </div>
 <% end %>
+<script>
+if($('#status-indicator').html() == "Sale" ){ $('#forsale-btn button').prop('disabled', true);
+}else if($('#status-indicator').html() == "Pending" ){ $('#pending-btn button').prop('disabled', true);
+}else if($('#status-indicator').html() == "Sold" ){ $('#sold-btn button').prop('disabled', true);}
+</script>
