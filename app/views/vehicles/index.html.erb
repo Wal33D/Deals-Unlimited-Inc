@@ -63,7 +63,7 @@
                                     </h5>
                                 </div>
                             </div>
-                        <% elsif vehicle.status == "Pending" %>
+                        <% elsif (vehicle.status == "Pending") && (admin_signed_in?) %>
                         <div class="panel-heading" style="background-color:#5383D3 !important" >
                             <div class="panel-heading" >
                                 <div class="panel-title">
