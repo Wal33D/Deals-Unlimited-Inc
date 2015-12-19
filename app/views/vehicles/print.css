@@ -37,3 +37,8 @@ label{
     font-size: 1.7rem!important;
     line-height: 1.65rem!important;
   }
+#status-container{display: none!important;}
+
+.features li{
+  display:block!important;
+}

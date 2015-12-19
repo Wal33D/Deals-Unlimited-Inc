@@ -29,10 +29,10 @@
 								</div>
 							</div>
 							<p style="text-align: center;">
-								<div class="alert alert-danger"  id="alert-finance">WE DO NOT OFFER BAD CREDIT, SPECIAL FINANCING OR BUY HERE/PAY HERE IN HOUSE FINANCING</div>
+								<div class="alert-perm alert-danger"  id="alert-finance">WE DO NOT OFFER BAD CREDIT, SPECIAL FINANCING OR BUY HERE/PAY HERE IN HOUSE FINANCING</div>
 							</p>
 							<p style="text-align: center;">
-								<div class="alert alert-success" id="alert-finance">
+								<div class="alert-perm alert-success" id="alert-finance">
 									WE NOW OFFER OUT OF STATE FINANCING ON QUALIFIED VEHICLES FOR THE FOLLOWING STATES:
 									<ul style="font-size:1.5vmin!important; padding-left:1vmin!important;">
 										<li>INDIANA</li>
@@ -67,7 +67,7 @@
 									Simply fill out our <%= link_to  "Secure Online Application",'credits' %> and a member of our Sales Staff will contact you to help you take the next step toward the purchase of your desired Truck, SUV, Van or Auto.
 								</p>
 							</div>
-							<div class="alert alert-info" id="info-finance" >If you have further Finance questions, please contact Bill Smith at (269) 324-4285
+							<div class="alert-perm alert-info" id="info-finance" >If you have further Finance questions, please contact Bill Smith at (269) 324-4285
 							</div>
 						</div>
 					</div>
@@ -81,12 +81,15 @@
 	</div>
 </div>
 <style>
-
+.alert-perm{
+	padding:20px;
+}
+.alert-perm *{font-size:1.8vmin}
 #finance-contents{padding:1rem!important;}
 #info-finance{font-size:2vmin!important; text-align: center!important;}
 #alert-finance{font-family: 'arial black', 'avant garde'; font-size:1.8vmin!important;}
 #banklist{font-size:2.5vmin;}
-.jumbotron-finance p {font-size:2.5vmin!important;}
+.jumbotron-finance p {font-size:2.3vmin!important;}
 @media (max-width: 500px) {
 #smaller-text{font-size:3vmin!important;}
 #alert-finance{font-size:3.5vmin!important;}

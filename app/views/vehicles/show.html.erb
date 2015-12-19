@@ -7,7 +7,7 @@
     <div class = "panel panel-default z-depth-4" id="showpage">
       <% if @vehicle.status == "Sold" %>
       <div id ="headerinfo" class = "panel-heading  lighten-1" style ="padding-bottom:0!important; margin:0!important; color:white!important; background-color:#F44336!important;" >
-        <% elsif  @vehicle.status == "Pending"%>
+        <% elsif  (@vehicle.status == "Pending") && (admin_signed_in?)%>
         <div id ="headerinfo" class = "panel-heading lighten-1" style ="padding-bottom:0!important; margin:0!important; color:white!important;  background-color:#5383D3!important;" >
           <% else %>
           <div id ="headerinfo" class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; background-color:#fff; color:#5383D3;" >
@@ -132,8 +132,6 @@
   }
   .footer-distributed{display:none!important;}
   @media (max-width: 773px){.footer-distributed {display: fixed!important;}
-        }
-        @media (max-width: 600px){.features *{
-            font-size:3.3vmin!important;
-        }
+  }
+  @media (max-width: 600px){.features *{font-size:3.3vmin!important;}
   </style>
