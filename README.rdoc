@@ -1,3 +1,0 @@
-Rails Web Application for Deals Unlimited, Inc.
-
-Rails 4.2.4

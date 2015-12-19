@@ -640,6 +640,283 @@ label:focus {
 -o-transform: rotate(90deg);
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
+
+  .pending-banner{
+    background: #eee!important;
+    margin-bottom: 1vmin!important;
+    padding-top: 1.2vmin!important;
+    }
+    .caption h4 {
+    font-family: 'Black Ops One', cursive;
+    color: #5383D3 !important;
+    -webkit-font-smoothing: antialiased;
+    }
+    .caption {
+    padding-left: 0!important;
+    padding-right:0!important;
+    padding-bottom: 0!important;
+    width:100%;
+    bottom: 0;
+    position: absolute;
+    }
+    .thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    margin:0;
+    padding:0;
+    }
+ 
+
+.pagination{
+    margin:0!important;
+    background-color:transparent!important;
+    width:100%!important;
+    height:100%!important;
+    border:none!important;
+    box-shadow: none!important;bottom:0;
+    display: inline-block!important;
+    }
+    .pagination li{
+    margin:0!important;
+    }
+    .pagination a,.pagination em,.pagination span{
+    border-radius:0.7vmin;
+    margin: 0!important;
+    background-color: #f5f5f5;
+    color:black;
+    }
+    .pagination span{
+    border:0.3vmin double #ddd;
+    }
+.lightboxOverlay {
+position: absolute;
+top: 0;
+left: 0;
+z-index: 9999;
+background-color: black;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+opacity: 0.8;
+display: none;
+}
+.lightbox {
+position: absolute;
+left: 0;
+width: 100%;
+z-index: 10000;
+text-align: center;
+line-height: 0;
+font-weight: normal;
+}
+.lightbox .lb-image {
+display: block;
+height: auto;
+max-width: inherit;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+}
+.lightbox a img {
+border: none;
+}
+.lb-outerContainer {
+position: relative;
+background-color: white;
+*zoom: 1;
+width: 250px;
+height: 250px;
+margin: 0 auto;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+}
+.lb-outerContainer:after {
+content: "";
+display: table;
+clear: both;
+}
+.lb-container {
+padding: 4px;
+}
+.lb-loader {
+position: absolute;
+top: 43%;
+left: 0;
+height: 25%;
+width: 100%;
+text-align: center;
+line-height: 0;
+}
+.lb-cancel {
+display: block;
+width: 32px;
+height: 32px;
+margin: 0 auto;
+background: url(https://res.cloudinary.com/dodczwtee/image/upload/v1450511429/loading_ril1em.gif) no-repeat;
+}
+.lb-nav {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+z-index: 10;
+}
+.lb-container > .nav {
+left: 0;
+}
+.lb-nav a {
+outline: none;
+background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+}
+.lb-prev, .lb-next {
+height: 100%;
+cursor: pointer;
+display: block;
+}
+.lb-nav a.lb-prev {
+width: 34%;
+left: 0;
+float: left;
+background: url(https://res.cloudinary.com/dodczwtee/image/upload/v1450511429/prev_lcswdp.png) left 48% no-repeat;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+opacity: 0;
+-webkit-transition: opacity 0.6s;
+-moz-transition: opacity 0.6s;
+-o-transition: opacity 0.6s;
+transition: opacity 0.6s;
+}
+.lb-nav a.lb-prev:hover {
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+opacity: 1;
+}
+.lb-nav a.lb-next {
+width: 64%;
+right: 0;
+float: right;
+background: url(https://res.cloudinary.com/dodczwtee/image/upload/v1450511429/next_gee3ki.png) right 48% no-repeat;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+opacity: 0;
+-webkit-transition: opacity 0.6s;
+-moz-transition: opacity 0.6s;
+-o-transition: opacity 0.6s;
+transition: opacity 0.6s;
+}
+.lb-nav a.lb-next:hover {
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+opacity: 1;
+}
+.lb-dataContainer {
+margin: 0 auto;
+padding-top: 5px;
+*zoom: 1;
+width: 100%;
+-moz-border-radius-bottomleft: 4px;
+-webkit-border-bottom-left-radius: 4px;
+border-bottom-left-radius: 4px;
+-moz-border-radius-bottomright: 4px;
+-webkit-border-bottom-right-radius: 4px;
+border-bottom-right-radius: 4px;
+}
+.lb-dataContainer:after {
+content: "";
+display: table;
+clear: both;
+}
+.lb-data {
+padding: 0 4px;
+color: #ccc;
+}
+.lb-data .lb-details {
+width: 85%;
+float: left;
+text-align: left;
+line-height: 1.1em;
+}
+.lb-data .lb-caption {
+font-size: 13px;
+font-weight: bold;
+line-height: 1em;
+}
+.lb-data .lb-number {
+display: block;
+clear: left;
+padding-bottom: 1em;
+font-size: 12px;
+color: #999999;
+}
+.lb-data .lb-close {
+display: block;
+float: right;
+width: 30px;
+height: 30px;
+background: url(https://res.cloudinary.com/dodczwtee/image/upload/v1450511429/close_n6wtfu.png) top right no-repeat;
+text-align: right;
+outline: none;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+opacity: 0.7;
+-webkit-transition: opacity 0.2s;
+-moz-transition: opacity 0.2s;
+-o-transition: opacity 0.2s;
+transition: opacity 0.2s;
+}
+.lb-data .lb-close:hover {
+cursor: pointer;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+opacity: 1;
+}
+.pic-container {width: auto;}​
+.pic-container img{
+width:25rem!important;
+}
+.footer-vehicles {
+max-height: 5%;
+height: 6.5%;
+bottom: 0;
+position: fixed!important;
+padding: 1rem;
+padding-top: 0.1rem!important;
+padding-left: 0.15rem!important;
+background-color: #292c2f !important;
+line-height: 50px!important;
+width: 100%;
+#unlimited {
+color: #5383d3!important;
+font: normal 4vmin 'Cookie', cursive!important;
+}
+}
+.footer-vehicles h5 {
+float: right!important;
+color: #ffffff!important;
+margin: 0.3rem 0.2rem 0.3rem 0.2rem;
+padding: 0.1rem!important;
+font: normal 36px 'Cookie', cursive!important;
+font-size: 3.5vmin!important;
+position:absolute;
+right:0;
+bottom:0;
+}
+.footer-vehicles h4 {
+float: left!important;
+color: #ffffff!important;
+margin: 0.5rem 0.2rem 0 0.2rem;
+padding: 0.1rem!important;
+font-family: 'Black Ops One', cursive; font-size:2rem; color:white!important;
+position:absolute;
+left:0;
+bottom:0;
+font-size: 3.2vmin!important;
+}
+
+
+.footer-vehicles h4 span {
+color: #5383d3!important;
+font: normal 3.2vmin 'Cookie', cursive!important;
+}
+
 @media (max-width: 500px) {
     #homepage table tr td,
     #homepage table th {
@@ -801,8 +1078,89 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
         margin-left: 0;
     }
 }
+
 @media (max-width: 992px) {
 .button-collapse{
   display:none;
 }
 }
+@media only screen and (max-width : 1190px) {
+    #vehicle-window, #search{
+    margin-top: 0vmin!important;
+    }
+
+
+    .table-responsive{ overflow:hidden!important;
+    border:none!important;}
+    #img-col{padding:0 0 0 0!important;
+    width:50%!important;}
+    #first-table{
+    margin-top: 0.5vmin!important;
+    }
+    #first-table tr td{
+    font-size:2.2vmin!important;
+    }
+    #pricetag{
+    margin-top: 0.5vmin!important;
+    padding-top: 0!important;
+    font-size:4.3vmin!important;
+    margin-bottom: 1.5vmin!important;
+    }
+    #middle-col{
+    width:27%!important;
+    padding: 0 0.25vmin 0vmin 1vmin;
+    }
+    #right-col{
+    float:right!important;
+    width:23%!important;
+    padding: 0 0.25vmin 0vmin 0.25vmin;
+    }
+    #first-table tr td, #second-table tr td{
+    padding:0!important;
+    font-size:1.5vmin !important;
+    }
+    #search{
+    width:25%!important;
+    margin-bottom:5%!important;
+    }
+    #vehicle-window{
+    width:75%!important;
+    }
+
+    #first-table{
+    font-size:1.4vmin!important;
+    }
+    #first-table tr{
+    padding:0!important;
+    }
+    }
+ @media only screen and (min-width : 1200px) {
+    #carfax{
+    margin-bottom:2vmin!important;
+    }
+    #middle-col{
+    margin-top:0.5vmin!important;
+    }
+    #middle-col #pricetag{
+    margin-bottom:2.3vmin !important;
+    }
+    #right-col{
+    margin-top:1.5vmin!important;
+    }
+    .img-responsive{
+    max-height: 500px!important;
+    }
+    #search{
+    width:26%!important;
+    }
+    #vehicle-window{
+    width:74%!important;
+    }
+    #pricetag{
+    font-size: 6.6vmin!important;
+    }
+    #first-table tr td,#second-table tr td{
+    font-size:2vmin;
+    padding:.5vmin!important;
+    }
+    }

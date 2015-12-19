@@ -1,14 +1,12 @@
 <div class="panel panel-default our-info-box z-depth-2" style="margin-top:1vmin!important;">
-   <!-- Default panel contents -->
-
    <div class="panel-body">
-      <table class="">
+      <table class="table" id="info-table">
          <tbody>
-            <tr class='clickable-row table-hover' data-href='/directions'>
+            <tr class='clickable-row table-hover' data-href='/directions' >
                <td>
                   <i class="fa fa-map-marker"></i>
                </td>
-               <td>
+               <td >
                   <p>8705 Portage Road<br> Portage, Michigan</p>
                </td>
             </tr>
@@ -41,19 +39,11 @@
    </div>
 </div>
 <style>
- input::-webkit-input-placeholder {
-color: rgba(1, 1, 1, 1) !important;
+#info-table td{
+   border:none!important;
 }
-
-input:-moz-placeholder { /* Firefox 18- */
-color: rgba(1, 1, 1, 1) !important;
-}
-
-input::-moz-placeholder {  /* Firefox 19+ */
-color: rgba(1, 1, 1, 1) !important;
-}
-
-input:-ms-input-placeholder {
-color: rgba(1, 1, 1, 1) !important;
-}
+input::-webkit-input-placeholder {color: rgba(1, 1, 1, .8) !important;}
+input:-moz-placeholder { color: rgba(1, 1, 1, .8) !important;}
+input::-moz-placeholder {color: rgba(1, 1, 1, .8) !important;}
+input:-ms-input-placeholder {color: rgba(1, 1, 1, .8) !important;}
 </style>

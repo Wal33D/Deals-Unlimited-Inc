@@ -51,16 +51,35 @@
                     </div>
                     <% @vehicles.each do |vehicle| %>
                     <% if (vehicle.status == "Sold") &! (admin_signed_in?) %>
+                    <% next %>
                     <% else %>
                     <div class="panel panel-default z-depth-2" id="each-vehicle">
                         <% if vehicle.status == "Sold" %>
-                        <div class="panel-heading red lighten-1" ><% else %>
-                            <div class="panel-heading "><% end %>
+                        <div class="panel-heading" style="color:white!important; background-color:#F44336!important;" >
+                            <div class="panel-heading" >
+                                <div class="panel-title">
+                                    <h5  id="vehicle_title"  >
+                                    <%= link_to  vehicle.title, vehicle,:style=>"color:white!important;" %>
+                                    </h5>
+                                </div>
+                            </div>
+                        <% elsif vehicle.status == "Pending" %>
+                        <div class="panel-heading" style="background-color:#5383D3 !important" >
+                            <div class="panel-heading" >
+                                <div class="panel-title">
+                                    <h5  id="vehicle_title"  >
+                                    <%= link_to  vehicle.title, vehicle,:style=>"color:white!important;" %>
+                                    </h5>
+                                </div>
+                            </div>
+                            <% else %>
+                            <div class="panel-heading" >
                                 <div class="panel-title">
                                     <h5  id="vehicle_title" >
                                     <%= link_to  vehicle.title, vehicle %>
                                     </h5>
                                 </div>
+                                <% end %>
                             </div>
                             <div class="panel-body" id="vehicle-row" >
                                 <div class="row">
@@ -154,7 +173,7 @@
                                     <div class="col-xs-3" id="right-col">
                                         <div class ="table-responsive">
                                             <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>">
-                                                <%=  image_tag 'carfax.png', :class=>"img-responsive", :id=>"carfax" %>
+                                                <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"img-responsive", :id=>"carfax" %>
                                             </a>
                                             <table class="table table-striped" id="second-table">
                                                 <tr>
@@ -180,10 +199,10 @@
                                                 <% if admin_signed_in? %>
                                                 <tr>
                                                     <td>
-                                                        <%= link_to 'Edit', edit_vehicle_path(vehicle), :class=>"button btn blue btn-default"%>
+                                                        <%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"font-weight:bold!important; background-color:#5383D3!important;", :class=>" btn btn-default z-depth-3 btn waves-effect waves-white"%>
                                                     </td>
                                                     <td>
-                                                        <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button btn red btn-default"%>
+                                                        <%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"font-weight:bold!important;", :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red"%>
                                                     </td>
                                                 </tr>
                                                 <% end %>
@@ -198,19 +217,14 @@
                         <% end %>
                         <% end %>
                         <div class="panel-footer ">
-                           <center><%= paginate @vehicles, :window => 6, :outer_window => 10%></center>
+                            <center><%= paginate @vehicles, :window => 6, :outer_window => 10%></center>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="container dv" style="width:100%!important; position:absolute;left:0; right:0;">
-        <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0;">
-            <h4>Deals <span style="font:normal 3.8vmin 'Cookie', cursive!important">Unlimited</span>, Inc.</h4>
-            <h5>269-324-4285</h5>
-        </div>
-    </div>
+    <%= render 'layouts/application/footerVehicles' %>
     <div class="container mb" style="width:100%!important; position:absolute;left:0; right:0; display:none;">
         <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; height:100%;">
             <%= search_form_for @q do |f| %>
@@ -220,33 +234,7 @@
         </div>
     </div>
     <style>
-    .pending-banner{
-    background: #eee!important;
-    margin-bottom: 1vmin!important;
-    padding-top: 1.2vmin!important;
-    }
-    .caption h4 {
-    font-family: 'Black Ops One', cursive;
-    color: #5383D3 !important;
-    -webkit-font-smoothing: antialiased;
-    }
-    .caption {
-    padding-left: 0!important;
-    padding-right:0!important;
-    padding-bottom: 0!important;
-    width:100%;
-    bottom: 0;
-    position: absolute;
-    }
-    .thumbnail {
-    border: 0 none;
-    box-shadow: none;
-    margin:0;
-    padding:0;
-    }
-    .btn-vehicles{
-    display: none!important;
-    }
+    
     <%= render 'vehicleFooterStyle' %>
     body{min-height: 100%!important;}
     html,body, .row{height:100%;}
@@ -256,32 +244,12 @@
     padding:0 0 0 0!important;
     font-family: 'Black Ops One', cursive;
     font-size:3.3vmin;
-    color:#5383D3 !important;
+    color:#5383D3;
     }
     #vehicle-container{
     margin-bottom: 10vmin!important;
     }
-    .pagination{
-    margin:0!important;
-    background-color:transparent!important;
-    width:100%!important;
-    height:100%!important;
-    border:none!important;
-    box-shadow: none!important;bottom:0;
-    display: inline-block!important;
-    }
-    .pagination li{
-        margin:0!important;
-    }
-    .pagination a,.pagination em,.pagination span{
-    border-radius:0.7vmin;
-    margin: 0!important;
-    background-color: #f5f5f5;
-    color:black;
-    }
-    .pagination span{
-    border:0.3vmin double #ddd;
-    }
+    
     .footer-distributed{
     display: none!important;}
     .container-fluid{
@@ -367,94 +335,9 @@
     /*==================================================
     =            Bootstrap 3 Media Queries             =
     ==================================================*/
-    /* Large Devices, Wide Screens */
-    @media only screen and (min-width : 1200px) {
-    #carfax{
-    margin-bottom:2vmin!important;
-    }
-    #middle-col{
-    margin-top:0.5vmin!important;
-    }
-    #middle-col #pricetag{
-    margin-bottom:2.3vmin !important;
-    }
-    #right-col{
-    margin-top:1.5vmin!important;
-    }
-    .img-responsive{
-    max-height: 500px!important;
-    }
-    #search{
-    width:26%!important;
-    }
-    #vehicle-window{
-    width:74%!important;
-    }
-    #pricetag{
-    font-size: 6.6vmin!important;
-    }
-    #first-table tr td,#second-table tr td{
-    font-size:2vmin;
-    padding:.5vmin!important;
-    }
-    }
-    @media only screen and (max-width : 1190px) {
-    #vehicle-window, #search{
-    margin-top: 2vmin!important;
-    }
-    }
-    /* Medium Devices, Desktops */
-    @media only screen and (max-width : 992px) {
-    @media only screen and (max-width : 1190px) {
-    #vehicle-window, #search{
-    margin-top: 0!important;
-    }
-    .table-responsive{ overflow:hidden!important;
-    border:none!important;}
-    #img-col{padding:0 0 0 0!important;
-    width:50%!important;}
-    #first-table{
-    margin-top: 0.5vmin!important;
-    }
-    #first-table tr td{
-    font-size:2.2vmin!important;
-    }
-    #pricetag{
-    margin-top: 0.5vmin!important;
-    padding-top: 0!important;
-    font-size:4.3vmin!important;
-    margin-bottom: 1.5vmin!important;
-    }
-    #middle-col{
-    width:27%!important;
-    padding: 0 0.25vmin 0vmin 1vmin;
-    }
-    #right-col{
-    float:right!important;
-    width:23%!important;
-    padding: 0 0.25vmin 0vmin 0.25vmin;
-    }
-    #first-table tr td, #second-table tr td{
-    padding:0!important;
-    font-size:1.5vmin !important;
-    }
-    #search{
-    width:25%!important;
-    margin-bottom:5%!important;
-    }
-    #vehicle-window{
-    width:75%!important;
-    }
-    .panel-footer{
-    display: hidden!important;
-    }
-    #first-table{
-    font-size:1.4vmin!important;
-    }
-    #first-table tr{
-    padding:0!important;
-    }
-    }
+    
+    
+    
     /* Small Devices, Tablets */
     @media only screen and (max-width : 900px) {
     .dv{
@@ -519,10 +402,7 @@
     #each-vehicle{
     margin-bottom: 0.7rem!important;
     }
-    .footer-vehicles {
-    max-height: 7%!important;
-    height: 7%!important;
-    }
+    
     #pricetag{
     padding-bottom:0.5vmin!important;
     padding-top:0.5vmin!important;
