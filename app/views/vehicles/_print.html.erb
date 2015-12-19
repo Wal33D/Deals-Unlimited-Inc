@@ -149,15 +149,11 @@
             <% end %>
           </table>
         </div>
-        <div class="row" style="margin-top:0!important;padding-top:0!important;">
-          <div class="col-xs-12" style="margin-top:0!important;padding-top:0!important;">
-            <div class="jumbotron" style="margin-top:0!important;padding-top:0!important;">
-              <h5 style="margin-top:0!important;padding-top:0!important;">Feautures</h5>
-              <div class="panel-body " id="featuresprint" style="background-color:#e5f2ff margin-top: 0!important;
-                margin-bottom: 0!important;
-                padding-top: 0!important;
-                padding-bottom: 0!important;
-                display: block!important;">
+        <div class="row" >
+          <div class="col-xs-12">
+            <div class="jumbotron no-margin">
+              <h5 class="no-margin">Feautures</h5>
+              <div class="panel-body no-margin" id="featuresprint">
                 <%= @vehicle.other_options.html_safe%>
               </div>
             </div>
@@ -169,7 +165,7 @@
             margin-bottom: 0!important;
             padding-top: 0!important;
             padding-bottom: 0!important;">
-            <div class="jumbotron"id="descr-text" style="margin-top:0!important;padding-top:0!important; ">
+            <div class="jumbotron"id="descr-text no-margin" >
               <%= @vehicle.description.html_safe %>
             </div>
           </div>
@@ -178,6 +174,17 @@
     </div>
   </div>
   <style>
+  .no-margin{
+  margin-top:0!important;padding-top:0!important;
+
+  }
+  #featuresprint{
+  background-color:#e5f2ff margin-top: 0!important;
+  margin-bottom: 0!important;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  display: block!important;
+  }
   h3.field-label{
   display:none!important;
   font-weight: normal!important;
