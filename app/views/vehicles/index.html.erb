@@ -224,9 +224,11 @@
             </div>
         </div>
     </section>
+    <div class="dv">
     <%= render 'layouts/application/footerVehicles' %>
+    </div>
     <div class="container mb" style="width:100%!important; position:absolute;left:0; right:0; display:none;">
-        <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; height:100%;">
+        <div class="footer-vehicles" style="width:100%!important; position:absolute;left:0; right:0; height:100%; z-index:1001!important;">
             <%= search_form_for @q do |f| %>
             <%= f.search_field :title_or_kind_or_make_or_model_cont,:class=>"gray",:placeholder=>"Year, Make, Model,...", :id=>"mobile-search-form" %>
             <%= f.submit :class =>'btn btn-default blue-btn', :id=>"mobile-search-btn" %>
@@ -411,9 +413,10 @@
     #first-table tr td,  #first-table tr td label{
     font-size:2.4vmin!important;
     padding:0.8vmin;
-    }
+    }}
     /* Extra Small Devices, Phones */
     @media only screen and (max-width : 830px) {
+      
     #first-table tr td,  #first-table tr td label,  #first-table tr{
     padding:0!important;
     margin: 1vmin!important
