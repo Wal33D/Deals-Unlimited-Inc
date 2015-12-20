@@ -197,12 +197,12 @@
                                                         <td><%= vehicle.body_style %></td>
                                                     </tr>
                                                     <% if admin_signed_in? %>
-                                                    <tr >
+                                                    <tr>
                                                         <td>
-                                                            <%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"margin-top:1vmin; font-weight:bold!important; background-color:#5383D3!important;", :class=>" btn btn-default z-depth-3 btn waves-effect waves-white"%>
+                                                            <%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"font-weight:bold!important; background-color:#5383D3!important;", :class=>" btn btn-default z-depth-3 btn waves-effect waves-white"%>
                                                         </td>
                                                         <td>
-                                                            <%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"margin-top:1vmin; font-weight:bold!important;", :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red"%>
+                                                            <%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"font-weight:bold!important;", :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red"%>
                                                         </td>
                                                     </tr>
                                                     <% end %>
