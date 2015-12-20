@@ -29,14 +29,11 @@ select{display: block!important;}
     <div class = "row">
         <%= simple_form_for(@vehicle) do |f| %>
         <%= f.error_notification %>
-        <div class = "col-lg-6">
+        <div class = "col-lg-6"  style="padding:.25vmin 0 0 0!important;">
             <div class = "panel panel-default z-depth-4">
                 <div class = "panel-heading" style="background-color:#292c2f !important">
                     <div class = "panel-title">
-                        <h5 style="color:#eee">Vehicle Info
-                        <button class="btn waves-effect waves-teal" type="button"style="float:right; font-weight:bold; background-color:#5383D3;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value);" >Fill with VIN</button>
-                        <button class="btn waves-effect waves-yellow" type="button"style="float:right; font-weight:bold; background-color:#ffab40!important;  margin-right:1vmin;"  onclick="highlight(0);"id="highlight_button">Highlight Emptys</button>
-                        </h5>
+                        <h5 style="color:#eee">Vehicle Info</h5>
                     </div>
                 </div>
                 <div class="panel-body" style="padding-bottom:0!important;">
@@ -103,11 +100,14 @@ select{display: block!important;}
                 </div>
             </div>
         </div>
-        <div class = "col-lg-6">
+        <div class = "col-lg-6" style="padding: 0 0 0 2.5vmin!important;">
             <div class = "panel panel-default z-depth-4 ">
-                <div class = "panel-heading"  style="background-color:#292c2f !important">
+                <div class = "panel-heading" style="background-color:#292c2f !important">
                     <div class = "panel-title">
-                        <h5 style="background-color:#292c2f;">.</h5>
+                        <h5 style="color:#eee">Vehicle Info
+                        <button class="btn waves-effect waves-teal" type="button"style="float:right; font-weight:bold; background-color:#5383D3;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value);" >Fill with VIN</button>
+                        <button class="btn waves-effect waves-yellow" type="button"style="float:right; font-weight:bold; background-color:#ffab40!important;  margin-right:1vmin;"  onclick="highlight(0);"id="highlight_button">Highlight Emptys</button>
+                        </h5>
                     </div>
                 </div>
                 <div class="panel-body" style="padding-bottom:0!important;">

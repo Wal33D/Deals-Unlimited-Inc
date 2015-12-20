@@ -11,6 +11,7 @@ input .integer .optional .vehicle_price{
 #vehicle_price{
 	margin:0!important;
 }
+#vehicle_price{border:none!important;}
 #form{margin-top: 0!important;}
 #panel-edit{margin-bottom:0!important;}
 #panel-status{margin-bottom:0!important;}
@@ -35,7 +36,10 @@ input .integer .optional .vehicle_price{
 			<% if @vehicle.status == ("Sale" || "sale") %>
 			<div class="panel-heading green">
 				<div class="panel-title" id = "panel-title">
-					<h5>For Sale</h5>
+					<h5>For Sale
+					<%= render 'edit_delete_links' %>
+					</h5>
+					
 				</div>
 			</div>
 			<% elsif @vehicle.status == ("Sold" || "sold") %>
@@ -52,9 +56,17 @@ input .integer .optional .vehicle_price{
 			</div>
 			<% end %>
 			<div class="panel-body" style="padding-bottom:0!important;">
-				<div class="row" style="margin:0!important;">
-					<div class="col-sm-5">
-						<table class="table">
+				<div class="row">
+					<div class="col-sm-4">
+						<table class="table" style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
+							<tr>
+								<td style="padding:1vmin!important;">
+									Days Old:
+								</td>
+								<td style="padding:1vmin!important; color:#777;">
+									<%= ((DateTime.now.to_date)-(@vehicle.created_at.to_date)).to_i %>
+								</td>
+							</tr>
 							<tr>
 								<td style="padding:1vmin!important;">
 									Vehicle Created at:
@@ -71,37 +83,44 @@ input .integer .optional .vehicle_price{
 									<%= @vehicle.updated_at %>
 								</td>
 							</tr>
+						</table>
+					</div>
+					<div class="col-sm-4">
+						<table>
 							<%= simple_form_for(@vehicle) do |s| %>
 							<tr>
 								<td style="padding:1vmin!important;" >
 									<div class="input-group" >
 										<span class="input-group-addon">$</span>
-										<%= s.input :price , :class=>"form-control", :type=>"text", label: false%>
+										<%= s.input :price , :class=>"form-control no-border", :type=>"text", label: false%>
 										<span class="input-group-addon">.00</span>
 									</div>
 								</td>
-								<td style="padding:1vmin!important;"><%= s.button :submit ,:class=>"blue z-depth-2 ", :value=>"Update $",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;	 "%></td>
+							</tr>
+							<tr><td><hr></td></tr>
+							<tr>
+								<td style="padding:1vmin!important;">
+									<%= s.button :submit ,:class=>"blue z-depth-2 ", :value=>"$ Update Price",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;"%>
+								</td>
 							</tr>
 							<% end %>
 						</table>
 					</div>
-					<div class="col-sm-3">
-					</div>
-					<div class="col-sm-3" style="height:100%!important; padding-bottom:0!important;" >
-						<table style="margin-top:0!important;">
+					<div class="col-sm-4" style="height:100%!important; padding-bottom:0!important;" >
+						<table class="table"style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
 							<tr>
 								<td id = "forsale-btn" style="padding:1vmin!important;">
-									<button class="btn btn-default green z-depth-3 waves-effect waves-white " onclick = "setstatus('For Sale')"style="font-weight:bold!important; width:100%!important;" >For Sale</button>
+									<button class="btn btn-default green z-depth-2 waves-effect waves-white " onclick = "setstatus('For Sale')"style="font-weight:bold!important; width:100%!important;" >For Sale</button>
 								</td>
 							</tr>
 							<tr>
 								<td id="pending-btn" style="padding:1vmin!important;">
-									<button class="btn btn-default z-depth-3 waves-effect waves-white" onclick = "setstatus('Pending')"style="font-weight:bold!important; width:100%!important; background-color:#5383D3!important">Pending</button>
+									<button class="btn btn-default z-depth-2 waves-effect waves-white" onclick = "setstatus('Pending')"style="font-weight:bold!important; width:100%!important; background-color:#5383D3!important">Pending</button>
 								</td>
 							</tr>
 							<tr>
 								<td id="sold-btn" style="padding:1vmin!important;">
-									<button class="btn btn-default red z-depth-3 waves-effect waves-white" onclick = "setstatus('Sold')"style="font-weight:bold!important; width:100%!important;">Sold</button>
+									<button class="btn btn-default red z-depth-2 waves-effect waves-white" onclick = "setstatus('Sold')"style="font-weight:bold!important; width:100%!important;">Sold</button>
 								</td>
 							</tr>
 						</table>
