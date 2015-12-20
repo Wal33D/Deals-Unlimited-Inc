@@ -91,50 +91,45 @@
           </div>
         </div>
       </div>
-      <div class="admin_edit_links" style="position:absolute; visibility:hidden; left:0; right:0; border:1px solid black; background-color:#eee;">
-        <center>
-        <%= link_to 'Edit', edit_vehicle_path(@vehicle), :class=>'btn blue btn-default' %> |
-        <%= link_to 'Back', vehicles_path, :class=>'btn orange btn-default'  %>
-        </center>
-      </div>
     </div>
-    <%= render 'layouts/application/footerVehicles' %>
   </div>
-  <%= render 'print' %>
-  <style>
+</div>
+<%= render 'layouts/application/footerVehicles' %>
+<%= render 'print' %>
+
+<style>
 .item-list p{
 display: none!important;
 }
-  @media only screen and (max-width : 800px) {
-  .row{
-  margin-top:2vmin!important;
-  width:96%!important;
-  margin-left:2%!important;
-  margin-right: 2%!important;
-  }
-  #mobileinfo .row, #mobileinfo table{margin-bottom: 0!important;}
-  section{border:1vmin double #eee;}
-  section .vehicle_thumb img{
-  max-width: 80%!important;
-  width:80%!important;
-  margin-right: 5%!important
-  }
-  }
-  body {overflow: hidden;}
-  section {
-  width:100%!important;
-  margin: 0 auto;
-  white-space:nowrap;
-  overflow: scroll;
-  }
-  .vehicle_thumb img{max-width:30rem!important;}
-  #img-scroll img{ width:30rem!important;}
-  @media (max-width: 750px){
-  #printbutton, #headerinfo{display: none!important;}
-  #mobileinfo{display:inline-block!important;}
-  }
-  .footer-distributed{display:none!important;}
-  @media (max-width: 773px){.footer-distributed {display: fixed!important;}
-  }
-  @media (max-width: 600px){.features *{font-size:3.3vmin!important;}
-  </style>
+@media only screen and (max-width : 800px) {
+.row{
+margin-top:2vmin!important;
+width:96%!important;
+margin-left:2%!important;
+margin-right: 2%!important;
+}
+#mobileinfo .row, #mobileinfo table{margin-bottom: 0!important;}
+section{border:1vmin double #eee;}
+section .vehicle_thumb img{
+max-width: 80%!important;
+width:80%!important;
+margin-right: 5%!important
+}
+}
+body {overflow: hidden;}
+section {
+width:100%!important;
+margin: 0 auto;
+white-space:nowrap;
+overflow: scroll;
+}
+.vehicle_thumb img{max-width:30rem!important;}
+#img-scroll img{ width:30rem!important;}
+@media (max-width: 750px){
+#printbutton, #headerinfo{display: none!important;}
+#mobileinfo{display:inline-block!important;}
+}
+.footer-distributed{display:none!important;}
+
+@media (max-width: 600px){.features *{font-size:3.3vmin!important;}}
+</style>

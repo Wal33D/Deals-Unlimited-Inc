@@ -32,11 +32,11 @@
     <body class="body" >
         <%= render "layouts/application/header" %>
         <%= yield %>
-        <!-- <div id="contact-tab"><p>Contact Us</p></div>-->
         <%= render "layouts/application/footer" %>
     </body>
     <%= javascript_include_tag 'application'%>
     <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js" %>
+    <% if admin_signed_in? %><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script><% end %>
     
 </html>
 <script>
