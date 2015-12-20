@@ -4,7 +4,7 @@
 //////////////////Fundamental Code////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function($) {
-   
+
     try {
         $(".button-collapse").sideNav();
     } catch (err) {}
@@ -18,7 +18,6 @@ jQuery(document).ready(function($) {
         $('#fadeInFast').fadeIn(100);
     } catch (err) {}
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
-
     (function titleScroller(text) {
         document.title = text;
         setTimeout(function() {
@@ -38,7 +37,6 @@ jQuery(document).ready(function($) {
     } catch (err) {}
 
 });
-
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function setstatus(status){

@@ -1,4 +1,5 @@
 	<container id="edit-delete-links">
-	<%= link_to 'Delete', @vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"margin-left:1px;float:right;font-weight:bold!important;", :class=>" btn red btn-default z-depth-1 btn waves-effect waves-red"%>
-	<%= link_to 'Edit', edit_vehicle_path(@vehicle),:style=>" float:right; font-weight:bold!important; background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+	<%= link_to 'Delete', @vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"margin-left:2px; float:right;font-weight: bold!important;", :class=>"btn red btn-default z-depth-1 btn waves-effect waves-red"%>
+	<%= link_to 'Edit', edit_vehicle_path(@vehicle),:style=>"float:right; font-weight: bold!important; background-color: #5383D3!important; margin-left:2px;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+	<button onclick="window.history.back();window.scrollTo(0, document.cookie);"style="float:right; font-weight:bold!important; " class=" btn btn-default grey z-depth-1 btn waves-effect waves-white">Back</button>
 	</container>

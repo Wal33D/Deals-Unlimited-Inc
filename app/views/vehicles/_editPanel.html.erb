@@ -30,6 +30,7 @@ input .integer .optional .vehicle_price{
 }
 }
 </style>
+
 <div class="container" id="stat-container" >
 	<div class="row" id="status-container">
 		<div class="panel panel-default z-depth-4" id ="panel-status">
@@ -73,15 +74,15 @@ input .integer .optional .vehicle_price{
 							</tr>
 							<tr>
 								<td style="padding:1vmin!important;">
-									Vehicle Created at:
+									Vehicle Created on:
 								</td>
 								<td style="padding:1vmin!important; color:#777;">
-									<%= @vehicle.created_at %>
+									<%= @vehicle.created_at.to_date %>
 								</td>
 							</tr>
 							<tr>
 								<td style="padding:1vmin!important;">
-									Last Edited on:
+									Last Updated at:
 								</td>
 								<td style="padding:1vmin!important; color:#777;">
 									<%= @vehicle.updated_at %>
