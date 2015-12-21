@@ -17,6 +17,8 @@ gem 'seed_dump'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rails_12factor'
 gem 'kaminari'
+gem 'sitemap_generator'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
