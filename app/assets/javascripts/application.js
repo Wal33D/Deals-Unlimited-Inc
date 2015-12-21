@@ -18,12 +18,12 @@ jQuery(document).ready(function($) {
         $('#fadeInFast').fadeIn(100);
     } catch (err) {}
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
-    (function titleScroller(text) {
-        document.title = text;
-        setTimeout(function() {
-            titleScroller(text.substr(1) + text.substr(0, 1));
-        }, 500);
-    }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
+   // (function titleScroller(text) {
+   //     document.title = text;
+   //     setTimeout(function() {
+   //         titleScroller(text.substr(1) + text.substr(0, 1));
+   //     }, 500);
+   // }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
 
     var $window = $('#window');
     var $textarea = $('#contact_message');
