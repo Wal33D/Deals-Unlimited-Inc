@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: deals
   pool: 5
-  username: wal33d
+  username: Wal33D
   password:
 
 production:
