@@ -1,5 +1,5 @@
 <% if admin_signed_in? %>
-<%= render 'editPanel' %>
+<%= render 'vehicles/admin/editPanel' %>
 <% else %>
 <% end %>
 <div class ="container"  id="showpagecontainer" style="margin-bottom:3.5vmin!important;" >
@@ -36,7 +36,7 @@
                   </div>
                 </div>
                 <div class= "col-sm-4 " style="float:right;">
-                  <link rel="stylesheet" href="/print.css" type="text/css" media="print" >
+                  <link rel="stylesheet" href="../../../../print.css" type="text/css" media="print" >
                   <a href="#" onclick="window.print();return false;"> <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/c_scale,w_350/v1450511718/print_qr5axm.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %></a>
                   <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
                     <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %>
@@ -85,17 +85,17 @@
             </div>
           </div>
           </center>
-          <%= render 'showImages' %>
+          <%= render '/vehicles/show/showImages' %>
           <div class="panel-body">
-            <%= render 'showInfo' %>
+            <%= render '/vehicles/show/showInfo' %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= render 'layouts/application/footerVehicles' %>
-<%= render 'print' %>
+<%= render 'vehicles/layouts/footer' %>
+<%= render '/vehicles/show/print' %>
 
 <style>
 .item-list p{

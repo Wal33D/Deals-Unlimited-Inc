@@ -1,7 +1,3 @@
-/*
-*= require_tree .
-*= require_self
-*/
 
 @font-face {
     font-family: 'Black Ops One';
@@ -106,6 +102,10 @@ nav {
 }
 #logout-btn:hover{
 color:rgb(83, 131, 211)!important;
+}
+#vehicle_title{
+      font-family: 'Black Ops One', cursive;
+    font-size: 3.5vmin;
 }
 .our-info-box {
     tr {
@@ -591,6 +591,7 @@ label:focus {
 #dropdown1 {
     width: 100%!important;
 }
+
 #menubtn {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important;
     text-align: center;
@@ -668,29 +669,134 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     margin:0;
     padding:0;
     }
- 
+ #veh_col_1{
+    padding-right:0;
+    height:inherit;
+}
+#vehicle_mobile_search, #vehicle_footer{
+    width:100%;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1001;
+}
+#mobile-search-form{
+    color:white;
+}
 
-.pagination{
-    margin:0!important;
-    background-color:transparent!important;
-    width:100%!important;
-    height:100%!important;
-    border:none!important;
-    box-shadow: none!important;bottom:0;
-    display: inline-block!important;
+#search_col{
+float:left; 
+position:fixed;
+
+
+}
+
+
+.vehicle_each{
+    margin-bottom:.3vmin!important;
+}
+#index_container{
+    width:100%;
+    height:100%;
+    margin-top:92px;
+    padding-left:0;
+    padding-right:0;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position:fixed;
+}
+ .price_tag{
+
+color: #5383d3!important;
+font: normal 7vmin 'Cookie', cursive!important;
+ text-align:center;
+ white-space: nowrap; 
+ }
+ .carfax{
+ img{float:right;}
+ }
+
+#vehicle_panel_heading{
+    background: none!important;
+    height:auto;
+    padding:0;
+    margin:0;   
+
+}
+.admin_btn{
+    margin-top:-0.5vmin;
+}
+.vehicle_each{
+    .panel-title h5{
+    margin:0;
     }
-    .pagination li{
-    margin:0!important;
-    }
-    .pagination a,.pagination em,.pagination span{
-    border-radius:0.7vmin;
-    margin: 0!important;
-    background-color: #f5f5f5;
-    color:black;
-    }
-    .pagination span{
-    border:0.3vmin double #ddd;
-    }
+}
+.vehicle_panel{
+   height:inherit;
+}
+#vehicles{
+    right:0;
+    float:right;
+    height:100%;
+}
+#vehicle_col{
+    overflow-y:scroll!important;
+    overflow-x:hidden!important;
+    height:75%;
+}
+
+#vehicle_window_table{
+    white-space: nowrap;
+
+margin-bottom:0;
+ td{
+ margin-top:0.2vmin;
+ margin-bottom:0.2vmin;
+ padding:auto;
+  font-size:1.6vmin!important;
+label{font-size:1.5vmin!important;}
+ }   
+ tr:nth-child(even){
+     background:white!important;
+
+}
+}
+
+
+::-webkit-scrollbar {
+-webkit-appearance: none;
+width: 7px;
+}
+::-webkit-scrollbar-thumb {
+border-radius: 4px;
+background-color: rgba(0, 0, 0, .5);
+-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+#vehicle-search-box{
+input#q_model_cont,  input#q_kind_cont{
+width:98.3%!important;
+max-width:98.3%!important;
+}
+}
+.sort_link{height:100%!important;}
+
+#pagination_nav, .pagination{
+margin: 0;
+height:100%!important;
+position: relative!important;
+background:none!important;
+box-shadow:none!important;
+}
+
+.pagination li{
+display:inline!important;
+    border-radius:5px;
+    padding:0!important;
+    height:100%!important; 
+}
 .lightboxOverlay {
 position: absolute;
 top: 0;
@@ -876,7 +982,7 @@ opacity: 1;
 width:25rem!important;
 }
 .footer-vehicles {
-max-height: 5%;
+max-height: 6.5%;
 height: 6.5%;
 bottom: 0;
 position: fixed!important;
@@ -1034,6 +1140,7 @@ font: normal 3.2vmin 'Cookie', cursive!important;
         width: 50px!important;
  }
 }
+
 @media (max-width: 910px) {
     .fa-phone {
         line-height: 59px!important;
@@ -1081,89 +1188,3 @@ font: normal 3.2vmin 'Cookie', cursive!important;
         margin-left: 0;
     }
 }
-
-@media (max-width: 992px) {
-.button-collapse{
-  display:none;
-}
-}
-@media only screen and (max-width : 1190px) {
-    #vehicle-window, #search{
-    margin-top: 0vmin!important;
-    }
-
-
-    .table-responsive{ overflow:hidden!important;
-    border:none!important;}
-    #img-col{padding:0 0 0 0!important;
-    width:50%!important;}
-    #first-table{
-    margin-top: 0.5vmin!important;
-    }
-    #first-table tr td{
-    font-size:2.2vmin!important;
-    }
-    #pricetag{
-    margin-top: 0.5vmin!important;
-    padding-top: 0!important;
-    font-size:4.3vmin!important;
-    margin-bottom: 1.5vmin!important;
-    }
-    #middle-col{
-    width:27%!important;
-    padding: 0 0.25vmin 0vmin 1vmin;
-    }
-    #right-col{
-    float:right!important;
-    width:23%!important;
-    padding: 0 0.25vmin 0vmin 0.25vmin;
-    }
-    #first-table tr td, #second-table tr td{
-    padding:0!important;
-    font-size:1.5vmin !important;
-    }
-    #search{
-    width:25%!important;
-    margin-bottom:5%!important;
-    }
-    #vehicle-window{
-    width:75%!important;
-    }
-
-    #first-table{
-    font-size:1.4vmin!important;
-    }
-    #first-table tr{
-    padding:0!important;
-    }
-    }
- @media only screen and (min-width : 1200px) {
-    #carfax{
-    margin-bottom:2vmin!important;
-    }
-    #middle-col{
-    margin-top:0.5vmin!important;
-    }
-    #middle-col #pricetag{
-    margin-bottom:2.3vmin !important;
-    }
-    #right-col{
-    margin-top:1.5vmin!important;
-    }
-    .img-responsive{
-    max-height: 500px!important;
-    }
-    #search{
-    width:26%!important;
-    }
-    #vehicle-window{
-    width:74%!important;
-    }
-    #pricetag{
-    font-size: 6.6vmin!important;
-    }
-    #first-table tr td,#second-table tr td{
-    font-size:2vmin;
-    padding:.5vmin!important;
-    }
-    }

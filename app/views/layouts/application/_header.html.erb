@@ -44,6 +44,12 @@
       </div>
       <% end %>
     </div>
+    
+    <% if admin_signed_in? %>
+    <a href="vehicles/new" style="margin:3px;"class="waves-effect waves-circle waves-light btn-floating secondary-content">
+      <i class="material-icons">add</i>
+    </a>
+    <% end %>
   </nav>
 </header>
 <% if admin_signed_in? %>

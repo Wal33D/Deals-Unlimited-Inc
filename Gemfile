@@ -18,6 +18,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rails_12factor'
 gem 'kaminari'
 gem 'sitemap_generator'
+gem "mini_magick"
 
 group :development do
   gem 'web-console', '~> 2.0'
