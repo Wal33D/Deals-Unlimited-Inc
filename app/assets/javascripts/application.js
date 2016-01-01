@@ -17,6 +17,10 @@ jQuery(document).ready(function($) {
     try {
         $('#fadeInFast').fadeIn(100);
     } catch (err) {}
+        try {
+            $('#vehicle_col').fadeIn(200);
+    } catch (err) {}
+
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
    // (function titleScroller(text) {
    //     document.title = text;
@@ -27,8 +31,9 @@ jQuery(document).ready(function($) {
 
     var $window = $('#window');
     var $textarea = $('#contact_message');
-    $textarea.height($(window).height() * 0.2);
 
+    $textarea.height($(window).height() * 0.2);
+    resizeVehiclePane();
     try {
         setTimeout("$('#reselect').fadeOut('slow')", 4000);
     } catch (err) {}
@@ -37,6 +42,20 @@ jQuery(document).ready(function($) {
     } catch (err) {}
 
 });
+
+///////////////////Resize Vehicle Panel///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+function resizeVehiclePane(){
+    var internalSize = ($('body').height() - $('.nav-wrapper').height() - $('.footer-vehicles').height());
+
+    if( ( $('body').width() ) >= 600 )
+        { $('.vehicle_panel').height(internalSize - 30); }
+    else{
+     $('.vehicle_panel').height(internalSize - 20);
+ 
+}
+
+}
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function setstatus(status){
