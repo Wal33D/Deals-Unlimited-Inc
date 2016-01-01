@@ -1,3 +1,9 @@
+<style>
+#vehicle_mobile_search,
+.footer-vehicles{display:absolute!important;}
+.footer-distributed{display:none!important;}
+</style>
+
 <div class = "container-fluid" id="index_container">
     <div class = "col-md-3 " id="search_col">
         <%= render 'vehicles/layouts/search_form' %>
@@ -10,35 +16,12 @@
             <div class="panel-body " id="vehicle_col">
                 <%= render 'vehicles/layouts/vehicles' %>
             </div>
+            
+            <div class="panel-footer" style="display:block!important;">
+                <center ><%= paginate @vehicles, :window => 5, :outer_window => 9%></center>
+            </div>
         </div>
     </div>
 </div>
 <%= render 'vehicles/layouts/mobile_search' %>
 <%= render 'vehicles/layouts/footer' %>
-<style>
-#vehicle_mobile_search, .footer-vehicles{ display:block!important;}
-.footer-distributed{display: none!important;}
-@media (max-width: 1050px) {
-#vehicles{width:100%;}
-#vehicle_footer, .admin_btn, #search_col, #vehicle_window_table td:nth-child(0), #vehicle_window_table td:nth-child(4),#vehicle_window_table td:nth-child(3), .carfax{
-display: none!important;
-}
-#vehicle_window_table td{
-font-size: 2vmin!important;
-padding:0.2vmin!important;
-}
-}
-@media (max-width: 800px) {
-    #vehicle_body{
-        padding:0;
-    }
-.pagination li{font-size: 2vmin!important;}
-.price_tag{font-size:8vmin!important; margin:0.3vmin;}
-img{
-max-height:auto!important;
-height:auto!important;
-width:auto!important;
-max-width:100%!important;
-}
-}
-</style>

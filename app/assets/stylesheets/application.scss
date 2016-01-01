@@ -1,4 +1,7 @@
-
+/*
+    *= require_self
+    *= require_tree .
+*/
 @font-face {
     font-family: 'Black Ops One';
     font-style: normal;
@@ -102,10 +105,6 @@ nav {
 }
 #logout-btn:hover{
 color:rgb(83, 131, 211)!important;
-}
-#vehicle_title{
-      font-family: 'Black Ops One', cursive;
-    font-size: 3.5vmin;
 }
 .our-info-box {
     tr {
@@ -642,37 +641,6 @@ label:focus {
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-  .pending-banner{
-    background: #eee!important;
-    margin-bottom: .5vmin!important;
-    padding-top: 1.2vmin!important;
-    }
-    .caption h4 {
-    font-family: 'Black Ops One', cursive;
-    font-size:3vmin!important;
-    color: #5383D3 !important;
-        padding-bottom: 2px!important;
-
-    -webkit-font-smoothing: antialiased;
-    }
-    .caption {
-    padding-left: 0!important;
-    padding-right:0!important;
-    padding-bottom: 0!important;
-    width:100%;
-    bottom: 0;
-    position: absolute;
-    }
-    .thumbnail {
-    border: 0 none;
-    box-shadow: none;
-    margin:0;
-    padding:0;
-    }
- #veh_col_1{
-    padding-right:0;
-    height:inherit;
-}
 #vehicle_mobile_search, #vehicle_footer{
     width:100%;
     position:absolute;
@@ -685,104 +653,9 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     color:white;
 }
 
-#search_col{
-float:left; 
-position:fixed;
-
-
+.pagination{
+width:auto!important;
 }
-
-
-.vehicle_each{
-    margin-bottom:.3vmin!important;
-}
-#index_container{
-    width:100%;
-    height:100%;
-    margin-top:92px;
-    padding-left:0;
-    padding-right:0;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    position:fixed;
-}
- .price_tag{
-
-color: #5383d3!important;
-font: normal 7vmin 'Cookie', cursive!important;
- text-align:center;
- white-space: nowrap; 
- }
- .carfax{
- img{float:right;}
- }
-
-#vehicle_panel_heading{
-    background: none!important;
-    height:auto;
-    padding:0;
-    margin:0;   
-
-}
-.admin_btn{
-    margin-top:-0.5vmin;
-}
-.vehicle_each{
-    .panel-title h5{
-    margin:0;
-    }
-}
-.vehicle_panel{
-   height:inherit;
-}
-#vehicles{
-    right:0;
-    float:right;
-    height:100%;
-}
-#vehicle_col{
-    overflow-y:scroll!important;
-    overflow-x:hidden!important;
-    height:75%;
-}
-
-#vehicle_window_table{
-    white-space: nowrap;
-
-margin-bottom:0;
- td{
- margin-top:0.2vmin;
- margin-bottom:0.2vmin;
- padding:auto;
-  font-size:1.6vmin!important;
-label{font-size:1.5vmin!important;}
- }   
- tr:nth-child(even){
-     background:white!important;
-
-}
-}
-
-
-::-webkit-scrollbar {
--webkit-appearance: none;
-width: 7px;
-}
-::-webkit-scrollbar-thumb {
-border-radius: 4px;
-background-color: rgba(0, 0, 0, .5);
--webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-}
-#vehicle-search-box{
-input#q_model_cont,  input#q_kind_cont{
-width:98.3%!important;
-max-width:98.3%!important;
-}
-}
-.sort_link{height:100%!important;}
-
 #pagination_nav, .pagination{
 margin: 0;
 height:100%!important;

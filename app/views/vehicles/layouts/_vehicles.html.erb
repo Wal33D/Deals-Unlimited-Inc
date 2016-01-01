@@ -16,7 +16,7 @@
             <% end %>
         </div>
         <div class="panel-title">
-            <h5  id="vehicle_title"  >
+            <h5 id="vehicle_title"  >
             <%= link_to  vehicle.title, vehicle,:style=>"color:white!important;" %>
             </h5>
         </div>
@@ -30,7 +30,7 @@
             <% end %>
         </div>
         <div class="panel-title">
-            <h5  id="vehicle_title">
+            <h5 id="vehicle_title">
             <%= link_to  vehicle.title, vehicle,:style=>"color:white!important;" %>
             </h5>
         </div>
@@ -61,7 +61,7 @@
                     
                     <% if vehicle.import == 'import' %>
                     <div class=" thumbnail text-center" style="padding-top:3.5vmin; padding-bottom:3.5vmin; background-color:#f2f2f2;">
-                        <%=  link_to image_tag(vehicle.image_1, :style=>"max-width:320px;  height:auto;"),vehicle %>
+                        <%=  link_to image_tag(vehicle.image_1, :id=>"veh_thumb"),vehicle %>
                         <div class="caption">
                             <% if vehicle.status.present? %>
                             <% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
@@ -74,7 +74,7 @@
                     <% if vehicle.import == nil%>
                     <% if vehicle.vehicle_images.present? %>
                     <div class="thumbnail text-center" style="padding-top:.5vmin; padding-bottom:.5vmin; background-color:#f2f2f2;">
-                        <%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"max-width:320px;  height:auto;"),vehicle  %>
+                        <%=  link_to image_tag(vehicle.vehicle_images[0].url, :id=>"veh_thumb"),vehicle  %>
                         <div class="caption">
                             <% if vehicle.status.present? %>
                             <% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
@@ -92,7 +92,7 @@
                     <!-- TITLE AND CARFAX END  -->
                     <table class="table table-striped" id="vehicle_window_table">
                         <tr >
-                            <td colspan="3" style="color:#428bca; padding:0!important;">
+                            <td colspan="3" id="price_tag_td" style="color:#428bca; padding:0!important;">
                                 <h4 class="price_tag" style="font-size:6.5vmin" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h4>
                             </td>
                             <td colspan="1" style="background:none!important;">
@@ -101,7 +101,7 @@
                                 </a>
                             </td>
                         </tr>
-                       
+                        
                         <tr>
                             <td>
                                 <label>Drive Type:</label>
@@ -132,14 +132,13 @@
                             </td>
                         </tr>
                         <tr>
-
                             <td>
                                 <label>Fuel Type</label>
                             </td>
                             <td>
                                 <%= vehicle.fuel_type %>
                             </td>
-                             
+                            
                             <td>
                                 <label >Body Style</label>
                             </td>
@@ -162,7 +161,7 @@
                                 <%= vehicle.mpg %>
                             </td>
                             <% else %>
-                              <td>
+                            <td>
                                 <label>Stereo</label>
                             </td>
                             <td>
@@ -183,7 +182,3 @@
 <!--                   -->
 <% end %>
 <% end %>
- <center ><%= paginate @vehicles, :window => 5, :outer_window => 9%></center>
-<style>
-
-</style>
