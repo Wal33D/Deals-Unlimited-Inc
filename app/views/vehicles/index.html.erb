@@ -3,12 +3,16 @@
 .footer-vehicles{display:absolute!important;}
 .footer-distributed{display:none!important;}
 </style>
-
 <div class = "container-fluid" id="index_container">
     <div class = "col-md-3 " id="search_col">
         <%= render 'vehicles/layouts/search_form' %>
     </div>
     <div class = "col-md-9" id="vehicles" >
+        <% if admin_signed_in? %>
+        <a href="vehicles/new" id="new_vehicle_button" class="waves-effect waves-circle waves-light btn-floating secondary-content">
+            <i class="material-icons">add</i>
+        </a>
+        <% end %>
         <div class="panel panel-default vehicle_panel z-depth-4" >
             <div class="panel-heading" id="vehicle_panel_heading">
                 <%= render 'vehicles/layouts/page_links' %>

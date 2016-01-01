@@ -28,7 +28,12 @@
         <%= stylesheet_link_tag  'application'%>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
+   
     <body class="body" >
+         <div class="font_preload" style="opacity: 0">
+    <span style="font-family: 'Black Ops One';"></span>
+    <span style="font-family: 'Cookie';"></span>
+    </div>
         <%= render "layouts/application/header" %>
         <%= yield %>
         <%= render "layouts/application/footer" %>

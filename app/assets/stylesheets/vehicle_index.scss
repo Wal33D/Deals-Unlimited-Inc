@@ -1,9 +1,18 @@
+#new_vehicle_button{
+position:absolute!important;
+right:0;
+top:-1.75vmin;
+z-index:1001;
+}
 #vehicle_title {
     font-family: 'Black Ops One', cursive;
     font-size: 3.5vmin;
-    a {
+    a{
         color: #5383d3!important;
     }
+}
+#vehicle_title a{
+
 }
 #vehicles {
     height: 83%;
@@ -23,7 +32,9 @@
         padding: .25vmin;
         font-size: 1.6vmin!important;
         label {
-            font-size: 1.5vmin!important;
+            white-space: nowrap;
+
+            font-size: 1.4vmin!important;
         }
     }
     tr:nth-child(even) {
@@ -38,12 +49,6 @@
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .5);
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-}
-#vehicle-search-box {
-    input#q_model_cont, input#q_kind_cont {
-        width: 98.3%!important;
-        max-width: 98.3%!important;
-    }
 }
 .sort_link {
     height: 100%!important;
@@ -131,7 +136,7 @@
     padding-right: 0;
     height: inherit;
 }
-#vehicle_mobile_search,
+
 #vehicle_footer {
     width: 100%;
     position: absolute;
@@ -140,11 +145,18 @@
     bottom: 0;
     z-index: 1001;
 }
-#mobile-search-form {color: white;}
-@media (max-width: 800px) {
+
+
+
+@media (max-width: 520px) {
     #vehicles {
     padding:0!important;
     height: 77%;
+}
+}
+@media (max-width: 800px) {
+    #vehicles {
+    padding:0!important;
 }
 .thumbnail{
 	padding:0;
@@ -174,7 +186,12 @@ max-width:100%!important;
 }
 }
 
-
+.vehicle_search{
+	width:100%;
+}
+.footer-vehicles{
+	padding:0;
+}
 @media (max-width: 1050px) {
     #vehicles {
         width: 100%;
@@ -191,11 +208,49 @@ max-width:100%!important;
     #vehicle_window_table td {
         white-space: nowrap;
         font-size: 2vmin!important;
-        padding: 0.2vmin;
+    }
+ 
+}
+@media (min-width: 1050px) {
+	    #vehicle_window_table td {
+        padding: 0;
     }
 }
-@media (min-width: 1350px) {
+@media (min-width: 1180px) {
 	    #vehicle_window_table td {
-        padding: 1vmin!important;
+        padding: .25vmin;
+    }
+}
+@media (min-width: 1229px) {
+	    #vehicle_window_table td {
+        padding: .5vmin;
+    }
+}
+@media (min-width: 1300px) {
+	    #vehicle_window_table td {
+        padding: 0.8vmin;
+    }
+}
+@media (min-width: 1337px) {
+	    #vehicle_window_table td {
+        padding: 0.9vmin;
+    }
+    }
+
+@media (min-width: 1400px) {
+	    #vehicle_window_table td {
+        padding: 1.4vmin;
+    }
+}
+@media (min-width: 1550px) {
+	    #vehicle_window_table td {
+        padding: 1.8vmin;
+    }
+}
+@media (min-width: 1700px) {
+	    #vehicle_window_table td {
+	    font-size:1.9vmin!important;
+	    label{font-size:1.7vmin;}
+        padding: 2.1vmin;
     }
 }
