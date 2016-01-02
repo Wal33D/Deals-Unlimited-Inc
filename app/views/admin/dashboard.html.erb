@@ -1,0 +1,210 @@
+<% if admin_signed_in? %>
+<div class="container"  style="margin-top:1vmin!important; ">
+	<center>
+	<div class = "alert-info" id="hideMe" style="text-align:center; width:70%; padding:.5vmin 1vmin .5vmin 1vmin; border-radius:1.5vmin; margin-bottom:1vmin;">
+		<p>Click to Authorize Analytic Charts</p>
+		<div id="embed-api-auth-container"></div>
+	</div>
+	</center>
+	<div class="panel panel-default z-depth-3">
+		<div class="panel-heading" style="background-color:#ccc">
+			<h5 style="float:right;">Admin Dashboard</h5>
+			<div class="panel-title">
+				<h5>Deals Unlimited, Inc</h5>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="row" id="dashboard-row" >
+				<div class="col-xs-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h5>Info</h5>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
+							<table class="table table-striped">
+								<tr>
+									<td>Total Count</td>
+									<td><%= Vehicle.count() %></td>
+								</tr>
+								<tr>
+									<td>For Sale</td>
+									<td><%= Vehicle.where(:status => "Sale").count%></td>
+								</tr>
+								<tr>
+									<td>Pending</td>
+									<td><%= Vehicle.where(:status => "Pending").count%></td>
+								</tr>
+								<tr>
+									<td>Sold</td>
+									<td><%= Vehicle.where(:status => "Sold").count%></td>
+								</tr>
+								<tr>
+									<td>Last Added At</td>
+									<td><%= Vehicle.last.created_at%></td>
+								</tr>
+							</table>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-5">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h5>Most Viewed</h5>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
+							<h5>Coming Soon</h5>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h5>Options</h5>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
+							<table class="table" style="margin-bottom:0;">
+								<tr>
+									<td colspan="3">
+										<a href="/vehicles" class="btn blue-btn btn-vehicles waves-effect waves-light right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;">Vehicles</a>
+										
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<a href="/vehicles/new"class="btn green waves-effect waves-white right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;"  type="button" rel="nofollow">Add Vehicle
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<button type="button" class="btn btn-primary btn-lg right" style="font-size:2vmin!important; width:100%; text-transform: none; color:white!important; font-weight:bold;" data-toggle="modal" data-target="#myModal">Menu</button>
+									</td>
+								</tr>
+								
+								<tr>
+									<td colspan="3">
+										<a class="btn orange waves-effect waves-white right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;"  type="button" rel="nofollow"href="">Coming Soon</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<a class="btn grey waves-effect waves-white right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;" rel="nofollow" data-method="delete" href="/admins/sign_out">Logout</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="dashboard-row" >
+				
+				<div class="col-xs-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h6>Top Cities
+								Last 30 days</h6>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
+							<div id="chart-3-container"></div>
+							<div class="view-selector" id="view-selector-3-container"></div>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h6>Sessions
+								Last 30 days</h6>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 1vmin 0 1vmin;">
+							<div id="chart-container"></div>
+							<div class="view-selector" id="view-selector-container"></div>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="dashboard-row" >
+				<div class="col-xs-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h6>Top Countries
+								Last 30 days</h6>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
+							<div id="chart-2-container"></div>
+							<div class="view-selector" id="view-selector-2-container"></div>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h6 style="float:right;">Click a Browser</h6>
+							<div class="panel-title">
+								<h6>Browser Distribution</h6>
+							</div>
+						</div>
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
+							<div class="view-selector"  id="view-selector-container-3"></div>
+							<div id="main-chart-container" style="width:48%; float:left;"></div>
+							<div id="breakdown-chart-container" style="width:48%; float:right;"></div>
+						</div>
+						<div class="panel-footer">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="dashboard-row" >
+			</div>
+		</div>
+	</div>
+</div>
+<% else %>
+<script type="text/javascript">window.location = "../../login";
+</script>
+<% end %>
+<style>
+#logout-btn, nav{
+	display:none;
+}
+h6{
+	white-space: nowrap;
+}
+.view-selector{
+	display:none;
+}
+footer {
+display: none!important;
+}
+#dashboard-row {
+margin-bottom: 0;
+}
+#no-padding {
+margin: 0;
+padding: 0;
+}
+</style>

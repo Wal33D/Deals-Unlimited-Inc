@@ -17,6 +17,7 @@ jQuery(document).ready(function($) {
     try {
         $('#fadeInFast').fadeIn(100);
     } catch (err) {}
+ 
         try {
             $('#vehicle_col').fadeIn(200);
     } catch (err) {}
