@@ -60,17 +60,17 @@
 									<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
 									<% if ((vehicle.countclicks.is_a? Integer) && (vehicle.status == "Sale")) %>
 									<td>
-										<div class="panel panel-default" style="padding:0; margin:0;">
+										<div class="panel panel-default veh_thumb" style="padding:0; margin:0;">
 											<div class="panel-heading" style="padding:0; margin:0;">
 												<%= vehicle.year%>
 												<%= vehicle.make%>
 												<%= vehicle.model%>
 											</div>
-											<div class="panel-body" style=" padding:0; margin:0;">
+											<div class="panel-body "  style="padding:0; margin:0;">
 												<% if vehicle.import == 'import' %>
-												<%=  link_to image_tag(vehicle.image_1, :class=>"veh_thumb"),vehicle %>
+												<%=  link_to image_tag(vehicle.image_1, :class=>"veh_thumb_img small"),vehicle %>
 												<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-												<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"veh_thumb"),vehicle  %>
+												<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"veh_thumb_img"),vehicle  %>
 												<% end %>
 											</div>
 											
@@ -200,9 +200,17 @@
 </script>
 <% end %>
 <style>
-.veh_thumb{
-	max-height:105px;
-	width:auto;
+.veh_thumb_box{
+	max-width:auto;
+	height:100px;
+	margin-bottom:0;
+}
+.veh_thumb_img{
+	max-width:auto;
+	height:115px;
+}
+.small{
+		max-height:115px;
 }
 .dash_buttons{
 	font-size:1.7vmin!important;
