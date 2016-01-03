@@ -4,13 +4,15 @@
 	<a href="#" class="close" onclick="$('.alert-info').hide();" aria-label="close">&times;</a>
 	<div id="embed-api-auth-container"><p>Click to Authorize Analytic Charts</p></div>
 </div>
-<div class="container"  style="margin-top:1vmin!important; ">
+<div class="container" style="margin-top:1vmin!important; ">
 	<div class="panel panel-default z-depth-4">
 		<div class="panel-heading" style="background-color:#ccc">
-			<h5 style="float:right;">Admin Dashboard</h5>
-			<div class="panel-title">
-				<h5>Deals Unlimited, Inc</h5>
-			</div>
+			<span style="float:right; font-size:3vmin;!important;" id="deals">Dashboard</span>
+			<div class="panel-title" style="white-space: nowrap;">
+				<span id="deals" style="font-size:3vmin;!important;">Deals </span>
+				<span id= "unlimited" style="font-size:3.75vmin;!important;">Unlimited, </span>
+				<span id="deals" style="font-size:3vmin;!important;">Inc</span>
+			</div> 
 		</div>
 		<div class="panel-body">
 			<div class="row" id="dashboard-row" >
@@ -19,7 +21,7 @@
 						<thead>
 							<tr>
 								<td colspan="2">
-									<h6>Info</h6>
+									<h6 >Info</h6>
 								</td>
 							</tr>
 						</thead>
@@ -69,22 +71,22 @@
 							</tr>
 						</thead>
 						<tr>
-							<td  onclick="window.location = '../../vehicles'" class="btn white waves-effect btn-default" style="width:49%!important; color:black; float:left text-align:center; text-transform:none;">
+							<td  onclick="window.location = '../../vehicles'" class="btn white waves-effect btn-default" style="width:49%!important; color:black; margin-bottom:.3vmin!important; float:left text-align:center; text-transform:none;">
 								Vehicles
 							</td>
-							<td onclick="window.location = '../../vehicles/new'" class="btn white waves-effect waves-green btn-default" style="width:49%!important; color:black; float:right; text-align:center; text-transform:none;">
+							<td onclick="window.location = '../../vehicles/new'" class="btn white waves-effect waves-green btn-default" style="width:49%!important; margin-bottom:.3vmin!important; color:black; float:right; text-align:center; text-transform:none;">
 								+
 							</td>
 						</tr>
 						
 						<tr>
-							<td colspan="1"  class="btn white waves-effect btn-default" data-toggle="modal" data-target="#myModal" rel="nofollow" style="width:100%!important; color:black; text-transform:none;">
+							<td colspan="1"  class="btn white waves-effect btn-default" data-toggle="modal" data-target="#myModal" rel="nofollow" style="width:100%!important; margin-bottom:.3vmin!important; color:black;  text-transform:none;">
 								Menu
 							</td>
 						</tr>
 						<tr>
 							<a class="" style="display:none;" id="logout_handle" rel="nofollow" data-method="delete" href="/admins/sign_out">Logout</a>
-							<td colspan="1" onclick="$('#logout_handle').click()" rel="nofollow" class="btn white waves-effect btn-default" style="width:100%!important; color:black; text-transform:none;">
+							<td colspan="1" onclick="$('#logout_handle').click()" rel="nofollow" class="btn white waves-effect btn-default" style="width:100%!important; color:black; text-transform:none;  ">
 								Logout
 							</td>
 							
@@ -155,7 +157,7 @@
 						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
 							<div class="view-selector"  id="view-selector-container-3"></div>
 							<div id="main-chart-container" style="width:48%; float:left;"></div>
-							<div id="breakdown-chart-container" style="width:48%; float:right;"></div>
+							<div id="breakdown-chart-container" style="width:48%; float:right;"> </div>
 						</div>
 						<div class="panel-footer">
 						</div>
