@@ -12,7 +12,7 @@
 				<span id="deals" style="font-size:3vmin;!important;">Deals </span>
 				<span id= "unlimited" style="font-size:3.75vmin;!important;">Unlimited, </span>
 				<span id="deals" style="font-size:3vmin;!important;">Inc</span>
-			</div> 
+			</div>
 		</div>
 		<div class="panel-body">
 			<div class="row" id="dashboard-row" >
@@ -54,10 +54,26 @@
 								<h6>Most Viewed</h6>
 							</div>
 						</div>
-						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
-							<h6>Coming Soon</h6>
-						</div>
-						<div class="panel-footer">
+						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin; overflow-y:scroll;">
+							<table class="table" style="margin:0;">
+								<tr>
+									<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
+									<% if vehicle.countclicks.is_a? Integer %>
+									<td>
+										<%= vehicle.year%>
+										<%= vehicle.make%>
+										<%= vehicle.model%>
+										<% if vehicle.import == 'import' %>
+										<%=  link_to image_tag(vehicle.image_1, :class=>"veh_thumb"),vehicle %>
+										<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+										<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"veh_thumb"),vehicle  %>
+										<% end %>
+										clicks:<%= vehicle.countclicks%>
+									</td>
+									<% end %>
+									<% end %>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -174,6 +190,10 @@
 </script>
 <% end %>
 <style>
+.veh_thumb{
+	max-height:105px;
+	width:auto;
+}
 .dash_buttons{
 	font-size:1.7vmin!important;
 	width:100%!important;

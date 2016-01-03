@@ -66,10 +66,10 @@ input .integer .optional .vehicle_price{height:100%!important;}
 							</tr>
 							<tr>
 								<td style="padding:1vmin!important;">
-									Last Updated at:
+									Last Updated on:
 								</td>
 								<td style="padding:1vmin!important; color:#777;">
-									<%= @vehicle.updated_at %>
+									<%= @vehicle.updated_at.to_date %>
 								</td>
 							</tr>
 						</table>

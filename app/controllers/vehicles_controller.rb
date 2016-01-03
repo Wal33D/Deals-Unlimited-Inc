@@ -8,10 +8,16 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @vehicleCurr = Vehicle.find(params[:id])
+    count=@vehicleCurr.countclicks
+    if (@vehicleCurr.countclicks.blank?)
+      count = 0
+    end
+    count = count + 1
+    @vehicleCurr.update_attributes(:countclicks=> count)
   end
   
   def new
-    
     @vehicle = Vehicle.new
   end
 
