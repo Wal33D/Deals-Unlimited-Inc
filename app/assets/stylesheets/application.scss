@@ -1000,9 +1000,14 @@ font: normal 3.2vmin 'Cookie', cursive!important;
  #header-img img{
         width: 50px!important;
  }
-}
+}@media (max-width: 992px) {
 
+    .button-collapse{
+        display: none;
+    }
+}
 @media (max-width: 910px) {
+
     .fa-phone {
         line-height: 59px!important;
         margin-right: 5px!important;
