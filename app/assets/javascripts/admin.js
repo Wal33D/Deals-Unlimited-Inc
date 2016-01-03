@@ -9,7 +9,7 @@
     };
     js = d.createElement(s);
     fs = d.getElementsByTagName(s)[0];
-    js.src = '../../../../javascript/platform.js';
+    js.src = 'https://apis.google.com/js/platform.js';
     fs.parentNode.insertBefore(js, fs);
     js.onload = function() {
         g.load('analytics');
