@@ -55,21 +55,31 @@
 							</div>
 						</div>
 						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin; overflow-y:scroll;">
-							<table class="table" style="margin:0;">
+							<table class="table" style="padding:0; margin:0;">
 								<tr>
 									<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
 									<% if vehicle.countclicks.is_a? Integer %>
 									<td>
-										<%= vehicle.year%>
-										<%= vehicle.make%>
-										<%= vehicle.model%>
-										<% if vehicle.import == 'import' %>
-										<%=  link_to image_tag(vehicle.image_1, :class=>"veh_thumb"),vehicle %>
-										<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-										<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"veh_thumb"),vehicle  %>
-										<% end %>
-										clicks:<%= vehicle.countclicks%>
+										<div class="panel panel-default" style="padding:0; margin:0;">
+											<div class="panel-heading" style="padding:0; margin:0;">
+												<%= vehicle.year%>
+												<%= vehicle.make%>
+												<%= vehicle.model%>
+											</div>
+											<div class="panel-body" style=" padding:0; margin:0;">
+												<% if vehicle.import == 'import' %>
+												<%=  link_to image_tag(vehicle.image_1, :class=>"veh_thumb"),vehicle %>
+												<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+												<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"veh_thumb"),vehicle  %>
+												<% end %>
+											</div>
+											
+											<div class="panel-footer" style="padding:0; margin:0;">
+												clicks:<%= vehicle.countclicks%>
+											</div>
+										</div>
 									</td>
+									
 									<% end %>
 									<% end %>
 								</tr>
