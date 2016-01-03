@@ -1,11 +1,11 @@
 <% if admin_signed_in? %>
+<%= render 'layouts/application/flash_messages' %>
+<div class = "alert-info" id="hideMe" >
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	<p>Click to Authorize Analytic Charts</p>
+	<div id="embed-api-auth-container"></div>
+</div>
 <div class="container"  style="margin-top:1vmin!important; ">
-	<center>
-	<div class = "alert-info" id="hideMe" style="text-align:center; width:70%; padding:.5vmin 1vmin .5vmin 1vmin; border-radius:1.5vmin; margin-bottom:1vmin;">
-		<p>Click to Authorize Analytic Charts</p>
-		<div id="embed-api-auth-container"></div>
-	</div>
-	</center>
 	<div class="panel panel-default z-depth-3">
 		<div class="panel-heading" style="background-color:#ccc">
 			<h5 style="float:right;">Admin Dashboard</h5>
@@ -16,49 +16,45 @@
 		<div class="panel-body">
 			<div class="row" id="dashboard-row" >
 				<div class="col-xs-4">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<div class="panel-title">
-								<h5>Info</h5>
-							</div>
-						</div>
-						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
-							<table class="table table-striped">
-								<tr>
-									<td>Total Count</td>
-									<td><%= Vehicle.count() %></td>
-								</tr>
-								<tr>
-									<td>For Sale</td>
-									<td><%= Vehicle.where(:status => "Sale").count%></td>
-								</tr>
-								<tr>
-									<td>Pending</td>
-									<td><%= Vehicle.where(:status => "Pending").count%></td>
-								</tr>
-								<tr>
-									<td>Sold</td>
-									<td><%= Vehicle.where(:status => "Sold").count%></td>
-								</tr>
-								<tr>
-									<td>Last Added At</td>
-									<td><%= Vehicle.last.created_at%></td>
-								</tr>
-							</table>
-						</div>
-						<div class="panel-footer">
-						</div>
-					</div>
+					<table class="table table-striped inverted table-bordered">
+						<thead>
+							<tr>
+								<td colspan="2">
+									<h6>Info</h6>
+								</td>
+							</tr>
+						</thead>
+						<tr>
+							<td><label>Total Count</label></td>
+							<td><%= Vehicle.count() %></td>
+						</tr>
+						<tr>
+							<td><label>For Sale</label></td>
+							<td><%= Vehicle.where(:status => "Sale").count%></td>
+						</tr>
+						<tr>
+							<td><label>Pending</label></td>
+							<td><%= Vehicle.where(:status => "Pending").count%></td>
+						</tr>
+						<tr>
+							<td><label>Sold</label></td>
+							<td><%= Vehicle.where(:status => "Sold").count%></td>
+						</tr>
+						<tr>
+							<td><label>Last Added At</label></td>
+							<td><%= Vehicle.last.created_at%></td>
+						</tr>
+					</table>
 				</div>
 				<div class="col-xs-5">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h5>Most Viewed</h5>
+								<h6>Most Viewed</h6>
 							</div>
 						</div>
 						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
-							<h5>Coming Soon</h5>
+							<h6>Coming Soon</h6>
 						</div>
 						<div class="panel-footer">
 						</div>
@@ -68,37 +64,30 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h5>Options</h5>
+								<h6>Options</h6>
 							</div>
 						</div>
 						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin;">
 							<table class="table" style="margin-bottom:0;">
 								<tr>
 									<td colspan="3">
-										<a href="/vehicles" class="btn blue-btn btn-vehicles waves-effect waves-light right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;">Vehicles</a>
-										
+										<a href="/vehicles" class="btn blue-btn btn-vehicles waves-effect waves-light right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:normal;" rel="nofollow">Vehicles</a>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<a href="/vehicles/new"class="btn green waves-effect waves-white right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;"  type="button" rel="nofollow">Add Vehicle
+										<a href="/vehicles/new"class="btn green waves-effect waves-white right dash_buttons" type="button" rel="nofollow">Add Vehicle
 										</a>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<button type="button" class="btn btn-primary btn-lg right" style="font-size:2vmin!important; width:100%; text-transform: none; color:white!important; font-weight:bold;" data-toggle="modal" data-target="#myModal">Menu</button>
-									</td>
-								</tr>
-								
-								<tr>
-									<td colspan="3">
-										<a class="btn orange waves-effect waves-white right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;"  type="button" rel="nofollow"href="">Coming Soon</a>
+										<button type="button" class="btn btn-primary btn-lg right dash_buttons"  data-toggle="modal" data-target="#myModal" rel="nofollow">Menu</button>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<a class="btn grey waves-effect waves-white right" style=" font-size:2vmin!important;width:100%; text-transform: none; color:white!important; font-weight:bold;" rel="nofollow" data-method="delete" href="/admins/sign_out">Logout</a>
+										<a class="btn grey waves-effect waves-white right dash_buttons" rel="nofollow" data-method="delete" href="/admins/sign_out">Logout</a>
 									</td>
 								</tr>
 							</table>
@@ -109,7 +98,6 @@
 				</div>
 			</div>
 			<div class="row" id="dashboard-row" >
-				
 				<div class="col-xs-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -188,6 +176,13 @@
 </script>
 <% end %>
 <style>
+.dash_buttons{
+	font-size:1.7vmin!important;
+	width:100%!important;
+	text-transform: none!important;
+	color:white!important;
+	font-weight:normal!important;
+	}
 #logout-btn, nav{
 	display:none;
 }
@@ -208,3 +203,208 @@ margin: 0;
 padding: 0;
 }
 </style>
+
+<script>
+
+(function(w, d, s, g, js, fs) {
+    g = w.gapi || (w.gapi = {});
+    g.analytics = {
+        q: [],
+        ready: function(f) {
+            this.q.push(f);
+        }
+    };
+    js = d.createElement(s);
+    fs = d.getElementsByTagName(s)[0];
+    js.src = 'https://apis.google.com/js/platform.js';
+    fs.parentNode.insertBefore(js, fs);
+    js.onload = function() {
+        g.load('analytics');
+    };
+}(window, document, 'script')); 
+    gapi.analytics.ready(function() {
+        gapi.analytics.auth.authorize({
+            container: 'embed-api-auth-container',
+            clientid: '563220505800-3laqqiu7ho2jhbotinf0vdb1bhq20dmm.apps.googleusercontent.com'
+        });
+        var viewSelector = new gapi.analytics.ViewSelector({
+            container: 'view-selector-container'
+        });
+        var viewSelector2 = new gapi.analytics.ViewSelector({
+            container: 'view-selector-2-container'
+        });
+         var viewSelector3 = new gapi.analytics.ViewSelector({
+            container: 'view-selector-3-container'
+        });
+        viewSelector.execute();
+        viewSelector2.execute();
+        viewSelector3.execute();
+
+        var dataChart = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                metrics: 'ga:sessions',
+                dimensions: 'ga:date',
+                'start-date': '30daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                container: 'chart-container',
+                type: 'LINE',
+                options: {
+                    width: '100%'
+                }
+            }
+        });
+
+        var dataChart2 = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                metrics: 'ga:sessions',
+                dimensions: 'ga:country',
+                'start-date': '30daysAgo',
+                'end-date': 'yesterday',
+                'max-results': 8,
+                sort: '-ga:sessions'
+            },
+            chart: {
+                container: 'chart-2-container',
+                type: 'BAR',
+                options: {
+                    width: '100%',
+                }
+            }
+        });
+         var dataChart3 = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                metrics: 'ga:sessions',
+                dimensions: 'ga:city',
+                'start-date': '30daysAgo',
+                'end-date': 'yesterday',
+                'max-results': 8,
+                sort: '-ga:sessions'
+            },
+            chart: {
+                container: 'chart-3-container',
+                type: 'PIE',
+                options: {
+                    width: '100%',
+                     pieHole: 4 / 9
+                }
+            }
+        });
+        viewSelector.on('change', function(ids) {
+            dataChart.set({
+                query: {
+                    ids: ids
+                }
+            }).execute();
+        });
+        viewSelector2.on('change', function(ids) {
+            dataChart2.set({
+                query: {
+                    ids: ids
+                }
+            }).execute();
+        });
+  viewSelector3.on('change', function(ids) {
+            dataChart3.set({
+                query: {
+                    ids: ids
+                }
+            }).execute();
+        });
+
+
+        var viewSelector3 = new gapi.analytics.ViewSelector({
+            container: 'view-selector-container-3'
+
+        });
+
+        viewSelector3.execute();
+
+        var mainChart = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                'dimensions': 'ga:browser',
+                'metrics': 'ga:sessions',
+                'sort': '-ga:sessions',
+                'max-results': '6'
+            },
+            chart: {
+                type: 'TABLE',
+                container: 'main-chart-container',
+                options: {
+                    width: '100%'
+                }
+            }
+        });
+
+
+        var breakdownChart = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                'dimensions': 'ga:date',
+                'metrics': 'ga:sessions',
+                'start-date': '7daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                type: 'LINE',
+                container: 'breakdown-chart-container',
+                options: {
+                    width: '100%'
+                }
+            }
+        });
+
+        var mainChartRowClickListener;
+
+        viewSelector3.on('change', function(ids) {
+                                $('#hideMe').fadeOut();
+
+            var options = {
+                query: {
+                    ids: ids
+                }
+            };
+
+            if (mainChartRowClickListener) {
+                google.visualization.events.removeListener(mainChartRowClickListener);
+            }
+
+            mainChart.set(options).execute();
+            breakdownChart.set(options);
+
+            if (breakdownChart.get().query.filters) breakdownChart.execute();
+        });
+
+
+        mainChart.on('success', function(response) {
+
+            var chart = response.chart;
+            var dataTable = response.dataTable;
+
+            mainChartRowClickListener = google.visualization.events
+                .addListener(chart, 'select', function(event) {
+
+                    if (!chart.getSelection().length) return;
+
+                    var row = chart.getSelection()[0].row;
+                    var browser = dataTable.getValue(row, 0);
+                    var options = {
+                        query: {
+                            filters: 'ga:browser==' + browser
+                        },
+                        chart: {
+                            options: {
+                                title: browser
+                            }
+                        }
+                    };
+
+                    breakdownChart.set(options).execute();
+
+                    $('#breakdown-chart-container').slideDown();
+
+
+                });
+        });
+    });
+	</script>

@@ -3,7 +3,6 @@
 .footer-vehicles{display:absolute!important;}
 .footer-distributed{display:none!important;}
 </style>
-
 <div class = "container-fluid" id="index_container">
     <div class = "col-md-3 " id="search_col">
         <%= render 'vehicles/layouts/search_form' %>
@@ -20,11 +19,9 @@
             </div>
             <div class="panel-body " id="vehicle_col">
                 <%= render 'vehicles/layouts/vehicles' %>
-            </div>
-            
-            <div class="panel-footer"  id="page_link_footer" style="background:white; bottom: -8px; position: absolute; right:1.25%; left:1.25%; width: auto;">
                 <center ><%= paginate @vehicles, :window => 5, :outer_window => 9%></center>
             </div>
+            <div class="panel-footer"  style="background:white; "></div>
         </div>
     </div>
 </div>

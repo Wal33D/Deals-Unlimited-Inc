@@ -197,6 +197,9 @@ color:#5383d3 !important
 }
 }
 @media (max-width: 800px) {
+    .page-links {
+    overflow: scroll;
+}
 .footer-vehicles {
 max-height: 9%;
 height: 9%;
