@@ -58,7 +58,7 @@
 							<table class="table" style="padding:0; margin:0;">
 								<tr>
 									<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
-									<% if vehicle.countclicks.is_a? Integer %>
+									<% if ((vehicle.countclicks.is_a? Integer) && (vehicle.status == "Sale")) %>
 									<td>
 										<div class="panel panel-default" style="padding:0; margin:0;">
 											<div class="panel-heading" style="padding:0; margin:0;">
