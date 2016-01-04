@@ -5,10 +5,10 @@ jQuery(document).ready(function($) {
 
     var url = window.location.href; 
 
-    var carUrl = /&q%5Bkind_cont%5D=ar&=&commit=Search/;
-    var truckUrl = /&q%5Bkind_cont%5D=ruck&=&commit=Search/;
-    var suvUrl = /&q%5Bkind_cont%5D=uv&=&commit=Search/;
-    var vanUrl = /&q%5Bkind_cont%5D=an&=&commit=Search/;
+    var carUrl = /=ar&/;
+    var truckUrl = /=ruck&/;
+    var suvUrl = /=uv&/;
+    var vanUrl = /=an&/;
     var priceUrl = /price/;
     var newUrl = /class=blue-btn&q%5Bs%5D=created_at/;
     var mileageUrl = /mileage/;

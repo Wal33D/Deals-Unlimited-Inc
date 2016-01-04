@@ -1,0 +1,73 @@
+<div class="modal fade" id="most_viewed_modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-width:95%!important; max-height:95%!important; width:95%!important; height:95%!important;">
+	<div class="modal-dialog" role="document" style="width:auto; max-width:80%;" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel">Most Viewed</h4>
+			</div>
+			<div class="modal-body" >
+				<table class="table table-bordered  table-hover" >
+					<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
+					<% if ((vehicle.countclicks.is_a? Integer) && (vehicle.status == "Sale")) %>
+					<tr>
+						<td>
+							<% if vehicle.import == 'import' %>
+							<%=  link_to image_tag(vehicle.image_1, :style=>"width:auto; max-height:150px;"),vehicle %>
+							<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+							<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:auto; max-height:150px;"),vehicle  %>
+							<% end %>
+						</td>
+						<td>
+							<table style="margin:0;padding:0;">
+								<tr style="margin:0;padding:0;">
+									<td >
+										<%= vehicle.year%>
+									</td>
+								</tr>
+								<tr style="margin:0;padding:0;">
+									<td>
+										<%= vehicle.make%>
+									</td>
+								</tr>
+								<tr style="margin:0;padding:0;">
+									<td >
+										<%= vehicle.model%>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table style="margin:0;padding:0;">
+								<tr style="margin:0;padding:0;">
+									<td>Stock #
+									</td>
+									<td>
+										<%= vehicle.stock_number%>
+									</td>
+								</tr>
+								<tr style="margin:0;padding:0;">
+									<td >
+										Vin #
+									</td>
+									<td >
+										<%= vehicle.vin_num%>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table style="margin:0;padding:0;">
+								<tr style="margin:0;padding:0;">
+									<td>Clicks</td>
+									<td><%= vehicle.countclicks%></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<% end %>
+					<% end %>
+				</table>
+			</div>
+			</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
