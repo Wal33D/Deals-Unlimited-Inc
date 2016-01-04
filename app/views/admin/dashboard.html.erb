@@ -21,7 +21,7 @@
 						<thead>
 							<tr>
 								<td colspan="2">
-									<h6 >Info</h6>
+									<h6 style="text-align:center;"><label style="font-size:2vmin;">Info</label></h6>
 								</td>
 							</tr>
 						</thead>
@@ -59,7 +59,7 @@
 								<tr>
 									<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
 									<% if ((vehicle.countclicks.is_a? Integer) && (vehicle.status == "Sale")) %>
-									<td>
+									<td style="padding:0.2vmin;">
 										<div class="panel panel-default veh_thumb" style="padding:0; margin:0;">
 											<div class="panel-heading" style="padding:0; margin:0;">
 												<%= vehicle.year%>
@@ -79,7 +79,6 @@
 											</div>
 										</div>
 									</td>
-									
 									<% end %>
 									<% end %>
 								</tr>
@@ -92,7 +91,7 @@
 						<thead>
 							<tr>
 								<td colspan="2">
-									<h6>Options</h6>
+									<h6 style="text-align:center;"><label style="font-size:2vmin;">Options</label></h6>
 								</td>
 							</tr>
 						</thead>

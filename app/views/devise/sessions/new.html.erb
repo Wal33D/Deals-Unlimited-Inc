@@ -5,24 +5,24 @@
 		<div class="col-sm-6">
 			<div class="panel panel-default z-depth-5">
 				<div class="panel-heading panel-black">
+					<h4 style="float:right; margin:0; padding:0; font-family:Cookie">Login</h4>
 					<div class="panel-title">
-						<h4 >Deals Unlimited, Inc. - Administration</h4>
+						<h4>Deals Unlimited</h4>
 					</div>
 				</div>
 				<div class="panel-body">
-					<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-					<div class="form-inputs">
-						<p>Email Address</p>
-						<%= f.input :email, required: false, autofocus: true %>
-						<p>Password</p>
-						<%= f.input :password, required: false %>
-					</div>
+					<table class="table" style="margin-bottom:0;">
+						<tr>
+							<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+							<td><label>Email</label><%= f.input :email, required: false, autofocus: true , label: false %></td>
+						</tr>
+						<tr>
+							<td><label>Password</label><%= f.input :password, required: false , label: false%></td>
+						</tr>
+					</table>
 				</div>
 				<div class="panel-footer">
-					<div class="form-actions">
-						<center><%= f.button :submit, "Log in", :style=>"width:100%; color:black; background-color:#5383D3 !important", :class=>"blue" %></center>
-						<%= render "devise/shared/links" %>
-					</div>
+					<%= f.button :submit, "Log in", :style=>"width:100%; color:black; background-color:#5383D3 !important", :class=>"blue" %>
 				</div>
 				<% end %>
 			</div>
@@ -37,8 +37,7 @@ display: none!important;}
 .panel-heading, .panel-footer{
 background-color: #292c2f!important;
 }
-.panel-title h4{margin:0!important;}
-label{display: none!important;}
+.panel-title h4, .panel-title{font-family: "Cookie"; margin:0; padding:0;}
 .input .boolean, .optional, .admin_remember_me{
 visibility:visible!important;}
 </style>
