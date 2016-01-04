@@ -1,20 +1,24 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   def index     
-    @all_vehicles = Vehicle.all
+      @all_vehicles = Vehicle.all
       @q = Vehicle.ransack(params[:q])
       @vehicle= @q.result()
       @vehicles=@vehicle.order(:price).page params[:page]
+      @vehicle=@vehicles
   end
 
   def show
+
     @vehicleCurr = Vehicle.find(params[:id])
     count=@vehicleCurr.countclicks
-    if (@vehicleCurr.countclicks.blank?)
-      count = 0
-    end
+    if(!admin_signed_in?)
+      if (@vehicleCurr.countclicks.blank?)
+        count = 0
+      end
     count = count + 1
     @vehicleCurr.update_attributes(:countclicks=> count)
+    end
   end
   
   def new

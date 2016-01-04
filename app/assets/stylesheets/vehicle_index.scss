@@ -24,9 +24,7 @@ z-index:1001;
     overflow-x: hidden!important;
     height: 90%!important;
 }
-.gray{
-    color:white!important;
-}
+
 #vehicle_window_table {
     margin-bottom: 0;
     td {
@@ -204,6 +202,9 @@ padding:0!important;
     .sort_link{
         height:100%;
         padding:1.8vmin 2.3vmin 1.8vmin 2.3vmin!important;
+        .gray{
+    color:white!important;
+}
     }
   #hidden-panel{
     display: none;

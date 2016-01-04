@@ -66,7 +66,7 @@
 												<%= vehicle.make%>
 												<%= vehicle.model%>
 											</div>
-											<div class="panel-body "  style="padding:0; margin:0;">
+											<div class="panel-body"  style="padding:0; margin:0;">
 												<% if vehicle.import == 'import' %>
 												<%=  link_to image_tag(vehicle.image_1, :class=>"veh_thumb_img small"),vehicle %>
 												<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
@@ -159,7 +159,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h6>Top Countries
+								<h6>Top Cities
 								Last 30 days</h6>
 							</div>
 						</div>
@@ -199,6 +199,15 @@
 </script>
 <% end %>
 <style>
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
 .veh_thumb_box{
 	max-width:auto;
 	height:100px;
@@ -290,7 +299,7 @@ width: '100%'
 var dataChart2 = new gapi.analytics.googleCharts.DataChart({
 query: {
 metrics: 'ga:sessions',
-dimensions: 'ga:country',
+dimensions: 'ga:city',
 'start-date': '30daysAgo',
 'end-date': 'yesterday',
 'max-results': 8,
