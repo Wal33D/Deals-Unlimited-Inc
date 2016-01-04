@@ -49,10 +49,10 @@ jQuery(document).ready(function($) {
 function resizeVehiclePane(){
     var internalSize = ($('body').height() - $('.nav-wrapper').height() - $('.footer-vehicles').height());
 
-    if( ( $('body').width() ) >= 600 )
+    if( ( $('body').width() ) >= 700 )
         { $('.vehicle_panel').height(internalSize - 30); }
     else{
-     $('.vehicle_panel').height(internalSize - 24);
+     $('.vehicle_panel').height(internalSize - 20);
         }
 
 }

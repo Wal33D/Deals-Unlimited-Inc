@@ -202,11 +202,15 @@ color:#5383d3 !important
 
 @media (max-width: 600px) {
   #hidden-panel{
-display: none;
+    display: none;
+  }
+  .vehicle_panel{
+    background: none!important;
+    border:none!important;
+    box-shadow: none!important;
   }
 }
 @media (max-width: 800px) {
-
     .page-links {
     overflow: scroll;
 }
