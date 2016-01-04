@@ -199,7 +199,14 @@ color:#5383d3 !important
     height: 81.5%;
 }
 }
+
+@media (max-width: 600px) {
+  #hidden-panel{
+display: none;
+  }
+}
 @media (max-width: 800px) {
+
     .page-links {
     overflow: scroll;
 }
