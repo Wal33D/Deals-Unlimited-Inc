@@ -52,7 +52,7 @@ function resizeVehiclePane(){
     if( ( $('body').width() ) >= 700 )
         { $('.vehicle_panel').height(internalSize - 30); }
     else{
-     $('.vehicle_panel').height(internalSize +12);
+     $('.vehicle_panel').height(internalSize + 8);
         }
 
 }
