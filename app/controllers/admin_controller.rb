@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
   def dashboard
-  end
+		@popular = Vehicle.all.order(:countclicks => "DESC").where(:status => "Sale")
+ end
 end

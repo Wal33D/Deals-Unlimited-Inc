@@ -7,8 +7,10 @@
 			</div>
 			<div class="modal-body" >
 				<table class="table table-bordered  table-hover" >
-					<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
-					<% if ((vehicle.countclicks.is_a? Integer) && (vehicle.status == "Sale")) %>
+					<% @popular.each do |vehicle| %>
+					<% if (!vehicle.countclicks.is_a? Integer) %>
+					<% next %>
+					<% else %>
 					<tr>
 						<td>
 							<% if vehicle.import == 'import' %>

@@ -5,6 +5,9 @@
 	<div id="embed-api-auth-container"><p>Click the Orange Button to Authorize our Analytics<br> Bill: Login with the email DealsUnlimitedIncAds@gmail.com, the passwords the same as your DealsUnlimitedInc@gmail.com account</p></div>
 </div>
 <%= render 'admin/dashboard/most_viewed' %>
+<%= render 'admin/dashboard/sale' %>
+<%= render 'admin/dashboard/sold' %>
+<%= render 'admin/dashboard/pending' %>
 <div class="container" style="margin-top:1vmin!important; ">
 	<div class="panel panel-default z-depth-4">
 		<div class="panel-heading" style="background-color:#ccc">
@@ -30,17 +33,30 @@
 							<td><label>Total Count</label></td>
 							<td><%= Vehicle.count() %></td>
 						</tr>
+						
 						<tr>
 							<td><label>For Sale</label></td>
-							<td><%= Vehicle.where(:status => "Sale").count%></td>
+							<td><%= Vehicle.where(:status => "Sale").count%>
+								<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#sale_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important; ">
+								<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
+								</button>
+							</td>
 						</tr>
 						<tr>
 							<td><label>Pending</label></td>
-							<td><%= Vehicle.where(:status => "Pending").count%></td>
+							<td><%= Vehicle.where(:status => "Pending").count%>
+								<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#pending_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important; ">
+								<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
+								</button>
+							</td>
 						</tr>
 						<tr>
 							<td><label>Sold</label></td>
-							<td><%= Vehicle.where(:status => "Sold").count%></td>
+							<td><%= Vehicle.where(:status => "Sold").count%>
+								<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#sold_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important; ">
+								<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
+								</button>
+							</td>
 						</tr>
 						<tr>
 							<td><label>Last Added on</label></td>
@@ -61,8 +77,10 @@
 						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin; overflow-y:scroll;">
 							<table class="table" style="padding:0; margin:0;">
 								<tr>
-									<% Vehicle.all.order(:countclicks => "DESC").each do |vehicle| %>
-									<% if ((vehicle.countclicks.is_a? Integer) && (vehicle.status == "Sale")) %>
+									<% @popular.each do |vehicle| %>
+									<% if (!vehicle.countclicks.is_a? Integer) %>
+									<% next %>
+									<% else %>
 									<td style="padding:0.2vmin;">
 										<div class="panel panel-default veh_thumb" style="padding:0; margin:0;">
 											<div class="panel-heading" style="padding:0; margin:0;">
