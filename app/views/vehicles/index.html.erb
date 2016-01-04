@@ -35,13 +35,9 @@
 <%= render 'vehicles/layouts/footer' %>
 <script>
     $( window ).resize(function() {
-        var internalSize = ($('body').height() - $('.nav-wrapper').height() - $('.footer-vehicles').height());
-        if( ( $('body').width() ) >= 600 ){ $('.vehicle_panel').height(internalSize - 30); }
-        else{ $('.vehicle_panel').height(internalSize - 34); }
+       resizeVehiclePane()
     });
         $( window ).ready(function() {
-        var internalSize = ($('body').height() - $('.nav-wrapper').height() - $('.footer-vehicles').height());
-        if( ( $('body').width() ) >= 600 ){ $('.vehicle_panel').height(internalSize - 30); }
-        else{ $('.vehicle_panel').height(internalSize - 34); }
+        resizeVehiclePane()
     });
 </script>
