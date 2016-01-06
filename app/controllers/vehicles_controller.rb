@@ -9,7 +9,6 @@ class VehiclesController < ApplicationController
   end
 
   def show
-
     @vehicleCurr = Vehicle.find(params[:id])
     count=@vehicleCurr.countclicks
     if(!admin_signed_in?)
