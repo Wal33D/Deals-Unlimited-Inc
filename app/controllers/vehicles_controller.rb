@@ -1,7 +1,8 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   def index     
-      @all_vehicles = Vehicle.all
+      @all_vehicles = Vehicle.all.where.not(:status => "Sold")
+
       @q = Vehicle.ransack(params[:q])
       @vehicle= @q.result()
       @vehicles=@vehicle.order(:price).page params[:page]
@@ -26,6 +27,7 @@ class VehiclesController < ApplicationController
 
   def edit
   end
+
 def vin
 end
 
