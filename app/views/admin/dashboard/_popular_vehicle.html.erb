@@ -5,7 +5,7 @@
 			<div class="panel-heading" style="padding:0; margin:0;">
 				<label style="font-size:1.6vmin;">
 					<%= vehicle.year%>
-					<%= vehicle.model%>
+					<%= vehicle.model.truncate(12)%>
 				</label>
 			</div>
 			<div class="panel-body" style="padding:0; margin:0;">
@@ -30,7 +30,7 @@
 			<div class="panel-heading" style="padding:0; margin:0;">
 				<label style="font-size:1.6vmin;">
 					<%= vehicle.year%>
-					<%= vehicle.model%>
+					<%= vehicle.model.truncate(12)%>
 				</label>
 			</div>
 			<div class="panel-body" style="padding:0; margin:0;">
