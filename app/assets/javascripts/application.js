@@ -44,6 +44,11 @@ jQuery(document).ready(function($) {
 
 });
 
+function modal_toggle_btn(){
+$('#most_viewed_modal').modal('toggle');
+$('#closebtn').hide();
+}
+
 ///////////////////Resize Vehicle Panel///////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function resizeVehiclePane(){
