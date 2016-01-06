@@ -1,0 +1,49 @@
+<tr>
+	<% @popular_first.each do |vehicle| %>
+	<td style="padding:0.2vmin;">
+		<div class="panel panel-default veh_thumb" style="padding:0; margin:0!important;">
+			<div class="panel-heading" style="padding:0; margin:0;">
+				<label style="font-size:1.6vmin;">
+					<%= vehicle.year%>
+					<%= vehicle.model%>
+				</label>
+			</div>
+			<div class="panel-body" style="padding:0; margin:0;">
+				<% if vehicle.import == 'import' %>
+				<%=  link_to image_tag(vehicle.image_1, :style=>"width:110px!important; height:67.9px!important;"),vehicle %>
+				<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+				<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:110px!important; height:67.9px!important;"),vehicle  %>
+				<% end %>
+			</div>
+			
+			<div class="panel-footer" style="padding:0; margin:0;">
+				<label>Views:   <%= vehicle.countclicks%></label>
+			</div>
+		</div>
+	</td>
+	<% end %>
+</tr>
+<tr>
+	<% @popular_last.each do |vehicle| %>
+	<td style="padding:0.2vmin;">
+		<div class="panel panel-default veh_thumb" style="padding:0; margin:0!important;">
+			<div class="panel-heading" style="padding:0; margin:0;">
+				<label style="font-size:1.6vmin;">
+					<%= vehicle.year%>
+					<%= vehicle.model%>
+				</label>
+			</div>
+			<div class="panel-body" style="padding:0; margin:0;">
+				<% if vehicle.import == 'import' %>
+				<%=  link_to image_tag(vehicle.image_1, :style=>"width:110px!important; height:67.9px!important;"),vehicle %>
+				<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+				<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:110px!important; height:67.9px!important;"),vehicle  %>
+				<% end %>
+			</div>
+			<div class="panel-footer" style="padding:0; margin:0;">
+				<label>Views:   <%= vehicle.countclicks%></label>
+			</div>
+		</div>
+	</td>
+	<% end %>
+</tr>

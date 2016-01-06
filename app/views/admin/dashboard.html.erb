@@ -3,7 +3,9 @@
 <%= render 'layouts/application/flash_messages' %>
 <div class = "alert-info" id="hideMe"style="padding:12px;" >
 	<a href="#" class="close" onclick="$('.alert-info').hide();" aria-label="close">&times;</a>
-	<div id="embed-api-auth-container"><p>Click the Orange Button to Authorize our Analytics<br> Bill: Login with the email DealsUnlimitedIncAds@gmail.com, the passwords the same as your DealsUnlimitedInc@gmail.com account</p></div>
+	<div id="embed-api-auth-container"><p>Click the Orange Button to Authorize our Analytics<br> Bill: Log in to google with the email DealsUnlimitedIncAds@gmail.com, the passwords the same as your DealsUnlimitedInc@gmail.com account</p>
+	<p> You should only need to authorize one time, after that a session key will be stored permenantly in your cookies</div>
+	<p> If you don't see the orange authorization button, go to www.google.com/ and sign out of your account and sign into DealsUnlimitedIncAds@gmail.com, you should be able to authorize using the orange button after this. If your succesful this message will NOT appear.</p>
 </div>
 <div class="container" style="margin-top:1vmin!important; ">
 	<div class="panel panel-default z-depth-4">
@@ -28,12 +30,12 @@
 						</thead>
 						<tr>
 							<td><label>Total Count</label></td>
-							<td><%= Vehicle.count() %></td>
+							<td><%= @vehicles_all_count%></td>
 						</tr>
 						
 						<tr>
 							<td><label>For Sale</label></td>
-							<td><%= Vehicle.where(:status => "Sale").count%>
+							<td><%= @vehicles_sale_count%>
 								<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#sale_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important; " onclick="$('#closebtn-sale').show()">
 								<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
 								</button>
@@ -41,7 +43,7 @@
 						</tr>
 						<tr>
 							<td><label>Pending</label></td>
-							<td><%= Vehicle.where(:status => "Pending").count%>
+							<td><%= @vehicles_pending_count%>
 								<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#pending_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important;"  onclick="$('#closebtn-pending').show()">
 								<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
 								</button>
@@ -49,7 +51,7 @@
 						</tr>
 						<tr>
 							<td><label>Sold</label></td>
-							<td><%= Vehicle.where(:status => "Sold").count%>
+							<td><%= @vehicles_sold_count%>
 								<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#sold_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important; " onclick="$('#closebtn-sold').show()">
 								<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
 								</button>
@@ -73,57 +75,7 @@
 						</div>
 						<div class="panel-body" style="padding:0 .5vmin 0 .5vmin; overflow-y:scroll;">
 							<table class="table" style="padding:0; margin:0;">
-								<tr>
-									<% @popular_first.each do |vehicle| %>
-									<td style="padding:0.2vmin;">
-										<div class="panel panel-default veh_thumb" style="padding:0; margin:0!important;">
-											<div class="panel-heading" style="padding:0; margin:0;">
-												<label style="font-size:1vmin;">
-													<%= vehicle.year%>
-													<%= vehicle.make%>
-													<%= vehicle.model%>
-												</label>
-											</div>
-											<div class="panel-body" style="padding:0; margin:0;">
-												<% if vehicle.import == 'import' %>
-												<%=  link_to image_tag(vehicle.image_1, :style=>"width:110px!important; height:67.9px!important;"),vehicle %>
-												<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-												<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:110px!important; height:67.9px!important;"),vehicle  %>
-												<% end %>
-											</div>
-											
-											<div class="panel-footer" style="padding:0; margin:0;">
-												<label>Views:   <%= vehicle.countclicks%></label>
-											</div>
-										</div>
-									</td>
-									<% end %>
-								</tr>
-								<tr>
-									<% @popular_last.each do |vehicle| %>
-									<td style="padding:0.2vmin;">
-										<div class="panel panel-default veh_thumb" style="padding:0; margin:0!important;">
-											<div class="panel-heading" style="padding:0; margin:0;">
-												<label style="font-size:1vmin;">
-													<%= vehicle.year%>
-													<%= vehicle.make%>
-													<%= vehicle.model%>
-												</label>
-											</div>
-											<div class="panel-body" style="padding:0; margin:0;">
-												<% if vehicle.import == 'import' %>
-												<%=  link_to image_tag(vehicle.image_1, :style=>"width:110px!important; height:67.9px!important;"),vehicle %>
-												<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-												<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:110px!important; height:67.9px!important;"),vehicle  %>
-												<% end %>
-											</div>
-											<div class="panel-footer" style="padding:0; margin:0;">
-												<label>Views:   <%= vehicle.countclicks%></label>
-											</div>
-										</div>
-									</td>
-									<% end %>
-								</tr>
+								<%= render 'admin/dashboard/popular_vehicle' %>
 							</table>
 						</div>
 					</div>
@@ -240,230 +192,3 @@
 <script type="text/javascript">window.location = "../../login";
 </script>
 <% end %>
-<style>
-::-webkit-scrollbar {
--webkit-appearance: none;
-width: 7px;
-}
-::-webkit-scrollbar-thumb {
-border-radius: 4px;
-background-color: rgba(0, 0, 0, .5);
--webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-}
-.veh_thumb_box{
-	max-width:auto;
-	height:100px;
-	margin-bottom:0;
-}
-.veh_thumb_img{
-	max-width:auto;
-	height:115px;
-}
-.small{
-		max-height:115px;
-}
-.dash_buttons{
-	font-size:1.7vmin!important;
-	width:100%!important;
-	text-transform: none!important;
-	color:white!important;
-	font-weight:normal!important;
-	}
-#logout-btn, nav{
-	display:none;
-}
-h6{
-	white-space: nowrap;
-}
-.view-selector{
-	display:none;
-}
-footer {
-display: none!important;
-}
-#dashboard-row {
-margin-bottom: 0;
-}
-#no-padding {
-margin: 0;
-padding: 0;
-}
-</style>
-<script>
-(function(w, d, s, g, js, fs) {
-g = w.gapi || (w.gapi = {});
-g.analytics = {
-q: [],
-ready: function(f) {
-this.q.push(f);
-}
-};
-js = d.createElement(s);
-fs = d.getElementsByTagName(s)[0];
-js.src = 'https://apis.google.com/js/platform.js';
-fs.parentNode.insertBefore(js, fs);
-js.onload = function() {
-g.load('analytics');
-};
-}(window, document, 'script'));
-gapi.analytics.ready(function() {
-gapi.analytics.auth.authorize({
-container: 'embed-api-auth-container',
-clientid: '563220505800-3laqqiu7ho2jhbotinf0vdb1bhq20dmm.apps.googleusercontent.com'
-});
-var viewSelector = new gapi.analytics.ViewSelector({
-container: 'view-selector-container'
-});
-var viewSelector2 = new gapi.analytics.ViewSelector({
-container: 'view-selector-2-container'
-});
-var viewSelector3 = new gapi.analytics.ViewSelector({
-container: 'view-selector-3-container'
-});
-viewSelector.execute();
-viewSelector2.execute();
-viewSelector3.execute();
-var dataChart = new gapi.analytics.googleCharts.DataChart({
-query: {
-metrics: 'ga:sessions',
-dimensions: 'ga:date',
-'start-date': '30daysAgo',
-'end-date': 'yesterday'
-},
-chart: {
-container: 'chart-container',
-type: 'LINE',
-options: {
-width: '100%'
-}
-}
-});
-var dataChart2 = new gapi.analytics.googleCharts.DataChart({
-query: {
-metrics: 'ga:sessions',
-dimensions: 'ga:city',
-'start-date': '30daysAgo',
-'end-date': 'yesterday',
-'max-results': 8,
-sort: '-ga:sessions'
-},
-chart: {
-container: 'chart-2-container',
-type: 'BAR',
-options: {
-width: '100%',
-}
-}
-});
-var dataChart3 = new gapi.analytics.googleCharts.DataChart({
-query: {
-metrics: 'ga:sessions',
-dimensions: 'ga:city',
-'start-date': '30daysAgo',
-'end-date': 'yesterday',
-'max-results': 8,
-sort: '-ga:sessions'
-},
-chart: {
-container: 'chart-3-container',
-type: 'PIE',
-options: {
-width: '100%',
-pieHole: 4 / 9
-}
-}
-});
-viewSelector.on('change', function(ids) {
-dataChart.set({
-query: {
-ids: ids
-}
-}).execute();
-});
-viewSelector2.on('change', function(ids) {
-dataChart2.set({
-query: {
-ids: ids
-}
-}).execute();
-});
-viewSelector3.on('change', function(ids) {
-dataChart3.set({
-query: {
-ids: ids
-}
-}).execute();
-});
-var viewSelector3 = new gapi.analytics.ViewSelector({
-container: 'view-selector-container-3'
-});
-viewSelector3.execute();
-var mainChart = new gapi.analytics.googleCharts.DataChart({
-query: {
-'dimensions': 'ga:browser',
-'metrics': 'ga:sessions',
-'sort': '-ga:sessions',
-'max-results': '6'
-},
-chart: {
-type: 'TABLE',
-container: 'main-chart-container',
-options: {
-width: '100%'
-}
-}
-});
-var breakdownChart = new gapi.analytics.googleCharts.DataChart({
-query: {
-'dimensions': 'ga:date',
-'metrics': 'ga:sessions',
-'start-date': '7daysAgo',
-'end-date': 'yesterday'
-},
-chart: {
-type: 'LINE',
-container: 'breakdown-chart-container',
-options: {
-width: '100%'
-}
-}
-});
-var mainChartRowClickListener;
-viewSelector3.on('change', function(ids) {
-$('#hideMe').fadeOut();
-var options = {
-query: {
-ids: ids
-}
-};
-if (mainChartRowClickListener) {
-google.visualization.events.removeListener(mainChartRowClickListener);
-}
-mainChart.set(options).execute();
-breakdownChart.set(options);
-if (breakdownChart.get().query.filters) breakdownChart.execute();
-});
-mainChart.on('success', function(response) {
-var chart = response.chart;
-var dataTable = response.dataTable;
-mainChartRowClickListener = google.visualization.events
-.addListener(chart, 'select', function(event) {
-if (!chart.getSelection().length) return;
-var row = chart.getSelection()[0].row;
-var browser = dataTable.getValue(row, 0);
-var options = {
-query: {
-filters: 'ga:browser==' + browser
-},
-chart: {
-options: {
-title: browser
-}
-}
-};
-breakdownChart.set(options).execute();
-$('#breakdown-chart-container').slideDown();
-});
-});
-});
-</script>

@@ -640,7 +640,30 @@ label:focus {
 -o-transform: rotate(90deg);
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
+.dash_buttons{
+    font-size:1.7vmin!important;
+    width:100%!important;
+    text-transform: none!important;
+    color:white!important;
+    font-weight:normal!important;
+    }
+#dashboard-row {
+margin-bottom: 0;
+}
+#no-padding {
+margin: 0;
+padding: 0;
+}
 
+.veh_thumb_box{
+    max-width:auto;
+    height:100px;
+    margin-bottom:0;
+}
+.veh_thumb_img{
+    max-width:auto;
+    height:115px;
+}
 .pagination{
 width:auto!important;
 }

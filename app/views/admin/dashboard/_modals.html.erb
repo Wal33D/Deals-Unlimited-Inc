@@ -1,28 +1,16 @@
-<button class="close btn" id="closebtn-most" style="z-index:100000!important; display:none; position:absolute!important; top:0!important; right:0!important; background-color: white!important; opacity:1!important; color:black!important; border:1px solid #ddd; width:50px!important; margin-bottom:5px;" onclick="modal_toggle_btn();">×</button>
-<button class="close btn" id="closebtn-sale" style="z-index:100000!important; display:none; position:absolute!important; top:0!important; right:0!important; background-color: white!important; opacity:1!important; color:black!important; border:1px solid #ddd; width:50px!important; margin-bottom:5px;" onclick="sale_toggle_btn();">×</button>
-<button class="close btn" id="closebtn-pending" style="z-index:100000!important; display:none; position:absolute!important; top:0!important; right:0!important; background-color: white!important; opacity:1!important; color:black!important; border:1px solid #ddd; width:50px!important; margin-bottom:5px;" onclick="pending_toggle_btn();">×</button>
-<button class="close btn" id="closebtn-sold" style="z-index:100000!important; display:none; position:absolute!important; top:0!important; right:0!important; background-color: white!important; opacity:1!important; color:black!important; border:1px solid #ddd; width:50px!important; margin-bottom:5px;" onclick="sold_toggle_btn();">×</button>
-
 <%= render 'admin/dashboard/most_viewed' %>
 <%= render 'admin/dashboard/sale' %>
 <%= render 'admin/dashboard/sold' %>
 <%= render 'admin/dashboard/pending' %>
-
-<script>
-function modal_toggle_btn(){
-$('#most_viewed_modal').modal('toggle');
-$('.close').hide();
+<style>
+#logout-btn, nav, footer, .view-selector{display:none;}
+::-webkit-scrollbar {
+-webkit-appearance: none;
+width: 7px;
 }
-function sale_toggle_btn(){
-$('#sale_modal').modal('toggle');
-$('.close').hide();
+::-webkit-scrollbar-thumb {
+border-radius: 4px;
+background-color: rgba(0, 0, 0, .5);
+-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
-function pending_toggle_btn(){
-$('#pending_modal').modal('toggle');
-$('.close').hide();
-}
-function sold_toggle_btn(){
-$('#sold_modal').modal('toggle');
-$('.close').hide();
-}
-</script>
+</style>

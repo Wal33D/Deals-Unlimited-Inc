@@ -1,157 +1,111 @@
-<div class="modal fade" id="sale_modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-width:95%!important; max-height:95%!important; width:95%!important; height:95%!important;">
-	<div class="modal-dialog" role="document" style="width:auto; max-width:80%;" >
-		<div class="modal-content"  style="width:100%!important; height:100%!important; padding:0;">
-			<div class="modal-body" style="width:100%!important; height:100%!important; padding:0;" >
-				<div class="panel panel-default"  style="width:100%!important; height:100%!important;">
+<div class="modal fade" id="sale_modal"  tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-height:95%!important;  height:95%!important; width:100%!important; max-width:100%!important;">
+	<div class="modal-dialog" role="document" style="width:auto!important; width:95%!important; max-width:100%!important;">
+		<div class="modal-content"  style="height:100%!important; padding:0; ">
+			<div class="modal-body" style="height:100%!important; padding:0;" >
+				<div class="panel panel-default" style="height:100%!important;">
 					<div class="panel-heading green accent-1">
-						<h5 style="float:right; color:white;">For Sale</h5>
-						<div class="panel-title"><h5 style="color:white;">Vehicles</h5></div>
+						<h5 style="float:right;">For Sale</h5>
+						<div class="panel-title"><h5>Vehicles</h5></div>
 					</div>
 					<div class="panel-body">
-						<% Vehicle.all.where(:status=>"Sale").each do |vehicle| %>
-						<div class="panel panel-default vehicle_each" >
-							<div class="panel-heading" >
-								<div class="admin_btn" style="float:right!important">
-									<%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
-									<%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-1 btn waves-effect waves-red"%>
-								</div>
-								<div class="panel-title">
-									<h5 id="vehicle_title" >
-									<%= link_to  vehicle.title, vehicle %>
-									</h5>
-								</div>
-							</div>
-							<div class="panel-body" id="vehicle_body" >
-								<section>
-									<div class="row" style="margin-bottom:0; height:inherit;">
-										<!-- TITLE AND CARFAX     -->
-										<div class="col-xs-5" id="veh_col_1" style="padding-left:0; height:100%;!important; padding:auto; background-color:#f2f2f2;">
-											
-											<% if vehicle.import == 'import' %>
-											<div class=" thumbnail text-center" style="padding-top:3.5vmin; padding-bottom:3.5vmin; background-color:#f2f2f2;">
-												<%=  link_to image_tag(vehicle.image_1, :id=>"veh_thumb"),vehicle %>
-												<div class="caption">
-													<% if vehicle.status.present? %>
-													<% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
-													<h4 class="pending-banner"> Sale Pending </h4>
-													<% end %>
-													<% end %>
-												</div>
-											</div>
-											<% end %>
-											<% if vehicle.import == nil%>
-											<% if vehicle.vehicle_images.present? %>
-											<div class="thumbnail text-center" style="padding-top:.5vmin; padding-bottom:.5vmin; background-color:#f2f2f2;">
-												<%=  link_to image_tag(vehicle.vehicle_images[0].url, :id=>"veh_thumb"),vehicle  %>
-												<div class="caption">
-													<% if vehicle.status.present? %>
-													<% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
-													<h4 class="pending-banner"> Sale Pending </h4>
-													<% end %>
-													<% end %>
-												</div>
-											</div>
-											<% end %>
-											<% end %>
-										</div>
-										
-										<div class="col-xs-7" id="veh_col_2">
-											
-											<!-- TITLE AND CARFAX END  -->
-											<table class="table table-striped" id="vehicle_window_table">
-												<tr >
-													<td colspan="3" id="price_tag_td" style="color:#428bca; padding:0!important;">
-														<h4 class="price_tag" style="font-size:6.5vmin" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h4>
-													</td>
-													<td colspan="1" style="background:none!important;">
-														<a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>" class="carfax" style="max-width:100%;height:auto;">
-															<%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1451560989/small_evnhrs.jpg',:style=>"max-width:100%" %>
-														</a>
-													</td>
-												</tr>
-												
-												<tr>
-													<td>
-														<label>Drive Type:</label>
-													</td>
-													<td>
-														<%= vehicle.drive_type %>
-													</td>
-													<td >
-														<label >Exterior Color</label>
-													</td>
-													<td>
-														<%= vehicle.exterior_color %>
-													</td>
-												</tr>
-												
-												<tr>
-													<td>
-														<label>Engine</label>
-													</td>
-													<td>
-														<%= vehicle.engine %>
-													</td>
-													<td>
-														<label >Interior Color</label>
-													</td>
-													<td>
-														<%= vehicle.interior_color %>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<label>Fuel Type</label>
-													</td>
-													<td>
-														<%= vehicle.fuel_type %>
-													</td>
-													
-													<td>
-														<label >Body Style</label>
-													</td>
-													<td>
-														<%= vehicle.body_style %>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<label>Mileage</label>
-													</td>
-													<td>
-														<%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %>
-													</td>
-													<% if ((vehicle.import !='import') && (vehicle.mpg != "undefined")) %>
-													<td>
-														<label>MPG</label>
-													</td>
-													<td>
-														<%= vehicle.mpg %>
-													</td>
-													<% else %>
-													<td>
-														<label>Stereo</label>
-													</td>
-													<td>
-														<%= vehicle.stereo %>
-													</td>
-													<% end %>
-												</tr>
-												
-											</table>
-										</div>
-									</div>
-								</section>
-							</div>
-							<!-- Vehicle Body END-->
-							<!--                  -->
-						</div>
-						<!-- Vehicle Panel END-->
-						<!--                   -->
-						<% end %>
+						<table class="table table-bordered table-hover">
+							<% @vehicles_sale.each do |vehicle| %>
+							<tr>
+								<td>
+									<% if vehicle.import == 'import' %>
+									<%=  link_to image_tag(vehicle.image_1, :style=>"width:132px!important; height86px!important;"),vehicle %>
+									<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+									<%=  link_to image_tag(vehicle.vehicle_images[0].url,  :style=>"width:132px!important; height:86px!important;"),vehicle  %>
+									<% end %>
+								</td>
+								<td>
+									<table style="margin:0;padding:0;">
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<%= vehicle.year%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<%= vehicle.make%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0;">
+												<%= vehicle.model%>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table style="margin:0;padding:0;">
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<label  style="font-size:1.5vmin; ">Price</label>
+											</td>
+											<td style="font-size:1.5vmin;  margin:0;padding:0;"> $<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<label  style="font-size:1.5vmin; ">Exterior</label>
+											</td>
+											<td style="font-size:1.5vmin;  margin:0;padding:0;">
+												<%= vehicle.exterior_color%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0;">
+												<label style="font-size:1.5vmin; ">Interior</label>
+											</td>
+											<td  style=" font-size:1.5vmin;  margin:0;padding:0;">
+												<%= vehicle.interior_color%>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									
+									<table style="margin:0;padding:0;">
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<label  style="font-size:1.5vmin; ">Mileage</label>
+											</td>
+											<td style="font-size:1.5vmin;  margin:0;padding:0;">
+												<%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<label  style="font-size:1.5vmin; ">Stock #</label>
+											</td>
+											<td style="font-size:1.75vmin;  margin:0;padding:0;">
+												<%= vehicle.stock_number%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0;">
+												<label style="font-size:1.5vmin; ">Vin #</label>
+											</td>
+											<td  style=" font-size:1.75vmin;  margin:0;padding:0;">
+												<%= vehicle.vin_num%>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="margin:0!important; padding:0!important; height:100%!important;">
+									
+									<%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"box-shadow:none!important; background-color:white!important; color:black; width:100%!important; height:49%!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-teal"%>
+									
+									
+									<%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red", :style=>"width:100%!important; height:49%!important; color:black; box-shadow:none!important; background-color:white!important;"%>
+									
+								</td>
+							</tr>
+							<% end %>
+						</table>
 					</div>
 				</div>
 			</div>
-			</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
+		</div>
+	</div>
+</div>
