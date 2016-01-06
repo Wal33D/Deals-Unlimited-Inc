@@ -1,75 +1,79 @@
-<div class="modal fade" id="most_viewed_modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-width:95%!important; max-height:95%!important; width:95%!important; height:95%!important;">
-	<div class="modal-dialog" role="document" style="width:auto; max-width:80%;" >
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="gridSystemModalLabel">Most Viewed</h4>
-			</div>
-			<div class="modal-body" >
-				<table class="table table-bordered  table-hover" >
-					<% @popular.each do |vehicle| %>
-					<% if (!vehicle.countclicks.is_a? Integer) %>
-					<% next %>
-					<% else %>
-					<tr>
-						<td>
-							<% if vehicle.import == 'import' %>
-							<%=  link_to image_tag(vehicle.image_1, :style=>"width:auto; max-height:150px;"),vehicle %>
-							<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-							<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:auto; max-height:150px;"),vehicle  %>
+<div class="modal fade" id="most_viewed_modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-height:95%!important;  height:95%!important;">
+	<button class="close btn" style="background-color: white!important; color:black!important; width:70px!important; margin-bottom:5px;"data-dismiss="modal">×</button>
+	<div class="modal-dialog" role="document" style="width:auto!important;">
+		<div class="modal-content"  style="height:100%!important; padding:0;">
+			<div class="modal-body" style="height:100%!important; padding:0;" >
+				<div class="panel panel-default" style="height:100%!important;">
+					<div class="panel-heading">
+						<div class="panel-title"><h5>Most Viewed</h5></div>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered table-hover">
+							<% @popular.each do |vehicle| %>
+							<% if (!vehicle.countclicks.is_a? Integer) %>
+							<% next %>
+							<% else %>
+							<tr>
+								<td>
+									<% if vehicle.import == 'import' %>
+									<%=  link_to image_tag(vehicle.image_1, :style=>"width:150px!important; height:92px!important;"),vehicle %>
+									<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
+									<%=  link_to image_tag(vehicle.vehicle_images[0].url,  :style=>"width:150px!important; height:92px!important;"),vehicle  %>
+									<% end %>
+								</td>
+								<td>
+									<table style="margin:0;padding:0;">
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<%= vehicle.year%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<%= vehicle.make%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0;">
+												<%= vehicle.model%>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table style="margin:0;padding:0;">
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">Stock #
+											</td>
+											<td style="margin:0;padding:0;">
+												<%= vehicle.stock_number%>
+											</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0;">
+												Vin #
+											</td>
+											<td  style="margin:0;padding:0;">
+												<%= vehicle.vin_num%>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table style="margin:0;padding:0;">
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">Clicks</td>
+											<td style="margin:0;padding:0;"><%= vehicle.countclicks%></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
 							<% end %>
-						</td>
-						<td>
-							<table style="margin:0;padding:0;">
-								<tr style="margin:0;padding:0;">
-									<td >
-										<%= vehicle.year%>
-									</td>
-								</tr>
-								<tr style="margin:0;padding:0;">
-									<td>
-										<%= vehicle.make%>
-									</td>
-								</tr>
-								<tr style="margin:0;padding:0;">
-									<td >
-										<%= vehicle.model%>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table style="margin:0;padding:0;">
-								<tr style="margin:0;padding:0;">
-									<td>Stock #
-									</td>
-									<td>
-										<%= vehicle.stock_number%>
-									</td>
-								</tr>
-								<tr style="margin:0;padding:0;">
-									<td >
-										Vin #
-									</td>
-									<td >
-										<%= vehicle.vin_num%>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table style="margin:0;padding:0;">
-								<tr style="margin:0;padding:0;">
-									<td>Clicks</td>
-									<td><%= vehicle.countclicks%></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-					<% end %>
-					<% end %>
-				</table>
+							<% end %>
+						</table>
+					</div>
+				</div>
 			</div>
-			</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
+		</div>
+	</div>
+</div>
