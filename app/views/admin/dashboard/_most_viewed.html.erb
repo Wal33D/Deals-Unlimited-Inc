@@ -1,5 +1,5 @@
-<div class="modal fade" id="most_viewed_modal"  tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-height:95%!important;  height:95%!important; width:100%!important; max-width:100%!important;">
-	<div class="modal-dialog" role="document" style="width:auto!important; width:80%!important; max-width:80%!important;">
+<div class="modal fade" id="most_viewed_modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" style="background:none!important; border:none!important; box-shadow:none!important; max-height:95%!important;  height:95%!important; width:100%!important; max-width:100%!important;">
+	<div class="modal-dialog" role="document" style="width:auto!important; width:95%!important; max-width:100%!important;">
 		<div class="modal-content"  style="height:100%!important; padding:0; ">
 			<div class="modal-body" style="height:100%!important; padding:0;" >
 				<div class="panel panel-default" style="height:100%!important;">
@@ -12,25 +12,25 @@
 							<tr>
 								<td>
 									<% if vehicle.import == 'import' %>
-									<%=  link_to image_tag(vehicle.image_1, :style=>"width:150px!important; height:92px!important;"),vehicle %>
+									<%=  link_to image_tag(vehicle.image_1, :style=>"width:132px!important; height86px!important;"),vehicle %>
 									<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-									<%=  link_to image_tag(vehicle.vehicle_images[0].url,  :style=>"width:150px!important; height:92px!important;"),vehicle  %>
+									<%=  link_to image_tag(vehicle.vehicle_images[0].url,  :style=>"width:132px!important; height:86px!important;"),vehicle  %>
 									<% end %>
 								</td>
 								<td>
 									<table style="margin:0;padding:0;">
 										<tr style="margin:0;padding:0;">
-											<td style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0; font-size:1.75vmin;">
 												<%= vehicle.year%>
 											</td>
 										</tr>
 										<tr style="margin:0;padding:0;">
-											<td style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0; font-size:1.75vmin;">
 												<%= vehicle.make%>
 											</td>
 										</tr>
 										<tr style="margin:0;padding:0;">
-											<td  style="margin:0;padding:0;">
+											<td  style="margin:0;padding:0; font-size:1.75vmin;">
 												<%= vehicle.model%>
 											</td>
 										</tr>
@@ -39,29 +39,48 @@
 								<td>
 									<table style="margin:0;padding:0;">
 										<tr style="margin:0;padding:0;">
-											<td style="margin:0;padding:0;">Stock #
-											</td>
 											<td style="margin:0;padding:0;">
-												<%= vehicle.stock_number%>
+												<label  style="font-size:1.75vmin; ">Price</label>
+											</td>
+											<td style="font-size:1.75vmin;  margin:0;padding:0;"> $<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</td>
+										</tr>
+										<tr style="margin:0;padding:0;">
+											<td style="margin:0;padding:0;">
+												<label  style="font-size:1.75vmin; ">Exterior</label>
+											</td>
+											<td style="font-size:1.75vmin;  margin:0;padding:0;">
+												<%= vehicle.exterior_color%>
 											</td>
 										</tr>
 										<tr style="margin:0;padding:0;">
 											<td  style="margin:0;padding:0;">
-												Vin #
+												<label style="font-size:1.75vmin; ">Vin #</label>
 											</td>
-											<td  style="margin:0;padding:0;">
+											<td  style=" font-size:1.75vmin;  margin:0;padding:0;">
 												<%= vehicle.vin_num%>
 											</td>
 										</tr>
 									</table>
 								</td>
+								
+								
 								<td>
 									<table style="margin:0;padding:0;">
 										<tr style="margin:0;padding:0;">
-											<td style="margin:0;padding:0;">Clicks</td>
-											<td style="margin:0;padding:0;"><%= vehicle.countclicks%></td>
+											<td style="margin:0;padding:0; font-size:2.6vmin;  text-align:center;">Clicks</td>
+										</tr>
+										<tr>
+											<td style="margin:0;padding:0; font-size:2.6vmin; text-align:center;"><%= vehicle.countclicks%></td>
 										</tr>
 									</table>
+								</td>
+								<td style="margin:0!important; padding:0!important; height:100%!important;">
+									
+									<%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"box-shadow:none!important; background-color:white!important; color:black; width:100%!important; height:49%!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-teal"%>
+									
+									
+									<%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red", :style=>"width:100%!important; height:49%!important; color:black; box-shadow:none!important; background-color:white!important;"%>
+									
 								</td>
 							</tr>
 							<% end %>
