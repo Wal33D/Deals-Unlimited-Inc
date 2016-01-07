@@ -19,8 +19,8 @@
 			</div>
 			<div class="panel-body">
 				<div class="row" id="dashboard-row" >
-					<%= render 'admin/dashboard/count' %>
-					<%= render 'admin/dashboard/popular_vehicle' %>
+					<div id="count_tile"><%= render 'admin/dashboard/count' %></div>
+					<div id="most_viewed_tile"><%= render 'admin/dashboard/popular_vehicle' %></div>
 					<%= render 'admin/dashboard/options' %>
 				</div>
 				<%= render 'admin/dashboard/analytics' %>

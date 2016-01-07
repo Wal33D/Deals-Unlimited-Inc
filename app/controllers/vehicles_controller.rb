@@ -56,14 +56,17 @@ end
     end
   end
 
-  def destroy
+
+
+ def destroy
     @vehicle.destroy
-    respond_to do |format|
-      format.html { redirect_to vehicles_url, notice: 'Vehicle was successfully destroyed.' }
+      respond_to do |format|
+      format.html { redirect_to vehicles_url }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
-
+  
   private
     def set_vehicle
       @vehicle = Vehicle.find(params[:id])

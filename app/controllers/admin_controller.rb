@@ -4,6 +4,8 @@ def dashboard
  	collections
 	most_viewed
 	counters
+
+
 end
 
 def counters
@@ -31,6 +33,10 @@ def most_viewed
 	@popular = objArray;
 	@popular_first = objArray.first(10).each_slice(5).to_a.first
  	@popular_last=  objArray.first(10).each_slice(5).to_a.last
+ 	if(!@popular_first)
+		@popular_first = Vehicle.all.order(:countclicks => "DESC").where(:status => "Sale")
+		@popular_last = Vehicle.all.order(:countclicks => "DESC").where(:status => "Sale")
+end
 end
 
 end

@@ -6,7 +6,7 @@
 					<div class="panel-heading green accent-2">
 						<h5 style="float:right; color:white;">For Sale</h5>
 						<div class="panel-title ">
-							<h5 style="color:white;">Vehicles</h5></div>
+						<h5 style="color:white;">Vehicles</h5></div>
 					</div>
 					<div class="panel-body">
 						<table class="table table-bordered table-hover">
@@ -96,10 +96,7 @@
 								<td style="margin:0!important; padding:0!important; height:100%!important;">
 									
 									<%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"box-shadow:none!important; background-color:white!important; color:black; width:100%!important; height:49%!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-teal"%>
-									
-									
-									<%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red", :style=>"width:100%!important; height:49%!important; color:black; box-shadow:none!important; background-color:white!important;"%>
-									
+									<%= link_to 'Destroy', vehicle, method: :delete, :remote => true, :class => 'delete_vehicle  btn red btn-default z-depth-3 btn waves-effect waves-red', :style=>"width:100%!important; height:49%!important; color:black; box-shadow:none!important; background-color:white!important;"%>
 								</td>
 							</tr>
 							<% end %>
