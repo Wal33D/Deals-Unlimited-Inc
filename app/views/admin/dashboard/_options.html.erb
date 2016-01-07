@@ -1,0 +1,41 @@
+<div class="col-xs-3">
+	<table class="table table-striped table-hover table-bordered z-depth-1">
+		<thead>
+			<tr>
+				<td colspan="2">
+					<h6 style="text-align:center;"><label style="font-size:2vmin;">Options</label></h6>
+				</td>
+			</tr>
+		</thead>
+		<tr>
+			<td  onclick="window.location = '../../vehicles'" class="btn white waves-effect btn-default" style="width:49%!important; color:black; margin-top:.5vmin!important; margin-bottom:.3vmin!important; float:left text-align:center; text-transform:none;">
+				Vehicles
+			</td>
+			<td onclick="window.location = '../../vehicles/new'" class="btn white waves-effect waves-green btn-default" style="width:49%!important;  margin-top:.5vmin!important; margin-bottom:.3vmin!important; color:black; float:right; text-align:center; text-transform:none;">
+				+
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="1"  class="btn white waves-effect btn-default" data-toggle="modal" data-target="#myModal" rel="nofollow" style="width:100%!important; margin-bottom:.5vmin!important; color:black;  text-transform:none;">
+				Menu
+			</td>
+		</tr>
+		<tr>
+			<td colspan="1"  class="btn white waves-effect btn-default" data-toggle="modal" data-target="#myModal" disabled="true"rel="nofollow" style="width:100%!important; margin-bottom:.5vmin!important; color:black;  text-transform:none;">
+				Credit Applications
+			</td>
+		</tr>
+		<tr>
+			<td colspan="1"  class="btn white waves-effect btn-default" data-toggle="modal" data-target="#contacts_modal" rel="nofollow" style="width:100%!important; margin-bottom:.5vmin!important; color:black;  text-transform:none;">
+				Customer Messages
+			</td>
+		</tr>
+		<tr>
+			<a class="" style="display:none;" id="logout_handle" rel="nofollow" data-method="delete" href="/admins/sign_out">Logout</a>
+			<td colspan="1" onclick="$('#logout_handle').click()" rel="nofollow" class="btn white waves-effect btn-default" style="width:100%!important; color:black; text-transform:none;  ">
+				Logout
+			</td>
+		</tr>
+	</table>
+</div>

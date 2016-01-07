@@ -1,0 +1,95 @@
+<% if admin_signed_in? %>
+<div class="container" >
+  <div class="row" id="directions">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default z-depth-4" id = "panel-directions">
+        <div class="panel-heading panel-directions mobile-panel">
+          <h4 style=" margin:0!important;"id = "title-directions"> Message From: <%= @contact_store.name %>
+          </h4>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr>
+              <td>
+                <strong>Name:</strong>
+              </td>
+              <td>
+                <%= @contact_store.name %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Email:</strong>
+              </td>
+              <td>
+                <%= @contact_store.email %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Tel:</strong>
+              </td>
+              <td>
+                <%= @contact_store.tel %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Message:</strong>
+              </td>
+              <td>
+                <%= @contact_store.message %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Date time:</strong>
+              </td>
+              <td>
+                <%= @contact_store.created_at %>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class = "panel-footer panel-black">
+          <button onclick="window.history.back();"style=" color:white; width:100%!important; font-weight:bold!important; " class="btn orange waves-effect waves-white">Back</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+<% else %>
+<script type="text/javascript">window.location = "../../login";
+</script>
+<% end %>
+<style>
+#title-directions{
+color:white;
+}
+#directions-btn{
+width:100%!important;
+font-size:2vmin!important;
+}
+.google-maps iframe {
+position: absolute;
+left: 0;
+width: 100% !important;
+height: 100% !important;
+}
+.footer-distributed{
+bottom:0!important;
+position:fixed;
+}
+@media (max-width: 500px) {
+#panel-directions{margin-bottom:0!important;}
+#title-directions{margin:0;}
+#directions-btn{
+font-size:4vmin!important;
+}
+#directions{margin-top: 3vmin !important;}
+}
+</style>

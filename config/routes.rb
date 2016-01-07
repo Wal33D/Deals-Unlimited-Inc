@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :contact_stores
   devise_for :admins
   resources :testimonials
   resources :vehicles 

@@ -1,0 +1,80 @@
+<% if admin_signed_in? %>
+<div class="container" >
+  <div class="row" id="directions">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default z-depth-4" id = "panel-directions">
+        <div class="panel-heading panel-directions mobile-panel">
+          <h5 style="float:right; color:white;"><%= ContactStore.all.count %> Messages </h5>
+          <div class="panel-title" >
+            <h5 style="color:white;">Contact Us</h5>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Tel</th>
+                <th>Message</th>
+                <th>Date time</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @contact_stores.each do |contact_store| %>
+              <tr>
+                <td><%= contact_store.name %></td>
+                <td><%= contact_store.email %></td>
+                <td><%= contact_store.tel %></td>
+                <td><%= contact_store.message %></td>
+                <td><%= contact_store.date_time %></td>
+                <td><%= link_to 'Show', contact_store %></td>
+                <td><%= link_to 'Destroy', contact_store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class = "panel-footer panel-black">
+          <button onclick="window.history.back();"style=" color:white; width:100%!important; font-weight:bold!important; " class="btn orange waves-effect waves-white">Back</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+<% else %>
+<script type="text/javascript">window.location = "../../login";
+</script>
+<% end %>
+<style>
+#title-directions{
+color:white;
+}
+#directions-btn{
+width:100%!important;
+font-size:2vmin!important;
+}
+.google-maps iframe {
+position: absolute;
+left: 0;
+width: 100% !important;
+height: 100% !important;
+}
+.footer-distributed{
+bottom:0!important;
+position:fixed;
+}
+@media (max-width: 500px) {
+#panel-directions{margin-bottom:0!important;}
+#title-directions{margin:0;}
+#directions-btn{
+font-size:4vmin!important;
+}
+#directions{margin-top: 3vmin !important;}
+}
+</style>

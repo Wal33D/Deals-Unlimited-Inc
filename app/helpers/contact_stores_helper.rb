@@ -1,0 +1,2 @@
+module ContactStoresHelper
+end
