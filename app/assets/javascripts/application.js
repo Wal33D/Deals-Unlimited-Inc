@@ -56,6 +56,15 @@ function resizeVehiclePane(){
         }
 
 }
+
+    function PU(object){
+        document.getElementById('submit_status_' + object.id.replace("up","")).click();
+    }
+    function VSU(object){
+        document.getElementById('status_form_'+ object.id).value=object.innerHTML;
+        document.getElementById('submit_status_' + object.id).click();
+        $('#tr_' + object.id).fadeOut();
+    }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function setstatus(status){

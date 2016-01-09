@@ -4,8 +4,15 @@ def dashboard
  	collections
 	most_viewed
 	counters
+	
+end
 
-
+def url_checker
+if request.original_url.include? "dash"
+	   flash[:notice] = request.original_url
+	else
+		flash[:notice]="You are not in the Dashboard"
+	end
 end
 
 def counters

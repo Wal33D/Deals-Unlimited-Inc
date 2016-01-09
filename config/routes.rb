@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'pages/policy'
   get 'lookup/vin'
 
+  get '/admin/dashboard/set_sold/:id', to: 'admin#set_sold'
+
   match '/contact',              to: 'contacts#new',         via: 'get'
   match '/policy',               to: 'pages#policy',         via: 'get'
   match '/credit-application',   to: 'credits#new',          via: 'get'

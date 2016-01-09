@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:show,:set_sold, :edit, :update, :destroy]
+
   def index     
       @all_vehicles = Vehicle.all.where.not(:status => "Sold")
       @q = Vehicle.all.where.not(:status => "Sold").ransack(params[:q])
@@ -30,6 +31,33 @@ class VehiclesController < ApplicationController
 def vin
 end
 
+def set_sold
+
+    @vehicle.update_attributes(:status => "Sold")
+     respond_to do |format|
+      format.js 
+    end
+end
+def set_pending
+    @vehicle = Vehicle.all.find(params[:id])
+
+    @vehicle.update_attributes(:status => "Pending")
+     respond_to do |format|
+      format.html { redirect_to '/admin/dashboard' }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+end
+def set_sale
+    @vehicle = Vehicle.all.find(params[:id])
+
+    @vehicle.update_attributes(:status => "Sale")
+     respond_to do |format|
+      format.html { redirect_to '/admin/dashboard' }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+end
   def create
     @vehicle = Vehicle.new(vehicle_params)
 
@@ -57,7 +85,6 @@ end
   end
 
 
-
  def destroy
     @vehicle.destroy
       respond_to do |format|
@@ -66,7 +93,7 @@ end
       format.js   { render :layout => false }
     end
   end
-  
+
   private
     def set_vehicle
       @vehicle = Vehicle.find(params[:id])
