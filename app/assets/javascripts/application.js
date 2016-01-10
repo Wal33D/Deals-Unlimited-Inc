@@ -198,7 +198,7 @@ function v2(option, res) {
             filler(res.years[0].year, "vehicle_year");
         } catch (err) {}
         try {
-            filler(cFL(res.engine.type), "vehicle_fuel_type");
+           // filler(cFL(res.engine.type), "vehicle_fuel_type");
         } catch (err) {}
         try {
             filler(res.categories.vehicleStyle, "vehicle_body_style");
