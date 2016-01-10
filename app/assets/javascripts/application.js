@@ -198,7 +198,7 @@ function v2(option, res) {
             filler(res.years[0].year, "vehicle_year");
         } catch (err) {}
         try {
-           // filler(cFL(res.engine.type), "vehicle_fuel_type");
+            filler(cFL(res.engine.type), "vehicle_fuel_type");
         } catch (err) {}
         try {
             filler(res.categories.vehicleStyle, "vehicle_body_style");
@@ -277,7 +277,7 @@ function v1(option, res) {
             filler("V" + base.engineCylinder + " " + base.engineSize + "Liter", 'vehicle_engine');
         } catch (err) {}
         try {
-            filler(cFL(base.engineType), 'vehicle_fuel_type');
+            //filler(cFL(base.engineType), 'vehicle_fuel_type');
         } catch (err) {}
         try {
             filler(cFL(aG.DRIVE_TYPE.attributes.DRIVEN_WHEELS.value), 'vehicle_drive_type');
