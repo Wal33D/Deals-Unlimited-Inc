@@ -174,7 +174,6 @@ title: browser
 }
 };
 breakdownChart.set(options).execute();
-$('#breakdown-chart-container').slideDown();
 });
 });
 });

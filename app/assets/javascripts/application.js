@@ -17,18 +17,18 @@ jQuery(document).ready(function($) {
     try {
         $('#fadeInFast').fadeIn(100);
     } catch (err) {}
- 
-        try {
-            $('#vehicle_col').fadeIn(200);
+
+    try {
+        $('#vehicle_col').fadeIn(200);
     } catch (err) {}
 
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
-   // (function titleScroller(text) {
-   //     document.title = text;
-   //     setTimeout(function() {
-   //         titleScroller(text.substr(1) + text.substr(0, 1));
-   //     }, 500);
-   // }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
+    // (function titleScroller(text) {
+    //     document.title = text;
+    //     setTimeout(function() {
+    //         titleScroller(text.substr(1) + text.substr(0, 1));
+    //     }, 500);
+    // }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
 
     var $window = $('#window');
     var $textarea = $('#contact_message');
@@ -46,30 +46,34 @@ jQuery(document).ready(function($) {
 
 ///////////////////Resize Vehicle Panel///////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function resizeVehiclePane(){
+function resizeVehiclePane() {
     var internalSize = ($('body').height() - $('.nav-wrapper').height() - $('.footer-vehicles').height());
 
-    if( ( $('body').width() ) >= 700 )
-        { $('.vehicle_panel').height(internalSize - 30); }
-    else{
-     $('.vehicle_panel').height(internalSize + 8);
-        }
+    if (($('body').width()) >= 700) {
+        $('.vehicle_panel').height(internalSize - 30);
+    } else {
+        $('.vehicle_panel').height(internalSize + 8);
+    }
 
 }
 
-    function PU(object){
-        document.getElementById('submit_status_' + object.id.replace("up","")).click();
-    }
-    function VSU(object){
-        document.getElementById('status_form_'+ object.id).value=object.innerHTML;
-        document.getElementById('submit_status_' + object.id).click();
-        $('#tr_' + object.id).fadeOut();
-    }
+function PU(object) {
+    document.getElementById('submit_status_' + object.id.replace("up", "")).click();
+}
+
+function VSU(object) {
+    document.getElementById('status_form_' + object.id).value = object.innerHTML;
+    document.getElementById('submit_status_' + object.id).click();
+    $('#tr_' + object.id).fadeOut();
+}
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function setstatus(status){
-    if(status=="For Sale"){ document.getElementById('vehicle_status').value="Sale";
-    }else{ document.getElementById('vehicle_status').value=status;}
+function setstatus(status) {
+    if (status == "For Sale") {
+        document.getElementById('vehicle_status').value = "Sale";
+    } else {
+        document.getElementById('vehicle_status').value = status;
+    }
     document.getElementById('update').click();
 }
 //////////////////////////////////////////////////////////////////////
@@ -210,12 +214,14 @@ function v2(option, res) {
             if ((res.MPG.city !== "undefined") && (res.MPG.highway !== "undefined")) {
                 filler("City " + res.MPG.city + "/Hwy " + res.MPG.city, "vehicle_mpg");
             }
-        } catch (err) {        try {
-            filler("Highway " + res.MPG.highway, "vehicle_mpg");
-        } catch (err) {}
-        try {
-            filler("City " + res.MPG.city, "vehicle_mpg");
-        } catch (err) {}}
+        } catch (err) {
+            try {
+                filler("Highway " + res.MPG.highway, "vehicle_mpg");
+            } catch (err) {}
+            try {
+                filler("City " + res.MPG.city, "vehicle_mpg");
+            } catch (err) {}
+        }
         try {
             filler(res.transmissionType, "vehicle_transmission");
         } catch (err) {}
@@ -252,7 +258,7 @@ function v1(option, res) {
     };
 
     function success(res) {
-        
+
         var minivan = /Pass/;
         var base = res.styleHolder[0];
         var aG = base.attributeGroups;
@@ -277,13 +283,13 @@ function v1(option, res) {
             filler(cFL(aG.DRIVE_TYPE.attributes.DRIVEN_WHEELS.value), 'vehicle_drive_type');
         } catch (err) {}
         try {
-        if(cat.PRIMARY_BODY_TYPE =="Minivan"){
-            filler("Van", 'vehicle_kind');
-        }else if(cat.market=="Minivan"){
-            filler("Van", 'vehicle_kind');
-        }else{
-            filler(cat.PRIMARY_BODY_TYPE, 'vehicle_kind');
-        }
+            if (cat.PRIMARY_BODY_TYPE == "Minivan") {
+                filler("Van", 'vehicle_kind');
+            } else if (cat.market == "Minivan") {
+                filler("Van", 'vehicle_kind');
+            } else {
+                filler(cat.PRIMARY_BODY_TYPE, 'vehicle_kind');
+            }
         } catch (err) {}
         try {
             filler(aG.DOORS.attributes.NUMBER_OF_DOORS.value, 'vehicle_doors');
@@ -291,7 +297,7 @@ function v1(option, res) {
         try {
             filler(aG.MAIN.attributes.NAME.value, 'vehicle_body_style');
         } catch (err) {}
-    
+
         try {
             filler("Highway " + aG.SPECIFICATIONS.attributes.EPA_HIGHWAY_MPG.value, "vehicle_mpg");
         } catch (err) {}
@@ -303,7 +309,7 @@ function v1(option, res) {
                 filler("UNDEFINED ", "vehicle_mpg");
             }
         } catch (err) {}
-            try {
+        try {
             filler("HWY " + aG.SPECIFICATIONS.attributes.EPA_HIGHWAY_MPG.value + "/CITY " + aG.SPECIFICATIONS.attributes.EPA_CITY_MPG.value, 'vehicle_mpg');
         } catch (err) {}
         try {
@@ -312,16 +318,30 @@ function v1(option, res) {
         try {
             filler(cat.Market, 'vehicle_vehicle_class');
         } catch (err) {}
-        
+
         try {
             filler(cFL(tLC(base.transmissionType)), 'vehicle_transmission');
         } catch (err) {}
-        title();
+        $('#main-chart-container > div > div > div > table > tbody > tr.gapi-analytics-data-chart-styles-table-tr-even.gapi-analytics-data-chart-styles-table-tr-sel').click();
 
+        if (document.getElementById('vehicle_make').value == "Chevrolet") {
+            document.getElementById('vehicle_make').value = "Chevy";
+        }
+
+        var string = res.styleHolder[0].modelName;
+        if ((string.indexOf("-") > -1)) {
+            console.log(string.replace('-', ''));
+            string = string.replace('-', '');
+            document.getElementById('vehicle_model').value = string;
+        }
+        if (document.getElementById('vehicle_kind').value == "Truck") {
+            document.getElementById('vehicle_body_style').value = "Pickup";
+        }
+        title();
         filler("Sale", 'vehicle_status');
 
         $('#vehicle_status').css('background-color', "rgb(76, 175, 80)");
-      
+
 
     }
     res.api('/v1/api/toolsrepository/vindecoder', options, success, fail);

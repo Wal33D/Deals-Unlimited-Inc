@@ -21,8 +21,8 @@ padding: 0!important;
 height:150px!important;
 }
 #vehicle_title{
-    font-size: 1rem!important;
-    font-family: sans-serif!important;
+font-size: 1rem!important;
+font-family: sans-serif!important;
 }
 label{display: none!important;}
 select{display: block!important;}
@@ -33,18 +33,18 @@ select{display: block!important;}
     <div class = "row">
         <%= simple_form_for(@vehicle) do |f| %>
         <%= f.error_notification %>
-        <div class = "col-lg-6"  style="padding:.25vmin 0 0 0!important;">
+        <div class = "col-lg-6"  style="padding: .25vmin 1vmin 0 0!important;">
             <div class = "panel panel-default z-depth-4">
-                <div class = "panel-heading" style="background-color:#292c2f !important">
-                    <div class = "panel-title">
+                <div class = "panel-heading" style="background-color:#292c2f!important; ">
+                    <div class ="panel-title">
                         <h5 style="color:#eee">Vehicle Info</h5>
                     </div>
                 </div>
                 <div class="panel-body" style="padding-bottom:0!important;">
                     <table class="table table-hover" style=" border-bottom:1px solid #ddd;margin-bottom:0.5vmin!important;">
                         <tr>
-                            <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">VIN: </p></td>
-                            <td><%= f.input :vin_num %></td>
+                            <td style="position:relative; border-top:none!important;"class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute; ">VIN: </p></td>
+                            <td style="border-top:none!important;"><%= f.input :vin_num %></td>
                         </tr>
                         <tr>
                             <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Price: </p></td>
@@ -68,8 +68,9 @@ select{display: block!important;}
                         </tr>
                         <tr>
                             <td style="position:relative; "class="featurelabel"><p style="bottom:1.1vmin!important;position:absolute;">Stock #: </p></td>
-                            <td><%= f.input :stock_number %></td>
+                            <td style="border-bottom:1px solid #ddd!important"><%= f.input :stock_number %></td>
                         </tr>
+                        <tr><td colspan="2"><hr class="seperator"style="border:none!important;"></td></tr>
                         <tr>
                             <td colspan="2"><%= f.input :description , as: :text,:id=>"descr"%></td>
                         </tr>
@@ -77,9 +78,9 @@ select{display: block!important;}
                         <tr>
                             <td><%= f.input :other_options, :id=>"other_options" %></td>
                         </tr>
+                        <tr><td colspan="2"><hr class="seperator" style="border:none!important;"></td></tr>
                         <tr>
-                            <td colspan="2" >
-                            <hr><%= render "/vehicles/admin/feature_list" %></td>
+                            <td colspan="2" ><%= render "/vehicles/admin/feature_list" %></td>
                         </tr>
                         <tr>
                             <td colspan="2" id="accept-div">
@@ -92,9 +93,9 @@ select{display: block!important;}
                         <tr>
                             <td colspan="2"><%= f.file_field :vehicle_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" ,:style=>"display:none!important;",  :id=>"img-btn"%></td>
                         </tr>
+                        <tr><td colspan="2"><hr class="seperator" ></td></tr>
                         <tr>
                             <td colspan="2">
-                                <hr>
                                 <button type="button" onclick="document.getElementById('img-btn').click();"  class="btn waves-effect waves-white" type="button"style="float:right; background-color:#5383D3; width:100%!important; font-weight:bold;">Select Images</button>
                             </td>
                         </tr>
@@ -104,11 +105,11 @@ select{display: block!important;}
                 </div>
             </div>
         </div>
-        <div class = "col-lg-6" style="padding: 0 0 0 2.5vmin!important;">
+        <div class = "col-lg-6"  style="padding:.25vmin 0 0 1vmin!important;">
             <div class = "panel panel-default z-depth-4 ">
-                <div class = "panel-heading" style="background-color:#292c2f !important">
-                    <div class = "panel-title">
-                        <h5 style="color:#eee">Vehicle Info
+                <div class = "panel-heading" style="background-color:#292c2f!important;">
+                    <div class = "panel-title" >
+                        <h5>.
                         <button class="btn waves-effect waves-teal" type="button"style="float:right; font-weight:bold; background-color:#5383D3;" onclick="VIN_O_Matic(document.getElementById('vehicle_vin_num').value);" >Fill with VIN</button>
                         <button class="btn waves-effect waves-yellow" type="button"style="float:right; font-weight:bold; background-color:#ffab40!important;  margin-right:1vmin;"  onclick="highlight(0);"id="highlight_button">Highlight Emptys</button>
                         </h5>

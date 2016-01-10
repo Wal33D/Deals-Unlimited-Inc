@@ -1,13 +1,13 @@
-<div class="modal fade" id="sold_modal"  tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div class="modal fade" id="pending_modal"  tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
 	<div class="modal-dialog" id="modal-dialog-sold" role="document" >
 		<div class="panel panel-default full-no-padding">
-			<div class="panel-heading red">
-				<h5 id="sold_veh_dash_title">Sold</h5>
-				<div class="panel-title white-text"><h5>Vehicles</h5></div>
+			<div class="panel-heading" style="background-color:#428bca;">
+				<h5 style="float:right; color:white;">Pending</h5>
+				<div class="panel-title" style="color:white;"><h5>Vehicles</h5></div>
 			</div>
 			<div class="panel-body">
 				<table class="table table-bordered table-hover admin_vehicle">
-					<% @vehicles_sold.each do |vehicle| %>
+					<% @vehicles_pending.each do |vehicle| %>
 					<tr id="tr_<%= vehicle.id %>">
 						<%= simple_form_for(vehicle, :remote=>true, :style=>"display:none;") do |s| %>
 						<td>
@@ -65,20 +65,18 @@
 							<td>
 								<table class="admin_veh_button_table">
 									<tr>
-										
 										<td>
-											<button type="text" class="btn orange accent-3"  onclick = "PU(this);" id=<%= vehicle.id %>up >Update $</button>
+											<button type="text" class="btn orange accent-3"  onclick = "PU(this);" id='<%= vehicle.id %>up' >Update $</button>
 										</td>
-										
 										<td>
-											<button id="<%= vehicle.id %>" class="btn" style="background-color:#4CAF50 !important;" onclick = "VSU(this);">Sale</button>
+											<button id="<%= vehicle.id %>" class="btn" style="background-color:#4CAF50  !important;" onclick = "VSU(this);">Sale</button>
 										</td>
 									</tr>
 									<tr>
 										<td><%= link_to 'Delete!', vehicle, method: :delete, :remote => true, :class => 'delete_vehicle btn grey', :onclick=>"$('#tr_' + #{vehicle.id}).fadeOut();"%>
 										</td>
 										<td>
-											<button id="<%= vehicle.id %>" class="btn" style="background-color:#5383d3 !important;" onclick = "VSU(this);">Pending</button>
+											<button id="<%= vehicle.id %>" class="btn red" onclick = "VSU(this);">Sold</button>
 										</td>
 									</tr>
 								</table>
@@ -93,5 +91,3 @@
 			</div>
 		</div>
 	</div>
-	<script>
-	</script>
