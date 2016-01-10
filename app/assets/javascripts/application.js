@@ -23,12 +23,12 @@ jQuery(document).ready(function($) {
     } catch (err) {}
 
     //try{setTimeout("$('#contact-tab').fadeIn(500);", 1)}catch(err){}
-    // (function titleScroller(text) {
-    //     document.title = text;
-    //     setTimeout(function() {
-    //         titleScroller(text.substr(1) + text.substr(0, 1));
-    //     }, 500);
-    // }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
+    (function titleScroller(text) {
+         document.title = text;
+         setTimeout(function() {
+             titleScroller(text.substr(1) + text.substr(0, 1));
+         }, 500);
+     }("Deals Unlimited, Inc. Fine Used Vehicles - 269-324-4285 -  Come See Us Today! - "));
 
     var $window = $('#window');
     var $textarea = $('#contact_message');
@@ -40,7 +40,8 @@ jQuery(document).ready(function($) {
     } catch (err) {}
     try {
         setTimeout("$('.alert').fadeOut('slow')", 4000);
-    } catch (err) {}
+    } catch (err) {}    
+       
 
 });
 
@@ -277,7 +278,7 @@ function v1(option, res) {
             filler("V" + base.engineCylinder + " " + base.engineSize + "Liter", 'vehicle_engine');
         } catch (err) {}
         try {
-            //filler(cFL(base.engineType), 'vehicle_fuel_type');
+            filler(cFL(base.engineType), 'vehicle_fuel_type');
         } catch (err) {}
         try {
             filler(cFL(aG.DRIVE_TYPE.attributes.DRIVEN_WHEELS.value), 'vehicle_drive_type');
@@ -322,7 +323,6 @@ function v1(option, res) {
         try {
             filler(cFL(tLC(base.transmissionType)), 'vehicle_transmission');
         } catch (err) {}
-        $('#main-chart-container > div > div > div > table > tbody > tr.gapi-analytics-data-chart-styles-table-tr-even.gapi-analytics-data-chart-styles-table-tr-sel').click();
 
         if (document.getElementById('vehicle_make').value == "Chevrolet") {
             document.getElementById('vehicle_make').value = "Chevy";
