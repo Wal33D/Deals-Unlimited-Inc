@@ -1,1 +1,4 @@
+$('.sold_btn').bind('ajax:success', function() {
+    $(this).closest('section').fadeOut();
+});
 $("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
