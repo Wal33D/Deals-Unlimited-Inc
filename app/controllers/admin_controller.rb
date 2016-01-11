@@ -1,7 +1,9 @@
 class AdminController < ApplicationController
 
 def dashboard
+
 	most_viewed
+	 
 end
 
 def url
@@ -13,14 +15,7 @@ if request.original_url.include? "dash"
 end
 
 def sale
-	@status_heading = '<div class="panel-heading" style="background-color: #4CAF50 !important;">
-						<h5 id="sold_veh_dash_title">
-							For Sale
-						</h5>
-					  	<div class="panel-title white-text">
-					  		<h5>Vehicles</h5>
-					  	</div>
-					  </div>'
+	@status_heading = '<div class="panel-heading" style="background-color: #4CAF50 !important;"><h5 id="sold_veh_dash_title">For Sale</h5><div class="panel-title white-text"><h5>Vehicles</h5></div> </div>'
 	@modal_id = 'sale_modal'
 	@vehicle_status = Vehicle.where(:status => "Sale")
 end
@@ -31,10 +26,7 @@ def set_sale
 end
 
 def sold
-	@status_heading = '<div class="panel-heading red">
-						<h5 id="sold_veh_dash_title">Sold</h5>
-						<div class="panel-title white-text"><h5>Vehicles</h5></div>
-					   </div>'
+	@status_heading = '<div class="panel-heading red"><h5 id="sold_veh_dash_title">Sold</h5><div class="panel-title white-text"><h5>Vehicles</h5></div></div>'
 	@modal_id = 'sold_modal'
 	@vehicle_status = Vehicle.where(:status => "Sold")
 end
@@ -45,10 +37,7 @@ def set_sold
 end
 
 def pending
-	@status_heading = '<div class="panel-heading" style="background-color:#428bca;">
-						<h5 style="float:right; color:white;">Pending</h5>
-						<div class="panel-title" style="color:white;"><h5>Vehicles</h5></div>
-					   </div>'	
+	@status_heading = '<div class="panel-heading" style="background-color:#428bca;"><h5 style="float:right; color:white;">Pending</h5><div class="panel-title" style="color:white;"><h5>Vehicles</h5></div> </div>'	
 	@modal_id = 'pending_modal'
 	@vehicle_status = Vehicle.where(:status => "Pending")
 end
