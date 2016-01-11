@@ -6,7 +6,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     @contact_store = ContactStore.new
-    @contact_store = ContactStore.new(:name=>@contact.name, 
+    @contact_store = ContactStore.new(
+                     :name=>@contact.name, 
                      :email=>@contact.email,
                      :tel=>@contact.tel,
                      :message=>@contact.message)

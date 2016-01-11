@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :credit_app_lockers
   resources :contact_stores
   devise_for :admins
   resources :testimonials
