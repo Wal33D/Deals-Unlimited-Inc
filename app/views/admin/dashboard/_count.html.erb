@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td><label>For Sale</label></td>
-				<td><%= Vehicle.all.where(:status=>"Sale").count() %>
+				<td><%= Vehicle.where(:status=>"Sale").count() %>
 					<button type="button" onclick="$('#load_sale').click();" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 					</button>
@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<td><label>Pending</label></td>
-				<td><%= Vehicle.all.where(:status=>"Pending").count() %>
+				<td><%= Vehicle.where(:status=>"Pending").count() %>
 					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;" onclick="$('#load_pending').click();">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 					</button>
@@ -31,7 +31,7 @@
 			</tr>
 			<tr id="vehicles_sold_count">
 				<td><label>Sold</label></td>
-				<td><%= Vehicle.all.where(:status=>"Sold").count() %>
+				<td><%= Vehicle.where(:status=>"Sold").count() %>
 					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;"onclick="$('#load_sold').click();">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 					</button>
