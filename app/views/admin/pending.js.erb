@@ -1,4 +1,6 @@
 $("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
 $("#pending_tile").html("<%= escape_javascript(render('admin/modals/vehicle_status')) %>")
+$('.pending_btn, .pending_btn_1, .delete_1').hide();
+$('.sale_btn').show();
+
 $('#pending_modal').modal('show');
-$('.pending_btn, .delete_1').hide();
