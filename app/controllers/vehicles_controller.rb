@@ -7,6 +7,28 @@ class VehiclesController < ApplicationController
       @vehicle= @q.result()
       @vehicles=@vehicle.order(:price).page params[:page]
       @vehicle=@vehicles
+
+      Vehicle.all.each do |v| 
+        name = v.model
+      if name.include? "-" 
+        @name =  v.model.delete! '-'
+        @vehtitle =  v.title.delete! '-'
+        v.update_attributes(:model=> @name)
+        v.update_attributes(:title=> @vehtitle)
+        end
+
+    make = v.make
+      if make.include? "Chevrolet"
+        @makename =  "Chevy"
+        @veht =  v.title.sub! 'Chevrolet', 'Chevy'
+
+        v.update_attributes(:make=> @makename)
+        v.update_attributes(:title=> @veht)
+
+        end
+
+    end
+
   end
 
   def show
