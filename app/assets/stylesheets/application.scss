@@ -922,10 +922,7 @@ font: normal 3.2vmin 'Cookie', cursive!important;
         border-bottom:1px solid #ddd!important;
         margin:0!important;
     }
-    .admin_veh_button_table tr td a,
-    .admin_veh_button_table tr td button{
-        width:100%!important;
-    }
+
     #sold_modal,#sale_modal, #pending_modal{
     background:none!important;
     border:none!important;
@@ -939,7 +936,7 @@ font: normal 3.2vmin 'Cookie', cursive!important;
         width:132px!important;
         height:86px!important;
     }
-    #modal-dialog-sold{
+    .modal-dialog-status{
     width:auto!important;
     width:95%!important;
     max-width:100%!important;

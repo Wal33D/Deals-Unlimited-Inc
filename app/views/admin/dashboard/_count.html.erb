@@ -9,36 +9,38 @@
 		</thead>
 		<tr>
 			<td><label>Total Count</label></td>
-			<td><%= Vehicle.all.count() %>
-		</tr>
-		
-		<tr>
-			<td><label>For Sale</label></td>
-			<td><%= Vehicle.all.where(:status=>"Sale").count() %>
-				<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#sale_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important; " onclick="$('#closebtn-sale').show()">
-				<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<td><label>Pending</label></td>
-			<td><%= Vehicle.all.where(:status=>"Pending").count() %>
-				<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#pending_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important;"  onclick="$('#closebtn-pending').show()">
-				<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
-				</button>
-			</td>
-		</tr>
-		<tr id="vehicles_sold_count">
-			<td><label>Sold</label></td>
-			<td><%= Vehicle.all.where(:status=>"Sold").count() %>
-				<button type="button" class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#sold_modal" style=" background-color:white; color:black; float:right; background:none; border:none!important;">
-				<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold"></span>
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<td><label>Last Added on</label></td>
-			<td><%= Vehicle.last.created_at.to_date%></td>
-		</tr>
-	</table>
-</div>
+			<td><%= Vehicle.count() %>
+			</tr>
+			<tr>
+				<td><label>For Sale</label></td>
+				<td><%= Vehicle.all.where(:status=>"Sale").count() %>
+					<button type="button" onclick="$('#load_sale').click();" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;">
+					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
+					</button>
+					<%= link_to 'Sale', 'sale',:id=>"load_sale", :style=>"display:none;", remote: true %>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Pending</label></td>
+				<td><%= Vehicle.all.where(:status=>"Pending").count() %>
+					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;" onclick="$('#load_pending').click();">
+					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
+					</button>
+					<%= link_to 'Pending', 'pending',:id=>"load_pending", :style=>"display:none;", remote: true %>
+				</td>
+			</tr>
+			<tr id="vehicles_sold_count">
+				<td><label>Sold</label></td>
+				<td><%= Vehicle.all.where(:status=>"Sold").count() %>
+					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;"onclick="$('#load_sold').click();">
+					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
+					</button>
+					<%= link_to 'Sold', 'sold',:id=>"load_sold", :style=>"display:none;", remote: true %>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Last Added on</label></td>
+				<td><%= Vehicle.last.created_at.to_date%></td>
+			</tr>
+		</table>
+	</div>

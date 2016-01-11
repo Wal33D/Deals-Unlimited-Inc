@@ -1,21 +1,21 @@
 <div class="col-xs-6">
-	<div class="panel panel-default">
+	<div class="panel panel-default z-depth-1">
 		<div class="panel-heading" id="most_viewed_heading">
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#most_viewed_modal" style="float:right; background-color:white; color:black;" onclick="$('#closebtn-most').show()">
-			<span class="glyphicon glyphicon-resize-full" aria-hidden="true" style="font-weight:bold" ></span>
+			<button type="button" class="" data-toggle="modal" data-target="#most_viewed_modal" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;" onclick="$('#closebtn-most').show()">
+			<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 			</button>
 			<div class="panel-title">
 				<h6>Most Viewed</h6>
 			</div>
 		</div>
-		<div class="panel-body" style="padding:0 .5vmin 0 .5vmin; overflow-y:scroll;">
-			<table class="table" style="padding:0; margin:0;">
+		<div class="panel-body" style="padding:.25vmin .5vmin .25vmin .5vmin;  overflow-y:hidden!important;">
+			<table class="table" style="padding:0; margin:0; overflow-y:hidden!important;">
 				<tr>
 					<% @popular_first.each do |vehicle| %>
 					<td style="padding:0.2vmin;">
 						<div class="panel panel-default veh_thumb" style="padding:0; margin:0!important;">
 							<div class="panel-heading" style="padding:0; margin:0;">
-								<label style="font-size:1.35vmin;">
+								<label style="font-size:1.35vmin; margin:0!important;">
 									<%= vehicle.title.truncate(13)%>
 								</label>
 							</div>
@@ -28,7 +28,7 @@
 							</div>
 							
 							<div class="panel-footer" style="padding:0; margin:0;">
-								<label>Views:   <%= vehicle.countclicks%></label>
+								<label style="margin:0!important;">Views:   <%= vehicle.countclicks%></label>
 							</div>
 						</div>
 					</td>
@@ -39,7 +39,7 @@
 					<td style="padding:0.2vmin;">
 						<div class="panel panel-default veh_thumb" style="padding:0; margin:0!important;">
 							<div class="panel-heading" style="padding:0; margin:0;">
-								<label style="font-size:1.35vmin;">
+								<label style="font-size:1.35vmin; margin:0!important;">
 									<%= vehicle.title.truncate(13)%>
 								</label>
 							</div>
@@ -51,7 +51,7 @@
 								<% end %>
 							</div>
 							<div class="panel-footer" style="padding:0; margin:0;">
-								<label>Views:   <%= vehicle.countclicks%></label>
+								<label style="margin:0!important;">Views:   <%= vehicle.countclicks%></label>
 							</div>
 						</div>
 					</td>

@@ -13,7 +13,6 @@ background-color: rgba(0, 0, 0, .5);
 #unlimited{font-size:3.75vmin;!important;}
 </style>
 <% if admin_signed_in? %>
-<%= render 'layouts/application/flash_messages' %>
 <div class="alert alert-success"id="embed-api-auth-container"></div>
 <div class="container" style="margin-top:1vmin!important; ">
 	<div class="panel panel-default z-depth-4">
@@ -31,7 +30,9 @@ background-color: rgba(0, 0, 0, .5);
 				<div id="most_viewed_tile"><%= render 'admin/dashboard/popular' %></div>
 				<div id="options_tile"><%= render 'admin/dashboard/options' %></div>
 			</div>
-			<%= render 'admin/dashboard/analytics' %>
+			<div class="row" id="dashboard-row" >
+				<%= render 'admin/dashboard/analytics' %>
+			</div>
 		</div>
 	</div>
 </div>

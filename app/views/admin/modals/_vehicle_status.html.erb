@@ -1,0 +1,68 @@
+<div class="modal fade" id="<%= @modal_id %>"  tabindex="-1" role="dialog" >
+	<div class="modal-dialog modal-dialog-status"  role="document" >
+		<div class="panel panel-default full-no-padding">
+		<%= @status_heading.html_safe %>
+			<div class="panel-body">
+				<% 	@vehicle_status.each do |vehicle| %>
+				<%= simple_form_for vehicle, :remote=>true do |f| %>
+				<div class="row" style="margin-bottom:.5vmin;" id="tr_<%= vehicle.id %>">
+					<div class="col-xs-2">
+						<% if vehicle.image_1.present? %>
+						<%=  link_to image_tag(vehicle.image_1, :class=>"dashboard_veh_thumb"),vehicle %>
+						<% elsif vehicle.vehicle_images.present? %>
+						<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"dashboard_veh_thumb"), vehicle  %>
+						<% end %>
+					</div>
+					<div class="col-xs-1">
+						<div class="row" style="padding:0;margin:.2vmin;font-size:1.8vmin;">
+						<%= vehicle.year%></div>
+						<div class="row" style="padding:0;margin:.2vmin;font-size:1.8vmin;">
+						<%= vehicle.make%></div>
+						<div class="row" style="padding:0;margin:.2vmin;font-size:1.8vmin;">
+						<%= vehicle.model%></div>
+					</div>
+					<div class="col-xs-3">
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<%= f.input :price, :label=>false,:class=>"form-control price_box_admin"%>
+							<span class="input-group-addon">.00</span>
+						</div>
+						<hr class="seperator">
+						<label>Views</label>
+						<%= vehicle.countclicks%>
+					</div>
+					<div class="col-xs-3 admin_vehicle">
+						<div class="input-group">
+							<label>Color</label>
+							<%= vehicle.exterior_color%>
+						</div>
+						<div class="input-group">
+							<label>Mileage</label>
+							<%= number_with_delimiter(vehicle.mileage, :delimiter => ',') %>
+						</div>
+						<div class="input-group">
+							<label>Stock #</label>
+							<%= vehicle.stock_number%>
+						</div>
+						<div class="input-group">
+							<label>Vin #</label>
+							<%= vehicle.vin_num%>
+						</div>
+					</div>
+					<div class="col-xs-3" style="padding:0;">
+						<div class="row" style="padding:0; margin:.25vmin;">
+							<%= f.button :submit, :value=>"Update $", :class=>"btn orange accent-2", :style=>"width:48%; float:left;"%>
+							<%= link_to 'Pending', {:controller => "admin", :action => "set_pending", :vehicle => vehicle.id }, :remote => true, :class => 'btn',:style=>"background-color:#5383d3 !important; width:48%; float:right;", :onclick=>"$('#tr_' + #{vehicle.id}).fadeOut();" %>
+						</div>
+						<div class="row" style="padding:0; margin:.25vmin;">
+							<%= link_to 'Delete!', vehicle, method: :delete, :remote => true, :class => 'delete_vehicle btn grey', :onclick=>"$('#tr_' + #{vehicle.id}).fadeOut();", :style=>"width:48%; float:left;"%>
+							<%= link_to 'Sold', {:controller => "admin", :action => "set_sold", :vehicle => vehicle.id }, :remote => true, :class => 'btn red', :onclick=>"$('#tr_' + #{vehicle.id}).fadeOut();", :style =>"width:48%; float:right;" %>
+						</div>
+					</div>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

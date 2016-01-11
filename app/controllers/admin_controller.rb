@@ -1,12 +1,10 @@
 class AdminController < ApplicationController
 
 def dashboard
- 	collections
 	most_viewed
-	counters
 end
 
-def url_checker
+def url
 if request.original_url.include? "dash"
 	   flash[:notice] = request.original_url
 	else
@@ -14,18 +12,50 @@ if request.original_url.include? "dash"
 	end
 end
 
-def counters
-	@vehicles_all_count = @vehicles_all.count()
-	@vehicles_sale_count = @vehicles_sale.count()
-	@vehicles_pending_count = @vehicles_pending.count()
-	@vehicles_sold_count = @vehicles_sold.count()
+def sale
+	@status_heading = '<div class="panel-heading" style="background-color: #4CAF50 !important;">
+						<h5 id="sold_veh_dash_title">
+							For Sale
+						</h5>
+					  	<div class="panel-title white-text">
+					  		<h5>Vehicles</h5>
+					  	</div>
+					  </div>'
+	@modal_id = 'sale_modal'
+	@vehicle_status = Vehicle.all.where(:status => "Sale")
 end
 
-def collections
-	@vehicles_all = Vehicle.all
-	@vehicles_sale = Vehicle.all.where(:status => "Sale")
-	@vehicles_pending = Vehicle.all.where(:status => "Pending")
-	@vehicles_sold = Vehicle.all.where(:status => "Sold")
+def set_sale
+	@vehicle = Vehicle.find(params[:vehicle])
+    @vehicle.update_attributes(:status => "Sale")  
+end
+
+def sold
+	@status_heading = '<div class="panel-heading red">
+						<h5 id="sold_veh_dash_title">Sold</h5>
+						<div class="panel-title white-text"><h5>Vehicles</h5></div>
+					   </div>'
+	@modal_id = 'sold_modal'
+	@vehicle_status = Vehicle.all.where(:status => "Sold")
+end
+
+def set_sold
+	@vehicle = Vehicle.find(params[:vehicle])
+    @vehicle.update_attributes(:status => "Sold")  
+end
+
+def pending
+	@status_heading = '<div class="panel-heading" style="background-color:#428bca;">
+						<h5 style="float:right; color:white;">Pending</h5>
+						<div class="panel-title" style="color:white;"><h5>Vehicles</h5></div>
+					   </div>'	
+	@modal_id = 'pending_modal'
+	@vehicle_status = Vehicle.all.where(:status => "Pending")
+end
+
+def set_pending
+	@vehicle = Vehicle.find(params[:vehicle])
+    @vehicle.update_attributes(:status => "Pending")  
 end
 
 def most_viewed
