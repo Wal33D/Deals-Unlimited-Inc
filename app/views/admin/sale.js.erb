@@ -1,4 +1,4 @@
-$("#count_tile").html("<%= j(render('admin/dashboard/count')) %>")
-$("#sale_tile").html("<%= j(render('admin/modals/vehicle_status')) %>")
+$("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
+$("#sale_tile").html("<%= escape_javascript(render('admin/modals/vehicle_status')) %>")
 $('.sale_btn, .delete_1').hide();
 $('#sale_modal').modal('show');

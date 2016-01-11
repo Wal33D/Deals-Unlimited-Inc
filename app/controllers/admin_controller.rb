@@ -22,7 +22,7 @@ def sale
 					  	</div>
 					  </div>'
 	@modal_id = 'sale_modal'
-	@vehicle_status = Vehicle.all.where(:status => "Sale")
+	@vehicle_status = Vehicle.where(:status => "Sale")
 end
 
 def set_sale
@@ -36,7 +36,7 @@ def sold
 						<div class="panel-title white-text"><h5>Vehicles</h5></div>
 					   </div>'
 	@modal_id = 'sold_modal'
-	@vehicle_status = Vehicle.all.where(:status => "Sold")
+	@vehicle_status = Vehicle.where(:status => "Sold")
 end
 
 def set_sold
@@ -50,7 +50,7 @@ def pending
 						<div class="panel-title" style="color:white;"><h5>Vehicles</h5></div>
 					   </div>'	
 	@modal_id = 'pending_modal'
-	@vehicle_status = Vehicle.all.where(:status => "Pending")
+	@vehicle_status = Vehicle.where(:status => "Pending")
 end
 
 def set_pending
@@ -60,7 +60,7 @@ end
 
 def most_viewed
 	objArray = Array.new
-	@popular = Vehicle.all.order(:countclicks => "DESC").where(:status => "Sale")
+	@popular = Vehicle.where(:status => "Sale").order(:countclicks => "DESC")
 	@popular.each do |vehicle| 
 		if vehicle.countclicks.is_a? Integer
 			objArray.push vehicle
