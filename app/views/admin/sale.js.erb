@@ -1,4 +1,18 @@
-$("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
-$("#sale_tile").html("<%= escape_javascript(render('admin/modals/vehicle_status')) %>")
-$('.sale_btn, .delete_1').hide();
-$('#sale_modal').modal('show');
+var value = 10;
+var pace = 1;
+var myVar = setInterval(function(){
+		value=value + pace ;
+		$('#percent-tag').html(value+"%");
+$('.progress-bar').css('width', value+'%').attr('aria-valuenow', value);
+	if(value < 30){ pace = 1;}else{pace = 4;}
+	if(value > 85){ pace = 2;}else{pace = 4;}
+	if(value >=99){
+		$("#sale_tile").html("<%= escape_javascript(render('admin/modals/vehicle_status')) %>")
+		$('.sale_btn, .delete_1').hide();
+		$('#sale_modal').modal('show').fadeIn(300);
+		$("#loading-screen").fadeOut(50);
+	    clearInterval(myVar);
+	}
+}, 100);
+
+

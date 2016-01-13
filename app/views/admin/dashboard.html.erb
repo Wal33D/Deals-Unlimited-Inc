@@ -9,10 +9,11 @@ border-radius: 4px;
 background-color: rgba(0, 0, 0, .5);
 -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
-#deals{font-size:3vmin;!important;}
-#unlimited{font-size:3.75vmin;!important;}
+#deals{font-size:3vmin;}
+#unlimited{font-size:3.75vmin;}
 </style>
 <% if admin_signed_in? %>
+<%= render "admin/loading_screen" %>
 <div class="alert alert-success"id="embed-api-auth-container"></div>
 <div class="container" style="margin-top:1vmin!important; ">
 	<div class="panel panel-default z-depth-4">
