@@ -31,11 +31,11 @@ z-index:1001;
         margin-top: 0.2vmin;
         margin-bottom: 0.2vmin;
         padding: .25vmin;
-        font-size: 1.4vmin!important;
+        font-size: 1.45vmin!important;
         label {
             white-space: nowrap;
 
-            font-size: 1.4vmin!important;
+            font-size: 1.45vmin!important;
         }
     }
     tr:nth-child(even) {
@@ -79,7 +79,7 @@ z-index:1001;
 }
 .price_tag {
     color: #5383d3!important;
-    font: normal 7vmin 'Cookie', cursive!important;
+    font: normal 7.5vmin 'Cookie', cursive!important;
     text-align: center;
     white-space: nowrap;
 }
@@ -280,7 +280,7 @@ max-width:100%!important;
 }
 
 
-@media (max-width: 1050px) {
+@media (max-width: 990px) {
     #vehicles {
         width: 100%;
     }
@@ -295,21 +295,21 @@ max-width:100%!important;
     }
     #vehicle_window_table td {
         white-space: nowrap;
-        font-size: 1.4vmin!important;
+        font-size: 1.5vmin!important;
     }
  
 }
 
 
-@media (min-width: 1050px) {
+@media (min-width: 990px) {
     .price_tag{
-        font-size: 5.5vmin!important;
+        font-size: 8.3vmin!important;
     }
 	    #vehicle_window_table td {
         padding: 0.1vmin;
     }
 .vehicle_table_each{
-            font-size: 1.5vmin!important;
+            font-size: 1.6vmin!important;
 
 }
 }
@@ -320,13 +320,15 @@ max-width:100%!important;
 }
 @media (min-width: 1229px) {
 	    #vehicle_window_table td {
-        padding: .4vmin;
+        padding: .35vmin;
+                    font-size: 1.65vmin!important;
+
     }
 }
 @media (min-width: 1300px) {
 	    #vehicle_window_table td {
-        padding: 0.5vmin;
-                font-size:1.6vmin!important;
+        padding: 0.45vmin;
+                font-size:1.7vmin!important;
 
     }
 }
