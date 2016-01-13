@@ -11,8 +11,9 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicleCurr = Vehicle.find(params[:id])
-    count=@vehicleCurr.countclicks
-    if(!admin_signed_in?)
+    if(admin_signed_in?)
+    else
+      count=@vehicleCurr.countclicks
       if (@vehicleCurr.countclicks.blank?)
         count = 0
       end
