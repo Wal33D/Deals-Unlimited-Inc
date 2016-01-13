@@ -1,9 +1,42 @@
 class AdminController < ApplicationController
 
 def dashboard
-
 	most_viewed
-	 
+	#admin_thumb_gen
+	#user_thumb_gen
+end
+
+def admin_thumb_gen
+	Vehicle.all.each do |vehicle| 
+		if vehicle.import == 'import'
+			image = MiniMagick::Image.open("public/images/"+vehicle.image_1)
+		else
+			image = MiniMagick::Image.open("public/"+vehicle.vehicle_images[0].url)
+			image.shave '10x55' # Removes 46px from top and bottom edges 5 from sides
+		end
+			image.resize "118x66"
+			image.format "png"
+			image.write("public/images/thumbs/admin_thumbs/#{vehicle.id}.png")  
+			image.write("app/assets/images/thumbs/admin_thumbs/#{vehicle.id}.png")  
+			vehicle.update_attributes(:admin_thumb => "thumbs/admin_thumbs/#{vehicle.id}.png" )
+	end
+end
+
+def user_thumb_gen
+	Vehicle.all.each do |vehicle| 
+		if vehicle.import == 'import'
+			image = MiniMagick::Image.open("public/images/"+vehicle.image_1)
+			image.shave '7x0' # Removes 46px from top and bottom edges
+		else
+			image = MiniMagick::Image.open("public/"+vehicle.vehicle_images[0].url)
+			image.shave '0x60' # Removes 46px from top and bottom edges
+		end
+			image.resize "392x293"
+			image.format "png"
+			image.write("public/images/thumbs/#{vehicle.id}.png")  
+			image.write("app/assets/images/thumbs/#{vehicle.id}.png")  
+			vehicle.update_attributes(:thumb => "thumbs/#{vehicle.id}.png")  
+	end
 end
 
 def url

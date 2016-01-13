@@ -58,10 +58,9 @@
             <div class="row" style="margin-bottom:0; height:inherit;">
                 <!-- TITLE AND CARFAX     -->
                 <div class="col-xs-5" id="veh_col_1" style="padding-left:0; height:100%;!important; padding:auto; background-color:#f2f2f2;">
-                    
-                    <% if vehicle.import == 'import' %>
-                    <div class=" thumbnail text-center" style="padding-top:3.5vmin; padding-bottom:3.5vmin; background-color:#f2f2f2;">
-                        <%=  link_to image_tag(vehicle.image_1, :id=>"veh_thumb"),vehicle %>
+                    <% if vehicle.thumb.present? %>
+                    <div class="thumbnail text-center">
+                        <%=  link_to image_tag(vehicle.thumb),vehicle  %>
                         <div class="caption">
                             <% if vehicle.status.present? %>
                             <% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
@@ -70,27 +69,13 @@
                             <% end %>
                         </div>
                     </div>
-                    <% end %>
-                    <% if vehicle.import == nil%>
-                    <% if vehicle.vehicle_images.present? %>
-                    <div class="thumbnail text-center" style="padding-top:.5vmin; padding-bottom:.5vmin; background-color:#f2f2f2;">
-                        <%=  link_to image_tag(vehicle.vehicle_images[0].url, :id=>"veh_thumb"),vehicle  %>
-                        <div class="caption">
-                            <% if vehicle.status.present? %>
-                            <% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
-                            <h4 class="pending-banner"> Sale Pending </h4>
-                            <% end %>
-                            <% end %>
-                        </div>
-                    </div>
-                    <% end %>
                     <% end %>
                 </div>
                 
                 <div class="col-xs-7" id="veh_col_2">
                     
                     <!-- TITLE AND CARFAX END  -->
-                    <table class="table table-striped" id="vehicle_window_table">
+                    <table class="table table-striped vehicle_table_each" id="vehicle_window_table">
                         <tr >
                             <td colspan="3" id="price_tag_td" style="color:#428bca; padding:0!important;">
                                 <h4 class="price_tag" style="font-size:6.5vmin" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h4>

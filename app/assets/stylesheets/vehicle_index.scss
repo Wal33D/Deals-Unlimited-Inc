@@ -31,7 +31,7 @@ z-index:1001;
         margin-top: 0.2vmin;
         margin-bottom: 0.2vmin;
         padding: .25vmin;
-        font-size: 1.6vmin!important;
+        font-size: 1.4vmin!important;
         label {
             white-space: nowrap;
 
@@ -295,54 +295,44 @@ max-width:100%!important;
     }
     #vehicle_window_table td {
         white-space: nowrap;
-        font-size: 2vmin!important;
+        font-size: 1.4vmin!important;
     }
  
 }
 
 
-
-
 @media (min-width: 1050px) {
-	    #vehicle_window_table td {
-        padding: 0;
+    .price_tag{
+        font-size: 5.5vmin!important;
     }
+	    #vehicle_window_table td {
+        padding: 0.1vmin;
+    }
+.vehicle_table_each{
+            font-size: 1.5vmin!important;
+
+}
 }
 @media (min-width: 1180px) {
 	    #vehicle_window_table td {
-        padding: .25vmin;
+        padding: .1vmin;
     }
 }
 @media (min-width: 1229px) {
 	    #vehicle_window_table td {
-        padding: .5vmin;
+        padding: .4vmin;
     }
 }
 @media (min-width: 1300px) {
 	    #vehicle_window_table td {
-        padding: 0.8vmin;
-    }
-}
-@media (min-width: 1337px) {
-	    #vehicle_window_table td {
-        padding: 0.9vmin;
-    }
-    }
+        padding: 0.5vmin;
+                font-size:1.6vmin!important;
 
-@media (min-width: 1400px) {
-	    #vehicle_window_table td {
-        padding: 1.4vmin;
     }
 }
-@media (min-width: 1550px) {
+@media (min-width: 1500px) {
 	    #vehicle_window_table td {
-        padding: 1.8vmin;
-    }
-}
-@media (min-width: 1700px) {
-	    #vehicle_window_table td {
-	    font-size:1.9vmin!important;
+	    font-size:1.7vmin!important;
 	    label{font-size:1.7vmin;}
-        padding: 2.1vmin;
     }
 }
