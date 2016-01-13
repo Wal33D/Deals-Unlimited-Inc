@@ -48,6 +48,7 @@ if request.original_url.include? "dash"
 end
 
 def sale
+	
 	@status_heading = '<div class="panel-heading" style="background-color: #4CAF50 !important;"><h5 id="sold_veh_dash_title">For Sale</h5><div class="panel-title white-text"><h5>Vehicles</h5></div> </div>'
 	@modal_id = 'sale_modal'
 	@vehicle_status = Vehicle.where(:status => "Sale")
