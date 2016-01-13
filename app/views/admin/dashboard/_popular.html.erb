@@ -1,14 +1,14 @@
 <div class="col-xs-6">
 	<div class="panel panel-default z-depth-1">
-		<div class="panel-heading" id="most_viewed_heading">
+		<div class="panel-heading" id="most_viewed_heading" >
 			<button type="button" class="" data-toggle="modal" data-target="#most_viewed_modal" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;" onclick="$('#closebtn-most').show()">
 			<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 			</button>
 			<div class="panel-title">
-				<h6>Most Viewed</h6>
+				<h6 >Most Viewed</h6>
 			</div>
 		</div>
-		<div class="panel-body" style="padding:.25vmin .5vmin .25vmin .5vmin;  overflow-y:hidden!important;">
+		<div class="panel-body" style="padding:0;  overflow:hidden!important;">
 			<table class="table" style="padding:0; margin:0; overflow-y:hidden!important;">
 				<tr>
 					<% @popular_first.each do |vehicle| %>
@@ -19,12 +19,8 @@
 									<%= vehicle.title.truncate(13)%>
 								</label>
 							</div>
-							<div class="panel-body" style="padding:0; margin:0;">
-								<% if vehicle.import == 'import' %>
-								<%=  link_to image_tag(vehicle.image_1, :style=>"width:110px!important; height:67.9px!important;"),vehicle %>
-								<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-								<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:110px!important; height:67.9px!important;"),vehicle  %>
-								<% end %>
+							<div class="panel-body" style="padding:0; margin:0;">								
+								<%=  link_to image_tag(vehicle.admin_thumb, :style=>"width:112px!important; height:67.9px!important;"),vehicle %>
 							</div>
 							
 							<div class="panel-footer" style="padding:0; margin:0;">
@@ -44,11 +40,7 @@
 								</label>
 							</div>
 							<div class="panel-body" style="padding:0; margin:0;">
-								<% if vehicle.import == 'import' %>
-								<%=  link_to image_tag(vehicle.image_1, :style=>"width:110px!important; height:67.9px!important;"),vehicle %>
-								<% elsif ((vehicle.import == nil) && (vehicle.vehicle_images.present?))%>
-								<%=  link_to image_tag(vehicle.vehicle_images[0].url, :style=>"width:110px!important; height:67.9px!important;"),vehicle  %>
-								<% end %>
+								<%=  link_to image_tag(vehicle.admin_thumb, :style=>"width:112px!important; height:67.9px!important;"),vehicle %>
 							</div>
 							<div class="panel-footer" style="padding:0; margin:0;">
 								<label style="margin:0!important;">Views:   <%= vehicle.countclicks%></label>

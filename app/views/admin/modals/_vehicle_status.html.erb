@@ -9,11 +9,7 @@
 					<%= simple_form_for vehicle, :remote=>true do |f| %>
 					<div class="row" style="margin-bottom:.5vmin;" id="tr_<%= vehicle.id %>">
 						<div class="col-xs-2">
-							<% if vehicle.image_1.present? %>
-							<%=  link_to image_tag(vehicle.image_1, :class=>"dashboard_veh_thumb"),vehicle %>
-							<% elsif vehicle.vehicle_images.present? %>
-							<%=  link_to image_tag(vehicle.vehicle_images[0].url, :class=>"dashboard_veh_thumb"), vehicle  %>
-							<% end %>
+								<%=  link_to image_tag(vehicle.admin_thumb, :style=>"width:119px!important; height:66px!important;"),vehicle %>
 						</div>
 						<div class="col-xs-1">
 							<div class="row" style="padding:0;margin:.2vmin;font-size:1.8vmin;">
