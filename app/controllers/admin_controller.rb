@@ -2,8 +2,8 @@ class AdminController < ApplicationController
 
 def dashboard
 	most_viewed
-	#admin_thumb_gen
-	#user_thumb_gen
+	admin_thumb_gen
+	user_thumb_gen
 end
 
 def admin_thumb_gen
