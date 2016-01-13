@@ -26,9 +26,6 @@ background-color: rgba(0, 0, 0, .5);
 		</div>
 		<div class="panel-body">
 			<div class="row" id="dashboard-row" >
-				<%= link_to 'Generate Admin Thumbs', {:controller => "admin", :action => "admin_thumb_gen"}, :remote => true, :class => 'btn admin_thumb_gen' %>
-				<%= link_to 'Generate Admin Thumbs', {:controller => "admin", :action => "user_thumb_gen"}, :remote => true, :class => 'btn admin_thumb_gen' %>
-
 				<div id="count_tile"><%= render 'admin/dashboard/count' %></div>
 				<div id="most_viewed_tile"><%= render 'admin/dashboard/popular' %></div>
 				<div id="options_tile"><%= render 'admin/dashboard/options' %></div>
