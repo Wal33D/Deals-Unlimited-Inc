@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get 'admin/set_pending'
 
 
+  match 'admin/admin_thumb_gen',            to: 'admin#admin_thumb_gen',           via: 'get'
+  match 'admin/user_thumb_gen',            to: 'admin#user_thumb_gen',           via: 'get'
+
   match 'admin/sale',            to: 'admin#sale',           via: 'get'
   match 'admin/sold',            to: 'admin#sold',           via: 'get'
   match 'admin/pending',         to: 'admin#pending',        via: 'get'
