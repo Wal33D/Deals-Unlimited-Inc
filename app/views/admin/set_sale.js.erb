@@ -2,3 +2,9 @@ $('.sale_btn').bind('ajax:success', function() {
     $(this).closest('section').fadeOut();
 });
 $("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
+
+$("#headerinfo").css("background-color","white");
+$("#headerinfo").css("color","#5383D3");
+$("#edit_status_panel_heading").css("background-color","#4CAF50");
+$("#edit_status_panel_heading h5").html("For Sale");
+

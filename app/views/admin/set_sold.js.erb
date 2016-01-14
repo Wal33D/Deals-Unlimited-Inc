@@ -2,3 +2,8 @@ $('.sold_btn').bind('ajax:success', function() {
     $(this).closest('section').fadeOut();
 });
 $("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
+
+$("#headerinfo").css("background-color","#F44336");
+$("#headerinfo").css("color","white");
+$("#edit_status_panel_heading").css("background-color","#F44336");
+$("#edit_status_panel_heading h5").html("Sold");

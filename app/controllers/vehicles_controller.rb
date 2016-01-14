@@ -10,8 +10,14 @@ class VehiclesController < ApplicationController
   end
 
   def show
-    @vehicleCurr = Vehicle.find(params[:id])
-    if(admin_signed_in?)
+      clicks
+      edit_panel
+  end
+
+  def clicks 
+      @vehicleCurr = Vehicle.find(params[:id])
+     
+      if(admin_signed_in?)
     else
       count=@vehicleCurr.countclicks
       if (@vehicleCurr.countclicks.blank?)
@@ -21,12 +27,25 @@ class VehiclesController < ApplicationController
     @vehicleCurr.update_attributes(:countclicks=> count)
     end
   end
-  
+
+  def edit_panel
+
+    if @vehicle.status == "Sale" 
+      @status = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#4CAF50;"><div class="panel-title" id = "panel-title"><h5>For Sale</h5></div></div>'
+    elsif @vehicle.status == "Pending" 
+      @status = '<div class="panel-heading"  id="edit_status_panel_heading" style="background-color:#5383D3!important"><div class="panel-title"><h5>Pending</h5></div></div>'
+    elsif @vehicle.status == "Sold" 
+      @status = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#F44336;"><div class="panel-title"><h5>Sold</h5></div></div>'
+    end
+  end
+
+
   def new
     @vehicle = Vehicle.new
   end
 
   def edit
+    edit_panel
   end
 
 def vin

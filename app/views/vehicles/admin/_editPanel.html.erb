@@ -1,6 +1,6 @@
 <style>
 #showpagecontainer{margin-top:0!important;}
-#status-container #vehicle_price{border:1px solid black!important;}
+#status-container #vehicle_price{border:1px solid #ddd!important;}
 input .integer .optional .vehicle_price{height:100%!important;}
 #vehicle_price{margin:0!important;}
 #vehicle_price{border:none!important;}
@@ -17,36 +17,12 @@ input .integer .optional .vehicle_price{height:100%!important;}
 <div class="container" id="stat-container">
 	<div class="row" id="status-container">
 		<div class="panel panel-default z-depth-4" id ="panel-status">
-			<% if @vehicle.status == ("Sale" || "sale") %>
-			<div class="panel-heading green">
-				<div class="panel-title" id = "panel-title">
-					<h5>For Sale
-					<%= render '/vehicles/admin/edit_delete_links' %>
-					</h5>
-					
-				</div>
-			</div>
-			<% elsif @vehicle.status == ("Sold" || "sold") %>
-			<div class="panel-heading red">
-				<div class="panel-title">
-					<h5>Sold
-					<%= render '/vehicles/admin/edit_delete_links' %>
-					</h5>
-				</div>
-			</div>
-			<% else %>
-			<div class="panel-heading" style="background-color:#5383D3 !important">
-				<div class="panel-title">
-					<h5>Pending
-					<%= render '/vehicles/admin/edit_delete_links' %>
-					</h5>
-				</div>
-			</div>
-			<% end %>
+			
+			<%= @status.html_safe%>
 			<div class="panel-body" style="padding-bottom:0!important;">
 				<div class="row">
 					<div class="col-sm-4">
-						<table class="table" style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
+						<table class="table edit_panel_table" style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
 							<tr>
 								<td style="padding:1vmin!important;">
 									Total Views:
@@ -83,7 +59,7 @@ input .integer .optional .vehicle_price{height:100%!important;}
 					</div>
 					<div class="col-sm-4">
 						<table>
-							<%= simple_form_for(@vehicle) do |s| %>
+							<%= simple_form_for @vehicle, :remote => true do |s| %>
 							<tr>
 								<td style="padding:1vmin!important;" >
 									<div class="input-group" >
@@ -96,7 +72,8 @@ input .integer .optional .vehicle_price{height:100%!important;}
 							<tr><td><hr></td></tr>
 							<tr>
 								<td style="padding:1vmin!important;">
-									<%= s.button :submit ,:class=>"blue z-depth-2 ", :value=>"$ Update Price",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;"%>
+										<%= link_to 'Update Price', {:controller => "admin", :action => "set_price", :vehicle => @vehicle.id }, :remote => true, :class => 'btn edit_price_btn',:style=>"display:none;" %>
+									<%= s.button :submit ,:class=>"blue z-depth-2 ", :value=>"$ Update Price",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;", :onclick=>"$('.edit_price_btn').click();" %>
 								</td>
 							</tr>
 							<% end %>
@@ -105,47 +82,36 @@ input .integer .optional .vehicle_price{height:100%!important;}
 					<div class="col-sm-4" style="height:100%!important; padding-bottom:0!important;" >
 						<table class="table"style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
 							<tr>
-								<td id = "forsale-btn" style="padding:1vmin!important;">
-									<button class="btn btn-default green z-depth-2 waves-effect waves-white " onclick = "setstatus('For Sale')"style="font-weight:bold!important; width:100%!important;" >For Sale</button>
+								<td >
+									<%= link_to 'Edit', edit_vehicle_path(@vehicle),:style=>" width:100%; font-weight: bold!important; background-color: #5383D3!important;", :class=>"font-weight:bold!important;  btn btn-default z-depth-1 btn waves-effect waves-white",:id=>"hide-me"%>
+								</td>
+								<td id = "forsale-btn-td">
+									<%= link_to 'Sale', {:controller => "admin", :action => "set_sale", :vehicle => @vehicle.id }, :remote => true,:type=>"button", :class => 'btn edit_sale_btn',:style=>" width:100%; background-color:#4CAF50 !important; font-weight:bold!important; ",:id=>"forsale-btn-edit" %>
 								</td>
 							</tr>
 							<tr>
-								<td id="pending-btn" style="padding:1vmin!important;">
-									<button class="btn btn-default z-depth-2 waves-effect waves-white" onclick = "setstatus('Pending')"style="font-weight:bold!important; width:100%!important; background-color:#5383D3!important">Pending</button>
+								<td>
+									<%= link_to 'Delete', @vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"font-weight: bold!important; width:100%; font-weight:bold!important; ", :class=>"btn orange btn-default z-depth-1 btn waves-effect waves-red"%>
+									
+								</td>
+								<td id="pending-btn-td" >
+									<%= link_to 'Pending', {:controller => "admin", :action => "set_pending", :vehicle => @vehicle.id }, :remote => true, :class => 'btn edit_pending_btn',:style=>"background-color:#5383d3 !important;width:100%; font-weight:bold!important; " %>
 								</td>
 							</tr>
 							<tr>
-								<td id="sold-btn" style="padding:1vmin!important;">
-									<button class="btn btn-default red z-depth-2 waves-effect waves-white" onclick = "setstatus('Sold')"style="font-weight:bold!important; width:100%!important;">Sold</button>
+								<td>
+									<button onclick="window.history.back();"style="width:100%;  font-weight:bold!important; " class=" btn btn-default teal z-depth-1 btn waves-effect waves-white">Back</button>
+								</td>
+								<td id="sold-btn-td" >
+									<%= link_to 'Sold', {:controller => "admin", :action => "set_sold", :vehicle => @vehicle.id }, :remote => true, :class => 'btn red edit_sold_btn', :style =>"width:100%; font-weight:bold!important; " %>
 								</td>
 							</tr>
+							
 						</table>
 					</div>
 				</div>
 			</div>
-			<% if @vehicle.status == ("Sale" || "sale") %>
-			<div class="panel-footer green">
-			</div>
-			<% elsif @vehicle.status == ("Sold" || "sold") %>
-			<div class="panel-footer red">
-			</div>
-			<% else %>
-			<div class="panel-footer" style="background-color:#5383D3 !important">
-			</div>
-			<% end %>
+			
 		</div>
 	</div>
 </div>
-<div style="display:none!important;">
-	<%= simple_form_for(@vehicle) do |s| %>
-	<%= s.input :price %>
-	<%= s.input :status %>
-	<p id="status-indicator"><%= @vehicle.status %></p>
-	<button id= "update"%>Submit Vehicle</button>
-</div>
-<% end %>
-<script>
-if($('#status-indicator').html() == "Sale" ){ $('#forsale-btn button').prop('disabled', true);
-}else if($('#status-indicator').html() == "Pending" ){ $('#pending-btn button').prop('disabled', true);
-}else if($('#status-indicator').html() == "Sold" ){ $('#sold-btn button').prop('disabled', true);}
-</script>
