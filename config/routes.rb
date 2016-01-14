@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'admin/set_sold'
   get 'admin/pending'
   get 'admin/set_pending'
+  get 'vehicles/set_pending'
+  get 'vehicles/set_sold_edit'
+  get 'vehicles/set_sale_edit'
 
 
   match 'admin/admin_thumb_gen',            to: 'admin#admin_thumb_gen',           via: 'get'
@@ -37,6 +40,10 @@ Rails.application.routes.draw do
   match 'admin/set_sale',            to: 'admin#set_sale',           via: 'get'
   match 'admin/set_sold',            to: 'admin#set_sold',           via: 'get'
   match 'admin/set_pending',         to: 'admin#set_pending',        via: 'get'
+  match 'admin/set_price',         to: 'admin#set_price',        via: 'get'
+
+
+
 
   match '/contact',              to: 'contacts#new',         via: 'get'
   match '/policy',               to: 'pages#policy',         via: 'get'

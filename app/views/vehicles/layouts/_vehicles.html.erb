@@ -11,7 +11,7 @@
     <div class="panel-heading" style="color:white!important; background-color:#F44336!important;" >
         <div class="admin_btn" style="float:right!important">
             <% if admin_signed_in? %>
-            <%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
             <%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-3 btn waves-effect waves-red"%>
             <% end %>
         </div>
@@ -25,7 +25,7 @@
     <div class="panel-heading" style="background-color:#5383D3 !important" >
         <div class="admin_btn" style="float:right!important">
             <% if admin_signed_in? %>
-            <%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
             <%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-1 btn waves-effect waves-red"%>
             <% end %>
         </div>
@@ -39,7 +39,7 @@
     <div class="panel-heading" >
         <div class="admin_btn" style="float:right!important">
             <% if admin_signed_in? %>
-            <%= link_to 'Edit', edit_vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
             <%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, :class=>" btn red btn-default z-depth-1 btn waves-effect waves-red"%>
             <% end %>
         </div>

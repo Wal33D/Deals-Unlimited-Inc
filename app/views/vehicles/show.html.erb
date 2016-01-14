@@ -22,15 +22,16 @@
                   </h5>
                   <div id ="">
                     <div class="row" style="margin:0!important;">
-                      <label style="color:black">Price: </label>
-                      $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
+                      <label style="font-size:2vmin;">Price: </label>
+                      <div class="show_price" style="display:inline; font-size:2vmin;"> $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</div>
                     </div>
                     <div class="row" style="margin:0!important;">
-                      <label style="color:black">Mileage: </label>
-                      <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
+                      <label style="font-size:2vmin;">Mileage: </label>
+                      <div style="display:inline; font-size:2vmin;"><%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
+                      </div>
                     </div>
                     <div class="row" style="margin:0!important;">
-                      <label style="color:black">VIN:</label>
+                      <label style="font-size:2vmin;">VIN:</label>
                       <%= @vehicle.vin_num %>
                     </div>
                   </div>
@@ -96,7 +97,6 @@
 </div>
 <%= render 'vehicles/layouts/footer' %>
 <%= render '/vehicles/show/print' %>
-
 <style>
 .item-list p{
 display: none!important;
@@ -130,6 +130,5 @@ overflow: scroll;
 #mobileinfo{display:inline-block!important;}
 }
 .footer-distributed{display:none!important;}
-
 @media (max-width: 600px){.features *{font-size:3.3vmin!important;}}
 </style>

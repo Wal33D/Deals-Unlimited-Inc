@@ -80,7 +80,9 @@ def set_pending
 	@vehicle = Vehicle.find(params[:vehicle])
     @vehicle.update_attributes(:status => "Pending")  
 end
-
+def set_price
+	
+end
 def most_viewed
 	objArray = Array.new
 	@popular = Vehicle.where(:status => "Sale").order(:countclicks => "DESC")

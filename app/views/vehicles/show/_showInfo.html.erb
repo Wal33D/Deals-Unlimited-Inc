@@ -45,7 +45,7 @@ document.getElementById('featuresprint').innerHTML = selected;
               <label>Price: </label>
             </td>
             <td>
-              <p  style="float:right;">$<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</p>
+              <p class="show_price" style="float:right;">$<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</p>
             </td>
           </tr>
           <tr>
