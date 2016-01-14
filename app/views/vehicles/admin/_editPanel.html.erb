@@ -14,8 +14,7 @@ input .integer .optional .vehicle_price{height:100%!important;}
 #panel-title h5{color:white!important;}
 #panel-title, #panel-title h5{padding:0!important;margin:0!important;}}
 </style>
-
-<div class="container" id="stat-container" >
+<div class="container" id="stat-container">
 	<div class="row" id="status-container">
 		<div class="panel panel-default z-depth-4" id ="panel-status">
 			<% if @vehicle.status == ("Sale" || "sale") %>
@@ -48,6 +47,14 @@ input .integer .optional .vehicle_price{height:100%!important;}
 				<div class="row">
 					<div class="col-sm-4">
 						<table class="table" style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
+							<tr>
+								<td style="padding:1vmin!important;">
+									Total Views:
+								</td>
+								<td style="padding:1vmin!important; color:#777;">
+									<%= @vehicle.countclicks %>
+								</td>
+							</tr>
 							<tr>
 								<td style="padding:1vmin!important;">
 									Days Old:
