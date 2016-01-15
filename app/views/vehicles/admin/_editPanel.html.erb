@@ -13,13 +13,17 @@ input .integer .optional .vehicle_price{height:100%!important;}
 #status-container{margin-top: 5vmin!important;}
 #panel-title h5{color:white!important;}
 #panel-title, #panel-title h5{padding:0!important;margin:0!important;}}
+#desc_td{display: none;}
+#status-container .btn:focus {outline: none!important;}
+}
 </style>
 <div class="container" id="stat-container">
 	<div class="row" id="status-container">
 		<div class="panel panel-default z-depth-4" id ="panel-status">
-			
-			<%= @status.html_safe%>
-			<div class="panel-body" style="padding-bottom:0!important;">
+			<%=@status_head.html_safe%>
+				<button class="btn" id="shrink_edit_panel" style="background:none; font-size:3vmin; padding:0; margin:5px 0 0 3px; float:right; color:white; box-shadow:none;" onclick="$('#edit_panel_body').slideToggle();"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span></button>
+			<div class="panel-title" id = "panel-title"><h5><%=@status%></h5></div></div>
+			<div class="panel-body"  id="edit_panel_body" style="padding-bottom:0!important;">
 				<div class="row">
 					<div class="col-sm-4">
 						<table class="table edit_panel_table" style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
@@ -69,10 +73,10 @@ input .integer .optional .vehicle_price{height:100%!important;}
 									</div>
 								</td>
 							</tr>
-							<tr><td><hr></td></tr>
+							<tr><td><hr class="seperator"></td></tr>
 							<tr>
 								<td style="padding:1vmin!important;">
-										<%= link_to 'Update Price', {:controller => "admin", :action => "set_price", :vehicle => @vehicle.id }, :remote => true, :class => 'btn edit_price_btn',:style=>"display:none;" %>
+									<%= link_to 'Update Price', {:controller => "admin", :action => "set_price", :vehicle => @vehicle.id }, :remote => true, :class => 'btn edit_price_btn',:style=>"display:none;" %>
 									<%= s.button :submit ,:class=>"blue z-depth-2 ", :value=>"$ Update Price",:style=>"height:100%!important; width:100%!important; background-color:#5383D3!important; color:white!important; font-weight:bold!important;", :onclick=>"$('.edit_price_btn').click();" %>
 								</td>
 							</tr>
@@ -83,15 +87,17 @@ input .integer .optional .vehicle_price{height:100%!important;}
 						<table class="table"style="margin-bottom:0px!important; margin-top:1.5vmin!important;">
 							<tr>
 								<td >
-									<%= link_to 'Edit', edit_vehicle_path(@vehicle),:style=>" width:100%; font-weight: bold!important; background-color: #5383D3!important;", :class=>"font-weight:bold!important;  btn btn-default z-depth-1 btn waves-effect waves-white",:id=>"hide-me"%>
+									
+									<%= link_to 'Edit', {:controller => "admin", :action => "edit_form", :vehicle => @vehicle.id }, :remote => true,:type=>"button", :class =>'btn white',:style=>"width:100%; color:black;",:id=>"btn-edit" %>
+									
 								</td>
 								<td id = "forsale-btn-td">
-									<%= link_to 'Sale', {:controller => "admin", :action => "set_sale", :vehicle => @vehicle.id }, :remote => true,:type=>"button", :class => 'btn edit_sale_btn',:style=>" width:100%; background-color:#4CAF50 !important; font-weight:bold!important; ",:id=>"forsale-btn-edit" %>
+									<%= link_to 'Sale', {:controller => "admin", :action => "set_sale", :vehicle => @vehicle.id }, :remote => true,:type=>"button", :class => 'btn edit_sale_btn',:style=>" width:100%; background-color:rgba(0, 230, 118, 1)!important; font-weight:bold!important; ",:id=>"forsale-btn-edit" %>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<%= link_to 'Delete', @vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"font-weight: bold!important; width:100%; font-weight:bold!important; ", :class=>"btn orange btn-default z-depth-1 btn waves-effect waves-red"%>
+									<%= link_to 'Delete', @vehicle, method: :delete, data: { confirm: 'Are you sure?' },:style=>"width:100%; color:black; ", :class=>"btn white btn-default z-depth-1 btn waves-effect waves-red"%>
 									
 								</td>
 								<td id="pending-btn-td" >
@@ -100,13 +106,12 @@ input .integer .optional .vehicle_price{height:100%!important;}
 							</tr>
 							<tr>
 								<td>
-									<button onclick="window.history.back();"style="width:100%;  font-weight:bold!important; " class=" btn btn-default teal z-depth-1 btn waves-effect waves-white">Back</button>
+									<button onclick="window.history.back();"style="width:100%; color:black;" class=" btn btn-default white z-depth-1 btn waves-effect waves-orange">Back</button>
 								</td>
 								<td id="sold-btn-td" >
 									<%= link_to 'Sold', {:controller => "admin", :action => "set_sold", :vehicle => @vehicle.id }, :remote => true, :class => 'btn red edit_sold_btn', :style =>"width:100%; font-weight:bold!important; " %>
 								</td>
 							</tr>
-							
 						</table>
 					</div>
 				</div>
