@@ -30,12 +30,15 @@ class VehiclesController < ApplicationController
 
   def edit_panel
 
-    if @vehicle.status == "Sale" 
-      @status = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#4CAF50;"><div class="panel-title" id = "panel-title"><h5>For Sale</h5></div></div>'
+   if @vehicle.status == "Sale" 
+      @status = "For Sale"
+      @status_head = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:rgba(0, 230, 118, 1);">'
     elsif @vehicle.status == "Pending" 
-      @status = '<div class="panel-heading"  id="edit_status_panel_heading" style="background-color:#5383D3!important"><div class="panel-title"><h5>Pending</h5></div></div>'
+      @status = @vehicle.status
+      @status_head = '<div class="panel-heading"  id="edit_status_panel_heading" style="background-color:#5383D3;">'
     elsif @vehicle.status == "Sold" 
-      @status = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#F44336;"><div class="panel-title"><h5>Sold</h5></div></div>'
+      @status = @vehicle.status
+      @status_head = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#F44336;">'
     end
   end
 

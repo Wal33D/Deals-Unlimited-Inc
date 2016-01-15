@@ -44,7 +44,38 @@ jQuery(document).ready(function($) {
        
 
 });
+function loadMCE(){
+    $('#desc_td').slideDown();
+tinymce.init({
+selector: 'textarea',
+height: 200,
+theme: 'modern',
+plugins: [
+'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+'searchreplace wordcount visualblocks visualchars code fullscreen',
+'insertdatetime media nonbreaking save table contextmenu directionality',
+'emoticons template paste textcolor colorpicker textpattern imagetools'
+],
+toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alalignjustify | bullist numlist outdent indent | link image | print preview media | fbackcolor emoticons',
+image_advtab: true,
+templates: [
+{ title: 'Test template 1', content: 'Test 1' },
+{ title: 'Test template 2', content: 'Test 2' }
+],
+content_css: [
+'//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+'//www.tinymce.com/css/codepen.min.css'
+]
+});
+    $('#desc_td').slideDown();
 
+}
+
+$.fn.digits = function(){ 
+    return this.each(function(){ 
+        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+    })
+}
 ///////////////////Resize Vehicle Panel///////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function resizeVehiclePane() {
@@ -87,6 +118,7 @@ function tradeIn_yes(val) {
         } catch (err) {}
     }
 }
+
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function coap(val) {
@@ -367,6 +399,16 @@ function VIN_O_Matic(option) {
 }(document, 'script', 'edmunds-jssdk'));
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+function editPanelPrep() {
+
+    $("#available-list").fadeOut();
+    //$( "#accept" ).prop( "disabled", true );
+    document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class="white btn waves-effect waves" id="edit" style="font-weight:bold; color:black; width:100%!important; " type="button">Edit Features</button>';
+    $("#feature-panel").slideUp(1000);
+}
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 function acceptFeatures() {
 
     var selected = document.getElementById('selected-list').innerHTML;
@@ -379,7 +421,7 @@ function acceptFeatures() {
 
     $("#available-list").fadeOut();
     //$( "#accept" ).prop( "disabled", true );
-    document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class=" btn waves-effect waves-white" id="edit" style="font-weight:bold; width:100%!important; background-color:#ffab40!important;" type="button">Edit Selections</button>';
+    document.getElementById('accept-div').innerHTML = '<button onclick="editFeatures();" class="white btn waves-effect waves" id="edit" style="font-weight:bold; color:black; width:100%!important; " type="button">Edit Features</button>';
     $("#feature-panel").slideUp(1000);
 }
 //////////////////////////////////////////////////////////////////////
@@ -394,7 +436,7 @@ function editFeatures() {
     $("#selected-list").fadeIn();
     $("#accept").prop("disabled", false);
     $("#edit").prop("disabled", true);
-    document.getElementById('accept-div').innerHTML = '<button onclick="acceptFeatures();" class="btn green btn waves-effect waves-teal" id="accept" type="button" style="width:100%!important; font-weight:bold;">Accept Options</button>';
+    document.getElementById('accept-div').innerHTML = '<button onclick="acceptFeatures();" class="btn white waves-effect waves-teal" id="accept" type="button" style="width:100%!important; color:black; font-weight:bold;">Accept Options</button>';
     $("#feature-panel").slideDown(1000);
 
 }

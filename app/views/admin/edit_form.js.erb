@@ -1,0 +1,3 @@
+$("#edit_panel_body").slideToggle(800);
+$("#showpagecontainer").html("<%= escape_javascript(render('admin/edit_form.html.erb')) %>")
+$("#showpagecontainer").append("<%= escape_javascript(render('layouts/application/htmlEdit')) %>")
