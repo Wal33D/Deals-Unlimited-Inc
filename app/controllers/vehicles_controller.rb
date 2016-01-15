@@ -32,13 +32,13 @@ class VehiclesController < ApplicationController
   def edit_panel
 
    if @vehicle.status == "Sale" 
-      @status = "For Sale"
+      @status_phrase = "For Sale"
       @status_head = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:rgba(0, 230, 118, 1);">'
     elsif @vehicle.status == "Pending" 
-      @status = @vehicle.status
+      @status_phrase = @vehicle.status
       @status_head = '<div class="panel-heading"  id="edit_status_panel_heading" style="background-color:#5383D3;">'
     elsif @vehicle.status == "Sold" 
-      @status = @vehicle.status
+      @status_phrase = @vehicle.status
       @status_head = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#F44336;">'
     end
   end
