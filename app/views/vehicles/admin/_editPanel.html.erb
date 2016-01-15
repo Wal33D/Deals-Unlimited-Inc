@@ -22,7 +22,7 @@ input .integer .optional .vehicle_price{height:100%!important;}
 		<div class="panel panel-default z-depth-4" id ="panel-status">
 			<%=@status_head.html_safe%>
 				<button class="btn" id="shrink_edit_panel" style="background:none; font-size:3vmin; padding:0; margin:5px 0 0 3px; float:right; color:white; box-shadow:none;" onclick="$('#edit_panel_body').slideToggle();"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span></button>
-			<div class="panel-title" id = "panel-title"><h5><%=@status%></h5></div></div>
+			<div class="panel-title" id = "panel-title"><h5><%=@status_phrase%></h5></div></div>
 			<div class="panel-body"  id="edit_panel_body" style="padding-bottom:0!important;">
 				<div class="row">
 					<div class="col-sm-4">

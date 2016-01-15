@@ -7,6 +7,7 @@ class VehiclesController < ApplicationController
       @vehicle= @q.result()
       @vehicles=@vehicle.order(:price).page params[:page]
       @vehicle=@vehicles
+
   end
 
   def show
