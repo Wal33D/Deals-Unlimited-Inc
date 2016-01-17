@@ -2,8 +2,7 @@ class AdminController < ApplicationController
 
 def dashboard
 	most_viewed
-	#admin_thumb_gen
-	#user_thumb_gen
+
 end
 
 def most_viewed
@@ -65,6 +64,7 @@ end
 def edit_form
 		@vehicle = Vehicle.find(params[:vehicle])
 end
+
 def admin_thumb_gen
 	Vehicle.all.each do |vehicle| 
 		if vehicle.import == 'import'
@@ -85,7 +85,7 @@ def user_thumb_gen
 	Vehicle.all.each do |vehicle| 
 		if vehicle.import == 'import'
 			image = MiniMagick::Image.open("public/images/"+vehicle.image_1)
-			image.shave '7x0' # Removes 46px from top and bottom edges
+			image.shave '7x0'
 		else
 			image = MiniMagick::Image.open("public/"+vehicle.vehicle_images[0].url)
 			image.shave '0x60' # Removes 46px from top and bottom edges

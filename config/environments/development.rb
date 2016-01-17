@@ -1,7 +1,7 @@
 Rails.application.configure do
   config.cache_classes = false
   config.action_controller.action_on_unpermitted_parameters =:log
-  config.eager_load = true
+  config.eager_load = false
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
@@ -15,9 +15,5 @@ Rails.application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true
 }
-  config.active_support.deprecation = :log
-  config.active_record.migration_error = :page_load
-  config.assets.debug = true
-  config.assets.digest = false
-  config.assets.raise_runtime_errors = false
+  config.assets.raise_runtime_errors = true
 end

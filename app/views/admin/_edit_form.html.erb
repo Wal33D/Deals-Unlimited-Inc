@@ -31,10 +31,13 @@ select{display: block!important;}
 <script>
 editPanelPrep();
 </script>
+
 <div class = "row" id="form">
+        <div class = "col-sm-12" >
+
     <%= simple_form_for(@vehicle) do |f| %>
     <%= f.error_notification %>
-    <div class = "col-lg-6"  style="padding: .25vmin 1vmin 0 0;">
+    <div class = "col-sm-6"  style="padding: .25vmin 1vmin 0 0;">
         <div class = "panel panel-default z-depth-4">
             <div class = "panel-heading" style="background-color:#292c2f!important; ">
                 <div class ="panel-title">
@@ -108,7 +111,7 @@ editPanelPrep();
             </div>
         </div>
     </div>
-    <div class = "col-lg-6"  style="padding:.25vmin 0 0 1vmin;">
+    <div class = "col-sm-6"  style="padding:.25vmin 0 0 1vmin;">
         <div class = "panel panel-default z-depth-4 ">
             <div class = "panel-heading" style="background-color:#292c2f!important;">
                 <div class = "panel-title" >
@@ -187,4 +190,5 @@ editPanelPrep();
         </div>
     </div>
     <% end %>
+</div>
 </div>

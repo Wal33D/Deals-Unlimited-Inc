@@ -2,62 +2,56 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show,:set_sold, :edit, :update, :destroy]
 
   def index     
-      @all_vehicles = Vehicle.all.where.not(:status => "Sold")
-      @q = Vehicle.all.where.not(:status => "Sold").ransack(params[:q])
-      @vehicle= @q.result()
-      @vehicles=@vehicle.order(:price).page params[:page]
-      @vehicle=@vehicles
-
+      @q = Vehicle.where.not(:status => "Sold").ransack(params[:q])
+      @vehicles =  @q.result().order(:price).page params[:page]
   end
-
+  
+  def image_gallery
+     fetch_images
+  end
+  
   def show
-      clicks
-      edit_panel
+      image_gallery
+      view_counter
+      status_init
   end
-
-  def clicks 
-      @vehicleCurr = Vehicle.find(params[:id])
-     
-      if(admin_signed_in?)
-    else
-      count=@vehicleCurr.countclicks
-      if (@vehicleCurr.countclicks.blank?)
-        count = 0
-      end
-    count = count + 1
-    @vehicleCurr.update_attributes(:countclicks=> count)
+  def view_counter 
+      if !admin_signed_in?
+         count = @vehicle.countclicks
+         if @vehicle.countclicks.blank? 
+           count = 0 
+         end
+      @vehicle.update_attributes(:countclicks=> (count += 1))
     end
   end
 
-  def edit_panel
-
+  def status_init
    if @vehicle.status == "Sale" 
       @status_phrase = "For Sale"
-      @status_head = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:rgba(0, 230, 118, 1);">'
+      @status_head = '<div class="panel-heading status_head" id="edit_status_panel_heading" style="background-color:rgba(0, 230, 118, 1);">'
+      @status_head_show = '<div class="panel-heading status_head" id="show_status" style="background-color:white; color:#5383D3;">'
+
     elsif @vehicle.status == "Pending" 
       @status_phrase = @vehicle.status
-      @status_head = '<div class="panel-heading"  id="edit_status_panel_heading" style="background-color:#5383D3;">'
+      @status_head = '<div class="panel-heading status_head"  id="edit_status_panel_heading" style="background-color:#5383D3;">'
+      @status_head_show = '<div class="panel-heading status_head"  id="show_status" style="background-color:#5383D3; color:white;">'
+
     elsif @vehicle.status == "Sold" 
       @status_phrase = @vehicle.status
-      @status_head = '<div class="panel-heading" id="edit_status_panel_heading" style="background-color:#F44336;">'
+      @status_head = '<div class="panel-heading status_head" id="edit_status_panel_heading" style="background-color:#F44336;">'
+      @status_head_show = '<div class="panel-heading status_head" id="show_status" style="background-color:#F44336; color:white;">'
     end
   end
-
 
   def new
     @vehicle = Vehicle.new
   end
 
-  def edit
-    edit_panel
+  def edit  
   end
-
-def vin
-end
-
+  
   def create
     @vehicle = Vehicle.new(vehicle_params)
-
 
     respond_to do |format|
       if @vehicle.save
@@ -72,15 +66,16 @@ end
         image.format "png"
         image.write("public/images/thumbs/admin_thumbs/#{@vehicle.id}.png")  
         image.write("app/assets/images/thumbs/admin_thumbs/#{@vehicle.id}.png")  
+        File.chmod(0644,"public/images/thumbs/admin_thumbs/#{@vehicle.id}.png")
         @vehicle.update_attributes(:admin_thumb => "thumbs/admin_thumbs/#{@vehicle.id}.png" )
        
         image2 = MiniMagick::Image.open("public/"+@vehicle.vehicle_images[0].url)
-
         image2.shave '0x60' # Removes 46px from top and bottom edges
         image2.resize "392x293"
         image2.format "png"
         image2.write("public/images/thumbs/#{@vehicle.id}.png")  
         image2.write("app/assets/images/thumbs/#{@vehicle.id}.png")  
+        File.chmod(0644,"public/images/thumbs/#{@vehicle.id}.png")
         @vehicle.update_attributes(:thumb => "thumbs/#{@vehicle.id}.png")  
 
       else
@@ -127,4 +122,82 @@ end
        :image_13, :image_14, :image_15, :image_16, :image_17, :image_18, :image_19,
        :image_20, :image_21, :image_22, :image_23, :image_24, {vehicle_images: []}, :vehicle_images, :vehicle_images_cache, :import)
     end
+
+    def fetch_images
+      @path=""
+      if @vehicle.import=="import"
+              @path="../images/"
+
+        if @vehicle.image_1
+         img_tag = @vehicle.image_1
+        end
+        if @vehicle.image_2
+         img_tag = img_tag + "," +  @vehicle.image_2
+        end
+        if @vehicle.image_3
+         img_tag = img_tag + "," +  @vehicle.image_3
+        end
+        if @vehicle.image_4
+         img_tag = img_tag + "," +  @vehicle.image_4
+        end
+        if @vehicle.image_5
+         img_tag = img_tag + "," +  @vehicle.image_5
+        end
+        if @vehicle.image_6
+         img_tag = img_tag + "," +  @vehicle.image_6
+        end
+        if @vehicle.image_7
+         img_tag = img_tag + "," +  @vehicle.image_7
+        end
+        if @vehicle.image_8
+         img_tag = img_tag + "," +  @vehicle.image_8
+        end
+        if @vehicle.image_9
+         img_tag = img_tag + "," +  @vehicle.image_9
+        end
+        if @vehicle.image_10
+         img_tag = img_tag + "," +  @vehicle.image_10
+        end
+        if @vehicle.image_11
+         img_tag = img_tag + "," +  @vehicle.image_11
+        end
+        if @vehicle.image_12
+         img_tag = img_tag + "," +  @vehicle.image_12
+        end
+        if @vehicle.image_13
+         img_tag = img_tag + "," +  @vehicle.image_13
+        end
+        if @vehicle.image_14
+         img_tag = img_tag + "," +  @vehicle.image_14
+        end
+        if @vehicle.image_15
+             img_tag = img_tag + "," +  @vehicle.image_15
+        end
+        if @vehicle.image_16
+             img_tag = img_tag + "," +  @vehicle.image_16
+        end
+        if @vehicle.image_17
+             img_tag = img_tag + "," +  @vehicle.image_17
+        end
+        if @vehicle.image_18
+             img_tag = img_tag + "," +  @vehicle.image_18
+        end
+        if @vehicle.image_18
+             img_tag = img_tag + "," +  @vehicle.image_19
+        end
+        if @vehicle.image_18
+             img_tag = img_tag + "," +  @vehicle.image_20
+        end
+        if @vehicle.image_18
+             img_tag = img_tag + "," +  @vehicle.image_21
+        end
+        if @vehicle.image_18
+             img_tag = img_tag + "," +  @vehicle.image_22
+        end
+       @vehicle_images = img_tag.split(",")
+    else
+       @vehicle_images = @vehicle.vehicle_images_urls
+    end
+
+end
 end

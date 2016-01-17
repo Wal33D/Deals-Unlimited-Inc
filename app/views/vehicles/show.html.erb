@@ -1,134 +1,131 @@
-<% if admin_signed_in? %>
+  <% if admin_signed_in? %>
 <%= render 'vehicles/admin/editPanel' %>
-<% else %>
 <% end %>
-<div class ="container"  id="showpagecontainer" style="margin-bottom:3.5vmin!important;" >
-  <div class = "row" >
-    <div class = "panel panel-default z-depth-4" id="showpage">
-      <% if @vehicle.status == "Sold" %>
-      <div id ="headerinfo" class = "panel-heading  lighten-1" style ="padding-bottom:0!important; margin:0!important; color:white!important; background-color:#F44336!important;" >
-        <% elsif  (@vehicle.status == "Pending") && (admin_signed_in?)%>
-        <div id ="headerinfo" class = "panel-heading lighten-1" style ="padding-bottom:0!important; margin:0!important; color:white!important;  background-color:#5383D3!important;" >
-          <% else %>
-          <div id ="headerinfo" class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; background-color:#fff; color:#5383D3;" >
-            <% end %>
-            <div class ="panel-title" style ="font-size:0.8rem;  margin-top:-.5rem!important;">
-              <div class ="row">
-                <div class ="col-sm-8" style ="float:left;">
-                  <h5>
-                  <%= @vehicle.year %>
-                  <%= @vehicle.make %>
-                  <%= @vehicle.model %>
-                  </h5>
-                  <div id ="">
-                    <div class="row" style="margin:0!important;">
-                      <label style="font-size:1.6vmin;">Price: </label>
-                      <div class="show_price" style="display:inline; font-size:1.7vmin;"> $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</div>
-                    </div>
-                    <div class="row" style="margin:0!important;">
-                      <label style="font-size:1.6vmin;">Mileage: </label>
-                      <div style="display:inline; font-size:1.7vmin;"><%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
-                      </div>
-                    </div>
-                    <div class="row" style="margin:0!important;">
-                      <label style="font-size:1.6vmin;">VIN:</label>
-                      <div style="display:inline; font-size:1.7vmin;"> <%= @vehicle.vin_num %></div>
-                    </div>
-                  </div>
-                </div>
-                <div class= "col-sm-4 " style="float:right;">
-                  <link rel="stylesheet" href="../../../../print.css" type="text/css" media="print" >
-                  <a href="#" onclick="window.print();return false;"> <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/c_scale,w_350/v1450511718/print_qr5axm.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %></a>
-                  <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
-                    <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <center>
-          <div id ="mobileinfo" class = "panel-heading" style ="padding-bottom:0!important; margin:0!important; display:none; width:98%!important;" >
-            <div class ="panel-title" style ="font-size:0.8rem; color:#5383D3; margin-top:-.5rem!important;">
-              <div class ="row">
-                <table class="table">
-                  <tr>
-                    <td  style="border:none!important;">
-                      <h5>
-                      <%= @vehicle.year %>
-                      <%= @vehicle.make %>
-                      <%= @vehicle.model %>
-                      </h5>
-                    </td>
-                    <td>
-                      <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
-                        <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"img-responsive", :style=>"max-height:4.5rem!important; margin:0.4rem 0 0 0!important; float:right;" %>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label style="color:black">Price: </label>
-                    </td>
-                    <td>
-                      $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label style="color:black">VIN:</label>
-                    </td>
-                    <td>
-                      <%= @vehicle.vin_num %>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-          </center>
-          <%= render '/vehicles/show/showImages' %>
-          <div class="panel-body">
-            <%= render '/vehicles/show/showInfo' %>
-          </div>
+<div class ="container"  id="showpagecontainer" >
+
+  <div class = "row" style="margin-bottom:0;" >
+              <div class="col-sm-12">
+
+    <div class = "panel panel-default z-depth-2" id="showpage">
+      <%= @status_head_show.html_safe %>
+      <div class ="panel-title row title_row">
+        <div class= "col-xs-6">
+          <table class="show_page_table" style="border: 1px solid ##5383D3!important;">
+            <h4>
+            <%= @vehicle.year %>
+            <%= @vehicle.make %>
+            <%= @vehicle.model %>
+            </h4>
+            <tr>
+              <td class="show_price">
+                Price:  $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Mileage:  <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                VIN:  <%= @vehicle.vin_num %>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class= "col-xs-6" >
+          <link rel="sylesheet" href="../../../../print.css" type="text/css" media="print" >
+          <a href="#" id="printer_img" onclick="window.print();return false;"> <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/c_scale,w_350/v1450511718/print_qr5axm.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %></a>
+          <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
+            <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"img-responsive carfax_show_btn"%>
+          </a>
         </div>
       </div>
     </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class = "col-lg-8 ">
+      <div class="panel panel-default z-depth-2" id="image_gallery_container">
+        <div class="panel-body">
+          <div class = "col-xs-4" id="image_gallery">
+            <%count = 1 %>
+            <% @vehicle_images.each do |p| %>
+            <a type="button" style="max-width:31%!important; cursor:pointer;" id="thumb_link_<%= count %>" onclick="display_preview(this);" class="image_gallery_thumb"  alt="<%= @vehicle.title %>, Image: <%= count %>">
+              <%=image_tag p, :id=>"thumb_#{count}", :class=>"", :style=>"max-width:31%!important;" %>
+            </a>
+            <% count += 1 %>
+            <% end %>
+          </div>
+          <div class = "col-xs-8" id="image_preview_box" style="cursor:pointer;">
+            <%=image_tag @vehicle_images[1], :style=>"display:block;" %>
+          </div>
+        </div>
+      </div>
+      <%= render 'vehicles/show/features' %>
+      <%= render 'vehicles/show/description' %>
+    </div>
+    <div class = "col-sm-4 ">
+      <%= render 'vehicles/show/showInfo' %>
+    </div>
   </div>
 </div>
+
 <%= render 'vehicles/layouts/footer' %>
 <%= render '/vehicles/show/print' %>
+<script>
+function display_preview(link){
+var thumb_src = $(link).html();
+$('#image_preview_box img').fadeOut(300);
+$('#image_preview_box').html(thumb_src);
+$('#image_preview_box img').attr("id","preview_image");
+$('#image_preview_box img').attr("style","");
+$('#image_preview_box img').fadeIn(600);
+}
+</script>
 <style>
-.item-list p{
-display: none!important;
+.container{
+
 }
-@media only screen and (max-width : 800px) {
-.row{
-margin-top:2vmin!important;
-width:96%!important;
-margin-left:2%!important;
-margin-right: 2%!important;
+#gallery_thumbs{
 }
-#mobileinfo .row, #mobileinfo table{margin-bottom: 0!important;}
-section{border:1vmin double #eee;}
-section .vehicle_thumb img{
-max-width: 80%!important;
-width:80%!important;
-margin-right: 5%!important
+#image_gallery_container{
+padding:5px!important;
 }
+#image_preview_box img{
+display: none;
 }
-body {overflow: hidden;}
-section {
-width:100%!important;
-margin: 0 auto;
-white-space:nowrap;
-overflow: scroll;
+#image_preview_box img{
+height:auto!important;
+max-width:100%!important;
 }
-.vehicle_thumb img{max-width:30rem!important;}
-#img-scroll img{ width:30rem!important;}
+#image_gallery{padding:0!important;}
+.image_gallery_thumb img{ }
+.carfax_show_btn{
+max-height:6.5rem!important;
+margin:0.7rem 0 0 0!important;
+float:right;
+}
+.show_page_table td{
+padding:.25vmin 0 .25vmin 0!important;
+border:none!important;
+}
+.title_row{margin-bottom:0!important;}
+.show_page_table label{color:black;}
+.title_row h4{margin-top:0!important;}
+.item-list p{display: none!important;}
+.item-list{
+font-weight:normal!important;
+}
+.vehicle_thumb img{max-width:7rem!important;}
 @media (max-width: 750px){
-#printbutton, #headerinfo{display: none!important;}
-#mobileinfo{display:inline-block!important;}
-}
+#printbutton{display: none!important;}
 .footer-distributed{display:none!important;}
-@media (max-width: 600px){.features *{font-size:3.3vmin!important;}}
+}
+@media (max-width: 700px) {
+
+    #printer_img{
+      display: none!important;
+    }
 </style>
