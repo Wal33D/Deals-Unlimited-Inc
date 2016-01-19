@@ -3,9 +3,8 @@ $('.sold_btn').bind('ajax:success', function() {
 });
 $("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
 
-$("#headerinfo").css("background-color","#F44336");
-$("#headerinfo").css("color","white");
-$("#edit_status_panel_heading").css("background-color","#F44336");
+$("#edit_status_panel_heading, #show_title_panel, #show_title_tag").css("background-color","#F44336");
+$("#show_title_tag, #show_title_panel").css("color","white");
 $("#edit_status_panel_heading h5").html("Sold");
 
-$("#edit_status_panel_heading, #headerinfo").fadeIn(50).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);
+$("#edit_status_panel_heading, #show_title_panel").fadeIn(200).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);

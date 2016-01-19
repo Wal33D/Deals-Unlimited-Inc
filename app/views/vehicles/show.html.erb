@@ -1,131 +1,166 @@
-  <% if admin_signed_in? %>
+<!-- Edit Panel if Admin -->
+<!-- 					 -->
+<% if admin_signed_in? %>
 <%= render 'vehicles/admin/editPanel' %>
+<% else %>
+<%= render 'vehicles/show/statusPanel' %>
 <% end %>
-<div class ="container"  id="showpagecontainer" >
-
-  <div class = "row" style="margin-bottom:0;" >
-              <div class="col-sm-12">
-
-    <div class = "panel panel-default z-depth-2" id="showpage">
-      <%= @status_head_show.html_safe %>
-      <div class ="panel-title row title_row">
-        <div class= "col-xs-6">
-          <table class="show_page_table" style="border: 1px solid ##5383D3!important;">
-            <h4>
-            <%= @vehicle.year %>
-            <%= @vehicle.make %>
-            <%= @vehicle.model %>
-            </h4>
-            <tr>
-              <td class="show_price">
-                Price:  $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Mileage:  <%= number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                VIN:  <%= @vehicle.vin_num %>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class= "col-xs-6" >
-          <link rel="sylesheet" href="../../../../print.css" type="text/css" media="print" >
-          <a href="#" id="printer_img" onclick="window.print();return false;"> <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/c_scale,w_350/v1450511718/print_qr5axm.png', :class=>"img-responsive", :style=>"max-height:6.5rem!important; margin:0.8rem 0 0 0!important; float:right;" %></a>
-          <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
-            <%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"img-responsive carfax_show_btn"%>
-          </a>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-  </div>
-  <div class="row">
-    <div class = "col-lg-8 ">
-      <div class="panel panel-default z-depth-2" id="image_gallery_container">
-        <div class="panel-body">
-          <div class = "col-xs-4" id="image_gallery">
-            <%count = 1 %>
-            <% @vehicle_images.each do |p| %>
-            <a type="button" style="max-width:31%!important; cursor:pointer;" id="thumb_link_<%= count %>" onclick="display_preview(this);" class="image_gallery_thumb"  alt="<%= @vehicle.title %>, Image: <%= count %>">
-              <%=image_tag p, :id=>"thumb_#{count}", :class=>"", :style=>"max-width:31%!important;" %>
-            </a>
-            <% count += 1 %>
-            <% end %>
-          </div>
-          <div class = "col-xs-8" id="image_preview_box" style="cursor:pointer;">
-            <%=image_tag @vehicle_images[1], :style=>"display:block;" %>
-          </div>
-        </div>
-      </div>
-      <%= render 'vehicles/show/features' %>
-      <%= render 'vehicles/show/description' %>
-    </div>
-    <div class = "col-sm-4 ">
-      <%= render 'vehicles/show/showInfo' %>
-    </div>
-  </div>
-</div>
-
-<%= render 'vehicles/layouts/footer' %>
-<%= render '/vehicles/show/print' %>
-<script>
-function display_preview(link){
-var thumb_src = $(link).html();
-$('#image_preview_box img').fadeOut(300);
-$('#image_preview_box').html(thumb_src);
-$('#image_preview_box img').attr("id","preview_image");
-$('#image_preview_box img').attr("style","");
-$('#image_preview_box img').fadeIn(600);
-}
-</script>
-<style>
-.container{
-
-}
-#gallery_thumbs{
-}
-#image_gallery_container{
-padding:5px!important;
-}
-#image_preview_box img{
-display: none;
-}
-#image_preview_box img{
-height:auto!important;
-max-width:100%!important;
-}
-#image_gallery{padding:0!important;}
-.image_gallery_thumb img{ }
-.carfax_show_btn{
-max-height:6.5rem!important;
-margin:0.7rem 0 0 0!important;
-float:right;
-}
-.show_page_table td{
-padding:.25vmin 0 .25vmin 0!important;
-border:none!important;
-}
-.title_row{margin-bottom:0!important;}
-.show_page_table label{color:black;}
-.title_row h4{margin-top:0!important;}
-.item-list p{display: none!important;}
-.item-list{
-font-weight:normal!important;
-}
-.vehicle_thumb img{max-width:7rem!important;}
-@media (max-width: 750px){
-#printbutton{display: none!important;}
-.footer-distributed{display:none!important;}
-}
-@media (max-width: 700px) {
-
-    #printer_img{
-      display: none!important;
-    }
-</style>
+<!-- 					 -->
+<!-- 	Big Image Modal	 -->
+<img class="img_preview_modal modal" src="" tabindex="-1" role="dialog" id="image_full" style="max-width:700px; width:100%;" >
+<!-- 					 -->
+<!-- Vehicle Show Page	 -->
+<!-- 					 -->
+<div class="container" id="show_page_container">
+	<div class="row" id="title_row">
+		<div class="col-md-12">
+			<div class="panel panel-default v_margin z-depth-2" id="show_title_panel" style="<%= @status_head_show %>">
+				<div class="panel-body">
+					<div class="col-xs-5 h_padding full_on_print">
+						<table class="table v_margin" id="show_title_table">
+							<tr>
+								<td class="no_border small_padding">
+									<h5 class="v_margin" id="show_title_tag" style="<%= @status_head_show %>">
+									<%= @vehicle.title %>
+									</h5>
+								</td>
+							</tr>
+							<tr>
+								<td class="no_border small_padding">
+									<h6 class="v_margin price_flash" id="show_price_tag">
+									Price: $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00
+									</h6>
+								</td>
+							</tr>
+							<tr>
+								<td class="no_border small_padding">
+									<h6 class="v_margin" id="show_mileage_tag">
+									Mileage: <%=  number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
+									</h6>
+								</td>
+							</tr>
+							<tr>
+								<td class="no_border small_padding">
+									<h6 class="v_margin no-wrap" id="show_vin_tag">
+									VIN: <%= @vehicle.vin_num %>
+									</h6>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-7 h_padding  hide_on_print">
+						<table class="table v_margin float_right" id="show_title_table">
+							<tr>
+								<td class = "no_border no_padding float_right">
+									<a class = "h-margin" href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=@vehicle.vin_num%>">
+										<%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"v_margin h-margin img-responsive", :style=>"max-height:6.5rem!important;" %>
+									</a>
+								</td>
+								<td class = "no_border no_padding float_right hide_on_mobile ">
+									<link rel="stylesheet" href="../../print.css" type="text/css" media="print" >
+									<a href="#" onclick="printMe();">
+										<%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/c_scale,w_350/v1450511718/print_qr5axm.png', :class=>"v_margin h-margin img-responsive", :style=>"max-height:6.5rem!important; padding-right:0.6vmin;" %>
+									</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row " id="title_row_print" style="width:100%!important; padding:0!important; margin:0!important;">
+		<h4 style="float:left!important; width:49%!important; font-size:2.8rem!important">
+		<%= @vehicle.title %>
+		</h4>
+		<p style="display:inline-block!important; float:right!important; ">
+		Price: $<%= number_with_delimiter(@vehicle.price, :delimiter => ',') %>.00</p>
+		<p style="display:inline-block!important; visibility:hidden!important;float:right!important; ">VIN: <%= @vehicle.vin_num %></p>
+		<p style="display:inline-block!important; float:right!important; ">
+			Mileage: <%=  number_with_delimiter(@vehicle.mileage, :delimiter => ',') %>
+		</p>
+	</div>
+	<div class="col-md-12 no_padding">
+		<div class="row" style="background:transparent!important;">
+			<div class="col-md-8 full_on_print">
+				<div class="row">
+					<div class="col-xs-4" id="show_image_thumbs">
+						<div class="panel panel-default panel-info z-depth-1">
+							<div class="panel-body">
+								<% count = 0 %>
+								<% @vehicle_images.each do |vehicle_img| %>
+								<%= link_to image_tag(vehicle_img, :class=>"show_veh_thumb", :id =>"img_#{count}", :onclick=>"set_preview(this);"), :remote => true  %>
+								<% count += 1 %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-8 " id="show_image_preview" >
+						<%= image_tag @vehicle_images[0], :class=>"img-responsive z-depth-2", :onclick=>"fullscreen(this);" %>
+					</div>
+				</div>
+				<div class="panel panel-default panel-info z-depth-1" id="full_features_panel">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<button class="btn" id="expand_feature_panel" style="background:none; font-size:3vmin; padding:0; margin:0 0 0 0; float:right; color:rgb(49, 112, 143); box-shadow:none;" onclick="$('#show_features_panel').slideToggle();"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span></button>
+							<h5 class="v_margin">Features</h5>
+						</div>
+					</div>
+					<div class="panel-body" id="show_features_panel">
+						<%= render 'vehicles/show/features' %>
+					</div>
+				</div>
+				<div class="panel panel-info z-depth-1" id="show_description_panel">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h5 class="v_margin">Description</h5>
+						</div>
+					</div>
+					<div class="panel-body" id="show_description_body">
+						<%= @vehicle.description.html_safe %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4" id="show_specs_col">
+				<div class="panel panel-info z-depth-1">
+					<div class="panel-heading" id="show_specs_heading">
+						<div class="panel-title">
+							<h5 class="v_margin">Specs</h5>
+						</div>
+					</div>
+					<div class="panel-body pad_left_5" id="show_specs_body">
+						<%= render 'vehicles/show/specs' %>
+					</div>
+					<div class="panel-footer footer-info"></div>
+				</div>
+				
+			</div>
+			<div class="row" id="show_description_panel_print">
+				<div class="col-md-12">
+					<div class="panel panel-info z-depth-1">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h5 class="v_margin">Description</h5>
+							</div>
+						</div>
+						<div class="panel-body" id="show_description_body">
+							<%= @vehicle.description.html_safe %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class= "print_footer" style="width:100%!important;">
+			<p style="float:left!important; width:48%!important;">Deals Unlimited, Inc.</p>
+			<p style="float:right!important; width:48%!important;"> 269-324-4285</p>
+		</div>
+		<%= render 'vehicles/layouts/footer' %>
+		<!-- 					 -->
+		<style>.footer-distributed{display:none;}</style>
+		<script>jQuery(document).ready(function($) {buildFeatures();});
+		function printMe(){
+		$('#img_3, #img_4, #img_5, #img_6 ,#img_7, #img_8 ,#img_9, #img_10, #img_11, #img_12 ,#img_13, #img_14 ,#img_15, #img_16 ,#img_17, #img_18 ,#img_19, #img_20 ').hide();
+		setTimeout("window.print(); $('#img_3, #img_4, #img_5, #img_6 ,#img_7, #img_8 ,#img_9, #img_10, #img_11, #img_12 ,#img_13, #img_14 ,#img_15, #img_16 ,#img_17, #img_18 ,#img_19, #img_20 ').show();", 1000);
+		
+		}
+		</script>

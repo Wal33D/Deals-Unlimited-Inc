@@ -1,54 +1,17 @@
- <script>
-jQuery(document).ready(function($) {
-try{
-var selected =  document.getElementById('features').innerHTML;
-for (i = 0; i < 42; i++) {
-selected = selected.replace('<li class="list-group-item">','.<li>');
-}
-var top = '<div class="item-list"><ul id="list-0" class="veh-features-list" style="float: left; display: block; width: 33%;">';
-var bottom = '</ul></div>';
-var res = selected.split(".");
-var col1, col2, col3;
-for (i=0; i<8; i++){
-col1 = col1 + res[i]
-}
-col1 = top + col1 + bottom
-for (i=9; i<16; i++){
-col2 = col2 + res[i]
-}
-col2 = top + col2 + bottom
-for (i=17; i<24; i++){
-col3 = col3 + res[i]
-}
-col3 = top + col3 + bottom
-selected =  col1 + col2+ col3;
-
-for (i = 0; i < 24; i++) {
-selected = selected.replace('<ul id="list-0" class="veh-features-list" style="float: left; display: block; width: 33%;">NaN</ul>','');
-selected = selected.replace('undefined','');
-}
-document.getElementById('features').innerHTML = selected;
-document.getElementById('featuresprint').innerHTML = selected;
-} catch (err) {}
-});
-</script>
-    <div class="panel panel-default z-depth-1">
-      <div class="panel-heading" style="background-color:#f2f2f2">
-        Features
-      </div>
-      <% if @vehicle.import == "import" %>
-      <div class="panel-body features"  style="background-color:rgba(204, 234, 255, 0.7);">
-        <% if @vehicle.other_options %>
-        <%= @vehicle.other_options.html_safe%>
-        <% end %>
-      </div>
-      <% else %>
-      <div class="panel-body features" id="features" style="background-color:rgba(204, 234, 255, 0.7);">
-        <% if @vehicle.other_options %>
-        <p><%= @vehicle.other_options.html_safe%></p>
-        <% end %>
-      </div>
-      <% end %>
-      <div class="panel-footer" style="background-color:#f2f2f2">
-      </div>
-    </div>
+<% if @vehicle.import == "import" %>
+<div class="features_panel_old">
+  <center>
+  <% if @vehicle.other_options %>
+  <%= @vehicle.other_options.html_safe%>
+  </center>
+  <% end %>
+</div>
+<% else %>
+<div class="features_panel" id="features" >
+  <% if @vehicle.other_options %>
+  <center>
+  <%= @vehicle.other_options.html_safe%>
+  </center>
+  <% end %>
+</div>
+<% end %>

@@ -1,8 +1,3 @@
-
-$(".show_price").html("$"+$('#vehicle_price').val()+".00")
-$(".price_input").html($('#vehicle_price').val())
-$(".price_input").fadeIn(50).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);
-
-$(".input-group").fadeIn(50).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);
-$(".show_price").fadeIn(50).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);
-$(".show_price").digits();
+$("#show_price_tag").html("Price: $"+$(".vehicle_price input").val()+".00");
+$("#show_price_tag").digits();
+$(".price_flash").fadeIn(200).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);

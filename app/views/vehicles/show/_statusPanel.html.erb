@@ -1,0 +1,21 @@
+<% if @status_phrase =="For Sale"%>
+<div class="container status_panel " id="stat-container">
+</div>
+<% else %>
+<div class="container status_panel" id="stat-container">
+	<div class="row v_margin" id="status-container">
+		<div class="col-xs-12">
+			<div class="panel panel-default z-depth-3" id ="edit_panel_status">
+				<%=@status_head.html_safe%>
+				<div class="panel-body no_padding" id = "panel-title"><h5 class="v_margin" id="phrase"><%=@status_phrase%></h5></div></div>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
+<style>
+#stat-container{
+	margin-top:87px!important;
+	margin-bottom:-8px!important;
+}
+</style>

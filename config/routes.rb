@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :features
+  resources :features
   resources :credit_app_lockers
   resources :contact_stores
   devise_for :admins
@@ -28,7 +30,6 @@ Rails.application.routes.draw do
   get 'vehicles/set_pending'
   get 'vehicles/set_sold_edit'
   get 'vehicles/set_sale_edit'
-
 
   match 'admin/admin_thumb_gen',            to: 'admin#admin_thumb_gen',           via: 'get'
   match 'admin/user_thumb_gen',            to: 'admin#user_thumb_gen',           via: 'get'

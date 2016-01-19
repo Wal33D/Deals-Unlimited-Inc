@@ -339,6 +339,11 @@ main {
         z-index: 100px!important;
     }
 }
+.each_feature{
+background-color: #d9edf7!important;
+}
+.each_feature:hover {
+cursor:default!important;  }
 .button-collapse {
     float: right!important;
     margin-right: 4px;
@@ -539,6 +544,11 @@ a.button-collapse {
         color: #428bca;
     }
 }
+.panel-title *:hover  {
+    text-decoration:none!important;
+    background: none!important;
+}
+
 #new_contact > div.contact-form > div.form-group.string.optional.contact_tel > label {
     display: none!important;
 }

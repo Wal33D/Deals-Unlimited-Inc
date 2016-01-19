@@ -23,6 +23,7 @@ z-index:1001;
     overflow-y: scroll!important;
     overflow-x: hidden!important;
     height: 90%!important;
+    background: none !important;
 }
 
 #vehicle_window_table {
@@ -53,6 +54,7 @@ z-index:1001;
 }
 .sort_link {
     height: 100%!important;
+
 }
 #search_col {
     float: left;
@@ -66,7 +68,10 @@ z-index:1001;
     height: auto;
 }
 #index_container {
-    width: 100%;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:100%!important;
+    overflow-x:none!important;
     height: 100%;
     margin-top: 86px;
     padding-left: 0;
@@ -76,6 +81,7 @@ z-index:1001;
     left: 0;
     right: 0;
     position: fixed;
+
 }
 .price_tag {
     color: #5383d3!important;
@@ -271,7 +277,9 @@ width:auto!important;
 max-width:100%!important;
 }
 }
-
+#title_row_print{
+    display:none;
+}
 .vehicle_search{
 	width:100%;
 }

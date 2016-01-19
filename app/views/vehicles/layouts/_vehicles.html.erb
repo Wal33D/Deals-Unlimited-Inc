@@ -11,7 +11,7 @@
     <div class="panel-heading" style="color:white!important; background-color:#F44336!important;" >
         <div class="admin_btn" style="float:right!important">
             <% if admin_signed_in? %>
-            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important; color:white;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
             
             <% end %>
         </div>
@@ -25,7 +25,7 @@
     <div class="panel-heading" style="background-color:#5383D3 !important" >
         <div class="admin_btn" style="float:right!important">
             <% if admin_signed_in? %>
-            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important; color:white;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
             
             <% end %>
         </div>
@@ -39,7 +39,7 @@
     <div class="panel-heading" >
         <div class="admin_btn" style="float:right!important">
             <% if admin_signed_in? %>
-            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
+            <%= link_to 'Edit', vehicle_path(vehicle),:style=>"background-color:#5383D3!important; color:white;", :class=>" btn btn-default z-depth-1 btn waves-effect waves-white"%>
             <% end %>
         </div>
         <div class="panel-title">
@@ -63,7 +63,7 @@
                         <div class="caption">
                             <% if vehicle.status.present? %>
                             <% if ((vehicle.status == "Pending") ||(vehicle.status =='pending')) %>
-                            <h4 class="pending-banner"> Sale Pending </h4>
+                            <center><h4 class="pending-banner" style="max-width:392px; margin-bottom:0!important;"> Sale Pending </h4></center>
                             <% end %>
                             <% end %>
                         </div>
@@ -77,7 +77,7 @@
                     <table class="table table-striped vehicle_table_each" id="vehicle_window_table">
                         <tr >
                             <td colspan="3" id="price_tag_td" style="color:#428bca; padding:0!important;">
-                                <h4 class="price_tag" style="font-size:6.5vmin" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h4>
+                                <h4 class="price_tag" style="font-size:5.5vmin; margin-top:0; margin-bottom:0;" >$<%= number_with_delimiter(vehicle.price, :delimiter => ',') %>.00</h4>
                             </td>
                             <td colspan="1" style="background:none!important;">
                                 <a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=WDB_0&vin=<%=vehicle.vin_num%>" class="carfax" style="max-width:100%;height:auto;">

@@ -44,6 +44,14 @@ jQuery(document).ready(function($) {
        
 
 });
+function set_preview(thumb_src){
+$('#show_image_preview img').attr('src', $(thumb_src).attr('src'));
+}
+function fullscreen(thumb_src){
+    $('#image_full').attr('src', $(thumb_src).attr('src'));
+    $('.img_preview_modal').modal('show');
+}
+
 function loadMCE(){
     $('#desc_td').slideDown();
 tinymce.init({
@@ -484,3 +492,49 @@ function sortUnorderedList(ul, sortDescending) {
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function buildFeatures() {
+
+try{
+ 
+var selected =  $('.features_panel').html();
+for (i = 0; i < 45; i++) {
+selected = selected.replace('<li class="list-group-item">','.<a class="btn btn-default each_feature black-text" style="background-color: #d9edf7!important;">');
+  }
+  var res = selected.split(".");
+  for (i = 0; i < 45; i++) {
+  selected = selected.replace('undefined','');
+  selected = selected.replace('.','');
+  }
+  
+  document.getElementById('show_features_panel').innerHTML = selected;
+  $('#show_features_panel a:last').fadeOut() } catch (err) {}
+  try{
+  var selected =  $('.features_panel_old').html();
+  selected = selected.replace('<h3 class="field-label">Features</h3>', '');
+  for (i = 0; i < 20; i++) {
+  selected = selected.replace('<li class="first">', '.<a class="btn btn-default each_feature black-text" style="background-color: #d9edf7!important;">');
+    selected = selected.replace('<li class="last">', '.<a class="btn btn-default each_feature black-text" style="background-color: #d9edf7!important;">');
+      selected = selected.replace('<li>', '.<a class="btn btn-default each_feature black-text" style="background-color: #d9edf7!important;">');
+        selected = selected.replace('<ul id="list-0" class="veh-features-list" style="float: left; display: block; width: 33%;">','');
+          selected = selected.replace('<ul id="list-1" class="veh-features-list" style="float: left; display: block; width: 33%;">','');
+            selected = selected.replace('<ul id="list-2" class="veh-features-list" style="float: left; display: block; width: 33%;">','');
+            selected = selected.replace('</ul>', '');
+            selected = selected.replace('<div class="item-list">', '');
+            selected = selected.replace('</div>', '');
+            }
+            var res = selected.split(".");
+            for (i = 0; i < 45; i++) {
+            selected = selected.replace('undefined','');
+            selected = selected.replace('.','');
+            }
+            
+            document.getElementById('show_features_panel').innerHTML = selected;
+            $('#show_features_panel a:last').fadeOut()
+            } catch (err) {}
+
+}
+            //////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+

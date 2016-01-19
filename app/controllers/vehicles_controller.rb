@@ -15,6 +15,7 @@ class VehiclesController < ApplicationController
       view_counter
       status_init
   end
+
   def view_counter 
       if !admin_signed_in?
          count = @vehicle.countclicks
@@ -29,17 +30,17 @@ class VehiclesController < ApplicationController
    if @vehicle.status == "Sale" 
       @status_phrase = "For Sale"
       @status_head = '<div class="panel-heading status_head" id="edit_status_panel_heading" style="background-color:rgba(0, 230, 118, 1);">'
-      @status_head_show = '<div class="panel-heading status_head" id="show_status" style="background-color:white; color:#5383D3;">'
+      @status_head_show = 'background-color:white!important; color:#5383D3;'
 
     elsif @vehicle.status == "Pending" 
       @status_phrase = @vehicle.status
       @status_head = '<div class="panel-heading status_head"  id="edit_status_panel_heading" style="background-color:#5383D3;">'
-      @status_head_show = '<div class="panel-heading status_head"  id="show_status" style="background-color:#5383D3; color:white;">'
+      @status_head_show = 'background-color:#5383D3!important; color:white;'
 
     elsif @vehicle.status == "Sold" 
       @status_phrase = @vehicle.status
       @status_head = '<div class="panel-heading status_head" id="edit_status_panel_heading" style="background-color:#F44336;">'
-      @status_head_show = '<div class="panel-heading status_head" id="show_status" style="background-color:#F44336; color:white;">'
+      @status_head_show = 'background-color:#F44336!important; color:white;'
     end
   end
 

@@ -3,9 +3,9 @@ $('.sale_btn').bind('ajax:success', function() {
 });
 $("#count_tile").html("<%= escape_javascript(render('admin/dashboard/count')) %>")
 
-$("#headerinfo").css("background-color","white");
-$("#headerinfo").css("color","#5383D3");
 $("#edit_status_panel_heading").css("background-color","rgba(0, 230, 118, 1)");
+$("#show_title_panel, #show_title_tag").css("background-color","white");
+$("#show_title_tag, #show_title_panel").css("color","#5383D3");
 $("#edit_status_panel_heading h5").html("For Sale");
 
-$("#edit_status_panel_heading").fadeIn(50).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);
+$("#edit_status_panel_heading, #show_title_panel").fadeIn(200).fadeOut(50).fadeIn(150).fadeOut(150).fadeIn(100);
