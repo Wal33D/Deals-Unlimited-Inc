@@ -18,6 +18,7 @@
 #show_features_panel{
   max-height:465px!important;
   overflow: hidden!important;
+  display:block!important;
 }
 #show_features_panel a, #show_features_panel li{
 padding:0!important;
