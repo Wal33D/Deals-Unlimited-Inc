@@ -1,0 +1,141 @@
+
+.field-label, #status-container, #show_description_panel, .hide_on_print,#title_row,.footer-distributed, .footer-info,.panel-footer,#expand_feature_panel,#show_image_preview, footer, nav{display: none!important;}
+#show_description_panel_print{
+  display: block!important;
+}
+#show_specs_col ,#full_features_panel{
+  margin-top: 20px!important;
+  width:50%!important;
+}
+#show_spec_col{
+  float:right!important;
+    max-height:400px!important;
+
+}
+.status_panel{
+  display: none;
+}
+#show_features_panel{
+  max-height:465px!important;
+  overflow: hidden!important;
+}
+#show_features_panel a, #show_features_panel li{
+padding:0!important;
+}
+.footer-vehicles{
+ display: none!important;
+}
+.half_on_print{
+width:50%!important;
+}
+.each_feature{
+  border:1px solid black!important;
+  margin-left: 1vmin!important;
+  display:table-row!important;
+  margin-right:1vmin!important;
+}
+.no_padding{
+  padding:0!important;
+  margin-top:0!important;
+}
+#title_row_print{
+  display: block;
+  padding:0!important;
+  margin:0!important;
+}
+
+body{
+  border:5px dashed #ddd;
+}
+#show_title_tag{
+    font-size:2.9rem;
+    padding:0!important;
+    margin:0!important;
+    float:left!important;
+
+}
+.show_on_print{
+  display: block!important;
+}
+#show_price_tag, #show_vin_tag, #show_mileage_tag{
+  float:right!important;
+    font-size:1.5rem;
+
+}
+#title_row_print table, #title_row_print td, #title_row_print tr,#show_title_panel_print,.col-md-12, label{
+  display: block;
+  font-size:1.5rem;
+  border:none!important;
+  padding:0!important;
+  margin:0!important;
+}
+#full_features_panel{
+  float:right!important;
+}
+#show_title_table{
+}
+#full_features_panel table, #show_spec_col .panel table{
+margin:0!important;
+padding:0!important;
+}
+#show_specs_table{
+  padding:0!important;
+  margin-bottom:0!important;
+}
+#show_specs_col td{
+  padding:0!important;
+}
+#show_specs_heading{
+  padding:0!important;
+}
+.features li{
+  display:block!important;
+}
+.show_veh_thumb{
+  padding:0!important;
+  margin:0!important;
+  max-width:32.8%!important;
+  width:32.8%!important;
+
+}
+#show_image_thumbs{
+  padding:0!important;
+  margin:0!important;
+  width:100%!important;
+}
+.col-md-8 *{
+  margin:0!important;
+  padding:0!important;
+}
+.panel, .panel-default{
+  padding:0!important;
+}
+.full_on_print{
+  width:100%!important;
+  border:none!important;
+}
+.full_on_print td{
+  border:none!important;
+
+}
+.full_on_print *{
+  padding:0!important;
+  margin-bottom:0.25vmin!important;
+}
+ * {
+ background-color: white !important;
+ background-image: none !important;
+ }
+ @page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+*{
+  border-color:#777!important;
+}
