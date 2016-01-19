@@ -15,6 +15,9 @@
 .status_panel{
   display: none;
 }
+.sumome-contactform-pullouttab, .sumome-contactform-pullouttab-right{
+  display: none!important;
+}
 #show_features_panel{
   max-height:465px!important;
   overflow: hidden!important;
