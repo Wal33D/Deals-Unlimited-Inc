@@ -1,5 +1,4 @@
 Rails.application.configure do
-
   config.cache_classes = true
   config.action_controller.action_on_unpermitted_parameters =:log
   config.eager_load = true
@@ -20,6 +19,5 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
   config.assets.debug = true
   config.assets.digest = true
-  config.assets.raise_runtime_errors = true
+  config.assets.raise_runtime_errors = false
 end
-
