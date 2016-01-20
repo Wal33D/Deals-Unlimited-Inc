@@ -87,7 +87,7 @@
 				<div class="row">
 					<div class="col-xs-4" id="show_image_thumbs">
 						<div class="panel panel-default panel-info z-depth-1">
-							<div class="panel-body">
+							<div class="panel-body" id="show_image_thumbs_body">
 								<% count = 0 %>
 								<% @vehicle_images.each do |vehicle_img| %>
 								<%= link_to image_tag(vehicle_img, :class=>"show_veh_thumb", :id =>"img_#{count}", :onclick=>"set_preview(this);"), :remote => true  %>
@@ -157,5 +157,10 @@
 		</div>
 		<%= render 'vehicles/layouts/footer' %>
 		<!-- 					 -->
-		<style>.footer-distributed{display:none;}</style>
-		<script>jQuery(document).ready(function($) {buildFeatures();});</script>
+		<style>.footer-distributed,#show_image_thumbs, #show_image_preview{display:none;}</style>
+		<script>
+		jQuery(document).ready(function($) {
+			buildFeatures(); 
+			setTimeout("$('#show_image_thumbs, #show_image_preview').slideDown(1200)",2000);
+		});
+		</script>
