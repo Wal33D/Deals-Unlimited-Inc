@@ -1,7 +1,6 @@
 <style>
 .shim, #edit_panel_status{
 margin-bottom:10px!important;
-
 }
 .col-xs-12{
 	padding:0!important;
@@ -65,7 +64,6 @@ margin-bottom:10px!important;
 									<%=  image_tag 'https://res.cloudinary.com/dodczwtee/image/upload/v1450511739/carfax_c9e7dd.jpg', :class=>"v_margin h-margin img-responsive", :style=>"max-height:4.5rem!important;" %>
 								</a>
 							</td>
-							
 						</tr>
 					</table>
 				</div>
@@ -89,7 +87,7 @@ margin-bottom:10px!important;
 		<div class="panel panel-default panel-info z-depth-1" id="full_features_panel">
 			<div class="panel-heading">
 				<div class="panel-title">
-					<button class="btn" id="expand_feature_panel" style="background:none; padding:0; margin:0 0 0 0; font-size: 1.64rem; height:100%!important; float:right; color:rgb(49, 112, 143); box-shadow:none;" onclick="$('#show_features_panel').slideToggle();"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span></button>
+					<button class="btn" id="expand_feature_panel" style="background:none; padding-right:2px; margin:0 0 0 0; font-size: 1.64rem; height:100%!important; float:right; color:rgb(49, 112, 143); box-shadow:none;" onclick="$('#show_features_panel').slideToggle();"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span></button>
 					<h5 class="v_margin">Features</h5>
 				</div>
 			</div>
@@ -120,7 +118,6 @@ margin-bottom:10px!important;
 		</div>
 	</div>
 </div>
-<%= render 'vehicles/layouts/footer' %>
 <!-- 					 -->
 <style>.footer-distributed{display:none;}</style>
 <script>jQuery(document).ready(function($) {buildFeatures();});</script>
