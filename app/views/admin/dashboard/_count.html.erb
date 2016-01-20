@@ -14,7 +14,7 @@
 			<tr>
 				<td><label>For Sale</label></td>
 				<td><%= Vehicle.where(:status=>"Sale").count() %>
-					<button type="button" onclick="$('#percent-tag').html(10+'%'); $('.progress-bar').css('width', 10+'%').attr('aria-valuenow', 10);$('#loading-screen').fadeIn(15); $('#load_sale').click();" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;">
+					<button type="button" onclick="$('#percent-tag').html(32+'%'); $('.progress-bar').css('width', 32+'%').attr('aria-valuenow', 32);$('#loading-screen').fadeIn(100); $('#load_sale').click();" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 					</button>
 					<%= link_to 'Sale', 'sale',:id=>"load_sale", :style=>"display:none;", remote: true %>
@@ -23,7 +23,7 @@
 			<tr>
 				<td><label>Pending</label></td>
 				<td><%= Vehicle.where(:status=>"Pending").count() %>
-					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;" onclick="$('#percent-tag').html(38+'%'); $('.progress-bar').css('width', 38+'%').attr('aria-valuenow', 38);$('#loading-screen').fadeIn(5); $('#load_pending').click();">
+					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;" onclick="$('#percent-tag').html(38+'%'); $('.progress-bar').css('width', 38+'%').attr('aria-valuenow', 38);$('#loading-screen').fadeIn(100); $('#load_pending').click();">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 					</button>
 					<%= link_to 'Pending', 'pending',:id=>"load_pending", :style=>"display:none;", remote: true %>
@@ -32,7 +32,7 @@
 			<tr id="vehicles_sold_count">
 				<td><label>Sold</label></td>
 				<td><%= Vehicle.where(:status=>"Sold").count() %>
-					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;"onclick="$('#percent-tag').html(26+'%'); $('.progress-bar').css('width', 26+'%').attr('aria-valuenow', 26);$('#loading-screen').fadeIn(10); $('#load_sold').click();">
+					<button type="button" style="float:right; background:none!important; border:none!important; box-shadow:none!important; color:black;"onclick="$('#percent-tag').html(26+'%'); $('.progress-bar').css('width', 26+'%').attr('aria-valuenow', 26);$('#loading-screen').fadeIn(100); $('#load_sold').click();">
 					<span class="glyphicon glyphicon-resize-full" aria-hidden="true"  ></span>
 					</button>
 					<%= link_to 'Sold', 'sold',:id=>"load_sold", :style=>"display:none;", remote: true %>

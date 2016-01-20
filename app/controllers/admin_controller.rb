@@ -25,7 +25,7 @@ def most_viewed
 end
 
 def sale
-	@status_heading = '<div class="panel-heading" style="background-color: #4CAF50 !important;"><h5 id="sold_veh_dash_title">For Sale</h5><div class="panel-title white-text"><h5>Vehicles</h5></div> </div>'
+	@status_heading = '<div class="panel-heading" style="background-color: rgba(0, 230, 118, 1)!important;"><h5 id="sold_veh_dash_title">For Sale</h5><div class="panel-title white-text"><h5>Vehicles</h5></div> </div>'
 	@modal_id = 'sale_modal'
 	@vehicle_status = Vehicle.where(:status => "Sale")
 end

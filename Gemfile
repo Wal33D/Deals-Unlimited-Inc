@@ -17,15 +17,13 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'cloudinary'
 gem 'kaminari'
 gem 'sitemap_generator'
-gem "mini_magick"
-
-group :development do
-  gem 'spring'
-end
+gem 'mini_magick'
+gem 'deadweight'
 
 group :production do
 	gem 'therubyracer', platforms: :ruby
 	gem 'rails_12factor'
+	gem 'spring'
 end
 
 
