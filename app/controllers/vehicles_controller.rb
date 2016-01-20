@@ -11,9 +11,17 @@ class VehiclesController < ApplicationController
   end
   
   def show
-      image_gallery
-      view_counter
-      status_init
+    
+    image_gallery
+    view_counter
+    status_init
+
+    if mobile_device? 
+      render 'vehicles/show_mobile'
+    else 
+      render 'vehicles/show'
+    end
+      
   end
 
   def view_counter 
