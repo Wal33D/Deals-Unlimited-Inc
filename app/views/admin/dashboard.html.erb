@@ -24,6 +24,7 @@ background-color: rgba(0, 0, 0, .5);
 }
 </style>
 <% if admin_signed_in? %>
+<%= render "layouts/application/flash_messages" %>
 <%= render "admin/loading_screen" %>
 <div class = "dashboard">
 	<div class="alert alert-success"id="embed-api-auth-container"></div>

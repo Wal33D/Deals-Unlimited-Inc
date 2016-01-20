@@ -2,6 +2,11 @@ class AdminController < ApplicationController
 
 def dashboard
 	most_viewed
+	if mobile_device? 
+		flash[:notice]="Mobile Device"
+	else 
+		flash[:notice]="Desktop"
+	end
 end
 
 def most_viewed
