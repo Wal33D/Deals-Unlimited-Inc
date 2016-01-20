@@ -1059,6 +1059,10 @@ font: normal 3.2vmin 'Cookie', cursive!important;
    
 }
 @media (max-width: 820px) {
+    #header_menu_btn{
+        display: none!important;
+
+    }
     .btn-vehicles {
         margin-right: 2rem!important;
     }
