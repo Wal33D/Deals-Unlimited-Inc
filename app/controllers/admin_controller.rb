@@ -2,7 +2,6 @@ class AdminController < ApplicationController
 
 def dashboard
 	most_viewed
-
 end
 
 def most_viewed

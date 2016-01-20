@@ -14,7 +14,7 @@ gem 'simple_form'
 gem 'ransack'
 gem 'seed_dump'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-
+gem 'cloudinary'
 gem 'kaminari'
 gem 'sitemap_generator'
 gem "mini_magick"
