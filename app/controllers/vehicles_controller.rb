@@ -16,12 +16,12 @@ class VehiclesController < ApplicationController
     status_init
     view_selector
   end
-  
+
   def view_selector
      if mobile_device? 
-      render 'vehicles/show_mobile'
-    else 
       render 'vehicles/show'
+    else 
+      render 'vehicles/show_mobile'
     end
   end
 
