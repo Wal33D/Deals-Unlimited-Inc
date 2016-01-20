@@ -18,7 +18,6 @@ gem 'cloudinary'
 gem 'kaminari'
 gem 'sitemap_generator'
 gem 'mini_magick'
-gem 'deadweight'
 
 group :production do
 	gem 'therubyracer', platforms: :ruby

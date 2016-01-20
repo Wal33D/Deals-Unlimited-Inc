@@ -1,7 +1,16 @@
 class AdminController < ApplicationController
 
 def dashboard
+	dash_init
+end
+
+def dash_init
 	most_viewed
+	  if mobile_device? 
+      render 'admin/dashboard_mobile'
+    else 
+      render 'admin/dashboard'
+    end
 end
 
 def most_viewed
