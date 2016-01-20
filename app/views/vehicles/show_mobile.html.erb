@@ -1,16 +1,24 @@
 <style>
-.shim, #edit_panel_status{
-margin-bottom:10px!important;
-}
-.col-xs-12{
-	padding:0!important;
-}
+.shim, #edit_panel_status{margin-bottom:10px!important;}
+.col-xs-12{	padding:0!important;}
+.header_menu_button{float:right!important;}
+#edit_panel_body {padding:15px!important;}
+#show_page_container{padding:5px!important;}
 </style>
+
 <!-- Edit Panel if Admin -->
 <!-- 					 -->
 <div class="shim"></div>
 <% if admin_signed_in? %>
 <%= render 'vehicles/admin/editPanel' %>
+<style>
+	#header-img{display: none!important;} 
+	.btn-vehicles, .right{
+		text-align:center; float:none!important; margin-left:0!important; margin-right:0!important; margin-left:0!important;}  
+	.btn-vehicles{width:33%!important;} 
+	nav .nav-wrapper {box-shadow: none!important}
+	.sumome-contactform-pullouttab, .footer-distributed{display:none;}
+</style>
 <% else %>
 <%= render 'vehicles/show/statusPanel' %>
 <% end %>
@@ -76,7 +84,7 @@ margin-bottom:10px!important;
 				<section style="white-space:nowrap; overflow:scroll!important;">
 					<% count = 0 %>
 					<% @vehicle_images.each do |vehicle_img| %>
-					<%= image_tag @vehicle_images[count], :class=>"img-responsive z-depth-2",:style=>"display:inline; max-height:95%", :onclick=>"fullscreen(this);" %>
+					<%= image_tag @vehicle_images[count], :class=>"img-responsive z-depth-2",:style=>"display:inline; max-width:70%;", :onclick=>"fullscreen(this);" %>
 					<% count += 1 %>
 					<% end %>
 				</section>
@@ -119,5 +127,4 @@ margin-bottom:10px!important;
 	</div>
 </div>
 <!-- 					 -->
-<style>.footer-distributed{display:none;}</style>
 <script>jQuery(document).ready(function($) {buildFeatures();});</script>
