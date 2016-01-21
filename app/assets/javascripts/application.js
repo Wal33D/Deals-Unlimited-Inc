@@ -407,7 +407,7 @@ function v1(option, res) {
 ///////////In the event of an error log to console ///////////////////
 function fail(data) {
     console.log(data);
-    alert("EDMUNDSAPI: Down for Maintnence, Sorry try again later.");
+    alert("EDMUNDSAPI: Partial System Outage, Sorry try again later. http://edmunds.statuspage.io/");
 
 }
 //////////////////////////////////////////////////////////////////////
