@@ -1,5 +1,8 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show,:set_sold, :edit, :update, :destroy]
+  before_action :authenticate_admin!, :only => [:new, :edit, :create, :update, :destroy]
+  
+  require 'koala'
 
   def index     
       @q = Vehicle.where.not(:status => "Sold").ransack(params[:q])

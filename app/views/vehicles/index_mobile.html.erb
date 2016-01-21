@@ -1,0 +1,24 @@
+<style>
+.footer-distributed{display:none!important;}
+#mobile_index_container,body{background-color: #eee;}
+</style>
+<div class = "container" id="mobile_index_container">
+    <div class = "col-md-12" id="vehicles" >
+        <% if admin_signed_in? %>
+        <a href="vehicles/new" id="new_vehicle_button" class="waves-effect waves-circle waves-light btn-floating secondary-content">
+            <i class="material-icons">add</i>
+        </a>
+        <% end %>
+        <div class="panel panel-default vehicle_panel z-depth-4" >
+            <div class="panel-heading" id="vehicle_panel_heading">
+                <%= render 'vehicles/layouts/page_links' %>
+            </div>
+            <div class="panel-body " id="vehicle_col">
+                <%= render 'vehicles/layouts/vehicles' %>
+                <center ><%= paginate @vehicles, :window => 5, :outer_window => 9%></center>
+            </div>
+        </div>
+    </div>
+</div>
+<%= render 'vehicles/layouts/mobile_search' %>
+<%= render 'vehicles/layouts/footer' %>

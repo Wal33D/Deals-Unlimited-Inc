@@ -285,6 +285,25 @@ function v2(option, res) {
                 filler(res.categories.vehicleSize, "vehicle_vehicle_class");
             }
         } catch (err) {}
+          if (document.getElementById('vehicle_make').value == "Chevrolet") {
+            document.getElementById('vehicle_make').value = "Chevy";
+        }
+        try {
+
+        var string = res.make.name;
+        if ((string.indexOf("-") > -1)) {
+            console.log(string.replace('-', ''));
+            string = string.replace('-', '');
+            document.getElementById('vehicle_model').value = string;
+        }
+        if (document.getElementById('vehicle_kind').value == "Truck") {
+            document.getElementById('vehicle_body_style').value = "Pickup";
+        }
+                } catch (err) {}
+        try {
+
+        title();
+                } catch (err) {}
 
     };
     res.api('/api/vehicle/v2/vins/' + option, options, success, fail);
@@ -299,9 +318,9 @@ function v1(option, res) {
     function success(res) {
 
         var minivan = /Pass/;
-        var base = res.styleHolder[0];
-        var aG = base.attributeGroups;
-        var cat = base.categories;
+        try { var base = res.styleHolder[0]; } catch (err) {}
+        try {var aG = base.attributeGroups; } catch (err) {}
+        try { var cat = base.categories; }catch (err) {}
 
         try {
             filler(res.styleHolder[0].makeName, "vehicle_make");
@@ -366,16 +385,16 @@ function v1(option, res) {
             document.getElementById('vehicle_make').value = "Chevy";
         }
 
-        var string = res.styleHolder[0].modelName;
-        if ((string.indexOf("-") > -1)) {
+        try { var string = res.styleHolder[0].modelName; }catch (err) {}
+         try {if ((string.indexOf("-") > -1)) {
             console.log(string.replace('-', ''));
             string = string.replace('-', '');
             document.getElementById('vehicle_model').value = string;
         }
         if (document.getElementById('vehicle_kind').value == "Truck") {
             document.getElementById('vehicle_body_style').value = "Pickup";
-        }
-        title();
+        } }catch (err) {}
+        try { title(); }catch (err) {}
         filler("Sale", 'vehicle_status');
 
         $('#vehicle_status').css('background-color', "rgb(76, 175, 80)");
@@ -388,6 +407,8 @@ function v1(option, res) {
 ///////////In the event of an error log to console ///////////////////
 function fail(data) {
     console.log(data);
+    alert("EDMUNDSAPI: Down for Maintnence, Sorry try again later.");
+
 }
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -395,8 +416,8 @@ function VIN_O_Matic(option) {
     if (option === "") {
         alert("VIN is empty, Please insert a VIN number")
     } else {
-        var edmunds = new EDMUNDSAPI('8rs3xebeza59dtsv3azp647p');
-        v1(option, edmunds);
+        var edmunds = new EDMUNDSAPI('cjz63urgvhbs32et8eqskeww');
+         try {v1(option, edmunds);} catch (err) {}
         v2(option, edmunds);
         highlight(2500)
     }

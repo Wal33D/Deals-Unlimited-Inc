@@ -23,7 +23,6 @@ background-color: rgba(0, 0, 0, .5);
 #browser_distribution{ display: none;}
 }
 </style>
-<% if admin_signed_in? %>
 <%= render "admin/loading_screen" %>
 <div class = "dashboard">
 	<div class="alert alert-success"id="embed-api-auth-container"></div>
@@ -51,7 +50,3 @@ background-color: rgba(0, 0, 0, .5);
 	</div>
 </div>
 <%= render 'admin/dashboard/modals'%>
-<% else %>
-<script type="text/javascript">window.location = "../../login";
-</script>
-<% end %>
