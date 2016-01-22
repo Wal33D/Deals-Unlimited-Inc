@@ -407,7 +407,6 @@ function v1(option, res) {
 ///////////In the event of an error log to console ///////////////////
 function fail(data) {
     console.log(data);
-    alert("EDMUNDSAPI: Partial System Outage, Sorry try again later. http://edmunds.statuspage.io/");
 
 }
 //////////////////////////////////////////////////////////////////////
@@ -416,7 +415,7 @@ function VIN_O_Matic(option) {
     if (option === "") {
         alert("VIN is empty, Please insert a VIN number")
     } else {
-        var edmunds = new EDMUNDSAPI('cjz63urgvhbs32et8eqskeww');
+        var edmunds = new EDMUNDSAPI('yRrPAahxqHBKE85pA6ZFeQrv');
          try {v1(option, edmunds);} catch (err) {}
         v2(option, edmunds);
         highlight(2500)
